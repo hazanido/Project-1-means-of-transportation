@@ -3,8 +3,7 @@ public class Car_Agency {
     private Vehicle[] vehicle;
 
     public Car_Agency(){
-        Vehicle[] vehicle= new Vehicle[size];
-        vehicle=null;
+        vehicle= new Vehicle[size];
         size=0;
     }
     public Car_Agency(int size, Vehicle[] vehicle){
@@ -14,22 +13,25 @@ public class Car_Agency {
 
     public void add_Vehicle(Vehicle car){
         if(size==0){
-            size++;
-            Vehicle[] vehicle= new Vehicle[size];
-            vehicle[size]=car;
+            size=1;
+            vehicle= new Vehicle[size];
+            vehicle[0]=car;
+
+
         }
         else{
-
-            Vehicle[] new_vehicle= new Vehicle[size];
-            for(int i=0;i<size;i++){
-                new_vehicle[i]=vehicle[i];
+            Vehicle[] temp = new Vehicle[size];
+            for(int i = 0 ;i<size;i++)
+            {
+                temp[i]=vehicle[i];
             }
             size++;
-            Vehicle[] vehicle= new Vehicle[size];
-            for(int i=0;i<size;i++){
-                vehicle[i]=new_vehicle[i];
+            vehicle=new Vehicle[size];
+            for(int i = 0 ;i<this.size-1;i++)
+            {
+                this.vehicle[i]=temp[i];
             }
-            vehicle[size]=car;
+            this.vehicle[size-1]=car;
 
 
 
@@ -38,3 +40,13 @@ public class Car_Agency {
 
 
 }
+//Vehicle[] new_vehicle= new Vehicle[size];
+//
+//                new_vehicle=this.vehicle;
+//
+//            size++;
+//            vehicle= new Vehicle[size];
+//
+//                this.vehicle=new_vehicle;
+//
+//            this.vehicle[size-1]=car;
