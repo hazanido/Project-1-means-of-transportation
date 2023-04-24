@@ -77,6 +77,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         choice=scanner.nextInt();
 
+
         if(choice==1) {
             Agency.print();
             System.out.println("Please type the name of the selected model: ");
@@ -129,10 +130,17 @@ public class Main {
             double speed_selected_vehicle;
             speed_selected_vehicle = scanner13.nextDouble();
             if((Agency.vehicle_exists(selected_model, mobility, distance_selected_vehicle, passengers_selected_vehicle, speed_selected_vehicle)) == true)){
+
                 System.out.println("Please type in the km for the displacement on a test drive: ");
                 Scanner scanner14 = new Scanner(System.in);
                 int new_mobility;
                 new_mobility = scanner14.nextInt();
+                int j;
+                j=Agency.indexOf(selected_model,mobility,distance_selected_vehicle,passengers_selected_vehicle,speed_selected_vehicle);
+
+
+
+
 
 
         }
