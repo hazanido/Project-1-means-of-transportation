@@ -55,6 +55,6 @@ public abstract class Vehicle {
     }
 
     public String toString(){
-        return "Model: "+Model_Name+ "\n " + "move: " + move+"\n "+"distance: "+distance+"\n " +"Maximum Passengers: "+Max_Passengers+"\n "+"Maximum speed: "+Max_Speed+"\n ";
+        return "Model: "+Model_Name+ ", " + "move: " + move+"\n "+" traveled: "+distance+" Km"+",  " +"Maximum Passengers: "+Max_Passengers+", "+"Max speed: "+Max_Speed;
     }
 }

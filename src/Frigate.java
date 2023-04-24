@@ -18,6 +18,6 @@ public class Frigate extends Marine_transport_vehicle{
     }
     public String toString(){
 
-        return "Set sail for the country: "+get_target()+"\n "+ "Fuel of consumption: "+Fuel_consumption+"\n"+"Average engine life: "+lifetime+"\n";
+        return "Under Israel flag, with the wind. Engine: "+Fuel_consumption+", "+ ", lifetime of "+lifetime+"years."+"\n";
     }
 }

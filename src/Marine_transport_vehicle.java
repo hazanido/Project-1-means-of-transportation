@@ -31,6 +31,6 @@ public void set_target(String target){
 }
     public String toString(){
 
-        return "Sail with the direction of the wind: "+Because+"\n "+ "Set sail for the country: "+target+"\n ";
+        return "Sail with the direction of the wind: "+Because+", "+ "Set sail for the country: "+target+"\n ";
     }
 }
