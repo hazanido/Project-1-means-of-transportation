@@ -72,7 +72,7 @@ public class Main {
 
         } while (x != 0);
 
-        System.out.println("Please select the desired option:" + "\n" + "0-exit" + "\n" + " 1-" + "\n" + " 2-Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone ");
+        System.out.println("Please select the desired option:" + "\n" + "0-exit" + "\n" + " 1-Buy a car from the dealership" + "\n" + " 2-Take vehicles for a test drive" + "\n" + " 3-Resetting the distance traveled by all vehicles" + "\n" + " 4-Changing the flag of all vessels to the information entered by the user ");
         Scanner scanner = new Scanner(System.in);
     }
 }
