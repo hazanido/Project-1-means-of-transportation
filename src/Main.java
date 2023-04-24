@@ -7,7 +7,7 @@ public class Main {
         Car_Agency Agency=new Car_Agency();
 
         do {
-            System.out.println("Please select the vehicle type:" + "\n" + " 1-Jeep" + "\n" + " 2-Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone");
+            System.out.println("Please select the vehicle type:" + "\n" + " 1-Jeep" + "\n" + " 2-Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone ");
             Scanner scanner = new Scanner(System.in);
             int x;
             x = scanner.nextInt();
@@ -39,8 +39,37 @@ public class Main {
 
 
             }
+            if (x == 2) {
+                System.out.println("please enter did Frigate sail with the direction of the wind?: ");
+                Scanner scanner6=new Scanner(System.in);
+                boolean w;
+                w=scanner6.nextBoolean();
+                System.out.println("please enter what country did he sail to?: ");
+                Scanner scanner7=new Scanner(System.in);
+                String c;
+                c=scanner7.next();
+                Frigate temp = new Frigate(m, move, d,p, s,w,s);
+                Agency.add_Vehicle(temp);
+            }
+            if (x == 3) {
+                System.out.println("Please type the type of military/civilian vehicle?: ");
+                Scanner scanner7=new Scanner(System.in);
+                String t;
+                t=scanner7.next();
 
+                Foot_Glider temp = new Foot_Glider(m,move,d,p,s,t);
+                Agency.add_Vehicle(temp);
+            }
+            if(x==4){
+                System.out.println("Please type the type of military/civilian vehicle?: ");
+                Scanner scanner8=new Scanner(System.in);
+                String t;
+                t=scanner8.next();
 
-        }
+                Game_Drone temp= new Game_Drone(m,move,d,p,s,t);
+                Agency.add_Vehicle(temp);
+            }
+
+        }while
     }
 }

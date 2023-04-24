@@ -11,6 +11,8 @@ public class Land_transport_vehicle extends Vehicle {
         super(Model_Name,move,distance,Max_Passengers, Max_Speed);
         this.Number_Wheels=Number_Wheels;
         this.Kind_Way=Kind_Way;
+
+
     }
     // Gets of variables
     public int get_Number_Wheels(){

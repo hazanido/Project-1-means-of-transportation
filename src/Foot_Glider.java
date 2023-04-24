@@ -24,6 +24,7 @@ public class Foot_Glider extends Air_transport_vehicles implements Not_motorized
         set_Model_Name("privileged");
         set_Max_Speed(50);
         Energy_score();
+        power_source("manual");
 
     }
 
