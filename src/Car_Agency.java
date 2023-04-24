@@ -2,6 +2,9 @@ public class Car_Agency {
     private int size;
     private Vehicle[] vehicle;
 
+    public Vehicle[] get_vehicle(){
+        return vehicle;
+    }
     public Car_Agency(){
         vehicle= new Vehicle[size];
         size=0;
@@ -72,6 +75,14 @@ public class Car_Agency {
             }
         }
     }
+    public void Adding_km_displacement(Vehicle[] v,int index,int km){
+        int n;
+        n= v[index].get_move();
+        int Union=n+km;
+        v[index].set_Move(Union);
+    }
+
+
 
 
 

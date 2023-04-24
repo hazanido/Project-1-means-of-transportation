@@ -129,17 +129,27 @@ public class Main {
             Scanner scanner13 = new Scanner(System.in);
             double speed_selected_vehicle;
             speed_selected_vehicle = scanner13.nextDouble();
-            if((Agency.vehicle_exists(selected_model, mobility, distance_selected_vehicle, passengers_selected_vehicle, speed_selected_vehicle)) == true)){
+            if ((Agency.vehicle_exists(selected_model, mobility, distance_selected_vehicle, passengers_selected_vehicle, speed_selected_vehicle)) == true) {
 
                 System.out.println("Please type in the km for the displacement on a test drive: ");
                 Scanner scanner14 = new Scanner(System.in);
                 int new_mobility;
                 new_mobility = scanner14.nextInt();
                 int j;
-                j=Agency.indexOf(selected_model,mobility,distance_selected_vehicle,passengers_selected_vehicle,speed_selected_vehicle);
+                j = Agency.indexOf(selected_model, mobility, distance_selected_vehicle, passengers_selected_vehicle, speed_selected_vehicle);
+                Agency.Adding_km_displacement(Agency.get_vehicle(), j, new_mobility);
+            } else {
+                System.out.println("Sorry, the vehicle is not in the system");
+            }
+        } else if (choice==3) {
+            for (int i = 0; i < Agency.get_vehicle().length; i++) {
+                Agency.get_vehicle()[i].set_Distance(0);
+            }
+        } else if (choice==4) {
+            for(int i=0;i<Agency.get_vehicle().length){
 
 
-
+            }
 
 
 
@@ -147,5 +157,8 @@ public class Main {
 
 
     }
-    }
+
+
 }
+
+
