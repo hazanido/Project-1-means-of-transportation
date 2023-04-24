@@ -13,7 +13,7 @@ public class Jeep extends Land_transport_vehicle implements Motorized_engine {
 
     public String toString(){
 
-        return "Number of Wheels: "+Number_Wheels+"\n "+ "The kind of way: "+Kind_Way+"\n "+"Max Passengers: "+ Max_Passengers+"\n ";
+        return "Number of Wheels: "+get_Number_Wheels()+"\n "+ "The kind of way: "+get_Kind_Way()+"\n "+"Max Passengers: "+ get_Max_Passengers()+"\n ";
     }
     public double Average_fuel_consumption() {
         return 0;
