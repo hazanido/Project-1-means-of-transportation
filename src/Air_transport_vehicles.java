@@ -15,4 +15,10 @@ public Air_transport_vehicles(){
 
         return "The use of the tool: "+Type+"\n ";
     }
+    public String get_Type(){
+    return Type;
+    }
+    public void set_Type(String Type){
+    this.Type=Type;
+    }
 }
