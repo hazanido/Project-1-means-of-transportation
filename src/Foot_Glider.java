@@ -29,8 +29,7 @@ public class Foot_Glider extends Air_transport_vehicles implements Not_motorized
     }
 
     public String toString() {
-
-        return "The use of the tool: " + get_Type() + ", " + "Model: " + get_Model_Name() + ",  " + "Maximum Passengers: " + get_Max_Passengers() + ", " + "Maximum speed: " + get_Max_Speed() + ", " + "Energy score: " + Energy_score() + "\n";
+        return "FOOT GLIDER: \n"+ super.toString()+"The use of the tool: " + get_Type() + ", " + "Model: " + get_Model_Name() + ",  " + "Maximum Passengers: " + get_Max_Passengers() + ", " + "Maximum speed: " + get_Max_Speed() + ", " + "Energy score: " + Energy_score() +"\n";
     }
 
 }

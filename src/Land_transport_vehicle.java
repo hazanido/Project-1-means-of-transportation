@@ -31,6 +31,6 @@ public class Land_transport_vehicle extends Vehicle {
 
     public String toString(){
 
-        return "Number of Wheels: "+Number_Wheels+", "+ "The kind of way: "+Kind_Way+"\n ";
+        return super.toString()+"Number of Wheels: "+Number_Wheels+", "+ "The kind of way: "+Kind_Way+"\n ";
     }
 }

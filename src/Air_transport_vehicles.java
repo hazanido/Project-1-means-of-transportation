@@ -12,8 +12,7 @@ public Air_transport_vehicles(){
     }
 
     public String toString(){
-
-        return "The use of the tool: "+Type+"\n ";
+        return super.toString()+"The use of the tool: "+Type+"\n ";
     }
     public String get_Type(){
     return Type;

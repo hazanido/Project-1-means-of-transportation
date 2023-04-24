@@ -14,6 +14,10 @@ public class Game_Drone extends Air_transport_vehicles implements Not_motorized_
         Energy_score();
 
     }
+    public String toString(){
+        return "GAME DRONE: \n"+ super.toString()+ "The use of the tool: " + get_Type() + ", " + "Model: " + get_Model_Name() + ",  " + "Maximum Passengers: " + get_Max_Passengers() + ", " + "Maximum speed: " + get_Max_Speed() + ", " + "Energy score: " + Energy_score() + "\n";
+
+    }
 
 
 

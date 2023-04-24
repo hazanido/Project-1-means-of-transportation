@@ -18,6 +18,6 @@ public class Frigate extends Marine_transport_vehicle{
     }
     public String toString(){
 
-        return "Under Israel flag, with the wind. Engine: "+Fuel_consumption+", "+ ", lifetime of "+lifetime+"years."+"\n";
+        return  "FRIGATE: \n"+ super.toString()+"Under Israel flag, with the wind. Engine: "+Fuel_consumption+", "+ ", lifetime of "+lifetime+" years."+"\n";
     }
 }
