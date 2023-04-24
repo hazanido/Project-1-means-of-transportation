@@ -2,8 +2,8 @@ public class Foot_Glider extends Air_transport_vehicles implements Not_motorized
 
 
 
-    public String power_source(){
-        return null;
+    public String power_source(String x){
+        return x;
     }
     public String Energy_score(){
         return "C";
@@ -15,6 +15,7 @@ public class Foot_Glider extends Air_transport_vehicles implements Not_motorized
         set_Model_Name("privileged");
         set_Max_Speed(50);
         Energy_score();
+        power_source("manual");
     }
     public Foot_Glider(String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed,String Type) {
         super(Model_Name,move,distance,Max_Passengers,Max_Speed,Type);

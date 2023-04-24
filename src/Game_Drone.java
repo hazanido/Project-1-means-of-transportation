@@ -15,8 +15,8 @@ public class Game_Drone extends Air_transport_vehicles implements Not_motorized_
 
 
 
-    public String power_source(){
-        return null;
+    public String power_source(String x){
+        return x;
     }
     public String Energy_score(){
         return null;
