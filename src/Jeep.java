@@ -13,7 +13,15 @@ public class Jeep extends Land_transport_vehicle implements Motorized_engine {
         this.set_Kind_Way("dirt");
         this.set_Max_Passengers(5);
     }
-
+    public Jeep (String Model_Name,int move, double distance,double Max_Speed){
+        this.set_Move(move);
+        this.set_Model_Name(Model_Name);
+        this.set_Number_Wheels(4);
+        this.set_Kind_Way("dirt");
+        this.set_Max_Passengers(5);
+        this.set_Distance(distance);
+        this.set_Max_Speed(Max_Speed);
+}
     public String toString(){
 
         return "Number of Wheels: "+get_Number_Wheels()+"\n "+ "The kind of way: "+get_Kind_Way()+"\n "+"Max Passengers: "+ get_Max_Passengers()+"\n ";
