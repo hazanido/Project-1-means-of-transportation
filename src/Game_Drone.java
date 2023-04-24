@@ -4,12 +4,14 @@ public class Game_Drone extends Air_transport_vehicles implements Not_motorized_
         super();
         this.set_Type("toy");
         this.set_Max_Speed(10);
-        // לבדוק דירוג אנרגטי ומקור כוח
-
+        power_source("manual");
+        Energy_score();
     }
     public Game_Drone(String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed,String Type)
     {
         super(Model_Name,move,distance,Max_Passengers,Max_Speed,Type);
+        power_source("manual");
+        Energy_score();
 
     }
 
@@ -19,6 +21,6 @@ public class Game_Drone extends Air_transport_vehicles implements Not_motorized_
         return x;
     }
     public String Energy_score(){
-        return null;
+        return "A";
     }
 }
