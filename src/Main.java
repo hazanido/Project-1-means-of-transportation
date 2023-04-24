@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Car_Agency Agency = new Car_Agency();
-        int x;
+        int choice;
 
         do {
             System.out.println("Please select the vehicle type:" + "\n" + "0-exit" + "\n" + " 1-Jeep" + "\n" + " 2-Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone ");
             Scanner scanner = new Scanner(System.in);
 
-            x = scanner.nextInt();
+            choice = scanner.nextInt();
             System.out.println("please enter model of car: ");
             Scanner scanner1 = new Scanner(System.in);
             String m;
@@ -33,14 +33,14 @@ public class Main {
             int s;
             s = scanner5.nextInt();
 
-            if (x == 1) {
+            if (choice == 1) {
                 Jeep temp = new Jeep(m, move, d, s);
                 Agency.add_Vehicle(temp);
 
 
 
             }
-            if (x == 2) {
+            if (choice == 2) {
                 System.out.println("please enter did Frigate sail with the direction of the wind?: ");
                 Scanner scanner6 = new Scanner(System.in);
                 boolean w;
@@ -52,7 +52,7 @@ public class Main {
                 Frigate temp = new Frigate(m, move, d, p, s, w, c);
                 Agency.add_Vehicle(temp);
             }
-            if (x == 3) {
+            if (choice == 3) {
                 System.out.println("Please type the type of military/civilian vehicle?: ");
                 Scanner scanner7 = new Scanner(System.in);
                 String t;
@@ -61,7 +61,7 @@ public class Main {
                 Foot_Glider temp = new Foot_Glider(m, move, d, p, s, t);
                 Agency.add_Vehicle(temp);
             }
-            if (x == 4) {
+            if (choice == 4) {
                 System.out.println("Please type the type of military/civilian vehicle?: ");
                 Scanner scanner8 = new Scanner(System.in);
                 String t;
@@ -71,10 +71,73 @@ public class Main {
                 Agency.add_Vehicle(temp);
             }
 
-        } while (x != 0);
+        } while (choice != 0);
 
-        System.out.println("Please select the desired option:" + "\n" + "0-exit" + "\n" + " 1-Buy a car from the dealership" + "\n" + " 2-Take vehicles for a test drive" + "\n" + " 3-Resetting the distance traveled by all vehicles" + "\n" + " 4-Changing the flag of all vessels to the information entered by the user ");
+        System.out.println("Please select the desired option:" +"\n" + " 1-Buy a car from the dealership" + "\n" + " 2-Take vehicles for a test drive" + "\n" + " 3-Resetting the distance traveled by all vehicles" + "\n" + " 4-Changing the flag of all vessels to the information entered by the user "+ "\n" + " 5-Exit"+"\n");
         Scanner scanner = new Scanner(System.in);
+        choice=scanner.nextInt();
 
+        if(choice==1) {
+            Agency.print();
+            System.out.println("Please type the name of the selected model: ");
+            Scanner scanner9 = new Scanner(System.in);
+            String selected_model;
+            selected_model = scanner9.next();
+            System.out.println("Please type in the mobility of the selected vehicle: ");
+            Scanner scanner10 = new Scanner(System.in);
+            int mobility;
+            mobility = scanner10.nextInt();
+            System.out.println("Please type the distance that the selected vehicle has traveled in its lifetime: ");
+            Scanner scanner11 = new Scanner(System.in);
+            double distance_selected_vehicle;
+            distance_selected_vehicle = scanner11.nextDouble();
+            System.out.println("Please type the number of passengers the maximum of the vehicle you : ");
+            Scanner scanner12 = new Scanner(System.in);
+            int passengers_selected_vehicle;
+            passengers_selected_vehicle = scanner12.nextInt();
+            System.out.println("Please type the speed the maximum of the vehicle you selected: ");
+            Scanner scanner13 = new Scanner(System.in);
+            double speed_selected_vehicle;
+            speed_selected_vehicle = scanner13.nextDouble();
+            if ((Agency.vehicle_exists(selected_model, mobility, distance_selected_vehicle, passengers_selected_vehicle, speed_selected_vehicle)) == true) {
+                Agency.remove(selected_model, mobility, distance_selected_vehicle, passengers_selected_vehicle, speed_selected_vehicle);
+                System.out.println("The order was successfully placed");
+            } else {
+                System.out.println("Sorry, the vehicle does not exist in the system");
+
+            }
+        } else if (choice==2) {
+            Agency.print();
+            System.out.println("Please type the name of the selected model: ");
+            Scanner scanner9 = new Scanner(System.in);
+            String selected_model;
+            selected_model = scanner9.next();
+            System.out.println("Please type in the mobility of the selected vehicle: ");
+            Scanner scanner10 = new Scanner(System.in);
+            int mobility;
+            mobility = scanner10.nextInt();
+            System.out.println("Please type the distance that the selected vehicle has traveled in its lifetime: ");
+            Scanner scanner11 = new Scanner(System.in);
+            double distance_selected_vehicle;
+            distance_selected_vehicle = scanner11.nextDouble();
+            System.out.println("Please type the number of passengers the maximum of the vehicle you : ");
+            Scanner scanner12 = new Scanner(System.in);
+            int passengers_selected_vehicle;
+            passengers_selected_vehicle = scanner12.nextInt();
+            System.out.println("Please type the speed the maximum of the vehicle you selected: ");
+            Scanner scanner13 = new Scanner(System.in);
+            double speed_selected_vehicle;
+            speed_selected_vehicle = scanner13.nextDouble();
+            if((Agency.vehicle_exists(selected_model, mobility, distance_selected_vehicle, passengers_selected_vehicle, speed_selected_vehicle)) == true)){
+                System.out.println("Please type in the km for the displacement on a test drive: ");
+                Scanner scanner14 = new Scanner(System.in);
+                int new_mobility;
+                new_mobility = scanner14.nextInt();
+
+
+        }
+
+
+    }
     }
 }
