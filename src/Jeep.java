@@ -3,7 +3,7 @@
  *Describes their basic features
  */
 
-public class Jeep extends Land_transport_vehicle implements Motorized_engine {
+public class Jeep extends Land_transport_vehicle implements Motorized_engine,Commercial_use {
     /**
      * Default constructor,
      *Calls the default constructor of the class from which it inherits the land vehicles class
@@ -58,15 +58,15 @@ public class Jeep extends Land_transport_vehicle implements Motorized_engine {
     public String toString(){
         super.toString();
 
-        return "JEEP:\n"+ super.toString()+"\n ";
+        return "JEEP:\n"+ super.toString()+ ", " +license_type()+"\n ";
     }
 
     /**
      *
      * @return
      */
-    public double Average_fuel_consumption() {
-        return 0;
+    public float Average_fuel_consumption() {
+        return Fuel_consumption;
     }
 
     /**
@@ -74,8 +74,14 @@ public class Jeep extends Land_transport_vehicle implements Motorized_engine {
      * @return
      */
 
-    public double Average_life_engine() {
-        return 0;
+    public float Average_life_engine(float lifetime) {
+        return lifetime;
     }
+
+    public String license_type(){
+        return "license type: Mini "
+
+    }
+
 
 }

@@ -2,11 +2,11 @@
  *A department representing the marine transport vehicle Frigate
  * Describes their basic features
  */
-public class Frigate extends Marine_transport_vehicle{
+public class Frigate extends Marine_transport_vehicle implements Motorized_engine {
 
     private String origin;
-    private int Fuel_consumption;
-    private int lifetime;
+    private float Fuel_consumption;
+    private float lifetime;
 
     /**
      * Default constructor,
@@ -46,5 +46,12 @@ public class Frigate extends Marine_transport_vehicle{
     public String toString(){
 
         return  "FRIGATE: \n"+ super.toString()+"Under Israel flag, with the wind. Engine: "+Fuel_consumption+", "+ ", lifetime of "+lifetime+" years."+"\n";
+    }
+    public float Average_fuel_consumption(){
+        return Fuel_consumption;
+
+    }
+    public float Average_life_engine(){
+        return lifetime;
     }
 }
