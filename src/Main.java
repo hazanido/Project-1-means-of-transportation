@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+
 public class Main {
     public static void main(String[] args) {
         Car_Agency Agency = new Car_Agency();
@@ -70,7 +69,7 @@ public class Main {
                 String t;
                 t = scanner7.next();
 
-                Foot_Glider temp = new Foot_Glider(m, move, d, p, s, t);
+                Dawn_Rigoli temp = new Dawn_Rigoli(m, move, d, p, s, t);
                 Agency.add_Vehicle(temp);
                 System.out.println("Please select the vehicle type:" + "\n" + "0-exit" + "\n" + " 1-Jeep" + "\n" + " 2-Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone ");
                 Scanner scanner18 = new Scanner(System.in);

@@ -1,3 +1,6 @@
+/**
+ *Vehicle class An abstract class contains basic properties of vehicles
+ */
 public abstract class Vehicle {
     private String Model_Name;
     private int move;
@@ -5,6 +8,9 @@ public abstract class Vehicle {
     private int Max_Passengers;
     private double Max_Speed;
 
+    /**
+     * Default constructor
+     */
 
     public Vehicle() {
         Model_Name = null;
@@ -14,6 +20,16 @@ public abstract class Vehicle {
         Max_Speed = 0;
     }
 
+    /**
+     * Copy constructor
+     *
+     * @param Model_Name-Describes the model name of the vehicle
+     * @param move-Describes the ability to move the vehicle
+     * @param distance-Describes the distance the vehicle traveled during its lifetime
+     * @param Max_Passengers-Describes the maximum number of people that the vehicle can accommodate
+     * @param Max_Speed-Describes the maximum speed of the vehicle
+     */
+
     public Vehicle(String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed) {
         this.Model_Name = Model_Name;
         this.move = move;
@@ -21,40 +37,65 @@ public abstract class Vehicle {
         this.Max_Passengers = Max_Passengers;
         this.Max_Speed = Max_Speed;
     }
-   // Gets of variables
-    public String get_Model_Name(){
+
+    /**
+     * Gets of variables
+     */
+
+    public String get_Model_Name() {
         return this.Model_Name;
     }
-    public int get_move(){
+
+    public int get_move() {
         return this.move;
     }
-    public double get_distance(){
+
+    public double get_distance() {
         return this.distance;
     }
-    public int get_Max_Passengers(){
+
+    public int get_Max_Passengers() {
         return this.Max_Passengers;
     }
-    public double get_Max_Speed(){
+
+    public double get_Max_Speed() {
         return this.Max_Speed;
     }
-    // sets of variables
-    public void set_Model_Name(String Model_Name){
-        this.Model_Name=Model_Name;
-    }
-    public void set_Move(int move){
-        this.move=move;
-    }
-    public void set_Distance(double distance){
-        this.distance=distance;
-    }
-    public void set_Max_Passengers(int Max_Passengers){
-        this.Max_Passengers=Max_Passengers;
-    }
-    public void set_Max_Speed(double Max_Speed){
-        this.Max_Speed=Max_Speed;
+
+    /**
+     * sets of variables
+     */
+
+    public void set_Model_Name(String Model_Name) {
+        this.Model_Name = Model_Name;
     }
 
-    public String toString(){
-        return "Model: "+Model_Name+ ", " + "move: " + move+"\n "+" traveled: "+distance+" Km"+",  " +"Maximum Passengers: "+Max_Passengers+", "+"Max speed: "+Max_Speed;
+    public void set_Move(int move) {
+        this.move = move;
     }
+
+    public void set_Distance(double distance) {
+        this.distance = distance;
+    }
+
+    public void set_Max_Passengers(int Max_Passengers) {
+        this.Max_Passengers = Max_Passengers;
+    }
+
+    public void set_Max_Speed(double Max_Speed) {
+        this.Max_Speed = Max_Speed;
+    }
+
+    /**
+     * A function that represents the string of the transport object
+     * @return A string that includes the details about the means of transportation:
+     * the name of the model, its ability to move,
+     * the distance traveled, maximum passenger capacity and maximum speed
+     */
+
+    public String toString() {
+        return "Model: " + Model_Name + ", " + "move: " + move + "\n " + " traveled: " + distance + " Km" + ",  " + "Maximum Passengers: " + Max_Passengers + ", " + "Max speed: " + Max_Speed;
+    }
+
+
 }
