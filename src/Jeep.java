@@ -66,7 +66,7 @@ public class Jeep extends Land_transport_vehicle implements Motorized_engine,Com
      * @return
      */
     public float Average_fuel_consumption() {
-        return Fuel_consumption;
+        return 0;
     }
 
     /**
@@ -74,12 +74,12 @@ public class Jeep extends Land_transport_vehicle implements Motorized_engine,Com
      * @return
      */
 
-    public float Average_life_engine(float lifetime) {
-        return lifetime;
+    public float Average_life_engine() {
+        return 0;
     }
 
     public String license_type(){
-        return "license type: Mini "
+        return "license type: Mini ";
 
     }
 
