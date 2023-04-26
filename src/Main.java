@@ -1,3 +1,5 @@
+// Shiraz Nagaoker 208324194
+// Ido hazan-316613769
 import java.util.Scanner;
 
 
