@@ -1,3 +1,5 @@
+
+import java.util.Objects;
 /**
  * A class that represents the air transport vehicles and
  * describes their basic features
@@ -57,5 +59,26 @@ public class Air_transport_vehicles extends Vehicle{
     public void set_Type(String Type){
     this.Type=Type;
     }
+
+    /**
+     *  This function is an implementation of the equals() method
+     *  of the Object class, which is used to determine whether two objects
+     *  are equal to each other or not.
+     *  This function takes an Object as a parameter and returns a boolean value.
+     * @param obj-The Object to be compared for equality with the current object.
+     * @return true if the current object is equal to the specified object, false otherwise
+     */
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Air_transport_vehicles)) {
+            return false;
+        }
+        Air_transport_vehicles other = (Air_transport_vehicles) obj;
+        return super.equals(obj) && Objects.equals(Type, other.Type);
+    }
+
 }
 

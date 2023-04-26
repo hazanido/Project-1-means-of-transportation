@@ -6,3 +6,4 @@ public interface Motorized_engine {
     public float Average_life_engine();
 
 }
+

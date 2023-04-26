@@ -1,3 +1,4 @@
+import java.util.Objects;
 /**
  *A class that represents the marine transport vehicles
  * and describes their basic features
@@ -70,4 +71,27 @@ public class Marine_transport_vehicle extends Vehicle{
     public String toString(){
         return super.toString()+"Sail with the direction of the wind: "+Because+", "+ "Set sail for the country: "+target+"\n ";
     }
+
+    /**
+     *  This function compares two objects for equality.
+     *  It overrides the default implementation of the equals method provided by the Object class.
+     * @param obj-the object to be compared to the current object
+     * @return- boolean
+     */
+
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Marine_transport_vehicle)) {
+            return false;
+        }
+        Marine_transport_vehicle other = (Marine_transport_vehicle) obj;
+        return super.equals(other) &&
+                this.Because == other.Because &&
+                Objects.equals(this.target, other.target);
+    }
+
+
 }

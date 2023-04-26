@@ -1,3 +1,4 @@
+import java.util.Objects;
 /**
  * A class that represents the land transport vehicles
  * and describes their basic features
@@ -65,4 +66,25 @@ public class Land_transport_vehicle extends Vehicle {
 
         return super.toString()+"Number of Wheels: "+Number_Wheels+", "+ "The kind of way: "+Kind_Way+"\n ";
     }
+
+    /**
+     *This function is a method of a class that checks whether two objects are equal.
+     *  In this case, it checks whether a Land_transport_vehicle object is equal to another object.
+     * @param obj-the object to be compared to the current object
+     * @return- true if the two objects are equal
+     * false if the two objects are not equal
+     */
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Land_transport_vehicle)) {
+            return false;
+        }
+        Land_transport_vehicle other = (Land_transport_vehicle) obj;
+        return super.equals(obj) &&
+                Number_Wheels == other.Number_Wheels &&
+                Objects.equals(Kind_Way, other.Kind_Way);
+    }
+
 }
