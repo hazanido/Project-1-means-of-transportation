@@ -1,3 +1,4 @@
+import java.util.Objects;
 /**
  *A department representing the air transport vehicle Dawn Rigoli
  *Describes their basic features
@@ -63,5 +64,24 @@ public class Dawn_Rigoli extends Air_transport_vehicles implements Not_motorized
     public String toString() {
         return "DAWN RIGOLI: \n"+ super.toString()+"The use of the tool: " + get_Type() + ", " + "Model: " + get_Model_Name() + ",  " + "Maximum Passengers: " + get_Max_Passengers() + ", " + "Maximum speed: " + get_Max_Speed() + ", " + "Energy score: " + Energy_score() +"\n";
     }
+    /**
 
+     Compares this Dawn_Rigoli object to another object for equality.
+     Returns true if the other object is also a Dawn_Rigoli object and has the same values for all fields, false otherwise.
+     Overrides the equals method of the Object class.
+     @param obj the object to compare to
+     @return true if the objects are equal, false otherwise
+     */
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Dawn_Rigoli)) {
+            return false;
+        }
+        Dawn_Rigoli other = (Dawn_Rigoli) obj;
+        return super.equals(other)
+                && Objects.equals(this.Energy_score(), other.Energy_score())
+                && Objects.equals(this.power_source("manual"), other.power_source("manual"));
+    }
 }

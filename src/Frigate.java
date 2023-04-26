@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  *A department representing the marine transport vehicle Frigate
  * Describes their basic features
@@ -53,5 +55,29 @@ public class Frigate extends Marine_transport_vehicle implements Motorized_engin
     }
     public float Average_life_engine(){
         return lifetime;
+    }
+    /**
+
+     Compares this Frigate object to another object for equality.
+     Returns true if the given object is also a Frigate and all of their fields are equal.
+     Overrides the equals method in the Object class.
+     @param obj The object to compare this Frigate object against.
+     @return True if the given object is also a Frigate and all of their fields are equal,
+     arduino
+     Copy code
+     false otherwise.
+     */
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Frigate)) {
+            return false;
+        }
+        Frigate other = (Frigate) obj;
+        return super.equals(other)
+                && Objects.equals(this.origin, other.origin)
+                && Float.compare(this.Fuel_consumption, other.Fuel_consumption) == 0
+                && Float.compare(this.lifetime, other.lifetime) == 0;
     }
 }

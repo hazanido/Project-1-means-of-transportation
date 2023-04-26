@@ -1,3 +1,4 @@
+import java.util.Objects;
 /**
  *A department representing the land transport vehicle Jeep
  *Describes their basic features
@@ -82,6 +83,27 @@ public class Jeep extends Land_transport_vehicle implements Motorized_engine,Com
         return "license type: Mini ";
 
     }
+    /**
 
-
+     Overrides the default equals method inherited from Object class to compare if two Jeep objects have equal values
+     for their attributes.
+     @param o the object to compare with the current Jeep object
+     @return true if the two Jeep objects are equal, false otherwise
+     */
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Jeep)) {
+            return false;
+        }
+        Jeep jeep = (Jeep) o;
+        return Objects.equals(get_Model_Name(), jeep.get_Model_Name()) &&
+                get_move() == jeep.get_move() &&
+                Double.compare(jeep.get_distance(), get_distance()) == 0 &&
+                get_Max_Passengers() == jeep.get_Max_Passengers() &&
+                Double.compare(jeep.get_Max_Speed(), get_Max_Speed()) == 0 &&
+                get_Number_Wheels() == jeep.get_Number_Wheels() &&
+                Objects.equals(get_Kind_Way(), jeep.get_Kind_Way());
+    }
 }

@@ -1,3 +1,4 @@
+import java.util.Arrays;
 /**
  * The car agency department contains
  * an array of all the means of transportation
@@ -144,5 +145,24 @@ public class Car_Agency {
         n= v[index].get_move();
         int Union=n+km;
         v[index].set_Move(Union);
+    }
+
+    /**
+     * Compares this Car_Agency object to another object for equality.
+     * Returns true if the other object is also a Car_Agency object and has the same values for all fields, false otherwise.
+     * Overrides the equals method of the Object class.
+     * @param obj the object to compare to
+     * @return true if the objects are equal, false otherwise
+     */
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Car_Agency)) {
+            return false;
+        }
+        Car_Agency other = (Car_Agency) obj;
+        return this.size == other.size
+                && Arrays.equals(this.vehicle, other.vehicle);
     }
 }
