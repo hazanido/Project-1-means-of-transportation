@@ -1,6 +1,4 @@
-/**
- *Vehicle class An abstract class contains basic properties of vehicles
- */
+import java.util.Objects;
 public abstract class Vehicle {
     private String Model_Name;
     private int move;
@@ -97,5 +95,27 @@ public abstract class Vehicle {
         return "Model: " + Model_Name + ", " + "move: " + move + "\n " + " traveled: " + distance + " Km" + ",  " + "Maximum Passengers: " + Max_Passengers + ", " + "Max speed: " + Max_Speed;
     }
 
+    /**
+     * Compares this Vehicle object to another object for equality.
+     * Returns true if the other object is also a Vehicle object and has the same values for all fields, false otherwise.
+     * Overrides the equals method of the Object class.
+     * @param obj the object to compare to
+     * @return true if the objects are equal, false otherwise
+     */
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Vehicle)) {
+            return false;
+        }
+        Vehicle other = (Vehicle) obj;
+        return Objects.equals(this.Model_Name, other.Model_Name)
+                && this.move == other.move
+                && Double.compare(this.distance, other.distance) == 0
+                && this.Max_Passengers == other.Max_Passengers
+                && Double.compare(this.Max_Speed, other.Max_Speed) == 0;
+    }
 
 }
