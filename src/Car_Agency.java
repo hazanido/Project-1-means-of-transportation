@@ -84,7 +84,7 @@ public class Car_Agency {
      */
     public boolean vehicle_exists(String model,int move,double dic,int p_m,double s_m){
         for (int i=0;i<size;i++) {
-            if ((vehicle[i].get_Model_Name() == model) && (vehicle[i].get_move() == move) && (vehicle[i].get_distance() == dic) && (vehicle[i].get_Max_Passengers() == p_m) && (vehicle[i].get_Max_Speed() == s_m)) {
+            if ((vehicle[i].get_Model_Name().equals(model)) && (vehicle[i].get_move()==move) && (vehicle[i].get_distance() == dic) && (vehicle[i].get_Max_Passengers() == p_m) && (vehicle[i].get_Max_Speed() == s_m)) {
                 return true;
             }
         }
@@ -105,7 +105,7 @@ public class Car_Agency {
     public int indexOf(String model,int move,double dic,int p_m,double s_m){
         int ans=-1;
         for (int i=0;(i<size)&&(ans==-1);i++) {
-            if ((vehicle[i].get_Model_Name() == model) && (vehicle[i].get_move() == move) && (vehicle[i].get_distance() == dic) && (vehicle[i].get_Max_Passengers() == p_m) && (vehicle[i].get_Max_Speed() == s_m)) {
+            if ((vehicle[i].get_Model_Name().equals(model)) && (vehicle[i].get_move() == move) && (vehicle[i].get_distance() == dic) && (vehicle[i].get_Max_Passengers() == p_m) && (vehicle[i].get_Max_Speed() == s_m)) {
                 ans=i;
             }
         }
