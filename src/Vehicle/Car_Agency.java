@@ -1,3 +1,5 @@
+package Vehicle;
+
 import java.util.Arrays;
 /**
  * The car agency department contains
@@ -148,8 +150,8 @@ public class Car_Agency {
     }
 
     /**
-     * Compares this Car_Agency object to another object for equality.
-     * Returns true if the other object is also a Car_Agency object and has the same values for all fields, false otherwise.
+     * Compares this Vehicle.Car_Agency object to another object for equality.
+     * Returns true if the other object is also a Vehicle.Car_Agency object and has the same values for all fields, false otherwise.
      * Overrides the equals method of the Object class.
      * @param obj the object to compare to
      * @return true if the objects are equal, false otherwise

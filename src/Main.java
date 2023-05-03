@@ -1,5 +1,7 @@
 // Shiraz Nagaoker 208324194
 // Ido hazan-316613769
+import Vehicle.*;
+
 import java.util.Scanner;
 
 
@@ -11,7 +13,6 @@ public class Main {
         //choice = scanner0.nextInt();
         System.out.println("Please select the vehicle type:" + "\n" + "0-exit" + "\n" + " 1-Jeep" + "\n" + " 2-Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone ");
         Scanner scanner21 = new Scanner(System.in);
-
         choice = scanner21.nextInt();
         while (choice != 0){
 
@@ -50,7 +51,7 @@ public class Main {
 
             }
             else if (choice == 2) {
-                System.out.println("please enter did Frigate sail with the direction of the wind?: ");
+                System.out.println("please enter did Vehicle.Frigate sail with the direction of the wind?: ");
                 Scanner scanner6 = new Scanner(System.in);
                 boolean w;
                 w = scanner6.nextBoolean();
@@ -60,7 +61,7 @@ public class Main {
                 c = scanner7.next();
                 Frigate temp = new Frigate(m, move, d, p, s, w, c);
                 Agency.add_Vehicle(temp);
-                System.out.println("Please select the vehicle type:" + "\n" + "0-exit" + "\n" + " 1-Jeep" + "\n" + " 2-Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone ");
+                System.out.println("Please select the vehicle type:" + "\n" + "0-exit" + "\n" + " 1-Vehicle.Jeep" + "\n" + " 2-Vehicle.Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone ");
                 Scanner scanner17 = new Scanner(System.in);
 
                 choice = scanner17.nextInt();
@@ -73,7 +74,7 @@ public class Main {
 
                 Dawn_Rigoli temp = new Dawn_Rigoli(m, move, d, p, s, t);
                 Agency.add_Vehicle(temp);
-                System.out.println("Please select the vehicle type:" + "\n" + "0-exit" + "\n" + " 1-Jeep" + "\n" + " 2-Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone ");
+                System.out.println("Please select the vehicle type:" + "\n" + "0-exit" + "\n" + " 1-Vehicle.Jeep" + "\n" + " 2-Vehicle.Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone ");
                 Scanner scanner18 = new Scanner(System.in);
 
                 choice = scanner18.nextInt();
@@ -86,7 +87,7 @@ public class Main {
 
                 Game_Drone temp = new Game_Drone(m, move, d, p, s, t);
                 Agency.add_Vehicle(temp);
-                System.out.println("Please select the vehicle type:" + "\n" + "0-exit" + "\n" + " 1-Jeep" + "\n" + " 2-Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone ");
+                System.out.println("Please select the vehicle type:" + "\n" + "0-exit" + "\n" + " 1-Vehicle.Jeep" + "\n" + " 2-Vehicle.Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone ");
                 Scanner scanner19 = new Scanner(System.in);
 
                 choice = scanner19.nextInt();
@@ -123,6 +124,7 @@ while (choice!=0) {
             Scanner scanner13 = new Scanner(System.in);
             double speed_selected_vehicle;
             speed_selected_vehicle = scanner13.nextDouble();
+
             if ((Agency.vehicle_exists(selected_model, mobility, distance_selected_vehicle, passengers_selected_vehicle, speed_selected_vehicle)) == true) {
                 Agency.remove(selected_model, mobility, distance_selected_vehicle, passengers_selected_vehicle, speed_selected_vehicle);
                 System.out.println("The order was successfully placed");
@@ -161,6 +163,7 @@ while (choice!=0) {
             double speed_selected_vehicle;
             speed_selected_vehicle = scanner13.nextDouble();
             if ((Agency.vehicle_exists(selected_model, mobility, distance_selected_vehicle, passengers_selected_vehicle, speed_selected_vehicle)) == true) {
+
 
                 System.out.println("Please type in the km for the displacement on a test drive: ");
                 Scanner scanner14 = new Scanner(System.in);

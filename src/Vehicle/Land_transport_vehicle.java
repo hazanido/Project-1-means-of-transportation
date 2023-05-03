@@ -1,3 +1,5 @@
+package Vehicle;
+
 import java.util.Objects;
 /**
  * A class that represents the land transport vehicles
@@ -69,7 +71,7 @@ public class Land_transport_vehicle extends Vehicle {
 
     /**
      *This function is a method of a class that checks whether two objects are equal.
-     *  In this case, it checks whether a Land_transport_vehicle object is equal to another object.
+     *  In this case, it checks whether a Vehicle.Vehicle.Land_transport_vehicle object is equal to another object.
      * @param obj-the object to be compared to the current object
      * @return- true if the two objects are equal
      * false if the two objects are not equal

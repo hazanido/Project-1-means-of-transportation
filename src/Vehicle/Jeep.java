@@ -1,10 +1,12 @@
+package Vehicle;
+
 import java.util.Objects;
 /**
- *A department representing the land transport vehicle Jeep
+ *A department representing the land transport vehicle Vehicle.Jeep
  *Describes their basic features
  */
 
-public class Jeep extends Land_transport_vehicle implements Motorized_engine,Commercial_use {
+public class Jeep extends Land_transport_vehicle implements Motorized_engine, Commercial_use {
     /**
      * Default constructor,
      *Calls the default constructor of the class from which it inherits the land vehicles class
@@ -19,7 +21,7 @@ public class Jeep extends Land_transport_vehicle implements Motorized_engine,Com
     }
     /**
      *Copy constructor,
-     *Calls the copy constructor of the class from which it inherits the land transport vehicle Jeep
+     *Calls the copy constructor of the class from which it inherits the land transport vehicle Vehicle.Jeep
      * @param Model_Name-Describes the model name of the vehicle
      * @param move-Describes the ability to move the vehicle
      * @param distance-Describes the distance the vehicle traveled during its lifetime
@@ -51,7 +53,7 @@ public class Jeep extends Land_transport_vehicle implements Motorized_engine,Com
     }
 
     /**
-     *The function represents a string of the Jeep transport vehicle
+     *The function represents a string of the Vehicle.Jeep transport vehicle
      * @return A string that returns the details about the land transportation vehicle jeep
      * (from the toString from which it inherits the land transport vessel class)
      */
@@ -85,10 +87,10 @@ public class Jeep extends Land_transport_vehicle implements Motorized_engine,Com
     }
     /**
 
-     Overrides the default equals method inherited from Object class to compare if two Jeep objects have equal values
+     Overrides the default equals method inherited from Object class to compare if two Vehicle.Jeep objects have equal values
      for their attributes.
-     @param o the object to compare with the current Jeep object
-     @return true if the two Jeep objects are equal, false otherwise
+     @param o the object to compare with the current Vehicle.Jeep object
+     @return true if the two Vehicle.Jeep objects are equal, false otherwise
      */
     public boolean equals(Object o) {
         if (this == o) {

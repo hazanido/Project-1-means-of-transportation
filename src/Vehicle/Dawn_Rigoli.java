@@ -1,3 +1,5 @@
+package Vehicle;
+
 import java.util.Objects;
 /**
  *A department representing the air transport vehicle Dawn Rigoli
@@ -66,8 +68,8 @@ public class Dawn_Rigoli extends Air_transport_vehicles implements Not_motorized
     }
     /**
 
-     Compares this Dawn_Rigoli object to another object for equality.
-     Returns true if the other object is also a Dawn_Rigoli object and has the same values for all fields, false otherwise.
+     Compares this Vehicle.Dawn_Rigoli object to another object for equality.
+     Returns true if the other object is also a Vehicle.Dawn_Rigoli object and has the same values for all fields, false otherwise.
      Overrides the equals method of the Object class.
      @param obj the object to compare to
      @return true if the objects are equal, false otherwise
