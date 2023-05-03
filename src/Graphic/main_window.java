@@ -27,11 +27,14 @@ public class main_window extends JFrame {
         JLabel lebal = new JLabel("Car Agency");
         lebal.setBounds(300, 300, 300, 300);
         this.add(lebal);
-        JButton button = new JButton("Adding vehicles");
-        button.setBounds(300, 600, 300, 300);
-        this.add(button);
+        //JButton button = new JButton("Adding vehicles");
+        //button.setBounds(300, 600, 300, 300);
+        this.add(new JButton("Adding vehicles"),BorderLayout.CENTER);
 
-        button.addActionListener((e -> {}));
+        //button.addActionListener((e -> {
+
+
+        //}));
     }
 }
 
