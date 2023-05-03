@@ -27,14 +27,15 @@ public class main_window extends JFrame {
 
 //set the label
 
-
-
-
+        JLabel lebal = new JLabel("Car Agency");
+        lebal.setBounds(300, 300, 300, 300);
+        this.add(lebal);
         JButton button = new JButton("Adding vehicles");
         button.setBounds(300, 600, 300, 300);
         this.add(button);
 
-        button.addActionListener((e -> {}));
+
+
     }
     public class Add_window extends JPanel {
         private JButton cmd;
