@@ -32,13 +32,14 @@ public class main_window extends JFrame {
         ImageIcon logo;
         JLabel display;
         try{
-            logo=new ImageIcon(getClass().getResource("icon-03.png"));
-            display=new JLabel(logo);
+            logo = new ImageIcon(getClass().getResource("/icon-03.png"));
+            display = new JLabel(logo);
+            display.setBounds(10, 10, logo.getIconWidth(), logo.getIconHeight());
             this.add(display);
         }catch (Exception e){
             System.out.println("noooo");
+            e.printStackTrace();
         }
-
         JLabel lebal = new JLabel("Car Agency");
         lebal.setBounds(300, 300, 300, 300);
         this.add(lebal);
@@ -54,18 +55,18 @@ public class main_window extends JFrame {
         public Add_window() {
             cmd = new JButton("Adding vehicles");
             add(cmd);
-            Listener lis = new Listener();
+           // Listener lis = new Listener();
         }
 
 
-        private class Listener implements ActionListener {
-            public void actionPerformed(ActionEvent e){
-                Type_Vehicle t=new Type_Vehicle();
-                cmd.setBackground(t);
-            }
+       // private class Listener implements ActionListener {
+           // public void actionPerformed(ActionEvent e){
+              //  Type_Vehicle t=new Type_Vehicle();
+              //  cmd.setBackground(t);
+           // }
         }
     }
 
-}
+
 
 
