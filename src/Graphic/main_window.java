@@ -1,18 +1,21 @@
 package Graphic;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.Scanner;
 
 import Vehicle.*;
 
 
 public class main_window extends JFrame {
-
+    private ImageIcon logo;
+    private JLabel label1;
     public static void main(String[] args) {
     new main_window();
     }
 
     public main_window() {
+
         this.setVisible(true);
         this.setSize(800, 800);
         this.setLocationRelativeTo(null);
@@ -23,13 +26,20 @@ public class main_window extends JFrame {
         this.setTitle("Car Agency");
 
 //set the label
+        ImageIcon logo;
+        JLabel display;
+        try{
+            logo=new ImageIcon(getClass().getResource("icon-03.png"));
+            display=new JLabel(logo);
+            this.add(display);
+        }catch (Exception e){
+            System.out.println("noooo");
+        }
 
-        JLabel lebal = new JLabel("Car Agency");
-        lebal.setBounds(300, 300, 300, 300);
-        this.add(lebal);
-        //JButton button = new JButton("Adding vehicles");
-        //button.setBounds(300, 600, 300, 300);
-        this.add(new JButton("Adding vehicles"),BorderLayout.CENTER);
+        //JButton button = new JButton("Adding \n vehicles");
+        //button.setBounds(350, 350, 100, 100);
+        //this.add(button);
+
 
         //button.addActionListener((e -> {
 
