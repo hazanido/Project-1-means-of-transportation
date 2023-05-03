@@ -1,3 +1,5 @@
+package Vehicle;
+
 import java.util.Objects;
 public abstract class Vehicle {
     private String Model_Name;
@@ -96,8 +98,8 @@ public abstract class Vehicle {
     }
 
     /**
-     * Compares this Vehicle object to another object for equality.
-     * Returns true if the other object is also a Vehicle object and has the same values for all fields, false otherwise.
+     * Compares this Vehicle.Vehicle object to another object for equality.
+     * Returns true if the other object is also a Vehicle.Vehicle object and has the same values for all fields, false otherwise.
      * Overrides the equals method of the Object class.
      * @param obj the object to compare to
      * @return true if the objects are equal, false otherwise

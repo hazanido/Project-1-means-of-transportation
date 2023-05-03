@@ -1,9 +1,11 @@
+package Vehicle;
+
 /**
  * A department representing the air transport vehicle Game Drone
  * Describes their basic features
  */
 
-public class Game_Drone extends Air_transport_vehicles implements Not_motorized_engine{
+public class Game_Drone extends Air_transport_vehicles implements Not_motorized_engine {
 
     /**
      * Default constructor,
@@ -66,8 +68,8 @@ public class Game_Drone extends Air_transport_vehicles implements Not_motorized_
     }
     /**
 
-     Compares this Game_Drone object to another object for equality.
-     Returns true if the other object is also a Game_Drone object and has the same values for all fields, false otherwise.
+     Compares this Vehicle.Game_Drone object to another object for equality.
+     Returns true if the other object is also a Vehicle.Game_Drone object and has the same values for all fields, false otherwise.
      Overrides the equals method of the Object class.
      @param obj the object to compare to
      @return true if the objects are equal, false otherwise

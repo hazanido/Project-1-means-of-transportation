@@ -1,3 +1,5 @@
+package Vehicle;
+
 /**
  * The interface describing whether a transport vehicle is motorized
  */

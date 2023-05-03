@@ -1,7 +1,9 @@
+package Vehicle;
+
 import java.util.Objects;
 
 /**
- *A department representing the marine transport vehicle Frigate
+ *A department representing the marine transport vehicle Vehicle.Frigate
  * Describes their basic features
  */
 public class Frigate extends Marine_transport_vehicle implements Motorized_engine {
@@ -40,10 +42,10 @@ public class Frigate extends Marine_transport_vehicle implements Motorized_engin
     }
 
     /**
-     *A function that returns the string representing the marine transport vehicle Frigate
+     *A function that returns the string representing the marine transport vehicle Vehicle.Frigate
      *@return A string that includes the details about the marine transport vessel
      * (from the toString from which it inherits the  marine transport vessel class)
-     *In addition returns that the Frigate is under the Israeli flag, with the wind returns average fuel consumption and average life span
+     *In addition returns that the Vehicle.Frigate is under the Israeli flag, with the wind returns average fuel consumption and average life span
      */
     public String toString(){
 
@@ -58,11 +60,11 @@ public class Frigate extends Marine_transport_vehicle implements Motorized_engin
     }
     /**
 
-     Compares this Frigate object to another object for equality.
-     Returns true if the given object is also a Frigate and all of their fields are equal.
+     Compares this Vehicle.Frigate object to another object for equality.
+     Returns true if the given object is also a Vehicle.Frigate and all of their fields are equal.
      Overrides the equals method in the Object class.
-     @param obj The object to compare this Frigate object against.
-     @return True if the given object is also a Frigate and all of their fields are equal,
+     @param obj The object to compare this Vehicle.Frigate object against.
+     @return True if the given object is also a Vehicle.Frigate and all of their fields are equal,
      arduino
      Copy code
      false otherwise.
