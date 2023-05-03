@@ -20,7 +20,7 @@ public class main_window extends JFrame {
     public main_window() {
 
         this.setVisible(true);
-        this.setSize(2000, 2000);
+        this.setSize(1500, 1500);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,9 +32,9 @@ public class main_window extends JFrame {
         ImageIcon logo;
         JLabel display;
         try{
-            logo = new ImageIcon(getClass().getResource("icon-03.png"));
+            logo = new ImageIcon(getClass().getResource("logo.png"));
             display = new JLabel(logo);
-            display.setBounds(0, 0, logo.getIconWidth(), logo.getIconHeight());
+            display.setBounds(500, 100, logo.getIconWidth(), logo.getIconHeight());
             this.add(display);
 
         }catch (Exception e){
