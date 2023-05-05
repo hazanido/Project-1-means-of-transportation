@@ -20,7 +20,7 @@ public class main_window extends JFrame {
     public main_window() {
 
         this.setVisible(true);
-        this.setSize(1500, 1500);
+        this.setSize(1100, 1100);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,22 +51,8 @@ public class main_window extends JFrame {
 
 
     }
-    public class Add_window extends JPanel {
-        private JButton cmd;
-        public Add_window() {
-            cmd = new JButton("Adding vehicles");
-            add(cmd);
-           // Listener lis = new Listener();
-        }
 
-
-       // private class Listener implements ActionListener {
-           // public void actionPerformed(ActionEvent e){
-              //  Type_Vehicle t=new Type_Vehicle();
-              //  cmd.setBackground(t);
-           // }
-        }
-    }
+}
 
 
 
