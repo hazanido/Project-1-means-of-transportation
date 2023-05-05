@@ -16,6 +16,7 @@ public class main_window extends JFrame {
     public static void main(String[] args) {
     new main_window();
     }
+    private JButton button;
 
     public main_window() {
 
@@ -44,16 +45,22 @@ public class main_window extends JFrame {
         JLabel lebal = new JLabel("Car Agency");
         lebal.setBounds(300, 300, 300, 300);
         this.add(lebal);
-        JButton button = new JButton("Adding vehicles");
+
+        button = new JButton("Adding vehicles");
         button.setBounds(300, 600, 300, 300);
+        Listener lis=new Listener();
+        button.addActionListener(lis);
         this.add(button);
-
-
 
     }
 
+    public class Listener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            Type_Vehicle type=new Type_Vehicle();
+            //button.add(type);
+        }
+
+    }
 }
-
-
 
 
