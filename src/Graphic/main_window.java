@@ -32,7 +32,7 @@ public class main_window extends JFrame {
         ImageIcon logo;
         JLabel display;
         try{
-            logo = new ImageIcon(getClass().getResource("logo.png"));
+            logo = new ImageIcon(getClass().getResource(""));
             display = new JLabel(logo);
             display.setBounds(500, 100, logo.getIconWidth(), logo.getIconHeight());
             this.add(display);
