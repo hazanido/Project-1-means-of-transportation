@@ -17,5 +17,13 @@ JButton game_drone;
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Air transport vehicles");
 
+        JButton button1 = new JButton("Dawn_Rigoli");
+        button1.setBounds(20, 100, 200, 200);
+        this.add(button1);
+        JButton button2 = new JButton("Game_Drone");
+        button2.setBounds(300, 100, 200, 200);
+        this.add(button2);
+
+
     }
 }
