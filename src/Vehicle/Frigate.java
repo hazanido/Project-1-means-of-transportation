@@ -42,7 +42,7 @@ public class Frigate extends Marine_transport_vehicle implements Motorized_engin
     }
 
     /**
-     *A function that returns the string representing the marine transport vehicle Vehicle.Frigate
+     *A function that returns the string representing the marine transport vehicle Frigate
      *@return A string that includes the details about the marine transport vessel
      * (from the toString from which it inherits the  marine transport vessel class)
      *In addition returns that the Vehicle.Frigate is under the Israeli flag, with the wind returns average fuel consumption and average life span
