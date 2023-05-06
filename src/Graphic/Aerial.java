@@ -2,10 +2,12 @@ package Graphic;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Aerial extends JFrame {
+public class Aerial extends JFrame implements ActionListener {
 JButton dawn_Rigoli;
-JButton game_drone;
+JButton game_Drone;
 
     public Aerial(){
         this.setVisible(true);
@@ -19,11 +21,25 @@ JButton game_drone;
         this.setLayout(new FlowLayout());
         dawn_Rigoli = new JButton("Dawn_Rigoli");
         dawn_Rigoli.setBounds(20, 100, 200, 200);
+        dawn_Rigoli.addActionListener(this);
         this.add(dawn_Rigoli);
-        game_drone = new JButton("Game_Drone");
-        game_drone.setBounds(300, 100, 200, 200);
-        this.add(game_drone);
+        game_Drone = new JButton("Game_Drone");
+        game_Drone.setBounds(300, 100, 200, 200);
+        game_Drone.addActionListener(this);
+        this.add(game_Drone);
 
+
+    }
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("Dawn_Rigoli")) {
+            dawn_rigoli frame= new dawn_rigoli();
+            this.dispose();
+        }
+        else if (e.getActionCommand().equals("Game_Drone")) {
+            game_drone frame = new game_drone();
+            this.dispose();
+
+        }
 
     }
 }
