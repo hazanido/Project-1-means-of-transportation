@@ -36,6 +36,7 @@ public class dawn_rigoli extends JFrame implements ActionListener {
 
 
     public void actionPerformed(ActionEvent e) {
-//yert
+        return;
+
     }
 }
