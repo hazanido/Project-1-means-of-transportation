@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 public class dawn_rigoli extends JFrame implements ActionListener {
     private JTextField model,move,distance,passengers,speed;
+    private JButton add,add_and_closs;
     public dawn_rigoli (){
         this.setVisible(true);
         this.setSize(300, 500);
@@ -27,26 +28,39 @@ public class dawn_rigoli extends JFrame implements ActionListener {
         this.add(lebal1);
         move=new JTextField();
         move.setBounds(70,110,150,20);
+        move.setToolTipText("please enter ability to move the vehicle");
         JLabel lebal2 = new JLabel("distance:");
         lebal2.setBounds(70, 140, 150, 20);
         this.add(lebal2);
         distance=new JTextField();
         distance.setBounds(70,160,150,20);
+        distance.setToolTipText("please enter the distance the vehicle traveled during its lifetime");
         JLabel lebal3 = new JLabel("passengers:");
         lebal3.setBounds(70, 190, 150, 20);
         this.add(lebal3);
         passengers=new JTextField();
         passengers.setBounds(70,210,150,20);
+        passengers.setToolTipText("please enter the number of passengers the vehicle contains");
         JLabel lebal4 = new JLabel("speed:");
         lebal4.setBounds(70, 240, 150, 20);
         this.add(lebal4);
         speed=new JTextField();
         speed.setBounds(70,260,150,20);
+        speed.setToolTipText("Please type the maximum speed of the vehicle");
+        JLabel lebal5 = new JLabel("Please type the type military/civilian?:");
+        lebal5.setBounds(35, 290, 250, 20);
+        this.add(lebal5);
+        JRadioButton military = new JRadioButton("military");
+        JRadioButton civilian = new JRadioButton("civilian");
+        military.setBounds(40,310,70,20);
+        civilian.setBounds(180,310,70,20);
         this.add(model);
         this.add(move);
         this.add(distance);
         this.add(passengers);
         this.add(speed);
+        this.add(military);
+        this.add(civilian);
 
     }
 
