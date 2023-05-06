@@ -6,13 +6,14 @@ import java.awt.*;
 public class Terrestrial extends JFrame {
     public Terrestrial(){
         this.setVisible(true);
-        this.setSize(900, 500);
+        this.setSize(500, 100);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Land transport vehicle");
+        this.setLayout(new FlowLayout());
 
         JButton button1 = new JButton("Jeep");
         button1.setBounds(20, 100, 200, 200);
