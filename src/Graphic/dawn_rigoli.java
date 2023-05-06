@@ -61,6 +61,13 @@ public class dawn_rigoli extends JFrame implements ActionListener {
         this.add(speed);
         this.add(military);
         this.add(civilian);
+        add=new JButton();
+        add.setText("<html>Adding a<br />new vehicle</html>");
+        add.setBounds(15,360,110,70);
+        this.add(add);
+        add_and_closs=new JButton("<html>Adding and entering<br />a car dealership</html>");
+        add_and_closs.setBounds(155,360,120,70);
+        this.add(add_and_closs);
 
     }
 
