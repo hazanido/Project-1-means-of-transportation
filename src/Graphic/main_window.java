@@ -19,6 +19,7 @@ public class main_window extends JFrame implements ActionListener {
     }
     private JButton button;
 
+
     public main_window() {
 
 

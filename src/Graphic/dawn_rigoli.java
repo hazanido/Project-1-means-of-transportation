@@ -1,9 +1,13 @@
 package Graphic;
-
+import Vehicle.Car_Agency;
+import Vehicle.Dawn_Rigoli;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+
+
 
 public class dawn_rigoli extends JFrame implements ActionListener {
     private JTextField model,move,distance,passengers,speed;
@@ -64,6 +68,7 @@ public class dawn_rigoli extends JFrame implements ActionListener {
         add=new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
         add.setBounds(15,360,110,70);
+        add.addActionListener(this);
         this.add(add);
         add_and_closs=new JButton("<html>Adding and entering<br />a car dealership</html>");
         add_and_closs.setBounds(155,360,120,70);
@@ -73,6 +78,14 @@ public class dawn_rigoli extends JFrame implements ActionListener {
 
 
     public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("<html>Adding a<br />new vehicle</html>")) {
+
+            //Dawn_Rigoli temp1 = new Dawn_Rigoli(m, move, d, p, s, t);
+            //Car_Agency.add_Vehicle(temp1);
+
+            Type_Vehicle temp = new Type_Vehicle();
+            this.dispose();
+        }
 
 
     }

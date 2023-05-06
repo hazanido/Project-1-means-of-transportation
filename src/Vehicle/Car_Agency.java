@@ -7,8 +7,8 @@ import java.util.Arrays;
  * that exist in the system
  */
 public class Car_Agency {
-    private int size;
-    private Vehicle[] vehicle;
+    private static int size;
+    private static Vehicle[] vehicle;
 
     /**
      * get of the array of transportation vehicles in the system
@@ -42,7 +42,7 @@ public class Car_Agency {
      * @param car-An object from the transport vehicle class, the transport vehicle you want to add
      */
 
-    public void add_Vehicle(Vehicle car){
+    public static void add_Vehicle(Vehicle car){
         if(size==0){
             size=1;
             vehicle= new Vehicle[size];
@@ -56,11 +56,11 @@ public class Car_Agency {
             }
             size++;
             vehicle=new Vehicle[size];
-            for(int i = 0 ;i<this.size-1;i++)
+            for(int i = 0 ;i<size-1;i++)
             {
-                this.vehicle[i]=temp[i];
+                vehicle[i]=temp[i];
             }
-            this.vehicle[size-1]=car;
+            vehicle[size-1]=car;
         }
     }
 
