@@ -9,7 +9,9 @@ public class Type_Vehicle extends JFrame implements ActionListener{
     private JButton Air;
     private JButton Land;
     private JButton Marine;
-
+    private Terrestrial Terrestrial;
+    private Maritime Maritime;
+    private Aerial Aerial;
     public Type_Vehicle() {
         this.setVisible(true);
         this.setSize(500, 100);
@@ -35,16 +37,16 @@ public class Type_Vehicle extends JFrame implements ActionListener{
     }
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Marine transport vehicle")) {
-            Maritime type_M = new Maritime();
-            Marine.add(type_M);
+            Maritime = new Maritime();
+            this.dispose();
         }
         else if (e.getActionCommand().equals("Land transport vehicle")) {
-            Terrestrial type_M = new Terrestrial();
-            Land.add(type_M);
+            Terrestrial = new Terrestrial();
+            this.dispose();
 
         } else if (e.getActionCommand().equals("Air transport vehicles")) {
-            Aerial type_M = new Aerial();
-            Air.add(type_M);
+            Aerial  = new Aerial();
+            this.dispose();
         }
 
     }
