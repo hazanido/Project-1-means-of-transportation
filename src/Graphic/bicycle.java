@@ -5,18 +5,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class frigate extends JFrame implements ActionListener {
-    private JTextField model,move,distance,passengers,speed,flag;
+public class bicycle extends JFrame implements ActionListener {
+    private JTextField model,move,distance,passengers,speed;
     private JButton add,add_and_closs;
-    public frigate(){
+
+    public bicycle(){
         this.setVisible(true);
-        this.setSize(300, 740);
+        this.setSize(300, 570);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
-        this.setTitle("Frigate");
+        this.setTitle("Bicycle");
         JLabel lebal = new JLabel("model:");
         lebal.setBounds(70, 40, 150, 20);
         this.add(lebal);
@@ -48,57 +49,38 @@ public class frigate extends JFrame implements ActionListener {
         speed.setBounds(70,260,150,20);
         speed.setToolTipText("Please type the maximum speed of the vehicle");
 
-        JLabel lebal5 = new JLabel("Flag:");
-        lebal5.setBounds(70, 285, 150, 20);
-        this.add(lebal5);
-        flag=new JTextField();
-        flag.setBounds(70,310,150,20);
-        flag.setToolTipText("Please type the name of the country to which the boat sailed");
-
-        JLabel lebal9 = new JLabel("<html>Please type the country<br /> the boat belongs to:<html>");
-        lebal9.setBounds(70, 340, 400, 40);
-        this.add(lebal9);
-        String Israel[]={"Israel"};
-        JComboBox cb=new JComboBox(Israel);
-        cb.setBounds(70,380,120,20);
+        JLabel lebal6 = new JLabel("Select a number of wheels:");
+        lebal6.setBounds(70, 280, 250, 40);
+        this.add(lebal6);
+        String wheels[]={"2"};
+        JComboBox cb=new JComboBox(wheels);
+        cb.setBounds(70,310,80,20);
         this.add(cb);
 
-        JLabel lebal6 = new JLabel("<html>Please select the<br /> average fuel consumption:<html>");
-        lebal6.setBounds(70, 420, 400, 40);
-        this.add(lebal6);
-        String fuel[]={"500"};
-        JComboBox cb3=new JComboBox(fuel);
-        cb3.setBounds(70,460,120,20);
-        this.add(cb3);
-
-        JLabel lebal7 = new JLabel("<html>Please, select the average<br /> lifetime of the engine:<html>");
-        lebal7.setBounds(70, 490, 400, 40);
+        JLabel lebal7 = new JLabel("Select an energy score:");
+        lebal7.setBounds(70, 330, 250, 40);
         this.add(lebal7);
-        String license[]={"4"};
-        JComboBox cb1=new JComboBox(license);
-        cb1.setBounds(70,530,120,20);
+        String Score[]={"A"};
+        JComboBox cb1=new JComboBox(Score);
+        cb1.setBounds(70,360,80,20);
         this.add(cb1);
 
-
-
-        JLabel lebal8 = new JLabel("<html>Please Choose whether to<br /> sail with or against the wind ?:</html>");
-        lebal8.setBounds(50, 550, 250, 40);
+        JLabel lebal8 = new JLabel("Select the power source");
+        lebal8.setBounds(70, 380, 250, 40);
         this.add(lebal8);
-        JRadioButton against = new JRadioButton("against the wind");
-        JRadioButton with = new JRadioButton("with the wind");
-        against.setBounds(30,600,120,20);
-        with.setBounds(160,600,110,20);
-
+        JRadioButton manual = new JRadioButton("manual");
+        manual.setBounds(100,420,90,20);
 
 
         add=new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15,630,120,50);
+        add.setBounds(15,470,120,50);
         add.addActionListener(this);
 
 
         add_and_closs=new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(155,630,120,50);
+        add_and_closs.setBounds(155,470,120,50);
+
 
 
         this.add(model);
@@ -106,19 +88,12 @@ public class frigate extends JFrame implements ActionListener {
         this.add(distance);
         this.add(passengers);
         this.add(speed);
-        this.add(flag);
-        this.add(against);
-        this.add(with);
+        this.add(manual);
         this.add(add);
         this.add(add_and_closs);
 
-
-
-
-
-
-
     }
+
     public void actionPerformed(ActionEvent e) {
 
 

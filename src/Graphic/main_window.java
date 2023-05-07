@@ -6,6 +6,16 @@ import java.awt.event.ActionListener;
 import java.net.http.WebSocket;
 import java.awt.image.BufferedImage;
 import java.util.Scanner;
+import javax.swing.border.LineBorder;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.border.LineBorder;
 
 import Vehicle.*;
 
@@ -15,15 +25,15 @@ public class main_window extends JFrame implements ActionListener {
     private JLabel label1;
     private Type_Vehicle vehicle;
     public static void main(String[] args) {
-    new main_window();
-    }
+        new main_window();}
+
     private JButton button;
 
 
     public main_window() {
 
 
-        this.setSize(300, 300);
+        this.setSize(400, 300);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,13 +42,13 @@ public class main_window extends JFrame implements ActionListener {
         this.setTitle("Car Agency");
         this.setVisible(true);
 
-        JLabel lebal = new JLabel("Car Agency");
-        lebal.setBounds(110, 10, 300, 30);
-        this.add(lebal);
 
 
         button = new JButton("Adding vehicles");
-        button.setBounds(90, 60, 110, 110);
+        button.setBounds(90, 60, 210, 110);
+
+
+
         button.addActionListener(this);
         this.add(button);
 

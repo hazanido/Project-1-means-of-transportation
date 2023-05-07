@@ -14,7 +14,7 @@ public class Type_Vehicle extends JFrame implements ActionListener{
     private Aerial Aerial;
     public Type_Vehicle() {
         this.setVisible(true);
-        this.setSize(500, 100);
+        this.setSize(500, 120);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

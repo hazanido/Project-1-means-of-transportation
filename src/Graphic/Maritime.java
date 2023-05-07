@@ -20,6 +20,7 @@ public class Maritime extends JFrame implements ActionListener {
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Marine transport vehicle");
         this.setLayout(new FlowLayout());
+
         frigate = new JButton("Frigate");
         frigate.setBounds(20, 100, 200, 200);
         frigate.addActionListener(this);

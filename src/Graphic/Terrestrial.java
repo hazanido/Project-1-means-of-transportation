@@ -2,8 +2,13 @@ package Graphic;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Terrestrial extends JFrame {
+public class Terrestrial extends JFrame implements ActionListener {
+    JButton Jeep;
+    JButton Amphibious;
+    JButton Bicycle;
     public Terrestrial(){
         this.setVisible(true);
         this.setSize(500, 100);
@@ -15,14 +20,35 @@ public class Terrestrial extends JFrame {
         this.setTitle("Land transport vehicle");
         this.setLayout(new FlowLayout());
 
-        JButton button1 = new JButton("Jeep");
-        button1.setBounds(20, 100, 200, 200);
-        this.add(button1);
-        JButton button2 = new JButton("Amphibious vehicle");
-        button2.setBounds(300, 100, 200, 200);
-        this.add(button2);
-        JButton button3 = new JButton("Bicycle");
-        button3.setBounds(600, 100, 200, 200);
-        this.add(button3);
+        Jeep = new JButton("Jeep");
+        Jeep.setBounds(20, 100, 200, 200);
+        Jeep.addActionListener(this);
+        this.add(Jeep);
+        Amphibious = new JButton("Amphibious vehicle");
+        Amphibious.setBounds(300, 100, 200, 200);
+        Amphibious.addActionListener(this);
+        this.add(Amphibious);
+        Bicycle = new JButton("Bicycle");
+        Bicycle.setBounds(600, 100, 200, 200);
+        Bicycle.addActionListener(this);
+        this.add(Bicycle);
+
     }
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("Jeep")) {
+            jeep frame= new jeep();
+            this.dispose();
+        }
+        else if (e.getActionCommand().equals("Amphibious vehicle")) {
+            Amphibious frame = new Amphibious();
+            this.dispose();
+
+        }
+        else if (e.getActionCommand().equals("Bicycle")) {
+            bicycle frame = new bicycle();
+            this.dispose();
+
+        }
+    }
+
 }
