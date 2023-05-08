@@ -72,8 +72,8 @@ public class Main {
                 String t;
                 t = scanner7.next();
 
-                Dawn_Rigoli temp = new Dawn_Rigoli(m, move, d, p, s, t);
-                Agency.add_Vehicle(temp);
+                //Dawn_Rigoli temp = new Dawn_Rigoli(m, move, d, p, s, t);
+                //Agency.add_Vehicle(temp);
                 System.out.println("Please select the vehicle type:" + "\n" + "0-exit" + "\n" + " 1-Vehicle.Jeep" + "\n" + " 2-Vehicle.Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone ");
                 Scanner scanner18 = new Scanner(System.in);
 

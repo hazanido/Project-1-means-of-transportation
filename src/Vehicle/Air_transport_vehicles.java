@@ -1,5 +1,7 @@
 package Vehicle;
 
+import java.io.File;
+import java.nio.file.Path;
 import java.util.Objects;
 /**
  * A class that represents the air transport vehicles and
@@ -28,9 +30,9 @@ public class Air_transport_vehicles extends Vehicle {
      *@param Max_Speed-Describes the maximum speed of the vehicle
      *@param Type-Describes the type of air transport vehicle, whether it is military or civilian
      */
-    public Air_transport_vehicles(String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed,String Type)
+    public Air_transport_vehicles(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, String Type)
     {
-        super(Model_Name,move,distance,Max_Passengers,Max_Speed);
+        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed);
         this.Type=Type;
     }
 

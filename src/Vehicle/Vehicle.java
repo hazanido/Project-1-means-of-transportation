@@ -1,7 +1,10 @@
 package Vehicle;
 
+import java.io.File;
+import java.nio.file.Path;
 import java.util.Objects;
 public abstract class Vehicle {
+    private File photo;
     private String Model_Name;
     private int move;
     private double distance;
@@ -13,6 +16,7 @@ public abstract class Vehicle {
      */
 
     public Vehicle() {
+        photo=null;
         Model_Name = null;
         move = 0;
         distance = 0;
@@ -30,7 +34,8 @@ public abstract class Vehicle {
      * @param Max_Speed-Describes the maximum speed of the vehicle
      */
 
-    public Vehicle(String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed) {
+    public Vehicle(File photo,String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed) {
+        this.photo=photo;
         this.Model_Name = Model_Name;
         this.move = move;
         this.distance = distance;
@@ -94,7 +99,7 @@ public abstract class Vehicle {
      */
 
     public String toString() {
-        return "Model: " + Model_Name + ", " + "move: " + move + "\n " + " traveled: " + distance + " Km" + ",  " + "Maximum Passengers: " + Max_Passengers + ", " + "Max speed: " + Max_Speed;
+        return "Model: " + Model_Name + ", " + "move: " + move + "\n " + " traveled: " + distance + " Km" + ",  " + "Maximum Passengers: " + Max_Passengers + ", " + "Max speed: " + Max_Speed +"km, ";
     }
 
     /**

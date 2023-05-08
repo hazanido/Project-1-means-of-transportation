@@ -1,6 +1,8 @@
 package Vehicle;
 
 import javax.swing.*;
+import java.io.File;
+import java.nio.file.Path;
 import java.util.Objects;
 /**
  *A department representing the air transport vehicle Dawn Rigoli
@@ -49,12 +51,12 @@ public class Dawn_Rigoli extends Air_transport_vehicles implements Not_motorized
      *@param Max_Speed-Describes the maximum speed of the vehicle
      *@param Type-Describes the type of air transport vehicle, whether it is military or civilian
      */
-    public Dawn_Rigoli(String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed,String Type) {
-        super(Model_Name,move,distance,Max_Passengers,Max_Speed,Type);
-        set_Type("Military") ;
+    public Dawn_Rigoli(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, String Type) {
+        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,Type);
+        set_Type(Type) ;
         set_Max_Passengers(1);
-        set_Model_Name("privileged");
-        set_Max_Speed(50);
+        set_Model_Name(Model_Name);
+        set_Max_Speed(Max_Speed);
         Energy_score();
         power_source("manual");
     }
@@ -66,7 +68,7 @@ public class Dawn_Rigoli extends Air_transport_vehicles implements Not_motorized
      * In addition prints his energy score
      */
     public String toString() {
-        return "DAWN RIGOLI: \n"+ super.toString()+"The use of the tool: " + get_Type() + ", " + "Model: " + get_Model_Name() + ",  " + "Maximum Passengers: " + get_Max_Passengers() + ", " + "Maximum speed: " + get_Max_Speed() + ", " + "Energy score: " + Energy_score() +"\n";
+        return "DAWN RIGOLI: \n"+ super.toString()+"The use of the tool: " + get_Type() + ", " + "Model: " + get_Model_Name() + ",  " + "Maximum Passengers: " + get_Max_Passengers() + ", " + "Maximum speed: " + get_Max_Speed() + "km, " + "Energy score: " + Energy_score() +"\n";
     }
     /**
 

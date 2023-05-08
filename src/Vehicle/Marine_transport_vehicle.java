@@ -1,5 +1,6 @@
 package Vehicle;
 
+import java.nio.file.Path;
 import java.util.Objects;
 /**
  *A class that represents the marine transport vehicles
@@ -33,8 +34,8 @@ public class Marine_transport_vehicle extends Vehicle {
      */
 
 
-    public Marine_transport_vehicle(String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed,boolean Because,String target) {
-        super(Model_Name, move, distance, Max_Passengers, Max_Speed);
+    public Marine_transport_vehicle(Path photo,String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, boolean Because, String target) {
+        super(photo,Model_Name, move, distance, Max_Passengers, Max_Speed);
         this.Because = Because;
         this.target = target;
     }
