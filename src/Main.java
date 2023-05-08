@@ -41,8 +41,8 @@ public class Main {
             s = scanner5.nextInt();
 
             if (choice == 1) {
-                Jeep temp = new Jeep(m, move, d, s);
-                Agency.add_Vehicle(temp);
+                //Jeep temp = new Jeep(m, move, d, s);
+                //Agency.add_Vehicle(temp);
                 System.out.println("Please select the vehicle type:" + "\n" + "0-exit" + "\n" + " 1-Jeep" + "\n" + " 2-Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone ");
                 Scanner scanner16 = new Scanner(System.in);
 

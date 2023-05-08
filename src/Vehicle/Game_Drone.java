@@ -1,5 +1,7 @@
 package Vehicle;
 
+import java.io.File;
+
 /**
  * A department representing the air transport vehicle Game Drone
  * Describes their basic features
@@ -29,9 +31,9 @@ public class Game_Drone extends Air_transport_vehicles implements Not_motorized_
      *@param Max_Speed-Describes the maximum speed of the vehicle
      *@param Type-Describes the type of air transport vehicle, whether it is military or civilian
      */
-    public Game_Drone(String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed,String Type)
+    public Game_Drone(File photo,String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, String Type)
     {
-        super(Model_Name,move,distance,Max_Passengers,Max_Speed,Type);
+        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,Type);
         power_source("manual");
         Energy_score();
 

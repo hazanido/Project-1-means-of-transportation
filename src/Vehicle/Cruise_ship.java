@@ -3,6 +3,7 @@ package Vehicle;
 import Graphic.Maritime;
 
 import javax.swing.*;
+import java.io.File;
 import java.nio.file.Path;
 import java.util.Objects;
 
@@ -29,7 +30,7 @@ public class Cruise_ship extends Marine_transport_vehicle implements Motorized_e
      * @param Because-Describes whether the transport vessel is sailing in the direction of the wind
      * @param target-Describes which country the transport vessel is sailing to
      */
-    public Cruise_ship(Path photo,String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, boolean Because, String target){
+    public Cruise_ship(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, boolean Because, String target){
         super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,Because,target);
         set_Because(true);
     }

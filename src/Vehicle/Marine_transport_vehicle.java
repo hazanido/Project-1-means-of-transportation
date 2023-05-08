@@ -1,5 +1,6 @@
 package Vehicle;
 
+import java.io.File;
 import java.nio.file.Path;
 import java.util.Objects;
 /**
@@ -34,7 +35,7 @@ public class Marine_transport_vehicle extends Vehicle {
      */
 
 
-    public Marine_transport_vehicle(Path photo,String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, boolean Because, String target) {
+    public Marine_transport_vehicle(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, boolean Because, String target) {
         super(photo,Model_Name, move, distance, Max_Passengers, Max_Speed);
         this.Because = Because;
         this.target = target;

@@ -1,5 +1,6 @@
 package Vehicle;
 
+import java.io.File;
 import java.util.Objects;
 /**
  * A class that represents the land transport vehicles
@@ -31,8 +32,8 @@ public class Land_transport_vehicle extends Vehicle {
      * @param Number_Wheels-Describes the number of wheels the car has
      * @param Kind_Way-Describes the type of road the vehicle can travel on
      */
-    public Land_transport_vehicle(String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed,int Number_Wheels,String Kind_Way){
-        super(Model_Name,move,distance,Max_Passengers, Max_Speed);
+    public Land_transport_vehicle(File photo,String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, int Number_Wheels, String Kind_Way){
+        super(photo,Model_Name,move,distance,Max_Passengers, Max_Speed);
         this.Number_Wheels=Number_Wheels;
         this.Kind_Way=Kind_Way;
 

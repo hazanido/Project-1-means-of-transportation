@@ -1,6 +1,7 @@
 package Vehicle;
 
 import javax.swing.*;
+import java.io.File;
 import java.util.Objects;
 
 /**
@@ -35,8 +36,8 @@ public class Frigate extends Marine_transport_vehicle implements Motorized_engin
      * @param Because-Describes whether the transport vessel is sailing in the direction of the wind
      * @param target-Describes which country the transport vessel is sailing to
      */
-    public Frigate(String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed,boolean Because,String target){
-        super(Model_Name,move,distance,Max_Passengers,Max_Speed,Because,target);
+    public Frigate(File photo,String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, boolean Because, String target){
+        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,Because,target);
         origin="Under Israel flag";
         Fuel_consumption= 500;
         lifetime=4;

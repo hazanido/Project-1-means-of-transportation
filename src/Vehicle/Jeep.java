@@ -1,5 +1,6 @@
 package Vehicle;
 
+import java.io.File;
 import java.util.Objects;
 /**
  *A department representing the land transport vehicle Vehicle.Jeep
@@ -28,8 +29,8 @@ public class Jeep extends Land_transport_vehicle implements Motorized_engine, Co
      * @param Max_Speed-Describes the maximum speed of the vehicle
      */
 
-    public Jeep(String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed,int Number_Wheels,String Kind_Way){
-        super(Model_Name,move,distance,Max_Passengers,Max_Speed,Number_Wheels,Kind_Way);
+    public Jeep(File photo,String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, int Number_Wheels, String Kind_Way){
+        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,Number_Wheels,Kind_Way);
         this.set_Number_Wheels(4);
         this.set_Kind_Way("dirt");
         this.set_Max_Passengers(5);
@@ -42,7 +43,8 @@ public class Jeep extends Land_transport_vehicle implements Motorized_engine, Co
      * @param distance-Describes the distance the vehicle traveled during its lifetime
      * @param Max_Speed-Describes the maximum speed of the vehicle
      */
-    public Jeep (String Model_Name,int move, double distance,double Max_Speed) {
+    public Jeep (File photo,String Model_Name,int move, double distance,double Max_Speed) {
+        this.set_photo(photo);
         this.set_Move(move);
         this.set_Model_Name(Model_Name);
         this.set_Number_Wheels(4);

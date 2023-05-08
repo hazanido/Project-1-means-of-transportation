@@ -46,7 +46,7 @@ public abstract class Vehicle {
     /**
      * Gets of variables
      */
-
+    public File get_Photo(){return this.photo;}
     public String get_Model_Name() {
         return this.Model_Name;
     }
@@ -71,6 +71,7 @@ public abstract class Vehicle {
      * sets of variables
      */
 
+    public void set_photo(File photo){this.photo=photo;}
     public void set_Model_Name(String Model_Name) {
         this.Model_Name = Model_Name;
     }
