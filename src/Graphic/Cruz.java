@@ -7,8 +7,9 @@ import java.awt.event.ActionListener;
 import Vehicle.*;
 
 public class Cruz extends JFrame implements ActionListener {
-    private JTextField model,move,distance,passengers,speed,Fuel_consumption,lifetime;
+    private JTextField model,move,distance,passengers,speed,Fuel_consumption,lifetime,flag;
     private JButton add,add_and_closs;
+    private JRadioButton with;
     public Cruz(){
         this.setVisible(true);
         this.setSize(300, 630);
@@ -63,28 +64,35 @@ public class Cruz extends JFrame implements ActionListener {
         lifetime.setBounds(70,360,150,20);
         lifetime.setToolTipText("Please type the average lifetime of the engine");
 
+        JLabel lebal9 = new JLabel("Flag:");
+        lebal9.setBounds(70, 380, 150, 20);
+        this.add(lebal9);
+        flag=new JTextField();
+        flag.setBounds(70,400,150,20);
+        flag.setToolTipText("Please type the name of the country to which the boat sailed");
+
         JLabel lebal7 = new JLabel("<html>Please Choose whether to<br /> sail with or against the wind ?:</html>");
-        lebal7.setBounds(70, 390, 250, 40);
+        lebal7.setBounds(70, 420, 250, 40);
         this.add(lebal7);
-        JRadioButton with = new JRadioButton("with the wind");
-        with.setBounds(75,430,110,20);
+        with = new JRadioButton("with the wind");
+        with.setBounds(75,450,110,20);
 
         JLabel lebal8 = new JLabel("Select the license type:");
-        lebal8.setBounds(70, 450, 250, 40);
+        lebal8.setBounds(70, 480, 250, 40);
         this.add(lebal8);
         String license[]={"Unlimited"};
         JComboBox cb1=new JComboBox(license);
-        cb1.setBounds(75,480,120,20);
+        cb1.setBounds(75,510,120,20);
         this.add(cb1);
 
         add=new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15,520,120,50);
+        add.setBounds(15,540,120,50);
         add.addActionListener(this);
 
 
         add_and_closs=new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(155,520,120,50);
+        add_and_closs.setBounds(155,540,120,50);
 
         this.add(model);
         this.add(move);
@@ -94,6 +102,7 @@ public class Cruz extends JFrame implements ActionListener {
         this.add(Fuel_consumption);
         this.add(lifetime);
         this.add(with);
+        this.add(flag);
         this.add(add);
         this.add(add_and_closs);
 
@@ -105,12 +114,20 @@ public class Cruz extends JFrame implements ActionListener {
             String s3=distance.getText();
             String s4=passengers.getText();
             String s5=speed.getText();
-            String s6=Fuel_consumption.getText();
+            String s6=with.getText();
+            String s8=flag.getText();
+
+            int s=Integer.parseInt(s2);
+            double a=Double.parseDouble(s3);
+            int b=Integer.parseInt(s4);
+            double c=Double.parseDouble(s5);
+            boolean f=Boolean.parseBoolean(s8);
 
 
-
-
-
+            Cruise_ship temp=new Cruise_ship(s1,s,a,b,c,f,s8);
+            Car_Agency.add_Vehicle(temp);
+            Type_Vehicle temp1=new Type_Vehicle();
+            this.dispose();
 
         }
 

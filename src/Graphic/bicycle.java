@@ -106,9 +106,7 @@ public class bicycle extends JFrame implements ActionListener {
             String s3=distance.getText();
             String s4=passengers.getText();
             String s5=speed.getText();
-            String s6=manual.getText();
-            String s7=(String) cb.getSelectedItem();
-            String s8=(String) cb1.getSelectedItem();
+
 
             int s=Integer.parseInt(s2);
             double a=Double.parseDouble(s3);
