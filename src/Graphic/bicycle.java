@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 
 public class bicycle extends JFrame implements ActionListener {
     private JTextField model,move,distance,passengers,speed;
+    private JRadioButton manual;
+    private JComboBox cb,cb1;
     private JButton add,add_and_closs;
 
     public bicycle(){
@@ -56,7 +58,7 @@ public class bicycle extends JFrame implements ActionListener {
         lebal6.setBounds(70, 280, 250, 40);
         this.add(lebal6);
         String wheels[]={"2"};
-        JComboBox cb=new JComboBox(wheels);
+        cb=new JComboBox(wheels);
         cb.setBounds(70,310,80,20);
         this.add(cb);
 
@@ -64,14 +66,14 @@ public class bicycle extends JFrame implements ActionListener {
         lebal7.setBounds(70, 330, 250, 40);
         this.add(lebal7);
         String Score[]={"A"};
-        JComboBox cb1=new JComboBox(Score);
+        cb1=new JComboBox(Score);
         cb1.setBounds(70,360,80,20);
         this.add(cb1);
 
         JLabel lebal8 = new JLabel("Select the power source");
         lebal8.setBounds(70, 380, 250, 40);
         this.add(lebal8);
-        JRadioButton manual = new JRadioButton("manual");
+        manual = new JRadioButton("manual");
         manual.setBounds(100,420,90,20);
 
 
@@ -99,8 +101,24 @@ public class bicycle extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("<html>Adding a<br />new vehicle</html>")) {
-            //Bicycle temp1=new Bicycle(model,move,distance,passengers,speed,2,null);
-            //Car_Agency.add_Vehicle(temp1);
+            String s1=model.getText();
+            String s2=move.getText();
+            String s3=distance.getText();
+            String s4=passengers.getText();
+            String s5=speed.getText();
+            String s6=manual.getText();
+            String s7=(String) cb.getSelectedItem();
+            String s8=(String) cb1.getSelectedItem();
+
+            int s=Integer.parseInt(s2);
+            double a=Double.parseDouble(s3);
+            int b=Integer.parseInt(s4);
+            double c=Double.parseDouble(s5);
+
+            Bicycle temp1=new Bicycle(s1,s,a,b,c,2,null);
+            Car_Agency.add_Vehicle(temp1);
+            System.out.println(temp1.toString());
+            Car_Agency.print();
 
             Type_Vehicle temp = new Type_Vehicle();
             this.dispose();

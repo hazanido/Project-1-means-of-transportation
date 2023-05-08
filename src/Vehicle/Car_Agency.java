@@ -68,7 +68,7 @@ public class Car_Agency {
      *Print function, prints the details of all the means of transportation that exist in the array,
      *  calls the toString function
      */
-    public void print(){
+    public static void  print(){
         for(int i=0;i<size;i++)
         {
             System.out.println(vehicle[i].toString()+"\n");
