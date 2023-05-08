@@ -100,6 +100,17 @@ public class Cruz extends JFrame implements ActionListener {
     }
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("<html>Adding a<br />new vehicle</html>")) {
+            String s1=model.getText();
+            String s2=move.getText();
+            String s3=distance.getText();
+            String s4=passengers.getText();
+            String s5=speed.getText();
+            String s6=Fuel_consumption.getText();
+
+
+
+
+
 
         }
 
