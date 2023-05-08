@@ -100,8 +100,8 @@ public class dawn_rigoli extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("<html>Adding a<br />new vehicle</html>")) {
 
-            //Dawn_Rigoli temp1 = new Dawn_Rigoli(m, move, d, p, s, t);
-            //Car_Agency.add_Vehicle(temp1);
+            Dawn_Rigoli temp1 = new Dawn_Rigoli("privileged",move,distance, 1, 50, "military");
+            Car_Agency.add_Vehicle(temp1);
 
             Type_Vehicle temp = new Type_Vehicle();
             this.dispose();

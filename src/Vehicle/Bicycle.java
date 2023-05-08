@@ -1,5 +1,6 @@
 package Vehicle;
 
+import javax.swing.*;
 import java.util.Objects;
 
 public class Bicycle extends Land_transport_vehicle implements Not_motorized_engine {
@@ -28,6 +29,7 @@ public class Bicycle extends Land_transport_vehicle implements Not_motorized_eng
         this.set_Number_Wheels(2);
 
     }
+
     public String toString(){
         super.toString();
 

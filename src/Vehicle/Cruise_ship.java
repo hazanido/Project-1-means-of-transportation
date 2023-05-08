@@ -2,6 +2,7 @@ package Vehicle;
 
 import Graphic.Maritime;
 
+import javax.swing.*;
 import java.util.Objects;
 
 public class Cruise_ship extends Marine_transport_vehicle implements Motorized_engine,Commercial_use {
@@ -31,12 +32,15 @@ public class Cruise_ship extends Marine_transport_vehicle implements Motorized_e
         super(Model_Name,move,distance,Max_Passengers,Max_Speed,Because,target);
         set_Because(true);
     }
-    /**
-     *A function that returns the string representing the marine transport vehicle Cruise ship
-     *@return A string that includes the details about the marine transport vessel
-     * (from the toString from which it inherits the  marine transport vessel class)
-     *In addition returns that the Vehicle Cruise ship is Sail downwind
-     */
+
+
+
+                       /**
+                        *A function that returns the string representing the marine transport vehicle Cruise ship
+                        *@return A string that includes the details about the marine transport vessel
+                        * (from the toString from which it inherits the  marine transport vessel class)
+                        *In addition returns that the Vehicle Cruise ship is Sail downwind
+                        */
 
     public String toString(){
         return  "CRUISE SHIP: \n"+ super.toString()+" Sail downwind "+"\n";

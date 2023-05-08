@@ -1,5 +1,9 @@
 package Graphic;
 
+import Vehicle.Bicycle;
+import Vehicle.Car_Agency;
+import Vehicle.Frigate;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -120,8 +124,19 @@ public class frigate extends JFrame implements ActionListener {
 
     }
     public void actionPerformed(ActionEvent e) {
+        //public void actionPerformed(ActionEvent e) {
+            //if (e.getActionCommand().equals("<html>Adding a<br />new vehicle</html>")) {
+                //Frigate temp1=new Frigate(model,move,distance,passengers,speed,2,null);
+                //Car_Agency.add_Vehicle(temp1);
+
+                //Type_Vehicle temp = new Type_Vehicle();
+                //this.dispose();
 
 
-    }
+            }
+        }
 
-}
+
+
+
+

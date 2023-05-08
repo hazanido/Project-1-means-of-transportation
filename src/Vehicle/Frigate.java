@@ -1,5 +1,6 @@
 package Vehicle;
 
+import javax.swing.*;
 import java.util.Objects;
 
 /**
@@ -40,6 +41,11 @@ public class Frigate extends Marine_transport_vehicle implements Motorized_engin
         Fuel_consumption= 500;
         lifetime=4;
     }
+
+    //public Frigate(JTextField Model_Name, JTextField move, JTextField distance, JTextField Max_Passengers, JTextField Max_Speed,boolean Because,String target,JTextField Flag ){
+
+
+
 
     /**
      *A function that returns the string representing the marine transport vehicle Frigate

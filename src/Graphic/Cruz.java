@@ -99,6 +99,9 @@ public class Cruz extends JFrame implements ActionListener {
 
     }
     public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("<html>Adding a<br />new vehicle</html>")) {
+
+        }
 
 
     }

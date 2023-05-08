@@ -92,5 +92,15 @@ public class Amphibious extends JFrame implements ActionListener {
 
 
     }
-    public void actionPerformed(ActionEvent e) {}
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("<html>Adding a<br />new vehicle</html>")) {
+
+            //Amphibious temp1 = new (m, move, d, p, s, t);
+            //Car_Agency.add_Vehicle(temp1);
+
+            Type_Vehicle temp = new Type_Vehicle();
+            this.dispose();
+        }
+
+    }
 }

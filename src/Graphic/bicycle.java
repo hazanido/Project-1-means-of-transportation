@@ -1,5 +1,8 @@
 package Graphic;
 
+import Vehicle.Bicycle;
+import Vehicle.Car_Agency;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -95,8 +98,15 @@ public class bicycle extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("<html>Adding a<br />new vehicle</html>")) {
+            //Bicycle temp1=new Bicycle(model,move,distance,passengers,speed,2,null);
+            //Car_Agency.add_Vehicle(temp1);
+
+            Type_Vehicle temp = new Type_Vehicle();
+            this.dispose();
 
 
+        }
     }
 
 }

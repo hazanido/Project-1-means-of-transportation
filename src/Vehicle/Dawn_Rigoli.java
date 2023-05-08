@@ -1,5 +1,6 @@
 package Vehicle;
 
+import javax.swing.*;
 import java.util.Objects;
 /**
  *A department representing the air transport vehicle Dawn Rigoli
@@ -36,6 +37,8 @@ public class Dawn_Rigoli extends Air_transport_vehicles implements Not_motorized
         power_source("manual");
     }
 
+
+
     /**
      * Copy constructor,
      * Calls the copy constructor of the class from which it inherits the air transport class
@@ -54,7 +57,6 @@ public class Dawn_Rigoli extends Air_transport_vehicles implements Not_motorized
         set_Max_Speed(50);
         Energy_score();
         power_source("manual");
-
     }
 
     /**
