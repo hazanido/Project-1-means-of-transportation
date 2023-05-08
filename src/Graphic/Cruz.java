@@ -4,12 +4,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import Vehicle.*;
 
 public class Cruz extends JFrame implements ActionListener {
     private JTextField model,move,distance,passengers,speed,Fuel_consumption,lifetime,flag;
     private JButton add,add_and_closs;
     private JRadioButton with;
+    private File fp;
     public Cruz(){
         this.setVisible(true);
         this.setSize(300, 630);
@@ -124,10 +131,25 @@ public class Cruz extends JFrame implements ActionListener {
             boolean f=Boolean.parseBoolean(s8);
 
 
-            Cruise_ship temp=new Cruise_ship(s1,s,a,b,c,f,s8);
+            Cruise_ship temp=new Cruise_ship(fp,s1,s,a,b,c,f,s8);
             Car_Agency.add_Vehicle(temp);
             Type_Vehicle temp1=new Type_Vehicle();
             this.dispose();
+
+        }
+        else if(e.getActionCommand().equals("add photo")){
+            Path to;
+
+            JFileChooser photo=new JFileChooser();
+            int i = photo.showOpenDialog(null);
+            fp=photo.getSelectedFile();
+
+            to = Paths.get("src/Graphic/pictures/" + fp.getName());
+            try {
+                Files.copy(fp.toPath(),to.toFile().toPath());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
 
         }
 

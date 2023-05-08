@@ -72,6 +72,8 @@ public class Car_Agency {
         for(int i=0;i<size;i++)
         {
             System.out.println(vehicle[i].toString()+"\n");
+            vehicle[i].get_Photo().canRead();
+
         }
     }
 

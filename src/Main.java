@@ -59,8 +59,8 @@ public class Main {
                 Scanner scanner7 = new Scanner(System.in);
                 String c;
                 c = scanner7.next();
-                Frigate temp = new Frigate(m, move, d, p, s, w, c);
-                Agency.add_Vehicle(temp);
+                //Frigate temp = new Frigate(m, move, d, p, s, w, c);
+                //Agency.add_Vehicle(temp);
                 System.out.println("Please select the vehicle type:" + "\n" + "0-exit" + "\n" + " 1-Vehicle.Jeep" + "\n" + " 2-Vehicle.Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone ");
                 Scanner scanner17 = new Scanner(System.in);
 
@@ -85,8 +85,8 @@ public class Main {
                 String t;
                 t = scanner8.next();
 
-                Game_Drone temp = new Game_Drone(m, move, d, p, s, t);
-                Agency.add_Vehicle(temp);
+                //Game_Drone temp = new Game_Drone(m, move, d, p, s, t);
+                //Agency.add_Vehicle(temp);
                 System.out.println("Please select the vehicle type:" + "\n" + "0-exit" + "\n" + " 1-Vehicle.Jeep" + "\n" + " 2-Vehicle.Frigate" + "\n" + " 3-Foot Glider" + "\n" + " 4-Game Drone ");
                 Scanner scanner19 = new Scanner(System.in);
 

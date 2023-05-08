@@ -7,12 +7,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class bicycle extends JFrame implements ActionListener {
     private JTextField model,move,distance,passengers,speed;
     private JRadioButton manual;
     private JComboBox cb,cb1;
     private JButton add,add_and_closs;
+    private File f;
 
     public bicycle(){
         this.setVisible(true);
@@ -113,7 +119,7 @@ public class bicycle extends JFrame implements ActionListener {
             int b=Integer.parseInt(s4);
             double c=Double.parseDouble(s5);
 
-            Bicycle temp1=new Bicycle(s1,s,a,b,c,2,null);
+            Bicycle temp1=new Bicycle(f,s1,s,a,b,c,2,null);
             Car_Agency.add_Vehicle(temp1);
             System.out.println(temp1.toString());
             Car_Agency.print();
@@ -121,6 +127,21 @@ public class bicycle extends JFrame implements ActionListener {
             Type_Vehicle temp = new Type_Vehicle();
             this.dispose();
 
+
+        }
+        else if(e.getActionCommand().equals("add photo")){
+            Path to;
+
+            JFileChooser photo=new JFileChooser();
+            int i = photo.showOpenDialog(null);
+            f=photo.getSelectedFile();
+
+            to = Paths.get("src/Graphic/pictures/" + f.getName());
+            try {
+                Files.copy(f.toPath(),to.toFile().toPath());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
 
         }
     }
