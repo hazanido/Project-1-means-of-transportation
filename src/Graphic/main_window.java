@@ -25,7 +25,9 @@ public class main_window extends JFrame implements ActionListener {
     private JLabel label1;
     private Type_Vehicle vehicle;
     public static void main(String[] args) {
-        new main_window();}
+        new main_window();
+
+    }
 
     private JButton button;
 

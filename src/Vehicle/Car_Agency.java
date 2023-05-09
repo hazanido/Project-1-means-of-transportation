@@ -15,7 +15,7 @@ public class Car_Agency {
      * @return the vehicles array
      */
 
-    public Vehicle[] get_vehicle(){
+    public static Vehicle[] get_vehicle(){
         return vehicle;
     }
 

@@ -54,4 +54,10 @@ public class Bicycle extends Land_transport_vehicle implements Not_motorized_eng
         return super.equals(other) && Objects.equals(this.get_Number_Wheels(), other.get_Number_Wheels());
     }
 
+    public String getImagePath(){
+        return getClass().getResource("/src/Graphic/pictures/bicycle.png").getPath();
+
+
+    }
+
 }

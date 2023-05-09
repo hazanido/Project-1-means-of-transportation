@@ -101,6 +101,7 @@ public class bicycle extends JFrame implements ActionListener {
 
         add_and_closs=new JButton("<html>Adding and entering<br />a car dealership</html>");
         add_and_closs.setBounds(155,560,120,50);
+        add_and_closs.addActionListener(this);
 
 
 
@@ -146,12 +147,34 @@ public class bicycle extends JFrame implements ActionListener {
             int i = photo.showOpenDialog(null);
             f=photo.getSelectedFile();
 
-            to = Paths.get("src/Graphic/pictures/" + f.getName());
+            to = Paths.get("/src/Graphic/pictures/" + f.getName());
+
             try {
                 Files.copy(f.toPath(),to.toFile().toPath());
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
+
+        } else if (e.getActionCommand().equals("<html>Adding and entering<br />a car dealership</html>")) {
+            String s1=model.getText();
+            String s2=move.getText();
+            String s3=distance.getText();
+            String s4=passengers.getText();
+            String s5=speed.getText();
+
+
+            int s=Integer.parseInt(s2);
+            double a=Double.parseDouble(s3);
+            int b=Integer.parseInt(s4);
+            double c=Double.parseDouble(s5);
+
+            Bicycle temp1=new Bicycle(f,s1,s,a,b,c,2,null);
+            Car_Agency.add_Vehicle(temp1);
+            System.out.println(temp1.toString());
+            Car_Agency.print();
+
+            Agency_Frame frame=new Agency_Frame();
+            this.dispose();
 
         }
     }
