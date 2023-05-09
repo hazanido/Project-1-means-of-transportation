@@ -17,12 +17,12 @@ public class bicycle extends JFrame implements ActionListener {
     private JTextField model,move,distance,passengers,speed;
     private JRadioButton manual;
     private JComboBox cb,cb1;
-    private JButton add,add_and_closs;
+    private JButton add,add_and_closs,add_photo;
     private File f;
 
     public bicycle(){
         this.setVisible(true);
-        this.setSize(300, 570);
+        this.setSize(300, 670);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -77,20 +77,30 @@ public class bicycle extends JFrame implements ActionListener {
         this.add(cb1);
 
         JLabel lebal8 = new JLabel("Select the power source");
-        lebal8.setBounds(70, 380, 250, 40);
+        lebal8.setBounds(70, 390, 250, 40);
         this.add(lebal8);
         manual = new JRadioButton("manual");
-        manual.setBounds(100,420,90,20);
+        manual.setBounds(100,430,90,20);
 
+
+
+        JLabel lebal9 = new JLabel("Please add photo:");
+        lebal9.setBounds(70, 460, 250, 40);
+        this.add(lebal9);
+        add_photo = new JButton();
+        add_photo.setBounds(100, 490, 90, 50);
+        add_photo.setText("add photo");
+        add_photo.addActionListener(this);
+        this.add(add_photo);
 
         add=new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15,470,120,50);
+        add.setBounds(15,560,120,50);
         add.addActionListener(this);
 
 
         add_and_closs=new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(155,470,120,50);
+        add_and_closs.setBounds(155,560,120,50);
 
 
 

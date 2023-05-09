@@ -14,12 +14,12 @@ import Vehicle.*;
 
 public class Cruz extends JFrame implements ActionListener {
     private JTextField model,move,distance,passengers,speed,Fuel_consumption,lifetime,flag;
-    private JButton add,add_and_closs;
+    private JButton add,add_and_closs,add_photo;
     private JRadioButton with;
     private File fp;
     public Cruz(){
         this.setVisible(true);
-        this.setSize(300, 630);
+        this.setSize(300, 720);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,14 +92,24 @@ public class Cruz extends JFrame implements ActionListener {
         cb1.setBounds(75,510,120,20);
         this.add(cb1);
 
+
+        JLabel lebal10 = new JLabel("Please add photo:");
+        lebal10.setBounds(70, 540, 250, 40);
+        this.add(lebal10);
+        add_photo = new JButton();
+        add_photo.setBounds(100, 570, 90, 50);
+        add_photo.setText("add photo");
+        add_photo.addActionListener(this);
+        this.add(add_photo);
+
         add=new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15,540,120,50);
+        add.setBounds(15,630,120,50);
         add.addActionListener(this);
 
 
         add_and_closs=new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(155,540,120,50);
+        add_and_closs.setBounds(155,630,120,50);
 
         this.add(model);
         this.add(move);
@@ -128,7 +138,7 @@ public class Cruz extends JFrame implements ActionListener {
             double a=Double.parseDouble(s3);
             int b=Integer.parseInt(s4);
             double c=Double.parseDouble(s5);
-            boolean f=Boolean.parseBoolean(s8);
+            boolean f=Boolean.parseBoolean(s6);
 
 
             Cruise_ship temp=new Cruise_ship(fp,s1,s,a,b,c,f,s8);
