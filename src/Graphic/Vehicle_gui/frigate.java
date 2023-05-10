@@ -1,5 +1,6 @@
 package Graphic.Vehicle_gui;
 
+import Graphic.Agency_Frame;
 import Graphic.Vehicle_gui.Type_Vehicle;
 import Vehicle.Car_Agency;
 import Vehicle.Frigate;
@@ -119,6 +120,7 @@ public class frigate extends JFrame implements ActionListener {
 
         add_and_closs = new JButton("<html>Adding and entering<br />a car dealership</html>");
         add_and_closs.setBounds(155, 720, 120, 50);
+        add_and_closs.addActionListener(this);
 
 
         this.add(model);
@@ -177,6 +179,38 @@ public class frigate extends JFrame implements ActionListener {
                 throw new RuntimeException(ex);
             }
         }
+
+        else if (e.getActionCommand().equals("<html>Adding and entering<br />a car dealership</html>")) {
+            String s1 = model.getText();
+            String s2 = move.getText();
+            String s3 = distance.getText();
+            String s4 = passengers.getText();
+            String s5 = speed.getText();
+            String s6 = with.getText();
+            String s7 = against.getText();
+            String s8 = flag.getText();
+
+
+            int s = Integer.parseInt(s2);
+            double a = Double.parseDouble(s3);
+            int b = Integer.parseInt(s4);
+            double c = Double.parseDouble(s5);
+            boolean fl = Boolean.parseBoolean(s6);
+            boolean fl1 = Boolean.parseBoolean(s7);
+
+            if (fl = true) {
+                Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl, s8);
+                Car_Agency.add_Vehicle(temp1);
+            } else if (fl1 = true) {
+                Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl1, s8);
+                Car_Agency.add_Vehicle(temp1);
+            }
+            Agency_Frame frame=new Agency_Frame();
+
+            this.dispose();
+
+        }
+
     }
 }
 

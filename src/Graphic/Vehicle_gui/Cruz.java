@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import Graphic.Agency_Frame;
 import Graphic.Vehicle_gui.Type_Vehicle;
 import Vehicle.*;
 
@@ -111,6 +112,7 @@ public class Cruz extends JFrame implements ActionListener {
 
         add_and_closs=new JButton("<html>Adding and entering<br />a car dealership</html>");
         add_and_closs.setBounds(155,630,120,50);
+        add_and_closs.addActionListener(this);
 
         this.add(model);
         this.add(move);
@@ -161,6 +163,32 @@ public class Cruz extends JFrame implements ActionListener {
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
+
+        }
+        else if(e.getActionCommand().equals("<html>Adding and entering<br />a car dealership</html>")){
+            String s1=model.getText();
+            String s2=move.getText();
+            String s3=distance.getText();
+            String s4=passengers.getText();
+            String s5=speed.getText();
+            String s6=with.getText();
+            String s8=flag.getText();
+
+            int s=Integer.parseInt(s2);
+            double a=Double.parseDouble(s3);
+            int b=Integer.parseInt(s4);
+            double c=Double.parseDouble(s5);
+            boolean f=Boolean.parseBoolean(s6);
+
+
+            Cruise_ship temp=new Cruise_ship(fp,s1,s,a,b,c,f,s8);
+            Car_Agency.add_Vehicle(temp);
+
+            Agency_Frame frame=new Agency_Frame();
+
+            this.dispose();
+
+
 
         }
 

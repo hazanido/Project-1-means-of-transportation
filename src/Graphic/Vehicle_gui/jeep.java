@@ -1,5 +1,6 @@
 package Graphic.Vehicle_gui;
 
+import Graphic.Agency_Frame;
 import Graphic.Vehicle_gui.Type_Vehicle;
 import Vehicle.Car_Agency;
 import Vehicle.Jeep;
@@ -169,6 +170,30 @@ public class jeep extends JFrame implements ActionListener {
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
+
+        }
+        else if(e.getActionCommand().equals("<html>Adding and entering<br />a car dealership</html>")){
+            String s1 = model.getText();
+            String s2 = move.getText();
+            String s3 = distance.getText();
+            String s4 = passengers.getText();
+            String s5 = speed.getText();
+            String s6 = checkbox1.getText();
+            String s7 = (String) cb.getSelectedItem();
+
+
+            int s = Integer.parseInt(s2);
+            double a = Double.parseDouble(s3);
+            int b = Integer.parseInt(s4);
+            double c = Double.parseDouble(s5);
+            int d = Integer.parseInt(s7);
+
+            Jeep temp = new Jeep(f, s1, s, a, b, c, d, s6);
+            Car_Agency.add_Vehicle(temp);
+
+            Agency_Frame frame=new Agency_Frame();
+
+            this.dispose();
 
         }
 

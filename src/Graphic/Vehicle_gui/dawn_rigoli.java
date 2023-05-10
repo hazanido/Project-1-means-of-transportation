@@ -1,4 +1,5 @@
 package Graphic.Vehicle_gui;
+import Graphic.Agency_Frame;
 import Graphic.Vehicle_gui.Type_Vehicle;
 import Vehicle.Car_Agency;
 import Vehicle.Dawn_Rigoli;
@@ -116,6 +117,7 @@ public class dawn_rigoli extends JFrame implements ActionListener {
         this.add(add);
         add_and_closs = new JButton("<html>Adding and entering<br />a car dealership</html>");
         add_and_closs.setBounds(155, 480, 120, 50);
+        add_and_closs.addActionListener(this);
         this.add(add_and_closs);
 
     }
@@ -178,6 +180,28 @@ public class dawn_rigoli extends JFrame implements ActionListener {
                 }
 
             }
+        else if (e.getActionCommand().equals("<html>Adding and entering<br />a car dealership</html>")) {
+            String s1 = (String) cb5.getSelectedItem();
+            String s2 = move.getText();
+            String s3 = distance.getText();
+            String s4 = (String) cb6.getSelectedItem();
+            String s5 = (String) cb4.getSelectedItem();
+            String s6 = military.getText();
+
+            int s = Integer.parseInt(s2);
+            double a = Double.parseDouble(s3);
+            int b = Integer.parseInt(s4);
+            double c = Double.parseDouble(s5);
+
+            Dawn_Rigoli temp1 = new Dawn_Rigoli(f,s1, s, a, b, c, s6);
+            Car_Agency.add_Vehicle(temp1);
+
+            Agency_Frame frame=new Agency_Frame();
+
+            this.dispose();
+
+        }
+
         }
     }
 
