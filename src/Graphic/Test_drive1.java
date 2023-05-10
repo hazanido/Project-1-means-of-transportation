@@ -4,5 +4,5 @@ import Vehicle.Vehicle;
 
 public interface Test_drive1 {
 
-    public void update_move(Vehicle x);
+    public int update_move();
 }
