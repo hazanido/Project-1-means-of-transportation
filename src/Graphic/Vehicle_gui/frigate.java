@@ -1,6 +1,5 @@
-package Graphic;
+package Graphic.Vehicle_gui;
 
-import Vehicle.Bicycle;
 import Vehicle.Car_Agency;
 import Vehicle.Frigate;
 

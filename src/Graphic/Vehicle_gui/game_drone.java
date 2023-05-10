@@ -1,4 +1,4 @@
-package Graphic;
+package Graphic.Vehicle_gui;
 
 import Vehicle.Car_Agency;
 import Vehicle.Game_Drone;

@@ -1,4 +1,4 @@
-package Graphic;
+package Graphic.Vehicle_gui;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,8 @@
-package Graphic;
+package Graphic.Vehicle_gui;
+
+import Graphic.Vehicle_gui.Amphibious;
+import Graphic.Vehicle_gui.Cruz;
+import Graphic.Vehicle_gui.frigate;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,16 +41,16 @@ public class Maritime extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Frigate")) {
-            frigate frame= new frigate();
+            Graphic.Vehicle_gui.frigate frame= new frigate();
             this.dispose();
         }
         else if (e.getActionCommand().equals("Cruise ship")) {
-            Cruz frame = new Cruz();
+            Graphic.Vehicle_gui.Cruz frame = new Cruz();
             this.dispose();
 
         }
         else if (e.getActionCommand().equals("Amphibious vehicle")) {
-            Amphibious frame = new Amphibious();
+            Graphic.Vehicle_gui.Amphibious frame = new Amphibious();
             this.dispose();
 
         }

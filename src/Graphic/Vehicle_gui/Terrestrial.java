@@ -1,4 +1,8 @@
-package Graphic;
+package Graphic.Vehicle_gui;
+
+import Graphic.Vehicle_gui.Amphibious;
+import Graphic.Vehicle_gui.bicycle;
+import Graphic.Vehicle_gui.jeep;
 
 import javax.swing.*;
 import java.awt.*;

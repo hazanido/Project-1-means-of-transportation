@@ -1,5 +1,4 @@
-package Graphic;
-import Vehicle.Bicycle;
+package Graphic.Vehicle_gui;
 import Vehicle.Car_Agency;
 import Vehicle.Dawn_Rigoli;
 import javax.swing.*;

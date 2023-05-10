@@ -1,5 +1,6 @@
-package Graphic;
+package Graphic.Vehicle_gui;
 
+import Graphic.Agency_Frame;
 import Vehicle.Bicycle;
 import Vehicle.Car_Agency;
 
@@ -175,11 +176,9 @@ public class bicycle extends JFrame implements ActionListener {
             Car_Agency.print();
 
 
-            try {
-                Agency_Frame frame=new Agency_Frame();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+
+            Agency_Frame frame=new Agency_Frame();
+
             this.dispose();
 
         }

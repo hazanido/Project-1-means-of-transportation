@@ -1,11 +1,6 @@
 package Vehicle;
 
-import Graphic.Maritime;
-
-import javax.swing.*;
 import java.io.File;
-import java.nio.file.Path;
-import java.util.Objects;
 
 public class Cruise_ship extends Marine_transport_vehicle implements Motorized_engine,Commercial_use {
     /**

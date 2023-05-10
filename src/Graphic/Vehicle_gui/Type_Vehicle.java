@@ -1,4 +1,8 @@
-package Graphic;
+package Graphic.Vehicle_gui;
+
+import Graphic.Vehicle_gui.Aerial;
+import Graphic.Vehicle_gui.Maritime;
+import Graphic.Vehicle_gui.Terrestrial;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,9 +13,9 @@ public class Type_Vehicle extends JFrame implements ActionListener{
     private JButton Air;
     private JButton Land;
     private JButton Marine;
-    private Terrestrial Terrestrial;
-    private Maritime Maritime;
-    private Aerial Aerial;
+    private Graphic.Vehicle_gui.Terrestrial Terrestrial;
+    private Graphic.Vehicle_gui.Maritime Maritime;
+    private Graphic.Vehicle_gui.Aerial Aerial;
     public Type_Vehicle() {
         this.setVisible(true);
         this.setSize(500, 120);

@@ -1,23 +1,14 @@
 package Graphic;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.http.WebSocket;
-import java.awt.image.BufferedImage;
-import java.util.Scanner;
-import javax.swing.border.LineBorder;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.border.LineBorder;
 
-import Vehicle.*;
+import Graphic.Vehicle_gui.Type_Vehicle;
 
 
 public class main_window extends JFrame implements ActionListener {
