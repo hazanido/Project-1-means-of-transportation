@@ -44,7 +44,7 @@ public class Terrestrial extends JFrame implements ActionListener {
             this.dispose();
         }
         else if (e.getActionCommand().equals("Amphibious vehicle")) {
-            Amphibious frame = new Amphibious();
+            Graphic.Vehicle_gui.Amphibious frame = new Amphibious();
             this.dispose();
 
         }

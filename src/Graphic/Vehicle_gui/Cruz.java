@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import Graphic.Vehicle_gui.Type_Vehicle;
 import Vehicle.*;
 
 public class Cruz extends JFrame implements ActionListener {

@@ -1,4 +1,5 @@
 package Graphic.Vehicle_gui;
+import Graphic.Vehicle_gui.Type_Vehicle;
 import Vehicle.Car_Agency;
 import Vehicle.Dawn_Rigoli;
 import javax.swing.*;

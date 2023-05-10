@@ -1,8 +1,5 @@
 package Graphic.Vehicle_gui;
 
-import Graphic.Vehicle_gui.dawn_rigoli;
-import Graphic.Vehicle_gui.game_drone;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

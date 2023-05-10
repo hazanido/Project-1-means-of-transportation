@@ -1,9 +1,5 @@
 package Graphic.Vehicle_gui;
 
-import Graphic.Vehicle_gui.Aerial;
-import Graphic.Vehicle_gui.Maritime;
-import Graphic.Vehicle_gui.Terrestrial;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
