@@ -43,7 +43,7 @@ public class Agency_Frame extends JFrame  {
 
 
             }
-        /**
+        /**,,
 
             imageIcon = new ImageIcon(getClass().getResource(agency.get_vehicle()[i].getImagePath()));
             display = new JLabel(imageIcon);
