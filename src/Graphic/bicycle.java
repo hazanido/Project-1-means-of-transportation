@@ -147,13 +147,14 @@ public class bicycle extends JFrame implements ActionListener {
             int i = photo.showOpenDialog(null);
             f=photo.getSelectedFile();
 
-            to = Paths.get("/src/Graphic/pictures/" + f.getName());
-
+            to = Paths.get("src/Graphic/pictures/" + f.getName());
             try {
                 Files.copy(f.toPath(),to.toFile().toPath());
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
+
+
 
         } else if (e.getActionCommand().equals("<html>Adding and entering<br />a car dealership</html>")) {
             String s1=model.getText();
@@ -173,7 +174,12 @@ public class bicycle extends JFrame implements ActionListener {
             System.out.println(temp1.toString());
             Car_Agency.print();
 
-            Agency_Frame frame=new Agency_Frame();
+
+            try {
+                Agency_Frame frame=new Agency_Frame();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
             this.dispose();
 
         }

@@ -126,9 +126,9 @@ public abstract class Vehicle {
                 && Double.compare(this.Max_Speed, other.Max_Speed) == 0;
     }
 
-    public String getImagePath() {
-        return getClass().getResource("/Graphic/pictures/").getPath();
-    }
+
+
+
 
 
 

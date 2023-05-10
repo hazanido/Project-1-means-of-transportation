@@ -4,19 +4,23 @@ import Vehicle.Car_Agency;
 import Vehicle.Vehicle;
 import Vehicle.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 
-public class Agency_Frame extends JFrame implements ActionListener {
+public class Agency_Frame extends JFrame  {
     Car_Agency agency;
     JLabel display;
     ImageIcon imageIcon;
 
 
-    public Agency_Frame(){
+    public Agency_Frame() throws IOException {
         this.setVisible(true);
         this.setSize(800, 800);
         this.setLocationRelativeTo(null);
@@ -27,13 +31,19 @@ public class Agency_Frame extends JFrame implements ActionListener {
         this.setTitle("Agency");
 
 
-
-
-        JPanel carPanel = new JPanel(new GridLayout(20, 60, 700, 700));
+        JPanel carPanel = new JPanel(new GridLayout(0, 3, 10, 10));
         for (int i = 0; i <= agency.get_vehicle().length; i++) {
+            Vehicle vehicle = Car_Agency.get_vehicle()[i];
+            //BufferedImage image = ImageIO.read(new File());
+            //ImageIcon icon = new ImageIcon(image);
+            //JLabel imageLabel = new JLabel(icon);
+            //carPanel.add(imageLabel);
+            add(carPanel, BorderLayout.CENTER);
+            setVisible(true);
 
-            if((agency.get_vehicle()[i] instanceof Bicycle)==true){
-                imageIcon = new ImageIcon(getClass().getResource("/src/Graphic/pictures/bicycle1.png"));
+
+            if ((agency.get_vehicle()[i] instanceof Bicycle) == true) {
+                imageIcon = new ImageIcon(getClass().getResource("src/Graphic/pictures/bicycle1.png"));
                 display = new JLabel(imageIcon);
                 display.setBounds(15, 50, imageIcon.getIconWidth(), imageIcon.getIconHeight());
                 this.add(display);
@@ -44,7 +54,6 @@ public class Agency_Frame extends JFrame implements ActionListener {
                 setVisible(true);
 
             }
-            /**
 
             imageIcon = new ImageIcon(getClass().getResource(agency.get_vehicle()[i].getImagePath()));
             display = new JLabel(imageIcon);
@@ -52,20 +61,14 @@ public class Agency_Frame extends JFrame implements ActionListener {
             this.add(display);
             JButton button = new JButton(imageIcon);
             carPanel.add(button);
-             **/
+
         }
 
-        add(carPanel, BorderLayout.CENTER);
-        pack();
-        setVisible(true);
-    }
 
-    public void actionPerformed(ActionEvent e) {
 
     }
-
-
-
 }
+
+
 
 
