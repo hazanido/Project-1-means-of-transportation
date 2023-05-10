@@ -1,4 +1,9 @@
-package Graphic;
+package Graphic.Vehicle_gui;
+
+import Graphic.Agency_Frame;
+import Graphic.Vehicle_gui.Type_Vehicle;
+import Vehicle.Bicycle;
+import Vehicle.Car_Agency;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,22 +15,22 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import Vehicle.*;
-
-public class Cruz extends JFrame implements ActionListener {
-    private JTextField model,move,distance,passengers,speed,Fuel_consumption,lifetime,flag;
+public class bicycle extends JFrame implements ActionListener {
+    private JTextField model,move,distance,passengers,speed;
+    private JRadioButton manual;
+    private JComboBox cb,cb1;
     private JButton add,add_and_closs,add_photo;
-    private JRadioButton with;
-    private File fp;
-    public Cruz(){
+    private File f;
+
+    public bicycle(){
         this.setVisible(true);
-        this.setSize(300, 720);
+        this.setSize(300, 670);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
-        this.setTitle("Cruz");
+        this.setTitle("Bicycle");
         JLabel lebal = new JLabel("model:");
         lebal.setBounds(70, 40, 150, 20);
         this.add(lebal);
@@ -57,73 +62,62 @@ public class Cruz extends JFrame implements ActionListener {
         speed.setBounds(70,260,150,20);
         speed.setToolTipText("Please type the maximum speed of the vehicle");
 
-        JLabel lebal5 = new JLabel("Fuel consumption:");
-        lebal5.setBounds(70, 290, 150, 20);
-        this.add(lebal5);
-        Fuel_consumption=new JTextField();
-        Fuel_consumption.setBounds(70,310,150,20);
-        Fuel_consumption.setToolTipText("Please enter the average fuel consumption of the vehicle");
-
-        JLabel lebal6 = new JLabel("lifetime:");
-        lebal6.setBounds(70, 340, 150, 20);
+        JLabel lebal6 = new JLabel("Select a number of wheels:");
+        lebal6.setBounds(70, 280, 250, 40);
         this.add(lebal6);
-        lifetime=new JTextField();
-        lifetime.setBounds(70,360,150,20);
-        lifetime.setToolTipText("Please type the average lifetime of the engine");
+        String wheels[]={"2"};
+        cb=new JComboBox(wheels);
+        cb.setBounds(70,310,80,20);
+        this.add(cb);
 
-        JLabel lebal9 = new JLabel("Flag:");
-        lebal9.setBounds(70, 380, 150, 20);
-        this.add(lebal9);
-        flag=new JTextField();
-        flag.setBounds(70,400,150,20);
-        flag.setToolTipText("Please type the name of the country to which the boat sailed");
-
-        JLabel lebal7 = new JLabel("<html>Please Choose whether to<br /> sail with or against the wind ?:</html>");
-        lebal7.setBounds(70, 420, 250, 40);
+        JLabel lebal7 = new JLabel("Select an energy score:");
+        lebal7.setBounds(70, 330, 250, 40);
         this.add(lebal7);
-        with = new JRadioButton("with the wind");
-        with.setBounds(75,450,110,20);
-
-        JLabel lebal8 = new JLabel("Select the license type:");
-        lebal8.setBounds(70, 480, 250, 40);
-        this.add(lebal8);
-        String license[]={"Unlimited"};
-        JComboBox cb1=new JComboBox(license);
-        cb1.setBounds(75,510,120,20);
+        String Score[]={"A"};
+        cb1=new JComboBox(Score);
+        cb1.setBounds(70,360,80,20);
         this.add(cb1);
 
+        JLabel lebal8 = new JLabel("Select the power source");
+        lebal8.setBounds(70, 390, 250, 40);
+        this.add(lebal8);
+        manual = new JRadioButton("manual");
+        manual.setBounds(100,430,90,20);
 
-        JLabel lebal10 = new JLabel("Please add photo:");
-        lebal10.setBounds(70, 540, 250, 40);
-        this.add(lebal10);
+
+
+        JLabel lebal9 = new JLabel("Please add photo:");
+        lebal9.setBounds(70, 460, 250, 40);
+        this.add(lebal9);
         add_photo = new JButton();
-        add_photo.setBounds(100, 570, 90, 50);
+        add_photo.setBounds(100, 490, 90, 50);
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
         this.add(add_photo);
 
         add=new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15,630,120,50);
+        add.setBounds(15,560,120,50);
         add.addActionListener(this);
 
 
         add_and_closs=new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(155,630,120,50);
+        add_and_closs.setBounds(155,560,120,50);
+        add_and_closs.addActionListener(this);
+
+
 
         this.add(model);
         this.add(move);
         this.add(distance);
         this.add(passengers);
         this.add(speed);
-        this.add(Fuel_consumption);
-        this.add(lifetime);
-        this.add(with);
-        this.add(flag);
+        this.add(manual);
         this.add(add);
         this.add(add_and_closs);
 
     }
+
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("<html>Adding a<br />new vehicle</html>")) {
             String s1=model.getText();
@@ -131,20 +125,21 @@ public class Cruz extends JFrame implements ActionListener {
             String s3=distance.getText();
             String s4=passengers.getText();
             String s5=speed.getText();
-            String s6=with.getText();
-            String s8=flag.getText();
+
 
             int s=Integer.parseInt(s2);
             double a=Double.parseDouble(s3);
             int b=Integer.parseInt(s4);
             double c=Double.parseDouble(s5);
-            boolean f=Boolean.parseBoolean(s6);
 
+            Bicycle temp1=new Bicycle(f,s1,s,a,b,c,2,null);
+            Car_Agency.add_Vehicle(temp1);
+            System.out.println(temp1.toString());
+            Car_Agency.print();
 
-            Cruise_ship temp=new Cruise_ship(fp,s1,s,a,b,c,f,s8);
-            Car_Agency.add_Vehicle(temp);
-            Type_Vehicle temp1=new Type_Vehicle();
+            Type_Vehicle temp = new Type_Vehicle();
             this.dispose();
+
 
         }
         else if(e.getActionCommand().equals("add photo")){
@@ -152,20 +147,44 @@ public class Cruz extends JFrame implements ActionListener {
 
             JFileChooser photo=new JFileChooser();
             int i = photo.showOpenDialog(null);
-            fp=photo.getSelectedFile();
+            f=photo.getSelectedFile();
 
-            to = Paths.get("src/Graphic/pictures/" + fp.getName());
+            to = Paths.get("src/Graphic/pictures/" + f.getName());
             try {
-                Files.copy(fp.toPath(),to.toFile().toPath());
+                Files.copy(f.toPath(),to.toFile().toPath());
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
 
+
+
+        } else if (e.getActionCommand().equals("<html>Adding and entering<br />a car dealership</html>")) {
+            String s1=model.getText();
+            String s2=move.getText();
+            String s3=distance.getText();
+            String s4=passengers.getText();
+            String s5=speed.getText();
+
+
+            int s=Integer.parseInt(s2);
+            double a=Double.parseDouble(s3);
+            int b=Integer.parseInt(s4);
+            double c=Double.parseDouble(s5);
+
+            Bicycle temp1=new Bicycle(f,s1,s,a,b,c,2,null);
+            Car_Agency.add_Vehicle(temp1);
+            System.out.println(temp1.toString());
+            Car_Agency.print();
+
+
+            try {
+                Agency_Frame frame=new Agency_Frame();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            this.dispose();
+
         }
-
-
     }
-
-
 
 }

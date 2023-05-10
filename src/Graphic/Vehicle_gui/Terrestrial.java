@@ -1,4 +1,8 @@
-package Graphic;
+package Graphic.Vehicle_gui;
+
+import Graphic.Vehicle_gui.Amphibious;
+import Graphic.Vehicle_gui.bicycle;
+import Graphic.Vehicle_gui.jeep;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,7 +44,7 @@ public class Terrestrial extends JFrame implements ActionListener {
             this.dispose();
         }
         else if (e.getActionCommand().equals("Amphibious vehicle")) {
-            Amphibious frame = new Amphibious();
+            Graphic.Vehicle_gui.Amphibious frame = new Amphibious();
             this.dispose();
 
         }

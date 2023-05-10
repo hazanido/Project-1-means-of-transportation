@@ -1,8 +1,8 @@
-package Graphic;
+package Graphic.Vehicle_gui;
 
-import Vehicle.Bicycle;
+import Graphic.Vehicle_gui.Type_Vehicle;
 import Vehicle.Car_Agency;
-import Vehicle.Frigate;
+import Vehicle.Jeep;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,22 +14,22 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class frigate extends JFrame implements ActionListener {
-    private JTextField model, move, distance, passengers, speed, flag;
-    private JButton add, add_and_closs, add_photo;
-    private JComboBox cb1, cb3, cb;
-    private JRadioButton against, with;
+public class jeep extends JFrame implements ActionListener {
+    private JTextField model, move, distance, passengers, speed, Fuel_consumption, lifetime;
+    private JButton add, add_and_closs,add_photo;
+    private JComboBox cb;
+    private JCheckBox checkbox1;
     private File f;
 
-    public frigate() {
+    public jeep() {
         this.setVisible(true);
-        this.setSize(300, 820);
+        this.setSize(300, 770);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
-        this.setTitle("Frigate");
+        this.setTitle("Jeep");
         JLabel lebal = new JLabel("model:");
         lebal.setBounds(70, 40, 150, 20);
         this.add(lebal);
@@ -61,64 +61,61 @@ public class frigate extends JFrame implements ActionListener {
         speed.setBounds(70, 260, 150, 20);
         speed.setToolTipText("Please type the maximum speed of the vehicle");
 
-        JLabel lebal5 = new JLabel("Flag:");
-        lebal5.setBounds(70, 285, 150, 20);
+        JLabel lebal5 = new JLabel("Fuel consumption:");
+        lebal5.setBounds(70, 290, 150, 20);
         this.add(lebal5);
-        flag = new JTextField();
-        flag.setBounds(70, 310, 150, 20);
-        flag.setToolTipText("Please type the name of the country to which the boat sailed");
+        Fuel_consumption = new JTextField();
+        Fuel_consumption.setBounds(70, 310, 150, 20);
+        Fuel_consumption.setToolTipText("Please enter the average fuel consumption of the vehicle");
 
-        JLabel lebal9 = new JLabel("<html>Please type the country<br /> the boat belongs to:<html>");
-        lebal9.setBounds(70, 340, 400, 40);
-        this.add(lebal9);
-        String Israel[] = {"Israel"};
-        cb = new JComboBox(Israel);
-        cb.setBounds(70, 380, 120, 20);
+        JLabel lebal6 = new JLabel("lifetime:");
+        lebal6.setBounds(70, 340, 150, 20);
+        this.add(lebal6);
+        lifetime = new JTextField();
+        lifetime.setBounds(70, 360, 150, 20);
+        lifetime.setToolTipText("Please type the average lifetime of the engine");
+
+
+        JLabel lebal7 = new JLabel("Select a number of wheels:");
+        lebal7.setBounds(70, 390, 250, 40);
+        this.add(lebal7);
+        String wheels[] = {"5"};
+        cb = new JComboBox(wheels);
+        cb.setBounds(70, 420, 120, 20);
         this.add(cb);
 
-        JLabel lebal6 = new JLabel("<html>Please select the<br /> average fuel consumption:<html>");
-        lebal6.setBounds(70, 420, 400, 40);
-        this.add(lebal6);
-        String fuel[] = {"500"};
-        cb3 = new JComboBox(fuel);
-        cb3.setBounds(70, 460, 120, 20);
-        this.add(cb3);
-
-        JLabel lebal7 = new JLabel("<html>Please, select the average<br /> lifetime of the engine:<html>");
-        lebal7.setBounds(70, 490, 400, 40);
-        this.add(lebal7);
-        String license[] = {"4"};
-        cb1 = new JComboBox(license);
-        cb1.setBounds(70, 530, 120, 20);
+        JLabel lebal8 = new JLabel("Select the license type:");
+        lebal8.setBounds(70, 450, 250, 40);
+        this.add(lebal8);
+        String license[] = {"Mini"};
+        JComboBox cb1 = new JComboBox(license);
+        cb1.setBounds(75, 480, 120, 20);
         this.add(cb1);
 
+        JLabel lebal9 = new JLabel("The kind of way:");
+        lebal9.setBounds(90, 510, 150, 20);
+        this.add(lebal9);
+        checkbox1 = new JCheckBox("dirt");
+        checkbox1.setBounds(110, 540, 60, 30);
 
-        JLabel lebal8 = new JLabel("<html>Please Choose whether to<br /> sail with or against the wind ?:</html>");
-        lebal8.setBounds(50, 550, 250, 40);
-        this.add(lebal8);
-        against = new JRadioButton("against the wind");
-        with = new JRadioButton("with the wind");
-        against.setBounds(30, 600, 120, 20);
-        with.setBounds(160, 600, 110, 20);
 
         JLabel lebal10 = new JLabel("Please add photo:");
-        lebal10.setBounds(70, 630, 250, 40);
+        lebal10.setBounds(70, 570, 250, 40);
         this.add(lebal10);
         add_photo = new JButton();
-        add_photo.setBounds(100, 660, 90, 50);
+        add_photo.setBounds(100, 600, 90, 50);
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
         this.add(add_photo);
 
-
         add = new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15, 720, 120, 50);
+        add.setBounds(15, 670, 120, 50);
         add.addActionListener(this);
 
 
         add_and_closs = new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(155, 720, 120, 50);
+        add_and_closs.setBounds(155, 670, 120, 50);
 
 
         this.add(model);
@@ -126,13 +123,16 @@ public class frigate extends JFrame implements ActionListener {
         this.add(distance);
         this.add(passengers);
         this.add(speed);
-        this.add(flag);
-        this.add(against);
-        this.add(with);
+
         this.add(add);
         this.add(add_and_closs);
+        this.add(Fuel_consumption);
+        this.add(lifetime);
+        this.add(checkbox1);
+
 
     }
+
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("<html>Adding a<br />new vehicle</html>")) {
@@ -141,27 +141,20 @@ public class frigate extends JFrame implements ActionListener {
             String s3 = distance.getText();
             String s4 = passengers.getText();
             String s5 = speed.getText();
-            String s6 = with.getText();
-            String s7 = against.getText();
-            String s8 = flag.getText();
+            String s6 = checkbox1.getText();
+            String s7 = (String) cb.getSelectedItem();
 
 
             int s = Integer.parseInt(s2);
             double a = Double.parseDouble(s3);
             int b = Integer.parseInt(s4);
             double c = Double.parseDouble(s5);
-            boolean fl = Boolean.parseBoolean(s6);
-            boolean fl1 = Boolean.parseBoolean(s7);
+            int d = Integer.parseInt(s7);
 
-            if (fl = true) {
-                Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl, s8);
-                Car_Agency.add_Vehicle(temp1);
-            } else if (fl1 = true) {
-                Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl1, s8);
-                Car_Agency.add_Vehicle(temp1);
-            }
+            Jeep temp = new Jeep(f, s1, s, a, b, c, d, s6);
+            Car_Agency.add_Vehicle(temp);
 
-            Type_Vehicle temp = new Type_Vehicle();
+            Type_Vehicle temp1 = new Type_Vehicle();
             this.dispose();
         } else if (e.getActionCommand().equals("add photo")) {
             Path to;
@@ -176,14 +169,12 @@ public class frigate extends JFrame implements ActionListener {
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
+
         }
+
+
     }
 }
-
-
-
-
-
 
 
 
