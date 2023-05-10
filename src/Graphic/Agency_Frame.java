@@ -15,7 +15,7 @@ import java.io.IOException;
 
 
 public class Agency_Frame extends JFrame  {
-    Car_Agency agency;
+
     JLabel display;
     ImageIcon imageIcon;
 
@@ -32,28 +32,18 @@ public class Agency_Frame extends JFrame  {
 
 
         JPanel carPanel = new JPanel(new GridLayout(0, 3, 10, 10));
-        for (int i = 0; i <= agency.get_vehicle().length; i++) {
+        for (int i = 0; i <= Car_Agency.get_vehicle().length; i++) {
             Vehicle vehicle = Car_Agency.get_vehicle()[i];
-            //BufferedImage image = ImageIO.read(new File());
-            //ImageIcon icon = new ImageIcon(image);
-            //JLabel imageLabel = new JLabel(icon);
-            //carPanel.add(imageLabel);
+            BufferedImage image = ImageIO.read(vehicle.get_Photo());
+            ImageIcon icon = new ImageIcon(image);
+            JLabel imageLabel = new JLabel(icon);
+            carPanel.add(imageLabel);
             add(carPanel, BorderLayout.CENTER);
             setVisible(true);
 
 
-            if ((agency.get_vehicle()[i] instanceof Bicycle) == true) {
-                imageIcon = new ImageIcon(getClass().getResource("src/Graphic/pictures/bicycle1.png"));
-                display = new JLabel(imageIcon);
-                display.setBounds(15, 50, imageIcon.getIconWidth(), imageIcon.getIconHeight());
-                this.add(display);
-                JButton button = new JButton(imageIcon);
-                carPanel.add(button);
-                add(carPanel, BorderLayout.CENTER);
-
-                setVisible(true);
-
             }
+        /**
 
             imageIcon = new ImageIcon(getClass().getResource(agency.get_vehicle()[i].getImagePath()));
             display = new JLabel(imageIcon);
@@ -63,6 +53,7 @@ public class Agency_Frame extends JFrame  {
             carPanel.add(button);
 
         }
+         **/
 
 
 
