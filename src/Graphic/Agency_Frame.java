@@ -16,7 +16,7 @@ public class Agency_Frame extends JFrame  {
     ImageIcon imageIcon;
 
 
-    public Agency_Frame() throws IOException {
+    public Agency_Frame() {
         this.setVisible(true);
         this.setSize(1200, 1200);
         this.setResizable(false);
@@ -31,7 +31,12 @@ public class Agency_Frame extends JFrame  {
         for (int i = 0; i < Car_Agency.get_vehicle().length; i++) {
 
             Vehicle vehicle = Car_Agency.get_vehicle()[i];
-            BufferedImage image = ImageIO.read(vehicle.get_Photo());
+            BufferedImage image = null;
+            try {
+                image = ImageIO.read(vehicle.get_Photo());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             ImageIcon icon = new ImageIcon(image);
             JLabel imageLabel = new JLabel(icon);
             JButton button=new JButton(icon);

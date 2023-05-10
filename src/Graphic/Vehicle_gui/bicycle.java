@@ -177,11 +177,11 @@ public class bicycle extends JFrame implements ActionListener {
             Car_Agency.print();
 
 
-            try {
-                Agency_Frame frame=new Agency_Frame();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+            Agency_Frame frame=new Agency_Frame();
+
+
+
+
             this.dispose();
 
         }

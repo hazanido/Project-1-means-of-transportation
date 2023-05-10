@@ -39,11 +39,8 @@ public class Test_drive extends JFrame implements ActionListener {
     }
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Back to the agency")) {
-            try {
-                Agency_Frame temp=new Agency_Frame();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+            Agency_Frame temp=new Agency_Frame();
+
             this.dispose();
         }
 
