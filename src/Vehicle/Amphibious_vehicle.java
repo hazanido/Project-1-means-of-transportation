@@ -12,10 +12,10 @@ public class Amphibious_vehicle extends Marine_transport_vehicle implements Terr
         land.set_Kind_Way("paved");
     }
 
-    public Amphibious_vehicle(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, boolean Because, String target, Land_transport_vehicle land) {
+    public Amphibious_vehicle(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, boolean Because, String target) {
         super(photo, Model_Name, move, distance, Max_Passengers, Max_Speed, Because, target);
-        this.land = land;
-        this.land.set_Kind_Way("paved");
+
+
     }
 
 

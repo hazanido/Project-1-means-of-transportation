@@ -7,7 +7,7 @@ import java.util.Objects;
  * A class that represents the air transport vehicles and
  * describes their basic features
  */
-public class Air_transport_vehicles extends Vehicle {
+public abstract class Air_transport_vehicles extends Vehicle {
     private String Type;
 
     /**
