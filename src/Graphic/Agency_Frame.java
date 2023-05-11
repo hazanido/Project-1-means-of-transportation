@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 
-public class Agency_Frame extends JFrame implements Test_drive1,Operations1,ActionListener {
+public class Agency_Frame extends JFrame implements Operations1,ActionListener {
 
     JLabel display;
     private static Dialog d;
@@ -44,14 +44,43 @@ public class Agency_Frame extends JFrame implements Test_drive1,Operations1,Acti
             JLabel imageLabel = new JLabel(icon);
             JButton button = new JButton(icon);
             button.addActionListener(e -> {
-                //int temp = Car_Agency.get_vehicle()[finalI].get_move();
-                //Car_Agency.get_vehicle()[finalI].set_Move(temp + update_move());
+                JFrame f = new JFrame();
 
-                /**int temp1 = update_move();
+                JButton Back;
+                JTextField move;
 
-                Car_Agency.get_vehicle()[finalI].set_Move(temp*Car_Agency.get_vehicle()[finalI].get_move());
+                f.setVisible(true);
+                f.setSize(200, 200);
+                f.setLocationRelativeTo(null);
+                f.setResizable(false);
+                f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                f.setLayout(null);
+                f.getContentPane().setBackground(Color.gray);
+                f.setTitle("Test_drive");
 
-                 **/
+                JLabel lebal1 = new JLabel("move:");
+                lebal1.setBounds(15, 20, 150, 20);
+                f.add(lebal1);
+                move = new JTextField();
+                move.setBounds(15, 50, 150, 20);
+                move.setToolTipText("Please enter the distance you traveled on a test drive");
+
+
+                Back = new JButton();
+                Back.setBounds(20, 100, 150, 30);
+                Back.setText("Back to the agency");
+                Back.addActionListener((ActionListener) f);
+                f.add(Back);
+                f.add(move);
+
+                String s = move.getText();
+                int s1 = Integer.parseInt(s);
+
+
+                int temp = Car_Agency.get_vehicle()[finalI].get_move();
+                Car_Agency.get_vehicle()[finalI].set_Move(temp + s1);
+
+
                 Operations frame = new Operations();
 
                 this.dispose();
@@ -67,6 +96,7 @@ public class Agency_Frame extends JFrame implements Test_drive1,Operations1,Acti
         }
 
     }
+    /**
 
     public int update_move() {
         JFrame f = new JFrame();
@@ -103,6 +133,7 @@ public class Agency_Frame extends JFrame implements Test_drive1,Operations1,Acti
         return s1;
 
     }
+
     public boolean Update_after_purchase(){
 
         JFrame f = new JFrame();
@@ -113,9 +144,10 @@ public class Agency_Frame extends JFrame implements Test_drive1,Operations1,Acti
         d.add(button);
         d.setSize(300,300);
         d.setVisible(true);
-        return
+
 
     }
+     **/
 
 
 
@@ -131,13 +163,14 @@ public class Agency_Frame extends JFrame implements Test_drive1,Operations1,Acti
             Agency_Frame temp = new Agency_Frame();
             this.dispose();
         } else if (e.getActionCommand().equals("Test drive")) {
-            int t=update_move();
 
-            //Test_drive frame = new Test_drive();
+
+
+            Test_drive frame = new Test_drive();
             //this.dispose();
 
         } else if (e.getActionCommand().equals("Buying car")) {
-            boolean p=Update_after_purchase();
+
 
 
 
