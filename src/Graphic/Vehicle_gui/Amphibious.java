@@ -1,18 +1,21 @@
 package Graphic.Vehicle_gui;
 
 import Graphic.Vehicle_gui.Type_Vehicle;
+import Vehicle.Amphibious_vehicle;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class Amphibious extends JFrame implements ActionListener {
     private JTextField model,move,distance,passengers,speed,Fuel_consumption,lifetime;
-    private JButton add,add_and_closs;
+    private JButton add,add_and_closs,add_photo;
+    private File f;
     public Amphibious(){
         this.setVisible(true);
-        this.setSize(300, 560);
+        this.setSize(300, 650);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,14 +73,26 @@ public class Amphibious extends JFrame implements ActionListener {
         JCheckBox checkbox1 = new JCheckBox("paved");
         checkbox1.setBounds(110,420, 60,30);
 
+        JLabel lebal10 = new JLabel("Please add photo:");
+        lebal10.setBounds(70, 460, 250, 40);
+        this.add(lebal10);
+        add_photo = new JButton();
+        add_photo.setBounds(100, 490, 90, 50);
+        add_photo.setText("add photo");
+        add_photo.addActionListener(this);
+        this.add(add_photo);
+
+
+
         add=new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15,460,120,50);
+        add.setBounds(15,550,120,50);
         add.addActionListener(this);
 
 
         add_and_closs=new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(145,460,130,50);
+        add_and_closs.setBounds(145,550,130,50);
+        add_and_closs.addActionListener(this);
 
 
 
@@ -97,7 +112,13 @@ public class Amphibious extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("<html>Adding a<br />new vehicle</html>")) {
 
-            //Amphibious temp1 = new (m, move, d, p, s, t);
+            String s1=model.getText();
+            String s2=move.getText();
+            String s3=distance.getText();
+            String s4=passengers.getText();
+            String s5=speed.getText();
+
+            //Amphibious_vehicle =new Amphibious_vehicle()
             //Car_Agency.add_Vehicle(temp1);
 
             Type_Vehicle temp = new Type_Vehicle();

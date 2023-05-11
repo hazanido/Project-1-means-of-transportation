@@ -89,4 +89,6 @@ public class Frigate extends Marine_transport_vehicle implements Motorized_engin
                 && Float.compare(this.Fuel_consumption, other.Fuel_consumption) == 0
                 && Float.compare(this.lifetime, other.lifetime) == 0;
     }
+
+
 }

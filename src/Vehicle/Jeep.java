@@ -8,6 +8,7 @@ import java.util.Objects;
  */
 
 public class Jeep extends Land_transport_vehicle implements Motorized_engine, Commercial_use {
+
     /**
      * Default constructor,
      *Calls the default constructor of the class from which it inherits the land vehicles class
@@ -110,4 +111,6 @@ public class Jeep extends Land_transport_vehicle implements Motorized_engine, Co
                 get_Number_Wheels() == jeep.get_Number_Wheels() &&
                 Objects.equals(get_Kind_Way(), jeep.get_Kind_Way());
     }
+
+
 }

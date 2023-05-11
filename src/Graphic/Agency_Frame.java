@@ -101,6 +101,7 @@ public class Agency_Frame extends JFrame implements Test_drive1,Operations1 {
             this.dispose();
         } else if (e.getActionCommand().equals("Test drive")) {
             Test_drive frame = new Test_drive();
+
             this.dispose();
         } else if (e.getActionCommand().equals("Buying car")) {
 

@@ -6,7 +6,7 @@ import java.util.Objects;
  * A class that represents the land transport vehicles
  * and describes their basic features
  */
-public class Land_transport_vehicle extends Vehicle {
+public class Land_transport_vehicle extends Vehicle implements Terrestrial_interface{
     private int Number_Wheels;
     private String Kind_Way;
 
