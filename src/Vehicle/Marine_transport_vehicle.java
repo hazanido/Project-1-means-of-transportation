@@ -7,7 +7,7 @@ import java.util.Objects;
  *A class that represents the marine transport vehicles
  * and describes their basic features
  */
-public abstract class Marine_transport_vehicle extends Vehicle {
+public class Marine_transport_vehicle extends Vehicle {
     private boolean Because;
     private String target;
 

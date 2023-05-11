@@ -146,21 +146,21 @@ public class dawn_rigoli extends JFrame implements ActionListener {
             this.dispose();
         }
         
-            else if(e.getActionCommand().equals("add photo")){
-                Path to;
+        else if(e.getActionCommand().equals("add photo")){
+            Path to;
 
-                JFileChooser photo=new JFileChooser();
-                int i = photo.showOpenDialog(null);
-                f=photo.getSelectedFile();
+            JFileChooser photo=new JFileChooser();
+            int i = photo.showOpenDialog(null);
+            f=photo.getSelectedFile();
 
-                to = Paths.get("src/Graphic/pictures/" + f.getName());
-                try {
-                    Files.copy(f.toPath(),to.toFile().toPath());
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-
+            to = Paths.get("src/Graphic/pictures/" + f.getName());
+            try {
+                Files.copy(f.toPath(),to.toFile().toPath());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
+
+        }
         else if (e.getActionCommand().equals("<html>Adding and entering<br />a car dealership</html>")) {
             String s1 = (String) cb5.getSelectedItem();
             String s2 = move.getText();
