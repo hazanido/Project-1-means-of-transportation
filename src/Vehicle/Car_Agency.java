@@ -32,7 +32,7 @@ public class Car_Agency {
      * @param size-The size of the array
      * @param vehicle-The array of all the means of transportation that exist in the system
      */
-    public Car_Agency(int size, Vehicle[] vehicle){
+    public  Car_Agency(int size, Vehicle[] vehicle){
         this.size=size;
         this.vehicle=vehicle;
     }
@@ -144,7 +144,7 @@ public class Car_Agency {
      * @param index-The index where the vehicle is located
      * @param km-km to be added in the "move" variable
      */
-    public void Adding_km_displacement(Vehicle[] v,int index,int km){
+    public static void Adding_km_displacement(Vehicle[] v,int index,int km){
         int n;
         n= v[index].get_move();
         int Union=n+km;

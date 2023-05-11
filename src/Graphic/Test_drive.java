@@ -1,5 +1,7 @@
 package Graphic;
 
+import Vehicle.Vehicle;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,7 +11,12 @@ import java.io.IOException;
 public class Test_drive extends JFrame implements ActionListener {
     private JButton Back;
     private JTextField move;
+
     public Test_drive(){
+        Agency_Frame temp=new Agency_Frame();
+
+    }
+    public Test_drive(int i, Vehicle[] vehicles){
         this.setVisible(true);
         this.setSize(200, 200);
         this.setLocationRelativeTo(null);
@@ -33,10 +40,15 @@ public class Test_drive extends JFrame implements ActionListener {
         Back.addActionListener(this);
         this.add(Back);
 
-
         this.add(move);
+        String s = move.getText();
+        int s1 = Integer.parseInt(s);
+
+        int temp =vehicles[i].get_move();
+        vehicles[i].set_Move(temp + s1);
 
     }
+
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Back to the agency")) {
             Agency_Frame temp=new Agency_Frame();

@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Operations extends JFrame implements ActionListener {
-    JButton test_drive,buying_car,Flag_change,Reset,Exit;
+    private JButton test_drive,buying_car,Flag_change,Reset,Exit;
 
 
     public Operations(){
@@ -52,14 +52,11 @@ public class Operations extends JFrame implements ActionListener {
 
     }
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("Test drive")) {
+        if(e.getActionCommand().equals("Test_drive")){
             Test_drive frame=new Test_drive();
             this.dispose();
         }
-        else if(e.getActionCommand().equals("Buying car")){
 
-
-        }
 
     }
 
