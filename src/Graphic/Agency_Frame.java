@@ -12,9 +12,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 
-public class Agency_Frame extends JFrame implements Test_drive1,Operations1 {
+public class Agency_Frame extends JFrame implements Test_drive1,Operations1,ActionListener {
 
     JLabel display;
+    private static Dialog d;
     ImageIcon imageIcon;
 
 
@@ -30,6 +31,7 @@ public class Agency_Frame extends JFrame implements Test_drive1,Operations1 {
 
 
         for (int i = 0; i < Car_Agency.get_vehicle().length; i++) {
+            int finalI=i;
 
             Vehicle vehicle = Car_Agency.get_vehicle()[i];
             BufferedImage image = null;
@@ -42,6 +44,14 @@ public class Agency_Frame extends JFrame implements Test_drive1,Operations1 {
             JLabel imageLabel = new JLabel(icon);
             JButton button = new JButton(icon);
             button.addActionListener(e -> {
+                //int temp = Car_Agency.get_vehicle()[finalI].get_move();
+                //Car_Agency.get_vehicle()[finalI].set_Move(temp + update_move());
+
+                /**int temp1 = update_move();
+
+                Car_Agency.get_vehicle()[finalI].set_Move(temp*Car_Agency.get_vehicle()[finalI].get_move());
+
+                 **/
                 Operations frame = new Operations();
 
                 this.dispose();
@@ -92,21 +102,48 @@ public class Agency_Frame extends JFrame implements Test_drive1,Operations1 {
         int s1 = Integer.parseInt(s);
         return s1;
 
+    }
+    public boolean Update_after_purchase(){
+
+        JFrame f = new JFrame();
+        d=new Dialog(f,"Car purchase approval",true);
+        d.setLayout(new FlowLayout());
+        Button button=new Button("OK");
+        d.add(new Label("The purchase was made successfully!!"));
+        d.add(button);
+        d.setSize(300,300);
+        d.setVisible(true);
+        return
 
     }
+
+
+
+
+
+
+
+
+
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Back to the agency")) {
             Agency_Frame temp = new Agency_Frame();
             this.dispose();
         } else if (e.getActionCommand().equals("Test drive")) {
-            Test_drive frame = new Test_drive();
+            int t=update_move();
 
-            this.dispose();
+            //Test_drive frame = new Test_drive();
+            //this.dispose();
+
         } else if (e.getActionCommand().equals("Buying car")) {
+            boolean p=Update_after_purchase();
+
+
 
         }
     }
+
 
     public void Operations() {
         JFrame frame = new JFrame();
