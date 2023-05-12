@@ -117,6 +117,7 @@ public class jeep extends JFrame implements ActionListener {
 
         add_and_closs = new JButton("<html>Adding and entering<br />a car dealership</html>");
         add_and_closs.setBounds(155, 670, 120, 50);
+        add_and_closs.addActionListener(this);
 
 
         this.add(model);

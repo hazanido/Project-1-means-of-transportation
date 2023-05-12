@@ -12,7 +12,6 @@ public class Test_drive extends JFrame implements ActionListener {
     private JButton Back;
     private JTextField move;
     private Vehicle vehicle;
-    private int i;
 
 
 
@@ -42,10 +41,13 @@ public class Test_drive extends JFrame implements ActionListener {
         this.add(Back);
 
         this.add(move);
-
+        /**
+        String s = move.getText();
+        int s1 = Integer.parseInt(s);
 
         int temp = vehicles[i].get_move();
-        //vehicles[i].set_Move(temp + s1);
+        vehicles[i].set_Move(temp + s1);
+         **/
 
     }
 
@@ -57,20 +59,18 @@ public class Test_drive extends JFrame implements ActionListener {
                 int temp = vehicle.get_move();
                 vehicle.set_Move(temp + distance);
                 Agency_Frame temp1=new Agency_Frame(Car_Agency.get_vehicle(),vehicle.get_move());
-
+                this.dispose();
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Please enter a valid number");
                 return;
             }
 
-
-            //Agency_Frame temp = new Agency_Frame();
-            //temp.setVisible(true);
-            this.dispose();
+            }
         }
     }
 
-}
+
+
 
 
 
