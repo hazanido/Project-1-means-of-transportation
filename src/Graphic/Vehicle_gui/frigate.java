@@ -205,7 +205,7 @@ public class frigate extends JFrame implements ActionListener {
                 Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl1, s8);
                 Car_Agency.add_Vehicle(temp1);
             }
-            Agency_Frame frame=new Agency_Frame();
+            Agency_Frame frame=new Agency_Frame(Car_Agency.get_vehicle(),s);
 
             this.dispose();
 

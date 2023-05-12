@@ -227,7 +227,7 @@ public class Amphibious extends JFrame implements ActionListener {
 
 
 
-            Agency_Frame frame=new Agency_Frame();
+            Agency_Frame frame=new Agency_Frame(Car_Agency.get_vehicle(),s);
 
             this.dispose();
         }

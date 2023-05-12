@@ -26,7 +26,7 @@ public class Agency_Frame extends JFrame implements ActionListener {
     private JButton test_drive, buying_car, Flag_change, Reset, Exit;
 
 
-    public Agency_Frame(Car_Agency carAgency, int move) {
+    public Agency_Frame(Vehicle[] vehicles, int move) {
         this.carAgency = carAgency;
         this.move = move;
 

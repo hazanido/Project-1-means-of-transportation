@@ -20,9 +20,11 @@ public class bicycle extends JFrame implements ActionListener {
     private JRadioButton manual;
     private JComboBox cb,cb1;
     private JButton add,add_and_closs,add_photo;
+
     private File f;
 
     public bicycle(){
+
         this.setVisible(true);
         this.setSize(300, 670);
         this.setLocationRelativeTo(null);
@@ -178,7 +180,7 @@ public class bicycle extends JFrame implements ActionListener {
 
 
 
-            Agency_Frame frame=new Agency_Frame();
+            Agency_Frame frame=new Agency_Frame(Car_Agency.get_vehicle(),s);
 
             this.dispose();
 

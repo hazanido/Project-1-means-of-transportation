@@ -184,7 +184,7 @@ public class Cruz extends JFrame implements ActionListener {
             Cruise_ship temp=new Cruise_ship(fp,s1,s,a,b,c,f,s8);
             Car_Agency.add_Vehicle(temp);
 
-            Agency_Frame frame=new Agency_Frame();
+            Agency_Frame frame=new Agency_Frame(Car_Agency.get_vehicle(),s);
 
             this.dispose();
 

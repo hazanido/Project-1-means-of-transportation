@@ -191,7 +191,7 @@ public class jeep extends JFrame implements ActionListener {
             Jeep temp = new Jeep(f, s1, s, a, b, c, d, s6);
             Car_Agency.add_Vehicle(temp);
 
-            //Agency_Frame frame=new Agency_Frame();
+            Agency_Frame frame=new Agency_Frame(Car_Agency.get_vehicle(),s);
 
             this.dispose();
 

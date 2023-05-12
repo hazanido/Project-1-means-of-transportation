@@ -177,7 +177,7 @@ public class dawn_rigoli extends JFrame implements ActionListener {
             Dawn_Rigoli temp1 = new Dawn_Rigoli(f,s1, s, a, b, c, s6);
             Car_Agency.add_Vehicle(temp1);
 
-            //Agency_Frame frame=new Agency_Frame();
+            Agency_Frame frame=new Agency_Frame(Car_Agency.get_vehicle(),s);
 
             this.dispose();
 
