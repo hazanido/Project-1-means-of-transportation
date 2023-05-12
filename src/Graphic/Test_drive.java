@@ -1,6 +1,6 @@
 package Graphic;
 
-import Vehicle.Vehicle;
+import Vehicle.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,12 +11,13 @@ import java.io.IOException;
 public class Test_drive extends JFrame implements ActionListener {
     private JButton Back;
     private JTextField move;
+    private Vehicle vehicle;
+    private int i;
 
-    public Test_drive(){
-        Agency_Frame temp=new Agency_Frame();
 
-    }
-    public Test_drive(int i, Vehicle[] vehicles){
+
+    public Test_drive(int i, Vehicle[] vehicles) {
+        this.vehicle = vehicles[i];
         this.setVisible(true);
         this.setSize(200, 200);
         this.setLocationRelativeTo(null);
@@ -29,8 +30,8 @@ public class Test_drive extends JFrame implements ActionListener {
         JLabel lebal1 = new JLabel("move:");
         lebal1.setBounds(15, 20, 150, 20);
         this.add(lebal1);
-        move=new JTextField();
-        move.setBounds(15,50,150,20);
+        move = new JTextField();
+        move.setBounds(15, 50, 150, 20);
         move.setToolTipText("Please enter the distance you traveled on a test drive");
 
 
@@ -44,18 +45,24 @@ public class Test_drive extends JFrame implements ActionListener {
         String s = move.getText();
         int s1 = Integer.parseInt(s);
 
-        int temp =vehicles[i].get_move();
+        int temp = vehicles[i].get_move();
         vehicles[i].set_Move(temp + s1);
 
     }
 
+
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Back to the agency")) {
-            Agency_Frame temp=new Agency_Frame();
+            int distance = Integer.parseInt(move.getText());
 
+
+            //Agency_Frame temp = new Agency_Frame();
+            //temp.setVisible(true);
             this.dispose();
         }
-
     }
 
 }
+
+
+

@@ -2,14 +2,22 @@ package Graphic;
 
 import javax.swing.*;
 import java.awt.*;
+import Vehicle.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Operations extends JFrame implements ActionListener {
+    private Vehicle vehicle;
+    private int i;
     private JButton test_drive,buying_car,Flag_change,Reset,Exit;
+    private Vehicle[] vehicles;
 
 
-    public Operations(){
+
+    public Operations(int i, Vehicle[] vehicles){
+        this.i = i;
+        this.vehicles = vehicles;
+
         this.setVisible(true);
         this.setSize(400, 320);
         this.setLocationRelativeTo(null);
@@ -50,10 +58,11 @@ public class Operations extends JFrame implements ActionListener {
 
 
 
+
     }
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("Test_drive")){
-            Test_drive frame=new Test_drive();
+        if(e.getActionCommand().equals("Test drive")){
+            Test_drive frame=new Test_drive(i,vehicles);
             this.dispose();
         }
 
