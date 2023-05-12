@@ -59,7 +59,7 @@ public class game_drone extends JFrame implements ActionListener {
         JLabel lebal4 = new JLabel("speed:");
         lebal4.setBounds(70, 200, 150, 20);
         this.add(lebal4);
-        String speed[] = {"10km"};
+        String speed[] = {"10"};
         cb4 = new JComboBox(speed);
         cb4.setBounds(110, 200, 90, 20);
 

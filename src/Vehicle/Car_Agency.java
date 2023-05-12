@@ -88,7 +88,7 @@ public class Car_Agency {
      * @param s_m-Describes the maximum speed of the vehicle
      * @return Returns true or false if the requested vehicle exists in the array
      */
-    public boolean vehicle_exists(String model,int move,double dic,int p_m,double s_m){
+    public static boolean vehicle_exists(String model,int move,double dic,int p_m,double s_m){
         for (int i=0;i<size;i++) {
             if ((vehicle[i].get_Model_Name().equals(model)) && (vehicle[i].get_move()==move) && (vehicle[i].get_distance() == dic) && (vehicle[i].get_Max_Passengers() == p_m) && (vehicle[i].get_Max_Speed() == s_m)) {
                 return true;
@@ -108,7 +108,7 @@ public class Car_Agency {
      * @return the index where the vehicle is located in the array
      */
 
-    public int indexOf(String model,int move,double dic,int p_m,double s_m){
+    public static int indexOf(String model,int move,double dic,int p_m,double s_m){
         int ans=-1;
         for (int i=0;(i<size)&&(ans==-1);i++) {
             if ((vehicle[i].get_Model_Name().equals(model)) && (vehicle[i].get_move() == move) && (vehicle[i].get_distance() == dic) && (vehicle[i].get_Max_Passengers() == p_m) && (vehicle[i].get_Max_Speed() == s_m)) {
@@ -128,7 +128,7 @@ public class Car_Agency {
      * @param s_m-Describes the maximum speed of the vehicle
      */
 
-    public void remove(String model,int move,double dic,int p_m,double s_m) {
+    public static void remove(String model,int move,double dic,int p_m,double s_m) {
         for (int i = 0; i < size; i++) {
             if (vehicle_exists(model, move, dic, p_m, s_m) == true) {
                 vehicle[i] = vehicle[size - 1];
@@ -136,6 +136,17 @@ public class Car_Agency {
                 size = size - 1;
             }
         }
+    }
+    public static void remove_vehicles(Vehicle[] vehicles,int i ){
+        Vehicle[] newVehicles = new Vehicle[vehicles.length - 1];
+        System.arraycopy(vehicles, 0, newVehicles, 0, i);
+        System.arraycopy(vehicles, i + 1, newVehicles, i, vehicles.length - i - 1);
+        Car_Agency.set_vehicle(newVehicles);
+        remove(vehicles[i].get_Model_Name(),vehicles[i].get_move(),vehicles[i].get_distance(),vehicles[i].get_Max_Passengers(),vehicles[i].get_Max_Speed());
+
+    }
+    public static void set_vehicle(Vehicle[] newVehicleArray) {
+        vehicle = newVehicleArray;
     }
 
     /**
