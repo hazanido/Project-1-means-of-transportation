@@ -65,6 +65,10 @@ public class Operations extends JFrame implements ActionListener {
             Test_drive frame=new Test_drive(i,vehicles);
             this.dispose();
         }
+        if(e.getActionCommand().equals("Flag change")){
+            Flag_selection frame=new Flag_selection(i,vehicles);
+            this.dispose();
+        }
 
 
     }
