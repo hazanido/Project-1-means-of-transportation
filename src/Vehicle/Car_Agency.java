@@ -1,5 +1,6 @@
 package Vehicle;
 
+import java.io.File;
 import java.util.Arrays;
 /**
  * The car agency department contains
@@ -26,6 +27,12 @@ public class Car_Agency {
         vehicle= new Vehicle[size];
         size=0;
     }
+
+    static public Vehicle[] get_Agency(){
+
+        return vehicle;
+    }
+
 
     /**
      *
@@ -65,6 +72,9 @@ public class Car_Agency {
             vehicle[size-1]=car;
         }
     }
+public int getSize(){
+        return size;
+}
 
     /**
      *Print function, prints the details of all the means of transportation that exist in the array,
