@@ -42,7 +42,7 @@ public class Agency_Frame extends JFrame implements ActionListener {
         for (int i = 0; i < Car_Agency.get_vehicle().length; i++) {
             Temp_carAgency[i] = Car_Agency.get_vehicle()[i];
         }
-        for (int i = 0; i <= Temp_carAgency.length; i++) {
+        for (int i = 0; i < Temp_carAgency.length; i++) {
             finalI = i;
             Vehicle vehicle = Temp_carAgency[i];
             BufferedImage image = null;
@@ -69,6 +69,7 @@ public class Agency_Frame extends JFrame implements ActionListener {
         Operations temp = new Operations(index, vehicles);
         temp.setVisible(true);
         this.dispose();
+
     }
 }
 

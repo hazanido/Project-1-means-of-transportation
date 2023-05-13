@@ -147,14 +147,17 @@ public int getSize(){
             }
         }
     }
-    public static void remove_vehicles(Vehicle[] vehicles,int i ){
+    public static void remove_vehicle(Vehicle[] vehicles, int index) {
         Vehicle[] newVehicles = new Vehicle[vehicles.length - 1];
-        System.arraycopy(vehicles, 0, newVehicles, 0, i);
-        System.arraycopy(vehicles, i + 1, newVehicles, i, vehicles.length - i - 1);
+        int destPos = 0;
+        for (int i = 0; i < vehicles.length; i++) {
+            if (i != index) {
+                newVehicles[destPos++] = vehicles[i];
+            }
+        }
         Car_Agency.set_vehicle(newVehicles);
-        remove(vehicles[i].get_Model_Name(),vehicles[i].get_move(),vehicles[i].get_distance(),vehicles[i].get_Max_Passengers(),vehicles[i].get_Max_Speed());
-
     }
+
     public static void set_vehicle(Vehicle[] newVehicleArray) {
         vehicle = newVehicleArray;
     }

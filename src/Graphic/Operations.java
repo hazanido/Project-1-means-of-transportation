@@ -65,10 +65,17 @@ public class Operations extends JFrame implements ActionListener {
             Test_drive frame = new Test_drive(i, vehicles);
             this.dispose();
         }
-        if (e.getActionCommand().equals("Buying car")) {
+        else if (e.getActionCommand().equals("Buying car")) {
             Buying_car frame = new Buying_car(i, vehicles);
             this.dispose();
-        if(e.getActionCommand().equals("Flag change")){
+            if(vehicles==null){
+                JOptionPane.showMessageDialog(null, "There are no vehicles at the agency. Insert new vehicles");
+                main_window temp=new main_window();
+                this.dispose();
+
+            }
+        }
+        else if(e.getActionCommand().equals("Flag change")){
             Flag_selection frame=new Flag_selection(i,vehicles);
             this.dispose();
         }
@@ -77,5 +84,5 @@ public class Operations extends JFrame implements ActionListener {
         }
 
     }
-}
+
 
