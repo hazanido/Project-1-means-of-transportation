@@ -16,8 +16,15 @@ public class Buying_car extends JDialog implements ActionListener {
             Car_Agency.remove_vehicle(Car_Agency.get_vehicle(),i);
             JOptionPane.showMessageDialog(null, "Car has been removed successfully");
             this.dispose();
-            Agency_Frame frame = new Agency_Frame(Car_Agency.get_vehicle(),vehicle.get_move());
-            frame.setVisible(true);
+            if(i==0){
+                JOptionPane.showMessageDialog(null, "There are no vehicles at the agency. Insert new vehicles");
+                main_window temp=new main_window();
+                this.dispose();
+
+            }else {
+                Agency_Frame frame = new Agency_Frame(Car_Agency.get_vehicle(), vehicle.get_move());
+                frame.setVisible(true);
+            }
 
     }
 

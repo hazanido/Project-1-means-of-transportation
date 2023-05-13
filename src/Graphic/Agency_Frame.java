@@ -37,7 +37,7 @@ public class Agency_Frame extends JFrame implements ActionListener {
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Agency");
-        this.setLayout((new GridLayout(2,2)));
+        this.setLayout(new GridLayout());
         Temp_carAgency = new Vehicle[Car_Agency.get_vehicle().length];
         for (int i = 0; i < Car_Agency.get_vehicle().length; i++) {
             Temp_carAgency[i] = Car_Agency.get_vehicle()[i];
