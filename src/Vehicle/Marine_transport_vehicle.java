@@ -96,4 +96,8 @@ public class Marine_transport_vehicle extends Vehicle {
                 this.Because == other.Because &&
                 Objects.equals(this.target, other.target);
     }
+
+
+
+
 }

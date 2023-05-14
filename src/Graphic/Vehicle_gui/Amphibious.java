@@ -14,13 +14,29 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * The Amphibious class represents a type of vehicle that can move both on land and in water.
+ * It extends the JFrame class and implements the ActionListener interface to enable interaction with the user.
+ * The class contains various fields that represent the different attributes of the vehicle, such as its model,
+ * ability to move, distance traveled, number of passengers, maximum speed, average fuel consumption, and engine lifetime.
+ * In addition, the class includes a text field for entering the name of the country to which the vehicle sailed,
+ * and radio buttons for choosing whether to sail with or against the wind.
+ */
+
 public class Amphibious extends JFrame implements ActionListener {
     private JTextField model,move,distance,passengers,speed,Fuel_consumption,lifetime,flag;
     private JButton add,add_and_closs,add_photo;
     private JRadioButton against, with;
 
     private File f;
+
+    /**
+     * Constructs a new Amphibious object and initializes its GUI components.
+     * The method also initializes all the text fields and labels that will be displayed on the frame,
+     * sets their positions and sizes, and adds them to the frame.
+     */
     public Amphibious(){
+        // Set window properties
         this.setVisible(true);
         this.setSize(300, 800);
         this.setLocationRelativeTo(null);
@@ -29,6 +45,8 @@ public class Amphibious extends JFrame implements ActionListener {
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Amphibious");
+
+        // Add components to the window
         JLabel lebal = new JLabel("model:");
         lebal.setBounds(70, 40, 150, 20);
         this.add(lebal);
@@ -89,23 +107,11 @@ public class Amphibious extends JFrame implements ActionListener {
         against.setBounds(30, 500, 120, 20);
         with.setBounds(160, 500, 110, 20);
 
-
-
-
-
-
         JLabel lebal9 = new JLabel("The kind of way:");
         lebal9.setBounds(90, 530, 150, 20);
         this.add(lebal9);
         JCheckBox checkbox1 = new JCheckBox("paved");
         checkbox1.setBounds(110,560, 60,30);
-
-
-
-
-
-
-
 
         JLabel lebal10 = new JLabel("Please add photo:");
         lebal10.setBounds(70, 590, 250, 40);
@@ -115,7 +121,6 @@ public class Amphibious extends JFrame implements ActionListener {
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
         this.add(add_photo);
-
 
 
         add=new JButton();
@@ -146,6 +151,19 @@ public class Amphibious extends JFrame implements ActionListener {
 
 
     }
+
+    /**
+     *This method processes an ActionEvent, which is generated when the user interacts with the GUI.
+     *
+     * The method reads data from various input fields in the GUI, creates a new vehicle object based on the input,
+     * If the "add photo" button is pressed, the method opens a file chooser dialog and allows the user to select a photo file,
+     * which is then copied to a designated folder.
+     * If we click on adding a new vehicle then it will add the vehicle we have just entered to the array
+     * and return us to fill in details about the new vehicle we would like to add
+     * If we click on adding the vehicle and opening the agency, it will add the vehicle
+     * we have just entered to the array of vehicles and open the agency window where there are pictures of all the vehicles in the agency
+     * @param e the event to be processed
+     */
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("<html>Adding a<br />new vehicle</html>")) {
 
@@ -224,8 +242,6 @@ public class Amphibious extends JFrame implements ActionListener {
                 Car_Agency.add_Vehicle(temp1);
 
             }
-
-
 
             Agency_Frame frame=new Agency_Frame(Car_Agency.get_vehicle(),s);
 

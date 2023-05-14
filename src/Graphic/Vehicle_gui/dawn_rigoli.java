@@ -13,6 +13,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * The `dawn rigoli` class represents a GUI for adding new vehicle objects to an array.
+ * It extends the `JFrame` class and implements the `ActionListener` interface.
+ */
 
 public class dawn_rigoli extends JFrame implements ActionListener {
     private JTextField move, distance;
@@ -25,7 +29,14 @@ public class dawn_rigoli extends JFrame implements ActionListener {
     private JComboBox cb5, cb6, cb4, cb1;
     private File f;
 
+    /**
+     * Constructs a new dawn rigoli object and initializes its GUI components.
+     * The method also initializes all the text fields and labels that will be displayed on the frame,
+     * sets their positions and sizes, and adds them to the frame.
+     */
+
     public dawn_rigoli() {
+        // Set window properties
         this.setVisible(true);
         this.setSize(300, 600);
         this.setLocationRelativeTo(null);
@@ -34,35 +45,32 @@ public class dawn_rigoli extends JFrame implements ActionListener {
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Dawn rigoli");
-        //model
+
+        // Add components to the window
         JLabel lebal = new JLabel("model:");
         lebal.setBounds(70, 40, 150, 20);
         this.add(lebal);
         cb5 = new JComboBox(model);
         cb5.setBounds(110, 40, 90, 20);
         this.add(cb5);
-        //Move
         JLabel lebal1 = new JLabel("move:");
         lebal1.setBounds(70, 70, 150, 20);
         this.add(lebal1);
         move = new JTextField();
         move.setBounds(70, 90, 150, 20);
         move.setToolTipText("please enter ability to move the vehicle");
-        //distance
         JLabel lebal2 = new JLabel("distance:");
         lebal2.setBounds(70, 120, 150, 20);
         this.add(lebal2);
         distance = new JTextField();
         distance.setBounds(70, 140, 150, 20);
         distance.setToolTipText("please enter the distance the vehicle traveled during its lifetime");
-        //Max passengers
         JLabel lebal3 = new JLabel("Max passengers:");
         lebal3.setBounds(70, 170, 150, 20);
         this.add(lebal3);
         cb6 = new JComboBox(passengers);
         cb6.setBounds(180, 170, 50, 20);
         this.add(cb6);
-        //speed
         JLabel lebal4 = new JLabel("speed:");
         lebal4.setBounds(70, 200, 150, 20);
         this.add(lebal4);
@@ -78,14 +86,12 @@ public class dawn_rigoli extends JFrame implements ActionListener {
         this.add(lebal5);
         military = new JRadioButton("military");
         military.setBounds(110, 250, 70, 20);
-        //energy score
         JLabel lebal6 = new JLabel("Please select an energy score:");
         lebal6.setBounds(70, 270, 250, 40);
         this.add(lebal6);
         cb1 = new JComboBox(Score);
         cb1.setBounds(90, 310, 120, 20);
         this.add(cb1);
-        //power source
         JLabel lebal7 = new JLabel("Please select the power source:");
         lebal7.setBounds(70, 330, 250, 40);
         this.add(lebal7);
@@ -122,6 +128,20 @@ public class dawn_rigoli extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * This method processes an ActionEvent, which is generated when the user interacts with the GUI.
+     * <p>
+     * The method reads data from various input fields in the GUI, creates a new vehicle object based on the input,
+     * If the "add photo" button is pressed, the method opens a file chooser dialog and allows the user to select a photo file,
+     * which is then copied to a designated folder.
+     * If we click on adding a new vehicle then it will add the vehicle we have just entered to the array
+     * and return us to fill in details about the new vehicle we would like to add
+     * If we click on adding the vehicle and opening the agency, it will add the vehicle
+     * we have just entered to the array of vehicles and open the agency window where there are pictures of all the vehicles in the agency
+     *
+     * @param e the event to be processed
+     */
+
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("<html>Adding a<br />new vehicle</html>")) {
             String s1 = (String) cb5.getSelectedItem();
@@ -137,31 +157,28 @@ public class dawn_rigoli extends JFrame implements ActionListener {
             int b = Integer.parseInt(s4);
             double c = Double.parseDouble(s5);
 
-            Dawn_Rigoli temp1 = new Dawn_Rigoli(f,s1, s, a, b, c, s6);
+            Dawn_Rigoli temp1 = new Dawn_Rigoli(f, s1, s, a, b, c, s6);
             Car_Agency.add_Vehicle(temp1);
             System.out.println(temp1.toString());
             Car_Agency.print();
 
             Type_Vehicle temp = new Type_Vehicle();
             this.dispose();
-        }
-        
-        else if(e.getActionCommand().equals("add photo")){
+        } else if (e.getActionCommand().equals("add photo")) {
             Path to;
 
-            JFileChooser photo=new JFileChooser();
+            JFileChooser photo = new JFileChooser();
             int i = photo.showOpenDialog(null);
-            f=photo.getSelectedFile();
+            f = photo.getSelectedFile();
 
             to = Paths.get("src/Graphic/pictures/" + f.getName());
             try {
-                Files.copy(f.toPath(),to.toFile().toPath());
+                Files.copy(f.toPath(), to.toFile().toPath());
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
 
-        }
-        else if (e.getActionCommand().equals("<html>Adding and entering<br />a car dealership</html>")) {
+        } else if (e.getActionCommand().equals("<html>Adding and entering<br />a car dealership</html>")) {
             String s1 = (String) cb5.getSelectedItem();
             String s2 = move.getText();
             String s3 = distance.getText();
@@ -174,17 +191,17 @@ public class dawn_rigoli extends JFrame implements ActionListener {
             int b = Integer.parseInt(s4);
             double c = Double.parseDouble(s5);
 
-            Dawn_Rigoli temp1 = new Dawn_Rigoli(f,s1, s, a, b, c, s6);
+            Dawn_Rigoli temp1 = new Dawn_Rigoli(f, s1, s, a, b, c, s6);
             Car_Agency.add_Vehicle(temp1);
 
-            Agency_Frame frame=new Agency_Frame(Car_Agency.get_vehicle(),s);
+            Agency_Frame frame = new Agency_Frame(Car_Agency.get_vehicle(), s);
 
             this.dispose();
 
         }
 
-        }
     }
+}
 
 
 

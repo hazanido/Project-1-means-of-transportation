@@ -24,6 +24,7 @@ public class Jeep extends Land_transport_vehicle implements Motorized_engine, Co
     /**
      *Copy constructor,
      *Calls the copy constructor of the class from which it inherits the land transport vehicle Vehicle.Jeep
+     * @param photo the photo of the Jeep
      * @param Model_Name-Describes the model name of the vehicle
      * @param move-Describes the ability to move the vehicle
      * @param distance-Describes the distance the vehicle traveled during its lifetime
@@ -111,6 +112,8 @@ public class Jeep extends Land_transport_vehicle implements Motorized_engine, Co
                 get_Number_Wheels() == jeep.get_Number_Wheels() &&
                 Objects.equals(get_Kind_Way(), jeep.get_Kind_Way());
     }
+
+
 
 
 }

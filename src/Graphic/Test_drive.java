@@ -8,14 +8,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+/**
+ * The Test_drive class creates a JFrame window for testing a specific vehicle's movement.
+ * It allows the user to enter the distance traveled on a test drive and updates the
+ * vehicle's total distance traveled accordingly.
+ */
 public class Test_drive extends JFrame implements ActionListener {
     private JButton Back;
     private JTextField move;
     private Vehicle vehicle;
 
-
-
+    /**
+     * Constructs a new Test_drive window for a specific vehicle.
+     * @param i The index of the vehicle in the array of vehicles.
+     * @param vehicles The array of vehicles in the car agency.
+     */
     public Test_drive(int i, Vehicle[] vehicles) {
+        // Set window properties
         this.vehicle = vehicles[i];
         this.setVisible(true);
         this.setSize(200, 200);
@@ -41,17 +50,15 @@ public class Test_drive extends JFrame implements ActionListener {
         this.add(Back);
 
         this.add(move);
-        /**
-        String s = move.getText();
-        int s1 = Integer.parseInt(s);
-
-        int temp = vehicles[i].get_move();
-        vehicles[i].set_Move(temp + s1);
-         **/
 
     }
 
-
+    /**
+     * Handles the user clicking the "Back to the agency" button. Updates the vehicle's
+     * total distance traveled with the distance entered by the user and returns to the
+     * agency window.
+     * @param e The action event that occurred (clicking the button).
+     */
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Back to the agency")) {
             try {

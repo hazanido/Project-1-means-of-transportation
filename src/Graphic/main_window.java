@@ -10,7 +10,11 @@ import javax.swing.JLabel;
 
 import Graphic.Vehicle_gui.Type_Vehicle;
 
-
+/**
+ * The main_window class represents the main window of the Car Agency application.
+ * It extends the JFrame class and implements the ActionListener interface.
+ * It contains a button that opens the Type_Vehicle window when clicked.
+ */
 public class main_window extends JFrame implements ActionListener {
     private ImageIcon logo;
     private JLabel label1;
@@ -23,9 +27,15 @@ public class main_window extends JFrame implements ActionListener {
     private JButton button;
 
 
+    /**
+     *Constructs a new main_window object and initializes its properties.
+     *Sets the window size, location, title, and background color.
+     *Adds a button to the window and registers an action listener for it.
+     */
     public main_window() {
 
 
+        // Set window properties
         this.setSize(400, 300);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -39,15 +49,17 @@ public class main_window extends JFrame implements ActionListener {
 
         button = new JButton("Adding vehicles");
         button.setBounds(90, 60, 210, 110);
-
-
-
         button.addActionListener(this);
         this.add(button);
 
     }
+
+    /**
+     Invoked when the button is clicked.
+     Creates a new Type_Vehicle object and disposes of the current window.
+     */
     public void actionPerformed(ActionEvent e){
-        vehicle=new Type_Vehicle();
+        Type_Vehicle vehicle=new Type_Vehicle();
         this.dispose();
 
     }
@@ -55,16 +67,3 @@ public class main_window extends JFrame implements ActionListener {
 }
 
 
-//set the label
-//        ImageIcon logo;
-//       JLabel display;
-//       try{
-//           logo = new ImageIcon(getClass().getResource("/Graphic/pictures/logo.png"));
-//          display = new JLabel(logo);
-//           display.setBounds(500, 100, logo.getIconWidth(), logo.getIconHeight());
-//           this.add(display);
-
-//       }catch (Exception e){
-//          System.out.println("noooo");
-//           e.printStackTrace();
-//       }

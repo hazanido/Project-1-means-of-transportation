@@ -44,6 +44,7 @@ public class Dawn_Rigoli extends Air_transport_vehicles implements Not_motorized
     /**
      * Copy constructor,
      * Calls the copy constructor of the class from which it inherits the air transport class
+     * @param photo the photo of the Dawn Rigoli
      *@param Model_Name-Describes the model name of the vehicle
      *@param move-Describes the ability to move the vehicle
      *@param distance-Describes the distance the vehicle traveled during its lifetime
@@ -90,4 +91,5 @@ public class Dawn_Rigoli extends Air_transport_vehicles implements Not_motorized
                 && Objects.equals(this.Energy_score(), other.Energy_score())
                 && Objects.equals(this.power_source("manual"), other.power_source("manual"));
     }
+
 }

@@ -28,6 +28,7 @@ public class Frigate extends Marine_transport_vehicle implements Motorized_engin
     /**
      *Copy constructor,
      *Calls the copy constructor of the class from which it inherits the marina transport class
+     * @param photo the photo of the Frigate
      * @param Model_Name-Describes the model name of the vehicle
      * @param move-Describes the ability to move the vehicle
      * @param distance-Describes the distance the vehicle traveled during its lifetime
@@ -89,6 +90,8 @@ public class Frigate extends Marine_transport_vehicle implements Motorized_engin
                 && Float.compare(this.Fuel_consumption, other.Fuel_consumption) == 0
                 && Float.compare(this.lifetime, other.lifetime) == 0;
     }
+
+
 
 
 }

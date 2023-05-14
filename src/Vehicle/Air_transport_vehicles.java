@@ -83,5 +83,6 @@ public class Air_transport_vehicles extends Vehicle {
         return super.equals(obj) && Objects.equals(Type, other.Type);
     }
 
+
 }
 

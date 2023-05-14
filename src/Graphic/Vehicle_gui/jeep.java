@@ -15,6 +15,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+
+/**
+ * The `Jeep` class represents a GUI for adding new vehicle objects to an array.
+ * It extends the `JFrame` class and implements the `ActionListener` interface.
+ */
 public class jeep extends JFrame implements ActionListener {
     private JTextField model, move, distance, passengers, speed, Fuel_consumption, lifetime;
     private JButton add, add_and_closs,add_photo;
@@ -22,7 +27,13 @@ public class jeep extends JFrame implements ActionListener {
     private JCheckBox checkbox1;
     private File f;
 
+    /**
+     * Constructs a new Jeep object and initializes its GUI components.
+     * The method also initializes all the text fields and labels that will be displayed on the frame,
+     * sets their positions and sizes, and adds them to the frame.
+     */
     public jeep() {
+        // Set window properties
         this.setVisible(true);
         this.setSize(300, 770);
         this.setLocationRelativeTo(null);
@@ -31,6 +42,8 @@ public class jeep extends JFrame implements ActionListener {
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Jeep");
+
+        // Add components to the window
         JLabel lebal = new JLabel("model:");
         lebal.setBounds(70, 40, 150, 20);
         this.add(lebal);
@@ -134,6 +147,18 @@ public class jeep extends JFrame implements ActionListener {
 
 
     }
+    /**
+     *This method processes an ActionEvent, which is generated when the user interacts with the GUI.
+     *
+     * The method reads data from various input fields in the GUI, creates a new vehicle object based on the input,
+     * If the "add photo" button is pressed, the method opens a file chooser dialog and allows the user to select a photo file,
+     * which is then copied to a designated folder.
+     * If we click on adding a new vehicle then it will add the vehicle we have just entered to the array
+     * and return us to fill in details about the new vehicle we would like to add
+     * If we click on adding the vehicle and opening the agency, it will add the vehicle
+     * we have just entered to the array of vehicles and open the agency window where there are pictures of all the vehicles in the agency
+     * @param e the event to be processed
+     */
 
 
     public void actionPerformed(ActionEvent e) {
@@ -197,7 +222,6 @@ public class jeep extends JFrame implements ActionListener {
             this.dispose();
 
         }
-
 
     }
 }

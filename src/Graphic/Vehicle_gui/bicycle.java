@@ -15,6 +15,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * This class represents a GUI window for adding a bicycle to a vehicle inventory system.
+ * The user can enter various details about the bicycle, including its model, ability to move, distance traveled, number of passengers,
+ * maximum speed, number of wheels, energy score, and power source. The user can also add a photo of the bicycle to the system.
+ * The class implements the ActionListener interface to respond to user interactions with the GUI, such as button clicks.
+ */
+
 public class bicycle extends JFrame implements ActionListener {
     private JTextField model,move,distance,passengers,speed;
     private JRadioButton manual;
@@ -23,8 +30,14 @@ public class bicycle extends JFrame implements ActionListener {
 
     private File f;
 
-    public bicycle(){
+    /**
+     * Constructs a new bicycle object and initializes its GUI components.
+     * The method also initializes all the text fields and labels that will be displayed on the frame,
+     * sets their positions and sizes, and adds them to the frame.
+     */
 
+    public bicycle(){
+        // Set window properties
         this.setVisible(true);
         this.setSize(300, 670);
         this.setLocationRelativeTo(null);
@@ -33,6 +46,8 @@ public class bicycle extends JFrame implements ActionListener {
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Bicycle");
+
+        // Add components to the window
         JLabel lebal = new JLabel("model:");
         lebal.setBounds(70, 40, 150, 20);
         this.add(lebal);
@@ -120,6 +135,19 @@ public class bicycle extends JFrame implements ActionListener {
 
     }
 
+    /**
+     *This method processes an ActionEvent, which is generated when the user interacts with the GUI.
+     *
+     * The method reads data from various input fields in the GUI, creates a new vehicle object based on the input,
+     * If the "add photo" button is pressed, the method opens a file chooser dialog and allows the user to select a photo file,
+     * which is then copied to a designated folder.
+     * If we click on adding a new vehicle then it will add the vehicle we have just entered to the array
+     * and return us to fill in details about the new vehicle we would like to add
+     * If we click on adding the vehicle and opening the agency, it will add the vehicle
+     * we have just entered to the array of vehicles and open the agency window where there are pictures of all the vehicles in the agency
+     * @param e the event to be processed
+     */
+
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("<html>Adding a<br />new vehicle</html>")) {
             String s1=model.getText();
@@ -177,7 +205,6 @@ public class bicycle extends JFrame implements ActionListener {
             Car_Agency.add_Vehicle(temp1);
             System.out.println(temp1.toString());
             Car_Agency.print();
-
 
 
             Agency_Frame frame=new Agency_Frame(Car_Agency.get_vehicle(),s);

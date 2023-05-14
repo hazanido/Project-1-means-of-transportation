@@ -17,6 +17,7 @@ public class Cruise_ship extends Marine_transport_vehicle implements Motorized_e
     /**
      *Copy constructor,
      *Calls the copy constructor of the class from which it inherits the marina transport class
+     * @param photo the photo of the Cruise
      * @param Model_Name-Describes the model name of the vehicle
      * @param move-Describes the ability to move the vehicle
      * @param distance-Describes the distance the vehicle traveled during its lifetime
@@ -32,12 +33,12 @@ public class Cruise_ship extends Marine_transport_vehicle implements Motorized_e
 
 
 
-                       /**
-                        *A function that returns the string representing the marine transport vehicle Cruise ship
-                        *@return A string that includes the details about the marine transport vessel
-                        * (from the toString from which it inherits the  marine transport vessel class)
-                        *In addition returns that the Vehicle Cruise ship is Sail downwind
-                        */
+    /**
+     *A function that returns the string representing the marine transport vehicle Cruise ship
+     *@return A string that includes the details about the marine transport vessel
+     * (from the toString from which it inherits the  marine transport vessel class)
+     *In addition returns that the Vehicle Cruise ship is Sail downwind
+     */
 
     public String toString(){
         return  "CRUISE SHIP: \n"+ super.toString()+" Sail downwind "+"\n";
@@ -68,4 +69,5 @@ public class Cruise_ship extends Marine_transport_vehicle implements Motorized_e
     public String license_type(){
         return "Unlimited";
     }
+
 }

@@ -15,6 +15,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+
+/**
+ * The `game drone` class represents a GUI for adding new vehicle objects to an array.
+ * It extends the `JFrame` class and implements the `ActionListener` interface.
+ */
 public class game_drone extends JFrame implements ActionListener {
     private JTextField move, distance;
     private JButton add, add_and_closs, add_photo;
@@ -22,7 +27,14 @@ public class game_drone extends JFrame implements ActionListener {
     private JRadioButton manual, civilian;
     private File f;
 
+    /**
+     * Constructs a new Game drone object and initializes its GUI components.
+     * The method also initializes all the text fields and labels that will be displayed on the frame,
+     * sets their positions and sizes, and adds them to the frame.
+     */
+
     public game_drone() {
+        // Set window properties
         this.setVisible(true);
         this.setSize(300, 620);
         this.setLocationRelativeTo(null);
@@ -31,6 +43,8 @@ public class game_drone extends JFrame implements ActionListener {
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Game drone");
+
+        // Add components to the window
         JLabel lebal = new JLabel("model:");
         lebal.setBounds(70, 40, 150, 20);
         this.add(lebal);
@@ -119,6 +133,20 @@ public class game_drone extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * This method processes an ActionEvent, which is generated when the user interacts with the GUI.
+     * <p>
+     * The method reads data from various input fields in the GUI, creates a new vehicle object based on the input,
+     * If the "add photo" button is pressed, the method opens a file chooser dialog and allows the user to select a photo file,
+     * which is then copied to a designated folder.
+     * If we click on adding a new vehicle then it will add the vehicle we have just entered to the array
+     * and return us to fill in details about the new vehicle we would like to add
+     * If we click on adding the vehicle and opening the agency, it will add the vehicle
+     * we have just entered to the array of vehicles and open the agency window where there are pictures of all the vehicles in the agency
+     *
+     * @param e the event to be processed
+     */
+
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("<html>Adding a<br />new vehicle</html>")) {
@@ -152,8 +180,7 @@ public class game_drone extends JFrame implements ActionListener {
                 throw new RuntimeException(ex);
             }
 
-        }
-        else if (e.getActionCommand().equals("<html>Adding and entering<br />a car dealership</html>")) {
+        } else if (e.getActionCommand().equals("<html>Adding and entering<br />a car dealership</html>")) {
             String s1 = (String) cb5.getSelectedItem();
             String s2 = move.getText();
             String s3 = distance.getText();
@@ -169,13 +196,11 @@ public class game_drone extends JFrame implements ActionListener {
             Game_Drone temp = new Game_Drone(f, s1, s, a, b, c, s6);
             Car_Agency.add_Vehicle(temp);
 
-            Agency_Frame frame=new Agency_Frame(Car_Agency.get_vehicle(),s);
+            Agency_Frame frame = new Agency_Frame(Car_Agency.get_vehicle(), s);
 
             this.dispose();
 
         }
-
-
 
     }
 }

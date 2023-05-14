@@ -6,17 +6,30 @@ import Vehicle.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * This class represents a GUI window for performing operations on a Vehicle object.
+ * The class extends JFrame and implements ActionListener interface.
+ * It contains buttons for test driving a vehicle, buying a vehicle, changing flag and resetting all the vehicles data.
+ */
+
+
 public class Operations extends JFrame implements ActionListener {
     private Vehicle vehicle;
     private int i;
     private JButton test_drive, buying_car, Flag_change, Reset, Exit;
     private Vehicle[] vehicles;
 
+    /**
+     * Constructor for the Operations class. Initializes instance variables and sets up the GUI window.
+     *  @param i The index of the vehicle in the array of vehicles passed to the constructor.
+     *  @param vehicles An array of Vehicle objects.
+     */
 
     public Operations(int i, Vehicle[] vehicles) {
         this.i = i;
         this.vehicles = vehicles;
 
+        // Set window properties
         this.setVisible(true);
         this.setSize(400, 320);
         this.setLocationRelativeTo(null);
@@ -54,11 +67,11 @@ public class Operations extends JFrame implements ActionListener {
         Exit.addActionListener(this);
         this.add(Exit);
 
-
-
-
-
     }
+    /**
+     * Action listener method for the buttons in the GUI window.
+     * @param e An ActionEvent object.
+     */
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Test drive")) {
@@ -74,10 +87,23 @@ public class Operations extends JFrame implements ActionListener {
             Flag_selection frame=new Flag_selection(i,vehicles);
             this.dispose();
         }
-
+        else if(e.getActionCommand().equals("Reset All")){
+            for (int i = 0; i < Car_Agency.get_vehicle().length; i++) {
+                Car_Agency.get_vehicle()[i].set_Model_Name(null);
+                Car_Agency.get_vehicle()[i].set_Move(0);
+                Car_Agency.get_vehicle()[i].set_Distance(0);
+                Car_Agency.get_vehicle()[i].set_Max_Passengers(0);
+                Car_Agency.get_vehicle()[i].set_Max_Speed(0);
+                Car_Agency.get_vehicle()[i].set_Max_Passengers(0);
+                Car_Agency.get_vehicle()[i].set_Max_Speed(0);
+            }
+            main_window temp=new main_window();
 
         }
-
+        else if(e.getActionCommand().equals("Exit")){
+            System.exit(0);
+        }
     }
+}
 
 

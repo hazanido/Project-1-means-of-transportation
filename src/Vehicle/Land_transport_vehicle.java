@@ -90,4 +90,6 @@ public class Land_transport_vehicle extends Vehicle implements Terrestrial_inter
                 Objects.equals(Kind_Way, other.Kind_Way);
     }
 
+
+
 }

@@ -19,6 +19,7 @@ public class Bicycle extends Land_transport_vehicle implements Not_motorized_eng
     /**
      * Copy constructor,
      * Calls the copy constructor of the class from which it inherits the land transport vehicle Vehicle.Bicycle
+     * @param photo the photo of the bicycle
      *@param Model_Name-Describes the model name of the vehicle
      *@param move-Describes the ability to move the vehicle
      * @param distance-Describes the distance the vehicle traveled during its lifetime
@@ -54,6 +55,9 @@ public class Bicycle extends Land_transport_vehicle implements Not_motorized_eng
         Bicycle other = (Bicycle) obj;
         return super.equals(other) && Objects.equals(this.get_Number_Wheels(), other.get_Number_Wheels());
     }
+
+
+
 
 
 }
