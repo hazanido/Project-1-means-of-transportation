@@ -28,6 +28,8 @@ public class Amphibious extends JFrame implements ActionListener {
     private JButton add,add_and_closs,add_photo;
     private JRadioButton against, with;
 
+    private JComboBox cb;
+
     private File f;
 
     /**
@@ -38,7 +40,7 @@ public class Amphibious extends JFrame implements ActionListener {
     public Amphibious(){
         // Set window properties
         this.setVisible(true);
-        this.setSize(300, 800);
+        this.setSize(300, 840);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -113,11 +115,22 @@ public class Amphibious extends JFrame implements ActionListener {
         JCheckBox checkbox1 = new JCheckBox("paved");
         checkbox1.setBounds(110,560, 60,30);
 
+        JLabel lebal13 = new JLabel("Select a number of wheels:");
+        lebal13.setBounds(70, 590, 250, 40);
+        this.add(lebal13);
+        String wheels[] = {"1","2","3","4"};
+        cb = new JComboBox(wheels);
+        cb.setBounds(70, 620, 120, 20);
+        this.add(cb);
+
+
+
+
         JLabel lebal10 = new JLabel("Please add photo:");
-        lebal10.setBounds(70, 590, 250, 40);
+        lebal10.setBounds(70, 640, 250, 40);
         this.add(lebal10);
         add_photo = new JButton();
-        add_photo.setBounds(100, 620, 90, 50);
+        add_photo.setBounds(100, 670, 90, 50);
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
         this.add(add_photo);
@@ -125,12 +138,12 @@ public class Amphibious extends JFrame implements ActionListener {
 
         add=new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15,700,120,50);
+        add.setBounds(15,740,120,50);
         add.addActionListener(this);
 
 
         add_and_closs=new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(145,700,130,50);
+        add_and_closs.setBounds(145,740,130,50);
         add_and_closs.addActionListener(this);
 
 
@@ -175,6 +188,7 @@ public class Amphibious extends JFrame implements ActionListener {
             String s6 = with.getText();
             String s7 = against.getText();
             String s8 = flag.getText();
+            String s9 = (String) cb.getSelectedItem();
 
 
 
@@ -247,8 +261,6 @@ public class Amphibious extends JFrame implements ActionListener {
 
             this.dispose();
         }
-
-
 
     }
 }
