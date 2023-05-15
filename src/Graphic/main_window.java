@@ -1,3 +1,6 @@
+// Shiraz Nagaoker 208324194
+// Ido hazan-316613769
+
 package Graphic;
 import javax.imageio.ImageIO;
 import javax.swing.*;
