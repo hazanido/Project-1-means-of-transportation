@@ -1,12 +1,21 @@
 package Graphic;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.awt.*;
+
+import javax.imageio.ImageIO;
+import java.io.IOException;
+import javax.swing.ImageIcon;
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 
 import Graphic.Vehicle_gui.Type_Vehicle;
 
@@ -19,8 +28,13 @@ public class main_window extends JFrame implements ActionListener {
     private ImageIcon logo;
     private JLabel label1;
     private Type_Vehicle vehicle;
+    private BufferedImage b_Agency_photo;
+    private ImageIcon i_Agency_photo;
+
+
     public static void main(String[] args) {
-        new main_window();
+        //new main_window();
+        SwingUtilities.invokeLater(main_window::new);
 
     }
 
@@ -36,7 +50,8 @@ public class main_window extends JFrame implements ActionListener {
 
 
         // Set window properties
-        this.setSize(400, 300);
+
+        this.setSize(800, 800);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,11 +61,41 @@ public class main_window extends JFrame implements ActionListener {
         this.setVisible(true);
 
 
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setBounds(0, 0, this.getWidth(), this.getHeight());
+        panel.setOpaque(false);
+        this.add(panel);
+
+        try {
+            b_Agency_photo = ImageIO.read(new File("src/Graphic/pictures/Agency_car.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        i_Agency_photo = new ImageIcon(b_Agency_photo);
+        JLabel backgroundLabel = new JLabel(i_Agency_photo);
+
+        backgroundLabel.setBounds(0, 0, i_Agency_photo.getIconWidth(), i_Agency_photo.getIconHeight());
+        this.getContentPane().add(backgroundLabel);
+        //this.add(backgroundLabel, BorderLayout.CENTER);
+        this.add(backgroundLabel);
+
+
+
+
+
 
         button = new JButton("Adding vehicles");
-        button.setBounds(90, 60, 210, 110);
+        button.setBounds(300, 600, 210, 110);
         button.addActionListener(this);
-        this.add(button);
+        //this.add(button, BorderLayout.NORTH);
+        //this.add(button, BorderLayout.WEST);
+
+        panel.add(button);
+
+        //this.add(button);
 
     }
 
