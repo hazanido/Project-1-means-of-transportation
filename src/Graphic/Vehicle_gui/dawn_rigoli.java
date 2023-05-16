@@ -3,10 +3,13 @@ import Graphic.Agency_Frame;
 import Graphic.Vehicle_gui.Type_Vehicle;
 import Vehicle.Car_Agency;
 import Vehicle.Dawn_Rigoli;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -28,6 +31,8 @@ public class dawn_rigoli extends JFrame implements ActionListener {
     private JRadioButton military;
     private JComboBox cb5, cb6, cb4, cb1;
     private File f;
+    private BufferedImage b_Definitions_photo;
+    private ImageIcon i_Definitions_photo;
 
     /**
      * Constructs a new dawn rigoli object and initializes its GUI components.
@@ -46,85 +51,131 @@ public class dawn_rigoli extends JFrame implements ActionListener {
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Dawn rigoli");
 
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setBounds(0, 0, this.getWidth(), this.getHeight());
+        panel.setOpaque(false);
+        this.add(panel);
+
+        try {
+            b_Definitions_photo = ImageIO.read(new File("src/Graphic/pictures/Definitions.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        i_Definitions_photo = new ImageIcon(b_Definitions_photo);
+        JLabel backgroundLabel = new JLabel(i_Definitions_photo);
+
+        backgroundLabel.setBounds(0, 0, i_Definitions_photo.getIconWidth(), i_Definitions_photo.getIconHeight());
+        this.getContentPane().add(backgroundLabel);
+        this.add(backgroundLabel);
+
+
+
         // Add components to the window
         JLabel lebal = new JLabel("model:");
         lebal.setBounds(70, 40, 150, 20);
-        this.add(lebal);
+        panel.add(lebal);
+        //this.add(lebal);
         cb5 = new JComboBox(model);
         cb5.setBounds(110, 40, 90, 20);
-        this.add(cb5);
+        panel.add(cb5);
+        //this.add(cb5);
         JLabel lebal1 = new JLabel("move:");
         lebal1.setBounds(70, 70, 150, 20);
-        this.add(lebal1);
+        panel.add(lebal1);
+        //this.add(lebal1);
         move = new JTextField();
         move.setBounds(70, 90, 150, 20);
         move.setToolTipText("please enter ability to move the vehicle");
         JLabel lebal2 = new JLabel("distance:");
         lebal2.setBounds(70, 120, 150, 20);
-        this.add(lebal2);
+        panel.add(lebal2);
+        //this.add(lebal2);
         distance = new JTextField();
         distance.setBounds(70, 140, 150, 20);
         distance.setToolTipText("please enter the distance the vehicle traveled during its lifetime");
         JLabel lebal3 = new JLabel("Max passengers:");
         lebal3.setBounds(70, 170, 150, 20);
-        this.add(lebal3);
+        panel.add(lebal3);
+        //this.add(lebal3);
         cb6 = new JComboBox(passengers);
         cb6.setBounds(180, 170, 50, 20);
-        this.add(cb6);
+        panel.add(cb6);
+        //this.add(cb6);
         JLabel lebal4 = new JLabel("speed:");
         lebal4.setBounds(70, 200, 150, 20);
-        this.add(lebal4);
+        panel.add(lebal4);
+        //this.add(lebal4);
         JLabel lebal8 = new JLabel("km");
         lebal8.setBounds(200, 200, 150, 20);
-        this.add(lebal8);
+        panel.add(lebal8);
+        //this.add(lebal8);
         cb4 = new JComboBox(speed);
         cb4.setBounds(110, 200, 90, 20);
-        this.add(cb4);
+        panel.add(cb4);
+        //this.add(cb4);
         //Please type the type military/civilia
         JLabel lebal5 = new JLabel("Please type the type military/civilian?");
         lebal5.setBounds(60, 230, 250, 20);
-        this.add(lebal5);
+        panel.add(lebal5);
+        //this.add(lebal5);
         military = new JRadioButton("military");
         military.setBounds(110, 250, 70, 20);
         JLabel lebal6 = new JLabel("Please select an energy score:");
         lebal6.setBounds(70, 270, 250, 40);
-        this.add(lebal6);
+        panel.add(lebal6);
+        //this.add(lebal6);
         cb1 = new JComboBox(Score);
         cb1.setBounds(90, 310, 120, 20);
-        this.add(cb1);
+        panel.add(cb1);
+        //this.add(cb1);
         JLabel lebal7 = new JLabel("Please select the power source:");
         lebal7.setBounds(70, 330, 250, 40);
-        this.add(lebal7);
+        panel.add(lebal7);
+        //this.add(lebal7);
         JRadioButton manual = new JRadioButton("manual");
         JRadioButton electric = new JRadioButton("electric");
         manual.setBounds(30, 370, 90, 20);
         electric.setBounds(160, 370, 90, 20);
 
+        panel.add(move);
+        panel.add(distance);
+        panel.add(military);
+        panel.add(manual);
+        panel.add(electric);
 
-        this.add(move);
-        this.add(distance);
-        this.add(military);
-        this.add(manual);
-        this.add(electric);
+
+        //this.add(move);
+        //this.add(distance);
+        //this.add(military);
+        //this.add(manual);
+        //this.add(electric);
+
         //add photo
         JLabel lebal9 = new JLabel("Please add photo:");
         lebal9.setBounds(70, 390, 250, 40);
-        this.add(lebal9);
+        panel.add(lebal9);
+        //this.add(lebal9);
         add_photo = new JButton();
         add_photo.setBounds(100, 420, 90, 50);
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
-        this.add(add_photo);
+        panel.add(add_photo);
+        //this.add(add_photo);
+
         //add button
         add = new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
         add.setBounds(15, 480, 110, 50);
         add.addActionListener(this);
-        this.add(add);
+        panel.add(add);
+        //this.add(add);
         add_and_closs = new JButton("<html>Adding and entering<br />a car dealership</html>");
         add_and_closs.setBounds(155, 480, 120, 50);
         add_and_closs.addActionListener(this);
-        this.add(add_and_closs);
+        panel.add(add_and_closs);
+        //this.add(add_and_closs);
 
     }
 
