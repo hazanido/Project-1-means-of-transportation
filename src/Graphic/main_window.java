@@ -82,7 +82,6 @@ public class main_window extends JFrame implements ActionListener {
 
         backgroundLabel.setBounds(0, 0, i_Agency_photo.getIconWidth(), i_Agency_photo.getIconHeight());
         this.getContentPane().add(backgroundLabel);
-        //this.add(backgroundLabel, BorderLayout.CENTER);
         this.add(backgroundLabel);
 
 
@@ -93,8 +92,6 @@ public class main_window extends JFrame implements ActionListener {
         button = new JButton("Adding vehicles");
         button.setBounds(300, 600, 210, 110);
         button.addActionListener(this);
-        //this.add(button, BorderLayout.NORTH);
-        //this.add(button, BorderLayout.WEST);
 
         panel.add(button);
 

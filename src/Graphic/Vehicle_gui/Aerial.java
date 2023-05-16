@@ -1,9 +1,13 @@
 package Graphic.Vehicle_gui;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * A class representing an aerial vehicle selection window.
@@ -12,8 +16,10 @@ import java.awt.event.ActionListener;
  */
 
 public class Aerial extends JFrame implements ActionListener {
-JButton dawn_Rigoli;
-JButton game_Drone;
+    JButton dawn_Rigoli;
+    JButton game_Drone;
+    private BufferedImage b_Aerial_photo;
+    private ImageIcon i_Aerial_photo;
 
     /**
      * Constructs a new Aerial object.
@@ -23,22 +29,47 @@ JButton game_Drone;
 
     public Aerial(){
         this.setVisible(true);
-        this.setSize(500, 100);
+        this.setSize(500, 500);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Air transport vehicles");
-        this.setLayout(new FlowLayout());
+
+
+        //this.setLayout(new FlowLayout());
+
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setBounds(0, 0, this.getWidth(), this.getHeight());
+        panel.setOpaque(false);
+        this.add(panel);
+
+        try {
+            b_Aerial_photo = ImageIO.read(new File("src/Graphic/pictures/TypeP.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        i_Aerial_photo = new ImageIcon(b_Aerial_photo);
+        JLabel backgroundLabel = new JLabel(i_Aerial_photo);
+
+        backgroundLabel.setBounds(0, 0, i_Aerial_photo.getIconWidth(), i_Aerial_photo.getIconHeight());
+        this.getContentPane().add(backgroundLabel);
+        this.add(backgroundLabel);
+
         dawn_Rigoli = new JButton("Dawn_Rigoli");
-        dawn_Rigoli.setBounds(20, 100, 200, 200);
+        dawn_Rigoli.setBounds(150, 90, 180, 80);
         dawn_Rigoli.addActionListener(this);
-        this.add(dawn_Rigoli);
+        panel.add(dawn_Rigoli);
+
+        //this.add(dawn_Rigoli);
         game_Drone = new JButton("Game_Drone");
-        game_Drone.setBounds(300, 100, 200, 200);
+        game_Drone.setBounds(150, 250, 180, 80);
         game_Drone.addActionListener(this);
-        this.add(game_Drone);
+        panel.add(game_Drone);
+        //this.add(game_Drone);
 
 
     }
