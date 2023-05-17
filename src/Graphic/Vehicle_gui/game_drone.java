@@ -5,10 +5,12 @@ import Graphic.Vehicle_gui.Type_Vehicle;
 import Vehicle.Car_Agency;
 import Vehicle.Game_Drone;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -26,6 +28,8 @@ public class game_drone extends JFrame implements ActionListener {
     private JComboBox cb5, cb6, cb4, cb1;
     private JRadioButton manual, civilian;
     private File f;
+    private BufferedImage b_Definitions_photo;
+    private ImageIcon i_Definitions_photo;
 
     /**
      * Constructs a new Game drone object and initializes its GUI components.
@@ -44,35 +48,59 @@ public class game_drone extends JFrame implements ActionListener {
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Game drone");
 
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setBounds(0, 0, this.getWidth(), this.getHeight());
+        panel.setOpaque(false);
+        this.add(panel);
+
+        try {
+            b_Definitions_photo = ImageIO.read(new File("src/Graphic/pictures/Definitions.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        i_Definitions_photo = new ImageIcon(b_Definitions_photo);
+        JLabel backgroundLabel = new JLabel(i_Definitions_photo);
+
+        backgroundLabel.setBounds(0, 0, i_Definitions_photo.getIconWidth(), i_Definitions_photo.getIconHeight());
+        this.getContentPane().add(backgroundLabel);
+        this.add(backgroundLabel);
+
         // Add components to the window
         JLabel lebal = new JLabel("model:");
         lebal.setBounds(70, 40, 150, 20);
-        this.add(lebal);
+        panel.add(lebal);
+        //this.add(lebal);
         String model[] = {"Toy"};
         cb5 = new JComboBox(model);
         cb5.setBounds(110, 40, 90, 20);
         JLabel lebal1 = new JLabel("move:");
         lebal1.setBounds(70, 70, 150, 20);
-        this.add(lebal1);
+        panel.add(lebal1);
+        //this.add(lebal1);
         move = new JTextField();
         move.setBounds(70, 90, 150, 20);
         move.setToolTipText("please enter ability to move the vehicle");
         JLabel lebal2 = new JLabel("distance:");
         lebal2.setBounds(70, 120, 150, 20);
-        this.add(lebal2);
+        panel.add(lebal2);
+        //this.add(lebal2);
         distance = new JTextField();
         distance.setBounds(70, 140, 150, 20);
         distance.setToolTipText("please enter the distance the vehicle traveled during its lifetime");
         JLabel lebal3 = new JLabel("Max passengers:");
         lebal3.setBounds(70, 170, 150, 20);
-        this.add(lebal3);
+        panel.add(lebal3);
+        //this.add(lebal3);
         String passengers[] = {"0"};
         cb6 = new JComboBox(passengers);
         cb6.setBounds(180, 170, 50, 20);
 
         JLabel lebal4 = new JLabel("speed:");
         lebal4.setBounds(70, 200, 150, 20);
-        this.add(lebal4);
+        panel.add(lebal4);
+        //this.add(lebal4);
         String speed[] = {"10"};
         cb4 = new JComboBox(speed);
         cb4.setBounds(110, 200, 90, 20);
@@ -80,55 +108,63 @@ public class game_drone extends JFrame implements ActionListener {
 
         JLabel lebal5 = new JLabel("Please select the power source:");
         lebal5.setBounds(60, 230, 250, 20);
-        this.add(lebal5);
+        panel.add(lebal5);
+        //this.add(lebal5);
         manual = new JRadioButton("manual");
         manual.setBounds(110, 260, 70, 20);
 
         JLabel lebal6 = new JLabel("Please type the type military/civilian?");
         lebal6.setBounds(60, 290, 250, 20);
-        this.add(lebal6);
+        panel.add(lebal6);
+        //this.add(lebal6);
         civilian = new JRadioButton("civilian");
         civilian.setBounds(110, 320, 70, 20);
 
 
         JLabel lebal7 = new JLabel("Please select an energy score:");
         lebal7.setBounds(70, 350, 250, 40);
-        this.add(lebal7);
+        panel.add(lebal7);
+        //this.add(lebal7);
         String Score[] = {"A"};
         cb1 = new JComboBox(Score);
         cb1.setBounds(90, 380, 120, 20);
 
         JLabel lebal10 = new JLabel("Please add photo:");
         lebal10.setBounds(70, 420, 250, 40);
-        this.add(lebal10);
+        panel.add(lebal10);
+        //this.add(lebal10);
         add_photo = new JButton();
         add_photo.setBounds(100, 450, 90, 50);
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
-        this.add(add_photo);
+        panel.add(add_photo);
+        //this.add(add_photo);
 
 
         add = new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
         add.setBounds(15, 520, 120, 50);
         add.addActionListener(this);
+        panel.add(add);
 
 
         add_and_closs = new JButton("<html>Adding and entering<br />a car dealership</html>");
         add_and_closs.setBounds(155, 520, 120, 50);
         add_and_closs.addActionListener(this);
+        panel.add(add_and_closs);
 
 
-        this.add(move);
-        this.add(distance);
-        this.add(manual);
-        this.add(civilian);
-        this.add(add);
-        this.add(add_and_closs);
-        this.add(cb1);
-        this.add(cb4);
-        this.add(cb6);
-        this.add(cb5);
+        panel.add(move);
+        panel.add(distance);
+        panel.add(manual);
+        panel.add(civilian);
+        panel.add(cb1);
+        panel.add(cb4);
+        panel.add(cb5);
+        panel.add(cb6);
+        panel.add(manual);
+
+
 
 
     }

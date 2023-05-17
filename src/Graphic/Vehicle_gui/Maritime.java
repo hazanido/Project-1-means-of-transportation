@@ -4,10 +4,14 @@ import Graphic.Vehicle_gui.Amphibious;
 import Graphic.Vehicle_gui.Cruz;
 import Graphic.Vehicle_gui.frigate;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * The Maritime class represents a graphical window that displays a selection of marine transport vehicles.
@@ -19,6 +23,9 @@ public class Maritime extends JFrame implements ActionListener {
     JButton Cruz;
     JButton Amphibious;
 
+    private BufferedImage b_Maritime_photo;
+    private ImageIcon i_Maritime_photo;
+
     /**
      * Constructs a new Maritime object.
      * The constructor initializes the window and adds the buttons to it.
@@ -27,28 +34,49 @@ public class Maritime extends JFrame implements ActionListener {
     public Maritime(){
         // Set window properties
         this.setVisible(true);
-        this.setSize(500, 100);
+        this.setSize(500, 600);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Marine transport vehicle");
-        this.setLayout(new FlowLayout());
+
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setBounds(0, 0, this.getWidth(), this.getHeight());
+        panel.setOpaque(false);
+        this.add(panel);
+
+        try {
+            b_Maritime_photo = ImageIO.read(new File("src/Graphic/pictures/TypeP.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        i_Maritime_photo = new ImageIcon(b_Maritime_photo);
+        JLabel backgroundLabel = new JLabel(i_Maritime_photo);
+
+        backgroundLabel.setBounds(0, 0, i_Maritime_photo.getIconWidth(), i_Maritime_photo.getIconHeight());
+        this.getContentPane().add(backgroundLabel);
+        this.add(backgroundLabel);
 
         // Add components to the window
         frigate = new JButton("Frigate");
-        frigate.setBounds(20, 100, 200, 200);
+        frigate.setBounds(150, 90, 180, 80);
         frigate.addActionListener(this);
-        this.add(frigate);
+        panel.add(frigate);
+        //this.add(frigate);
         Cruz = new JButton("Cruise ship");
-        Cruz.setBounds(300, 100, 200, 200);
+        Cruz.setBounds(150, 250, 180, 80);
         Cruz.addActionListener(this);
-        this.add(Cruz);
+        panel.add(Cruz);
+        //this.add(Cruz);
         Amphibious = new JButton("Amphibious vehicle");
-        Amphibious.setBounds(600, 100, 200, 200);
+        Amphibious.setBounds(150, 410, 180, 80);
         Amphibious.addActionListener(this);
-        this.add(Amphibious);
+        panel.add(Amphibious);
+        //this.add(Amphibious);
     }
     /**
      * Handles button click events.
