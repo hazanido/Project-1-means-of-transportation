@@ -19,11 +19,11 @@ import java.io.IOException;
  * Allows the user to choose between three types of aerial vehicles: Jeep,Amphibious vehicle and Bicycle.
  */
 public class Terrestrial extends JFrame implements ActionListener {
-    JButton Jeep;
-    JButton Amphibious;
-    JButton Bicycle;
-    private BufferedImage b_Terrestrial_photo;
-    private ImageIcon i_Terrestrial_photo;
+
+    private JButton Jeep,Amphibious,Bicycle,Jeep_photo,Amphibious_photo,Bicycle_photo;
+
+    private BufferedImage b_Terrestrial_photo,b_Jeep_photo,b_Amphibious_photo,b_Bicycle_photo;
+    private ImageIcon i_Terrestrial_photo,i_Jeep_photo,i_Amphibious_photo,i_Bicycle_photo;
 
     /**
      * Constructs a new Terrestrial object.
@@ -32,7 +32,7 @@ public class Terrestrial extends JFrame implements ActionListener {
     public Terrestrial(){
         // Set window properties
         this.setVisible(true);
-        this.setSize(500, 600);
+        this.setSize(700, 400);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,19 +60,44 @@ public class Terrestrial extends JFrame implements ActionListener {
         this.getContentPane().add(backgroundLabel);
         this.add(backgroundLabel);
 
+        try {
+            b_Jeep_photo = ImageIO.read(new File("src/Graphic/pictures/jeep.png"));
+            b_Amphibious_photo = ImageIO.read(new File("src/Graphic/pictures/Amphibious.png"));
+            b_Bicycle_photo = ImageIO.read(new File("src/Graphic/pictures/Bicycle.png"));
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        i_Jeep_photo=new ImageIcon(b_Jeep_photo);
+        i_Amphibious_photo=new ImageIcon(b_Amphibious_photo);
+        i_Bicycle_photo=new ImageIcon(b_Bicycle_photo);
+
+        Jeep_photo=new JButton(i_Jeep_photo);
+        Jeep_photo.setBounds(60,170,90,45);
+        panel.add(Jeep_photo);
+
+        Amphibious_photo=new JButton(i_Amphibious_photo);
+        Amphibious_photo.setBounds(260,170,90,50);
+        panel.add(Amphibious_photo);
+
+        Bicycle_photo=new JButton(i_Bicycle_photo);
+        Bicycle_photo.setBounds(460,170,90,50);
+        panel.add(Bicycle_photo);
+
         // Add components to the window
         Jeep = new JButton("Jeep");
-        Jeep.setBounds(150, 90, 180, 80);
+        Jeep.setBounds(30, 80, 180, 80);
         Jeep.addActionListener(this);
         panel.add(Jeep);
         //this.add(Jeep);
         Amphibious = new JButton("Amphibious vehicle");
-        Amphibious.setBounds(150, 250, 180, 80);
+        Amphibious.setBounds(230, 80, 180, 80);
         Amphibious.addActionListener(this);
         panel.add(Amphibious);
         //this.add(Amphibious);
         Bicycle = new JButton("Bicycle");
-        Bicycle.setBounds(150, 410, 180, 80);
+        Bicycle.setBounds(430, 80, 180, 80);
         Bicycle.addActionListener(this);
         panel.add(Bicycle);
         //this.add(Bicycle);

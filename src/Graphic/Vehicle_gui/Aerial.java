@@ -66,13 +66,15 @@ public class Aerial extends JFrame implements ActionListener {
         i_spy_plane=new ImageIcon(b_spy_plane);
         i_plane_toy=new ImageIcon(b_plane_toy);
 
+        spy_plane=new JButton(i_spy_plane);
+        spy_plane.setBounds(90,170,90,60);
+        panel.add(spy_plane);
+
         plane_toy=new JButton(i_plane_toy);
-        plane_toy.setBounds(90,170,90,60);
+        plane_toy.setBounds(290,170,90,60);
         panel.add(plane_toy);
 
-        spy_plane=new JButton(i_spy_plane);
-        spy_plane.setBounds(290,170,90,60);
-        panel.add(spy_plane);
+
 
 
 
