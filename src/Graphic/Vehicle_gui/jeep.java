@@ -5,10 +5,12 @@ import Graphic.Vehicle_gui.Type_Vehicle;
 import Vehicle.Car_Agency;
 import Vehicle.Jeep;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -26,6 +28,8 @@ public class jeep extends JFrame implements ActionListener {
     private JComboBox cb;
     private JCheckBox checkbox1;
     private File f;
+    private BufferedImage b_Definitions_photo;
+    private ImageIcon i_Definitions_photo;
 
     /**
      * Constructs a new Jeep object and initializes its GUI components.
@@ -43,22 +47,41 @@ public class jeep extends JFrame implements ActionListener {
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Jeep");
 
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setBounds(0, 0, this.getWidth(), this.getHeight());
+        panel.setOpaque(false);
+        this.add(panel);
+
+        try {
+            b_Definitions_photo = ImageIO.read(new File("src/Graphic/pictures/Definitions1.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        i_Definitions_photo = new ImageIcon(b_Definitions_photo);
+        JLabel backgroundLabel = new JLabel(i_Definitions_photo);
+
+        backgroundLabel.setBounds(0, 0, i_Definitions_photo.getIconWidth(), i_Definitions_photo.getIconHeight());
+        this.getContentPane().add(backgroundLabel);
+        this.add(backgroundLabel);
+
         // Add components to the window
         JLabel lebal = new JLabel("model:");
         lebal.setBounds(70, 40, 150, 20);
-        this.add(lebal);
+        panel.add(lebal);
         model = new JTextField();
         model.setBounds(70, 60, 150, 20);
         model.setToolTipText("please enter model of car");
         JLabel lebal1 = new JLabel("move:");
         lebal1.setBounds(70, 90, 150, 20);
-        this.add(lebal1);
+        panel.add(lebal1);
         move = new JTextField();
         move.setBounds(70, 110, 150, 20);
         move.setToolTipText("please enter ability to move the vehicle");
         JLabel lebal2 = new JLabel("distance:");
         lebal2.setBounds(70, 140, 150, 20);
-        this.add(lebal2);
+        panel.add(lebal2);
         distance = new JTextField();
         distance.setBounds(70, 160, 150, 20);
         distance.setToolTipText("please enter the distance the vehicle traveled during its lifetime");
@@ -66,65 +89,65 @@ public class jeep extends JFrame implements ActionListener {
 
         JLabel lebal4 = new JLabel("speed:");
         lebal4.setBounds(70, 190, 150, 20);
-        this.add(lebal4);
+        panel.add(lebal4);
         speed = new JTextField();
         speed.setBounds(70, 220, 150, 20);
         speed.setToolTipText("Please type the maximum speed of the vehicle");
 
         JLabel lebal5 = new JLabel("Fuel consumption:");
         lebal5.setBounds(70, 250, 150, 20);
-        this.add(lebal5);
+        panel.add(lebal5);
         Fuel_consumption = new JTextField();
         Fuel_consumption.setBounds(70, 280, 150, 20);
         Fuel_consumption.setToolTipText("Please enter the average fuel consumption of the vehicle");
 
         JLabel lebal6 = new JLabel("lifetime:");
         lebal6.setBounds(70, 310, 150, 20);
-        this.add(lebal6);
+        panel.add(lebal6);
         lifetime = new JTextField();
         lifetime.setBounds(70, 330, 150, 20);
         lifetime.setToolTipText("Please type the average lifetime of the engine");
 
         JLabel lebal13 = new JLabel("Maximum number of passengers:");
         lebal13.setBounds(70, 360, 250, 40);
-        this.add(lebal13);
+        panel.add(lebal13);
         String passengers[] = {"5"};
         cb = new JComboBox(passengers);
         cb.setBounds(70, 390, 120, 20);
-        this.add(cb);
+        panel.add(cb);
 
 
         JLabel lebal7 = new JLabel("Select a number of wheels:");
         lebal7.setBounds(70, 420, 250, 40);
-        this.add(lebal7);
+        panel.add(lebal7);
         String wheels[] = {"4"};
         cb = new JComboBox(wheels);
         cb.setBounds(70, 450, 120, 20);
-        this.add(cb);
+        panel.add(cb);
 
         JLabel lebal8 = new JLabel("Select the license type:");
         lebal8.setBounds(70, 480, 250, 40);
-        this.add(lebal8);
+        panel.add(lebal8);
         String license[] = {"Mini"};
         JComboBox cb1 = new JComboBox(license);
         cb1.setBounds(75, 510, 120, 20);
-        this.add(cb1);
+        panel.add(cb1);
 
         JLabel lebal9 = new JLabel("The kind of way:");
         lebal9.setBounds(90, 540, 150, 20);
-        this.add(lebal9);
+        panel.add(lebal9);
         checkbox1 = new JCheckBox("dirt");
         checkbox1.setBounds(110, 570, 60, 30);
 
 
         JLabel lebal10 = new JLabel("Please add photo:");
         lebal10.setBounds(70, 610, 250, 40);
-        this.add(lebal10);
+        panel.add(lebal10);
         add_photo = new JButton();
         add_photo.setBounds(100, 640, 90, 50);
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
-        this.add(add_photo);
+        panel.add(add_photo);
 
         add = new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
@@ -137,16 +160,15 @@ public class jeep extends JFrame implements ActionListener {
         add_and_closs.addActionListener(this);
 
 
-        this.add(model);
-        this.add(move);
-        this.add(distance);
-        this.add(speed);
-
-        this.add(add);
-        this.add(add_and_closs);
-        this.add(Fuel_consumption);
-        this.add(lifetime);
-        this.add(checkbox1);
+        panel.add(model);
+        panel.add(move);
+        panel.add(distance);
+        panel.add(speed);
+        panel.add(add);
+        panel.add(add_and_closs);
+        panel.add(Fuel_consumption);
+        panel.add(lifetime);
+        panel.add(checkbox1);
 
 
     }

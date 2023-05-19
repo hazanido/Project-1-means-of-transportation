@@ -5,10 +5,12 @@ import Graphic.Vehicle_gui.Type_Vehicle;
 import Vehicle.Car_Agency;
 import Vehicle.Frigate;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -25,6 +27,8 @@ public class frigate extends JFrame implements ActionListener {
     private JComboBox cb1, cb3, cb;
     private JRadioButton against, with;
     private File f;
+    private BufferedImage b_Definitions_photo;
+    private ImageIcon i_Definitions_photo;
 
     /**
      * Constructs a new frigate object and initializes its GUI components.
@@ -43,73 +47,92 @@ public class frigate extends JFrame implements ActionListener {
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Frigate");
 
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setBounds(0, 0, this.getWidth(), this.getHeight());
+        panel.setOpaque(false);
+        this.add(panel);
+
+        try {
+            b_Definitions_photo = ImageIO.read(new File("src/Graphic/pictures/Definitions1.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        i_Definitions_photo = new ImageIcon(b_Definitions_photo);
+        JLabel backgroundLabel = new JLabel(i_Definitions_photo);
+
+        backgroundLabel.setBounds(0, 0, i_Definitions_photo.getIconWidth(), i_Definitions_photo.getIconHeight());
+        this.getContentPane().add(backgroundLabel);
+        this.add(backgroundLabel);
+
         // Add components to the window
         JLabel lebal = new JLabel("model:");
         lebal.setBounds(70, 40, 150, 20);
-        this.add(lebal);
+        panel.add(lebal);
         model = new JTextField();
         model.setBounds(70, 60, 150, 20);
         model.setToolTipText("please enter model of car");
         JLabel lebal1 = new JLabel("move:");
         lebal1.setBounds(70, 90, 150, 20);
-        this.add(lebal1);
+        panel.add(lebal1);
         move = new JTextField();
         move.setBounds(70, 110, 150, 20);
         move.setToolTipText("please enter ability to move the vehicle");
         JLabel lebal2 = new JLabel("distance:");
         lebal2.setBounds(70, 140, 150, 20);
-        this.add(lebal2);
+        panel.add(lebal2);
         distance = new JTextField();
         distance.setBounds(70, 160, 150, 20);
         distance.setToolTipText("please enter the distance the vehicle traveled during its lifetime");
         JLabel lebal3 = new JLabel("passengers:");
         lebal3.setBounds(70, 190, 150, 20);
-        this.add(lebal3);
+        panel.add(lebal3);
         passengers = new JTextField();
         passengers.setBounds(70, 210, 150, 20);
         passengers.setToolTipText("please enter the number of passengers the vehicle contains");
         JLabel lebal4 = new JLabel("speed:");
         lebal4.setBounds(70, 240, 150, 20);
-        this.add(lebal4);
+        panel.add(lebal4);
         speed = new JTextField();
         speed.setBounds(70, 260, 150, 20);
         speed.setToolTipText("Please type the maximum speed of the vehicle");
 
         JLabel lebal5 = new JLabel("Flag:");
         lebal5.setBounds(70, 285, 150, 20);
-        this.add(lebal5);
+        panel.add(lebal5);
         flag = new JTextField();
         flag.setBounds(70, 310, 150, 20);
         flag.setToolTipText("Please type the name of the country to which the boat sailed");
 
         JLabel lebal9 = new JLabel("<html>Please type the country<br /> the boat belongs to:<html>");
         lebal9.setBounds(70, 340, 400, 40);
-        this.add(lebal9);
+        panel.add(lebal9);
         String Israel[] = {"Israel"};
         cb = new JComboBox(Israel);
         cb.setBounds(70, 380, 120, 20);
-        this.add(cb);
+        panel.add(cb);
 
         JLabel lebal6 = new JLabel("<html>Please select the<br /> average fuel consumption:<html>");
         lebal6.setBounds(70, 420, 400, 40);
-        this.add(lebal6);
+        panel.add(lebal6);
         String fuel[] = {"500"};
         cb3 = new JComboBox(fuel);
         cb3.setBounds(70, 460, 120, 20);
-        this.add(cb3);
+        panel.add(cb3);
 
         JLabel lebal7 = new JLabel("<html>Please, select the average<br /> lifetime of the engine:<html>");
         lebal7.setBounds(70, 490, 400, 40);
-        this.add(lebal7);
+        panel.add(lebal7);
         String license[] = {"4"};
         cb1 = new JComboBox(license);
         cb1.setBounds(70, 530, 120, 20);
-        this.add(cb1);
+        panel.add(cb1);
 
 
         JLabel lebal8 = new JLabel("<html>Please Choose whether to<br /> sail with or against the wind ?:</html>");
         lebal8.setBounds(50, 550, 250, 40);
-        this.add(lebal8);
+        panel.add(lebal8);
         against = new JRadioButton("against the wind");
         with = new JRadioButton("with the wind");
         against.setBounds(30, 600, 120, 20);
@@ -117,12 +140,12 @@ public class frigate extends JFrame implements ActionListener {
 
         JLabel lebal10 = new JLabel("Please add photo:");
         lebal10.setBounds(70, 630, 250, 40);
-        this.add(lebal10);
+        panel.add(lebal10);
         add_photo = new JButton();
         add_photo.setBounds(100, 660, 90, 50);
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
-        this.add(add_photo);
+        panel.add(add_photo);
 
 
         add = new JButton();
@@ -136,16 +159,16 @@ public class frigate extends JFrame implements ActionListener {
         add_and_closs.addActionListener(this);
 
 
-        this.add(model);
-        this.add(move);
-        this.add(distance);
-        this.add(passengers);
-        this.add(speed);
-        this.add(flag);
-        this.add(against);
-        this.add(with);
-        this.add(add);
-        this.add(add_and_closs);
+        panel.add(model);
+        panel.add(move);
+        panel.add(distance);
+        panel.add(passengers);
+        panel.add(speed);
+        panel.add(flag);
+        panel.add(against);
+        panel.add(with);
+        panel.add(add);
+        panel.add(add_and_closs);
 
     }
 
