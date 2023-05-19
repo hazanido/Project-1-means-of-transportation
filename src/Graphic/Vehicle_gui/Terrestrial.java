@@ -4,10 +4,14 @@ import Graphic.Vehicle_gui.Amphibious;
 import Graphic.Vehicle_gui.bicycle;
 import Graphic.Vehicle_gui.jeep;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * The Terrestrial class represents a graphical window that displays a selection of land transport vehicles.
@@ -18,6 +22,8 @@ public class Terrestrial extends JFrame implements ActionListener {
     JButton Jeep;
     JButton Amphibious;
     JButton Bicycle;
+    private BufferedImage b_Terrestrial_photo;
+    private ImageIcon i_Terrestrial_photo;
 
     /**
      * Constructs a new Terrestrial object.
@@ -26,28 +32,50 @@ public class Terrestrial extends JFrame implements ActionListener {
     public Terrestrial(){
         // Set window properties
         this.setVisible(true);
-        this.setSize(500, 100);
+        this.setSize(500, 600);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Land transport vehicle");
-        this.setLayout(new FlowLayout());
+
+
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setBounds(0, 0, this.getWidth(), this.getHeight());
+        panel.setOpaque(false);
+        this.add(panel);
+
+        try {
+            b_Terrestrial_photo = ImageIO.read(new File("src/Graphic/pictures/TypeP.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        i_Terrestrial_photo = new ImageIcon(b_Terrestrial_photo);
+        JLabel backgroundLabel = new JLabel(i_Terrestrial_photo);
+
+        backgroundLabel.setBounds(0, 0, i_Terrestrial_photo.getIconWidth(), i_Terrestrial_photo.getIconHeight());
+        this.getContentPane().add(backgroundLabel);
+        this.add(backgroundLabel);
 
         // Add components to the window
         Jeep = new JButton("Jeep");
-        Jeep.setBounds(20, 100, 200, 200);
+        Jeep.setBounds(150, 90, 180, 80);
         Jeep.addActionListener(this);
-        this.add(Jeep);
+        panel.add(Jeep);
+        //this.add(Jeep);
         Amphibious = new JButton("Amphibious vehicle");
-        Amphibious.setBounds(300, 100, 200, 200);
+        Amphibious.setBounds(150, 250, 180, 80);
         Amphibious.addActionListener(this);
-        this.add(Amphibious);
+        panel.add(Amphibious);
+        //this.add(Amphibious);
         Bicycle = new JButton("Bicycle");
-        Bicycle.setBounds(600, 100, 200, 200);
+        Bicycle.setBounds(150, 410, 180, 80);
         Bicycle.addActionListener(this);
-        this.add(Bicycle);
+        panel.add(Bicycle);
+        //this.add(Bicycle);
 
     }
 
