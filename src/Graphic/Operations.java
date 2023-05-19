@@ -1,10 +1,14 @@
 package Graphic;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import Vehicle.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.Callable;
 
 /**
@@ -19,6 +23,8 @@ public class Operations extends JFrame implements ActionListener {
     private int i;
     private JButton test_drive, buying_car, Flag_change, Reset, Exit;
     private Vehicle[] vehicles;
+    private BufferedImage b_Operations_photo;
+    private ImageIcon i_Operations_photo;
 
     /**
      * Constructor for the Operations class. Initializes instance variables and sets up the GUI window.
@@ -38,7 +44,26 @@ public class Operations extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
-        this.setTitle("test_drive or buying car");
+        this.setTitle("Operations");
+
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setBounds(0, 0, this.getWidth(), this.getHeight());
+        panel.setOpaque(false);
+        this.add(panel);
+
+        try {
+            b_Operations_photo = ImageIO.read(new File("src/Graphic/pictures/Operations.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        i_Operations_photo = new ImageIcon(b_Operations_photo);
+        JLabel backgroundLabel = new JLabel(i_Operations_photo);
+
+        backgroundLabel.setBounds(0, 0, i_Operations_photo.getIconWidth(), i_Operations_photo.getIconHeight());
+        this.getContentPane().add(backgroundLabel);
+        this.add(backgroundLabel);
 
 
         test_drive = new JButton("Test drive");
@@ -50,23 +75,23 @@ public class Operations extends JFrame implements ActionListener {
 
         test_drive.setBounds(30, 40, 150, 60);
         test_drive.addActionListener(this);
-        this.add(test_drive);
+        panel.add(test_drive);
 
         buying_car.setBounds(200, 40, 150, 60);
         buying_car.addActionListener(this);
-        this.add(buying_car);
+        panel.add(buying_car);
 
         Flag_change.setBounds(110, 120, 150, 60);
         Flag_change.addActionListener(this);
-        this.add(Flag_change);
+        panel.add(Flag_change);
 
         Reset.setBounds(15, 240, 100, 30);
         Reset.addActionListener(this);
-        this.add(Reset);
+        panel.add(Reset);
 
         Exit.setBounds(260, 240, 100, 30);
         Exit.addActionListener(this);
-        this.add(Exit);
+        panel.add(Exit);
 
     }
     /**
