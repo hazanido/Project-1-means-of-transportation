@@ -75,7 +75,7 @@ public class Maritime extends JFrame implements ActionListener {
         i_amphibious=new ImageIcon(b_amphibious);
 
         frigate_photo=new JButton(i_frigate);
-        frigate_photo.setBounds(60,170,90,60);
+        frigate_photo.setBounds(60,170,90,45);
         panel.add(frigate_photo);
 
         Cruz_photo=new JButton(i_cruise);
@@ -83,7 +83,7 @@ public class Maritime extends JFrame implements ActionListener {
         panel.add(Cruz_photo);
 
         Amphibious_photo=new JButton(i_amphibious);
-        Amphibious_photo.setBounds(460,170,90,60);
+        Amphibious_photo.setBounds(460,170,90,50);
         panel.add(Amphibious_photo);
 
 
