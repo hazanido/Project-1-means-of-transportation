@@ -1,8 +1,7 @@
 package Graphic.Vehicle_gui;
 
 import Graphic.Agency_Frame;
-import Graphic.Vehicle_gui.Type_Vehicle;
-import Vehicle.Bicycle;
+import Vehicle.*;
 import Vehicle.Car_Agency;
 
 import javax.imageio.ImageIO;
@@ -24,7 +23,7 @@ import java.nio.file.Paths;
  * The class implements the ActionListener interface to respond to user interactions with the GUI, such as button clicks.
  */
 
-public class bicycle extends JFrame implements ActionListener {
+public class Non_Motorized_bicycle extends JFrame implements ActionListener {
     private JTextField model,move,distance,passengers,speed;
     private JRadioButton manual;
     private JComboBox cb,cb1;
@@ -39,7 +38,7 @@ public class bicycle extends JFrame implements ActionListener {
      * sets their positions and sizes, and adds them to the frame.
      */
 
-    public bicycle(){
+    public Non_Motorized_bicycle(){
         // Set window properties
         this.setVisible(true);
         this.setSize(300, 670);
@@ -184,7 +183,7 @@ public class bicycle extends JFrame implements ActionListener {
             int b=Integer.parseInt(s4);
             double c=Double.parseDouble(s5);
 
-            Bicycle temp1=new Bicycle(f,s1,s,a,b,c,2,null);
+            NonMotorizedBicycle temp1=new NonMotorizedBicycle(f,s1,s,a,b,c,2,null);
             Car_Agency.add_Vehicle(temp1);
             System.out.println(temp1.toString());
             Car_Agency.print();
@@ -223,7 +222,7 @@ public class bicycle extends JFrame implements ActionListener {
             int b=Integer.parseInt(s4);
             double c=Double.parseDouble(s5);
 
-            Bicycle temp1=new Bicycle(f,s1,s,a,b,c,2,null);
+            NonMotorizedBicycle temp1=new NonMotorizedBicycle(f,s1,s,a,b,c,2,null);
             Car_Agency.add_Vehicle(temp1);
             System.out.println(temp1.toString());
             Car_Agency.print();

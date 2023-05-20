@@ -130,11 +130,11 @@ public class Operations extends JFrame implements ActionListener {
                     ((Jeep) Car_Agency.get_vehicle()[i]).set_Kind_Way(null);
 
                 }
-                else if(Car_Agency.get_vehicle()[i] instanceof Bicycle){
-                    ((Bicycle) Car_Agency.get_vehicle()[i]).set_Number_Wheels(0);
-                    ((Bicycle) Car_Agency.get_vehicle()[i]).set_Kind_Way(null);
-                    ((Bicycle) Car_Agency.get_vehicle()[i]).Energy_score();
-                    ((Bicycle) Car_Agency.get_vehicle()[i]).power_source(null);
+                else if(Car_Agency.get_vehicle()[i] instanceof NonMotorizedBicycle){
+                    ((NonMotorizedBicycle) Car_Agency.get_vehicle()[i]).set_Number_Wheels(0);
+                    ((NonMotorizedBicycle) Car_Agency.get_vehicle()[i]).set_Kind_Way(null);
+                    ((NonMotorizedBicycle) Car_Agency.get_vehicle()[i]).Energy_score();
+                    ((NonMotorizedBicycle) Car_Agency.get_vehicle()[i]).power_source(null);
                 }
                 else if(Car_Agency.get_vehicle()[i] instanceof Cruise_ship){
                     ((Cruise_ship) Car_Agency.get_vehicle()[i]).Average_life_engine();

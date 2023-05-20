@@ -1,9 +1,5 @@
 package Graphic.Vehicle_gui;
 
-import Graphic.Vehicle_gui.Amphibious;
-import Graphic.Vehicle_gui.bicycle;
-import Graphic.Vehicle_gui.jeep;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -120,7 +116,7 @@ public class Terrestrial extends JFrame implements ActionListener {
 
         }
         else if (e.getActionCommand().equals("Bicycle")) {
-            bicycle frame = new bicycle();
+            Non_Motorized_bicycle frame = new Non_Motorized_bicycle();
             this.dispose();
 
         }
