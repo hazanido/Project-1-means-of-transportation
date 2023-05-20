@@ -30,7 +30,6 @@ public class Amphibious_vehicle extends Marine_transport_vehicle implements Terr
         super(photo, Model_Name, move, distance, Max_Passengers, Max_Speed, Because, target);
         land = new Land_transport_vehicle();
         land.set_Kind_Way("paved");
-
     }
 
     /**
