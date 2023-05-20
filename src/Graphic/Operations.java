@@ -168,6 +168,20 @@ public class Operations extends JFrame implements ActionListener {
                     ((Amphibious_vehicle) Car_Agency.get_vehicle()[i]).set_Kind_Way(null);
                     ((Amphibious_vehicle) Car_Agency.get_vehicle()[i]).set_Number_Wheels(0);
                 }
+                else if(Car_Agency.get_vehicle()[i] instanceof ElectricBicycle){
+                    ((ElectricBicycle) Car_Agency.get_vehicle()[i]).set_Number_Wheels(0);
+                    ((ElectricBicycle) Car_Agency.get_vehicle()[i]).Average_fuel_consumption();
+                    ((ElectricBicycle) Car_Agency.get_vehicle()[i]).Average_life_engine();
+                    ((ElectricBicycle) Car_Agency.get_vehicle()[i]).set_Kind_Way(null);
+                }
+                else if(Car_Agency.get_vehicle()[i] instanceof Hybrid_plane){
+                    ((Hybrid_plane) Car_Agency.get_vehicle()[i]).set_Kind_Way(null);
+                    ((Hybrid_plane) Car_Agency.get_vehicle()[i]).set_Type(null);
+                    ((Hybrid_plane) Car_Agency.get_vehicle()[i]).Average_life_engine();
+                    ((Hybrid_plane) Car_Agency.get_vehicle()[i]).Average_fuel_consumption();
+                    ((Hybrid_plane) Car_Agency.get_vehicle()[i]).set_Because(false);
+                    ((Hybrid_plane) Car_Agency.get_vehicle()[i]).set_target(null);
+                }
             }
             JOptionPane.showMessageDialog(null, "All the values of the vehicles in the system will be reset");
             JOptionPane.showMessageDialog(null, "Insert new vehicles");
