@@ -21,9 +21,9 @@ import javax.imageio.ImageIO;
  */
 public class Maritime extends JFrame implements ActionListener {
 
-    private JButton frigate,Cruz,Amphibious,frigate_photo,Cruz_photo,Amphibious_photo;
-    private BufferedImage b_Maritime_photo,b_frigate,b_cruise,b_amphibious;
-    private ImageIcon i_Maritime_photo,i_frigate,i_cruise,i_amphibious;
+    private JButton frigate,Cruz,Amphibious,Hybrid_Plane,frigate_photo,Cruz_photo,Amphibious_photo,Hybrid_Plane_photo;
+    private BufferedImage b_Maritime_photo,b_frigate,b_cruise,b_amphibious,b_Hybrid_Plane;
+    private ImageIcon i_Maritime_photo,i_frigate,i_cruise,i_amphibious,i_Hybrid_Plane;
 
     /**
      * Constructs a new Maritime object.
@@ -33,7 +33,7 @@ public class Maritime extends JFrame implements ActionListener {
     public Maritime(){
         // Set window properties
         this.setVisible(true);
-        this.setSize(700, 400);
+        this.setSize(850, 400);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -65,6 +65,7 @@ public class Maritime extends JFrame implements ActionListener {
             b_frigate = ImageIO.read(new File("src/Graphic/pictures/Frigate.png"));
             b_cruise = ImageIO.read(new File("src/Graphic/pictures/Cruise.png"));
             b_amphibious = ImageIO.read(new File("src/Graphic/pictures/Amphibious.png"));
+            b_Hybrid_Plane = ImageIO.read(new File("src/Graphic/pictures/hybrid_plane.png"));
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -73,6 +74,7 @@ public class Maritime extends JFrame implements ActionListener {
         i_frigate=new ImageIcon(b_frigate);
         i_cruise=new ImageIcon(b_cruise);
         i_amphibious=new ImageIcon(b_amphibious);
+        i_Hybrid_Plane=new ImageIcon(b_Hybrid_Plane);
 
         frigate_photo=new JButton(i_frigate);
         frigate_photo.setBounds(60,170,90,45);
@@ -85,6 +87,10 @@ public class Maritime extends JFrame implements ActionListener {
         Amphibious_photo=new JButton(i_amphibious);
         Amphibious_photo.setBounds(460,170,90,50);
         panel.add(Amphibious_photo);
+
+        Hybrid_Plane_photo=new JButton(i_Hybrid_Plane);
+        Hybrid_Plane_photo.setBounds(660,170,90,50);
+        panel.add(Hybrid_Plane_photo);
 
 
         // Add components to the window
@@ -102,7 +108,11 @@ public class Maritime extends JFrame implements ActionListener {
         Amphibious.setBounds(430, 80, 180, 80);
         Amphibious.addActionListener(this);
         panel.add(Amphibious);
-        //this.add(Amphibious);
+
+        Hybrid_Plane=new JButton("Hybrid Plane");
+        Hybrid_Plane.setBounds(630,80,180,80);
+        Hybrid_Plane.addActionListener(this);
+        panel.add(Hybrid_Plane);
     }
     /**
      * Handles button click events.
@@ -124,6 +134,10 @@ public class Maritime extends JFrame implements ActionListener {
             Graphic.Vehicle_gui.Amphibious frame = new Amphibious();
             this.dispose();
 
+        }
+        else if(e.getActionCommand().equals("Hybrid Plane")){
+            hybrid_plane frame=new hybrid_plane();
+            this.dispose();
         }
     }
 }

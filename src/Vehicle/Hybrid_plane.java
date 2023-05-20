@@ -1,10 +1,29 @@
 package Vehicle;
 
+import java.io.File;
 import java.util.Objects;
 
 public class Hybrid_plane extends Air_transport_vehicles implements Terrestrial_interface,Maritime_interface,Motorized_engine{
     private Land_transport_vehicle land;
     private Marine_transport_vehicle marine;
+
+    public Hybrid_plane(){
+        super();
+        land=new Land_transport_vehicle();
+        marine=new Marine_transport_vehicle();
+        land.set_Kind_Way("paved");
+        set_Type("military");
+
+    }
+    public Hybrid_plane(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, String Type){
+        super(photo, Model_Name, move, distance, Max_Passengers, Max_Speed, Type);
+        land=new Land_transport_vehicle();
+        marine=new Marine_transport_vehicle();
+        land.set_Kind_Way("paved");
+        Type="military";
+
+    }
+
     public boolean get_Because(){return marine.get_Because();}
     public String get_target(){return marine.get_target();}
     public void set_Because(boolean Because){this.marine.set_Because(Because); }

@@ -76,64 +76,64 @@ public class dawn_rigoli extends JFrame implements ActionListener {
         JLabel lebal = new JLabel("model:");
         lebal.setBounds(70, 40, 150, 20);
         panel.add(lebal);
-        //this.add(lebal);
+
         cb5 = new JComboBox(model);
         cb5.setBounds(110, 40, 90, 20);
         panel.add(cb5);
-        //this.add(cb5);
+
         JLabel lebal1 = new JLabel("move:");
         lebal1.setBounds(70, 70, 150, 20);
         panel.add(lebal1);
-        //this.add(lebal1);
+
         move = new JTextField();
         move.setBounds(70, 90, 150, 20);
         move.setToolTipText("please enter ability to move the vehicle");
         JLabel lebal2 = new JLabel("distance:");
         lebal2.setBounds(70, 120, 150, 20);
         panel.add(lebal2);
-        //this.add(lebal2);
+
         distance = new JTextField();
         distance.setBounds(70, 140, 150, 20);
         distance.setToolTipText("please enter the distance the vehicle traveled during its lifetime");
         JLabel lebal3 = new JLabel("Max passengers:");
         lebal3.setBounds(70, 170, 150, 20);
         panel.add(lebal3);
-        //this.add(lebal3);
+
         cb6 = new JComboBox(passengers);
         cb6.setBounds(180, 170, 50, 20);
         panel.add(cb6);
-        //this.add(cb6);
+
         JLabel lebal4 = new JLabel("speed:");
         lebal4.setBounds(70, 200, 150, 20);
         panel.add(lebal4);
-        //this.add(lebal4);
+
         JLabel lebal8 = new JLabel("km");
         lebal8.setBounds(200, 200, 150, 20);
         panel.add(lebal8);
-        //this.add(lebal8);
+
         cb4 = new JComboBox(speed);
         cb4.setBounds(110, 200, 90, 20);
         panel.add(cb4);
-        //this.add(cb4);
+
         //Please type the type military/civilia
         JLabel lebal5 = new JLabel("Please type the type military/civilian?");
         lebal5.setBounds(60, 230, 250, 20);
         panel.add(lebal5);
-        //this.add(lebal5);
+
         military = new JRadioButton("military");
         military.setBounds(110, 250, 70, 20);
         JLabel lebal6 = new JLabel("Please select an energy score:");
         lebal6.setBounds(70, 270, 250, 40);
         panel.add(lebal6);
-        //this.add(lebal6);
+
         cb1 = new JComboBox(Score);
         cb1.setBounds(90, 310, 120, 20);
         panel.add(cb1);
-        //this.add(cb1);
+
         JLabel lebal7 = new JLabel("Please select the power source:");
         lebal7.setBounds(70, 330, 250, 40);
         panel.add(lebal7);
-        //this.add(lebal7);
+
         JRadioButton manual = new JRadioButton("manual");
         JRadioButton electric = new JRadioButton("electric");
         manual.setBounds(30, 370, 90, 20);
