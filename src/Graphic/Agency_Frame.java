@@ -89,7 +89,7 @@ public class Agency_Frame extends JFrame implements ActionListener {
         Vehicle[] vehicles = Car_Agency.get_vehicle();
         Operations temp = new Operations(index, vehicles);
         temp.setVisible(true);
-        this.dispose();
+
 
     }
 }

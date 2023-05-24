@@ -19,6 +19,7 @@ import java.util.concurrent.Callable;
 
 
 public class Operations extends JFrame implements ActionListener {
+
     private Vehicle vehicle;
     private int i;
     private JButton test_drive, buying_car, Flag_change, Reset,Current_Inventory_Report, Exit;
@@ -107,16 +108,16 @@ public class Operations extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Test drive")) {
             Test_drive frame = new Test_drive(i, vehicles);
-            this.dispose();
+
         }
         else if (e.getActionCommand().equals("Buying car")) {
             Buying_car frame = new Buying_car(i, vehicles);
-            this.dispose();
+
 
         }
         else if(e.getActionCommand().equals("Flag change")){
             Flag_selection frame=new Flag_selection(i,vehicles);
-            this.dispose();
+
         }
         else if(e.getActionCommand().equals("<html>Current Inventory<br />Report</html>")){
             Inventory_Report frame=new Inventory_Report();
@@ -195,7 +196,7 @@ public class Operations extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(null, "All the values of the vehicles in the system will be reset");
             JOptionPane.showMessageDialog(null, "Insert new vehicles");
             main_window temp=new main_window();
-            this.dispose();
+
 
         }
         else if(e.getActionCommand().equals("Exit")){

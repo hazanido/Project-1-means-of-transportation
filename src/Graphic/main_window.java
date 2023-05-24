@@ -20,6 +20,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 
+
+
 import Graphic.Vehicle_gui.Type_Vehicle;
 
 /**
@@ -28,6 +30,7 @@ import Graphic.Vehicle_gui.Type_Vehicle;
  * It contains a button that opens the Type_Vehicle window when clicked.
  */
 public class main_window extends JFrame implements ActionListener {
+
     private ImageIcon logo;
     private JLabel label1;
     private Type_Vehicle vehicle;
@@ -50,7 +53,6 @@ public class main_window extends JFrame implements ActionListener {
      *Adds a button to the window and registers an action listener for it.
      */
     public main_window() {
-
 
         // Set window properties
 
@@ -105,9 +107,9 @@ public class main_window extends JFrame implements ActionListener {
      */
     public void actionPerformed(ActionEvent e){
         Type_Vehicle vehicle=new Type_Vehicle();
-        this.dispose();
 
     }
+
 
 }
 

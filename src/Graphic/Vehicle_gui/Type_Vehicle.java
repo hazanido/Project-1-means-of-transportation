@@ -15,6 +15,7 @@ import java.io.IOException;
  * air, land, and marine transport vehicles.
  */
 public class Type_Vehicle extends JFrame implements ActionListener{
+
     private JButton Air;
     private JButton Land;
     private JButton Marine;

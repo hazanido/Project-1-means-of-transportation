@@ -187,7 +187,9 @@ public class hybrid_plane extends JFrame implements ActionListener {
             String s3 = distance.getText();
             String s4 = passengers.getText();
             String s5 = speed.getText();
-            String s6= military.getText();
+            String s6 = with.getText();
+            String s7 = against.getText();
+            String s8 = flag.getText();
 
 
 
@@ -196,10 +198,17 @@ public class hybrid_plane extends JFrame implements ActionListener {
             double a = Double.parseDouble(s3);
             int b = Integer.parseInt(s4);
             double c = Double.parseDouble(s5);
+            boolean fl = Boolean.parseBoolean(s6);
+            boolean fl1 = Boolean.parseBoolean(s7);
 
-
-            Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,s6);
-            Car_Agency.add_Vehicle(temp1);
+            if (fl = true) {
+                Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl,s8);
+                Car_Agency.add_Vehicle(temp1);
+            }
+            else if (fl1 = true) {
+                Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl1,s8);
+                Car_Agency.add_Vehicle(temp1);
+            }
 
 
             Type_Vehicle temp = new Type_Vehicle();
@@ -224,8 +233,9 @@ public class hybrid_plane extends JFrame implements ActionListener {
             String s3 = distance.getText();
             String s4 = passengers.getText();
             String s5 = speed.getText();
-            String s6= military.getText();
-
+            String s6 = with.getText();
+            String s7 = against.getText();
+            String s8 = flag.getText();
 
 
 
@@ -233,10 +243,17 @@ public class hybrid_plane extends JFrame implements ActionListener {
             double a = Double.parseDouble(s3);
             int b = Integer.parseInt(s4);
             double c = Double.parseDouble(s5);
+            boolean fl = Boolean.parseBoolean(s6);
+            boolean fl1 = Boolean.parseBoolean(s7);
 
-
-            Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,s6);
-            Car_Agency.add_Vehicle(temp1);
+            if (fl = true) {
+                Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl,s8);
+                Car_Agency.add_Vehicle(temp1);
+            }
+            else if (fl1 = true) {
+                Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl1,s8);
+                Car_Agency.add_Vehicle(temp1);
+            }
 
 
 

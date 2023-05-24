@@ -13,14 +13,15 @@ import java.io.IOException;
  * It allows the user to enter the distance traveled on a test drive and updates the
  * vehicle's total distance traveled accordingly.
  */
-public class Test_drive extends JFrame implements ActionListener {
+public class Test_drive extends JFrame implements ActionListener,Runnable {
     private JButton Back;
     private JTextField move;
     private Vehicle vehicle;
 
     /**
      * Constructs a new Test_drive window for a specific vehicle.
-     * @param i The index of the vehicle in the array of vehicles.
+     *
+     * @param i        The index of the vehicle in the array of vehicles.
      * @param vehicles The array of vehicles in the car agency.
      */
     public Test_drive(int i, Vehicle[] vehicles) {
@@ -57,6 +58,7 @@ public class Test_drive extends JFrame implements ActionListener {
      * Handles the user clicking the "Back to the agency" button. Updates the vehicle's
      * total distance traveled with the distance entered by the user and returns to the
      * agency window.
+     *
      * @param e The action event that occurred (clicking the button).
      */
     public void actionPerformed(ActionEvent e) {
@@ -65,16 +67,21 @@ public class Test_drive extends JFrame implements ActionListener {
                 int distance = Integer.parseInt(move.getText());
                 int temp = vehicle.get_move();
                 vehicle.set_Move(temp + distance);
-                Agency_Frame temp1=new Agency_Frame(Car_Agency.get_vehicle(),vehicle.get_move());
+                Agency_Frame temp1 = new Agency_Frame(Car_Agency.get_vehicle(), vehicle.get_move());
                 this.dispose();
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Please enter a valid number");
                 return;
             }
 
-            }
         }
     }
+
+    public void run() {
+
+
+    }
+}
 
 
 

@@ -47,6 +47,17 @@ public class Inventory_Report extends JFrame implements ActionListener {
             //button.setActionCommand(String.valueOf(i));
             //button.addActionListener(this);
             this.add(imageLabel);
+
+
+            Thread updateThread = new Thread(new Runnable() {
+                public void run() {
+                    while (true) {
+
+
+                    }
+                }
+            });
+            updateThread.start();
         }
 
     }
@@ -54,7 +65,10 @@ public class Inventory_Report extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+
     }
+
+
 }
 
 

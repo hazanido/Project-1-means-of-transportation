@@ -3,38 +3,29 @@ package Vehicle;
 import java.io.File;
 import java.util.Objects;
 
-public class Hybrid_plane extends Air_transport_vehicles implements Terrestrial_interface,Maritime_interface,Motorized_engine{
-    private Land_transport_vehicle land;
-    private Marine_transport_vehicle marine;
+public class Hybrid_plane extends Amphibious_vehicle implements Air_interface{
+
+    private Air_transport_vehicles air;
 
     public Hybrid_plane(){
         super();
-        land=new Land_transport_vehicle();
-        marine=new Marine_transport_vehicle();
-        land.set_Kind_Way("paved");
-        set_Type("military");
+        air=new Air_transport_vehicles();
+        air.set_Type("military");
 
-    }
-    public Hybrid_plane(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, String Type){
-        super(photo, Model_Name, move, distance, Max_Passengers, Max_Speed, Type);
-        land=new Land_transport_vehicle();
-        marine=new Marine_transport_vehicle();
-        land.set_Kind_Way("paved");
-        Type="military";
 
     }
 
-    public boolean get_Because(){return marine.get_Because();}
-    public String get_target(){return marine.get_target();}
-    public void set_Because(boolean Because){this.marine.set_Because(Because); }
-    public void set_target(String target){this.marine.set_target(target);}
-    public int get_Number_Wheels(){return land.get_Number_Wheels();}
-    public String get_Kind_Way(){return land.get_Kind_Way();}
-    public void set_Number_Wheels(int Number_Wheels){this.land.set_Number_Wheels(Number_Wheels);}
-    public void set_Kind_Way(String Kind_Way){this.land.set_Kind_Way(Kind_Way);}
-    public float Average_fuel_consumption(){return 0;}
-    public float Average_life_engine(){return 0;}
-    public String toString(){return "HYBRID PLANE:\n"+super.toString()+", "+"Average fuel consumption: "+Average_fuel_consumption()+", "+ "Average life engine:  "+Average_life_engine()+" years."+", " + " Number of Wheels: " + get_Number_Wheels() + ", " + "The kind of way: " + get_Kind_Way() + "\n ";}
+    public Hybrid_plane(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, boolean Because, String target){
+        super(photo, Model_Name, move, distance, Max_Passengers, Max_Speed, Because, target);
+        air=new Air_transport_vehicles();
+        air.set_Type("military");
+
+
+    }
+
+    public String get_Type(){return air.get_Type();}
+    public void set_Type(String Type){this.air.set_Type(Type);}
+    public String toString(){return "HYBRID PLANE:\n"+super.toString()+", "+"Type: "+air.get_Type()+"\n ";}
     public boolean equals(Object obj){
         if (obj == this) {
         return true;

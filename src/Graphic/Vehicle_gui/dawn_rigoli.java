@@ -214,7 +214,7 @@ public class dawn_rigoli extends JFrame implements ActionListener {
             Car_Agency.print();
 
             Type_Vehicle temp = new Type_Vehicle();
-            this.dispose();
+
         } else if (e.getActionCommand().equals("add photo")) {
             Path to;
 
@@ -247,7 +247,7 @@ public class dawn_rigoli extends JFrame implements ActionListener {
 
             Agency_Frame frame = new Agency_Frame(Car_Agency.get_vehicle(), s);
 
-            this.dispose();
+
 
         }
 
