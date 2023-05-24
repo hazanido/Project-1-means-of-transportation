@@ -21,10 +21,10 @@ import javax.imageio.ImageIO;
  */
 public class Maritime extends JFrame implements ActionListener {
 
-    private JButton frigate,Cruz,Amphibious,Hybrid_Plane,frigate_photo,Cruz_photo,Amphibious_photo,Hybrid_Plane_photo;
+    private JButton frigate,Cruz,Amphibious,Hybrid_Plane;
     private BufferedImage b_Maritime_photo,b_frigate,b_cruise,b_amphibious,b_Hybrid_Plane;
     private ImageIcon i_Maritime_photo,i_frigate,i_cruise,i_amphibious,i_Hybrid_Plane;
-
+    private JLabel frigate_photo,Cruz_photo,Amphibious_photo,Hybrid_Plane_photo;
     /**
      * Constructs a new Maritime object.
      * The constructor initializes the window and adds the buttons to it.
@@ -76,19 +76,19 @@ public class Maritime extends JFrame implements ActionListener {
         i_amphibious=new ImageIcon(b_amphibious);
         i_Hybrid_Plane=new ImageIcon(b_Hybrid_Plane);
 
-        frigate_photo=new JButton(i_frigate);
+        frigate_photo=new JLabel(i_frigate);
         frigate_photo.setBounds(60,170,90,45);
         panel.add(frigate_photo);
 
-        Cruz_photo=new JButton(i_cruise);
+        Cruz_photo=new JLabel(i_cruise);
         Cruz_photo.setBounds(260,170,90,60);
         panel.add(Cruz_photo);
 
-        Amphibious_photo=new JButton(i_amphibious);
+        Amphibious_photo=new JLabel(i_amphibious);
         Amphibious_photo.setBounds(460,170,90,50);
         panel.add(Amphibious_photo);
 
-        Hybrid_Plane_photo=new JButton(i_Hybrid_Plane);
+        Hybrid_Plane_photo=new JLabel(i_Hybrid_Plane);
         Hybrid_Plane_photo.setBounds(660,170,90,50);
         panel.add(Hybrid_Plane_photo);
 

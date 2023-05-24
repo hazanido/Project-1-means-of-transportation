@@ -21,7 +21,7 @@ import java.util.concurrent.Callable;
 public class Operations extends JFrame implements ActionListener {
     private Vehicle vehicle;
     private int i;
-    private JButton test_drive, buying_car, Flag_change, Reset, Exit;
+    private JButton test_drive, buying_car, Flag_change, Reset,Current_Inventory_Report, Exit;
     private Vehicle[] vehicles;
     private BufferedImage b_Operations_photo;
     private ImageIcon i_Operations_photo;
@@ -69,6 +69,7 @@ public class Operations extends JFrame implements ActionListener {
         test_drive = new JButton("Test drive");
         buying_car = new JButton("Buying car");
         Flag_change = new JButton("Flag change");
+        Current_Inventory_Report =new JButton("<html>Current Inventory<br />Report</html>");
         Reset = new JButton("Reset All");
         Exit = new JButton("Exit");
 
@@ -81,9 +82,13 @@ public class Operations extends JFrame implements ActionListener {
         buying_car.addActionListener(this);
         panel.add(buying_car);
 
-        Flag_change.setBounds(110, 120, 150, 60);
+        Flag_change.setBounds(30, 120, 150, 60);
         Flag_change.addActionListener(this);
         panel.add(Flag_change);
+
+        Current_Inventory_Report.setBounds(200, 120, 150, 60);
+        Current_Inventory_Report.addActionListener(this);
+        panel.add(Current_Inventory_Report);
 
         Reset.setBounds(15, 240, 100, 30);
         Reset.addActionListener(this);
@@ -111,6 +116,10 @@ public class Operations extends JFrame implements ActionListener {
         }
         else if(e.getActionCommand().equals("Flag change")){
             Flag_selection frame=new Flag_selection(i,vehicles);
+            this.dispose();
+        }
+        else if(e.getActionCommand().equals("<html>Current Inventory<br />Report</html>")){
+            Inventory_Report frame=new Inventory_Report();
             this.dispose();
         }
         else if(e.getActionCommand().equals("Reset All")){

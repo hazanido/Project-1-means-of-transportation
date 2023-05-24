@@ -19,11 +19,11 @@ import java.io.IOException;
  */
 public class Terrestrial extends JFrame implements ActionListener {
 
-    private JButton Jeep,Amphibious,Bicycle,Electric_Bicycle,Hybrid_Plane,Jeep_photo,Amphibious_photo,Bicycle_photo,Electric_Bicycle_photo,Hybrid_Plane_photo;
+    private JButton Jeep,Amphibious,Bicycle,Electric_Bicycle,Hybrid_Plane;
 
     private BufferedImage b_Terrestrial_photo,b_Jeep_photo,b_Amphibious_photo,b_Bicycle_photo,b_Electric_Bicycle,b_Hybrid_Plane;
     private ImageIcon i_Terrestrial_photo,i_Jeep_photo,i_Amphibious_photo,i_Bicycle_photo,i_Electric_Bicycle,i_Hybrid_Plane;
-
+    private JLabel Jeep_photo,Amphibious_photo,Bicycle_photo,Electric_Bicycle_photo,Hybrid_Plane_photo;
     /**
      * Constructs a new Terrestrial object.
      * The constructor initializes the window and adds the buttons to it.
@@ -75,23 +75,23 @@ public class Terrestrial extends JFrame implements ActionListener {
         i_Electric_Bicycle=new ImageIcon(b_Electric_Bicycle);
         i_Hybrid_Plane=new ImageIcon(b_Hybrid_Plane);
 
-        Jeep_photo=new JButton(i_Jeep_photo);
+        Jeep_photo=new JLabel(i_Jeep_photo);
         Jeep_photo.setBounds(60,170,90,45);
         panel.add(Jeep_photo);
 
-        Amphibious_photo=new JButton(i_Amphibious_photo);
+        Amphibious_photo=new JLabel(i_Amphibious_photo);
         Amphibious_photo.setBounds(260,170,90,50);
         panel.add(Amphibious_photo);
 
-        Bicycle_photo=new JButton(i_Bicycle_photo);
+        Bicycle_photo=new JLabel(i_Bicycle_photo);
         Bicycle_photo.setBounds(460,170,90,50);
         panel.add(Bicycle_photo);
 
-        Electric_Bicycle_photo=new JButton(i_Electric_Bicycle);
+        Electric_Bicycle_photo=new JLabel(i_Electric_Bicycle);
         Electric_Bicycle_photo.setBounds(660,170,90,50);
         panel.add(Electric_Bicycle_photo);
 
-        Hybrid_Plane_photo=new JButton(i_Hybrid_Plane);
+        Hybrid_Plane_photo=new JLabel(i_Hybrid_Plane);
         Hybrid_Plane_photo.setBounds(860,170,90,50);
         panel.add(Hybrid_Plane_photo);
 

@@ -17,9 +17,10 @@ import java.io.IOException;
  */
 
 public class Aerial extends JFrame implements ActionListener {
-    private JButton dawn_Rigoli,game_Drone,plane_toy,spy_plane,Hybrid_Plane,Hybrid_Plane_photo;
+    private JButton dawn_Rigoli,game_Drone,Hybrid_Plane;
     private BufferedImage b_Aerial_photo,b_plane_toy,b_spy_plane,b_Hybrid_Plane;
     private ImageIcon i_Aerial_photo,i_plane_toy,i_spy_plane,i_Hybrid_Plane;
+    private  JLabel spy_plane,plane_toy,Hybrid_Plane_photo;
 
     /**
      * Constructs a new Aerial object.
@@ -68,16 +69,16 @@ public class Aerial extends JFrame implements ActionListener {
         i_plane_toy=new ImageIcon(b_plane_toy);
         i_Hybrid_Plane=new ImageIcon(b_Hybrid_Plane);
 
-        spy_plane=new JButton(i_spy_plane);
+        spy_plane=new JLabel(i_spy_plane);
         spy_plane.setBounds(90,170,90,60);
         panel.add(spy_plane);
 
-        plane_toy=new JButton(i_plane_toy);
+        plane_toy=new JLabel(i_plane_toy);
         plane_toy.setBounds(290,170,90,60);
         panel.add(plane_toy);
 
-        Hybrid_Plane_photo=new JButton(i_Hybrid_Plane);
-        Hybrid_Plane_photo.setBounds(490,170,90,50);
+        Hybrid_Plane_photo=new JLabel(i_Hybrid_Plane);
+        Hybrid_Plane_photo.setBounds(490,170,90,60);
         panel.add(Hybrid_Plane_photo);
 
 
