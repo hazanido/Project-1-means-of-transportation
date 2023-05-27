@@ -109,14 +109,18 @@ public class Operations extends JFrame implements ActionListener {
         if (e.getActionCommand().equals("Test drive")) {
             Test_drive frame = new Test_drive(i, vehicles);
 
+
         }
         else if (e.getActionCommand().equals("Buying car")) {
             Buying_car frame = new Buying_car(i, vehicles);
 
 
+
         }
         else if(e.getActionCommand().equals("Flag change")){
             Flag_selection frame=new Flag_selection(i,vehicles);
+
+
 
         }
         else if(e.getActionCommand().equals("<html>Current Inventory<br />Report</html>")){

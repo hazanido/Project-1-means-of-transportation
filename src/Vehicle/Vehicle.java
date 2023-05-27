@@ -3,7 +3,7 @@ package Vehicle;
 import java.io.File;
 import java.nio.file.Path;
 import java.util.Objects;
-public abstract class Vehicle implements Runnable{
+public abstract class Vehicle {
     private File photo;
     private String Model_Name;
     private int move;
@@ -126,13 +126,7 @@ public abstract class Vehicle implements Runnable{
                 && Double.compare(this.Max_Speed, other.Max_Speed) == 0;
     }
 
-    public void run() {
 
-
-
-
-
-    }
 
 
 

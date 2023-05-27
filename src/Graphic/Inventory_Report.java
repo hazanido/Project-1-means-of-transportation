@@ -10,10 +10,9 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class Inventory_Report extends JFrame implements ActionListener {
+public class Inventory_Report extends JFrame {
     private Vehicle[] Temp_carAgency;
-    int finalI;
-    private Car_Agency carAgency;
+
     public Inventory_Report() {
         // Set window properties
         this.setVisible(true);
@@ -25,6 +24,7 @@ public class Inventory_Report extends JFrame implements ActionListener {
         this.setTitle("Current Inventory Report");
         this.setLayout(new GridLayout());
 
+
         // Copy the vehicles array to the Temp_carAgency array
         Temp_carAgency = new Vehicle[Car_Agency.get_vehicle().length];
         for (int i = 0; i < Car_Agency.get_vehicle().length; i++) {
@@ -32,7 +32,6 @@ public class Inventory_Report extends JFrame implements ActionListener {
         }
 
         for (int i = 0; i < Temp_carAgency.length; i++) {
-            //finalI = i;
             Vehicle vehicle = Temp_carAgency[i];
             BufferedImage image = null;
             try {
@@ -42,34 +41,33 @@ public class Inventory_Report extends JFrame implements ActionListener {
             }
             ImageIcon icon = new ImageIcon(image);
             JLabel imageLabel = new JLabel(icon);
-            //JButton button = new JButton(icon);
             imageLabel.setToolTipText(Car_Agency.get_vehicle()[i].toString());
-            //button.setActionCommand(String.valueOf(i));
-            //button.addActionListener(this);
+
             this.add(imageLabel);
 
 
             Thread updateThread = new Thread(new Runnable() {
                 public void run() {
                     while (true) {
+                        //updateInventoryReport();
 
-
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
+
             });
             updateThread.start();
         }
-
     }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-
-    }
-
-
 }
+
+
+
+
 
 
 

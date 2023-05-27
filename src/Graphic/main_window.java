@@ -24,13 +24,13 @@ import javax.swing.JLabel;
 
 import Graphic.Vehicle_gui.Type_Vehicle;
 
+
 /**
  * The main_window class represents the main window of the Car Agency application.
  * It extends the JFrame class and implements the ActionListener interface.
  * It contains a button that opens the Type_Vehicle window when clicked.
  */
 public class main_window extends JFrame implements ActionListener {
-
     private ImageIcon logo;
     private JLabel label1;
     private Type_Vehicle vehicle;
@@ -41,17 +41,16 @@ public class main_window extends JFrame implements ActionListener {
     public static void main(String[] args) {
         //new main_window();
         SwingUtilities.invokeLater(main_window::new);
-
     }
-
     private JButton button;
 
-
     /**
-     *Constructs a new main_window object and initializes its properties.
-     *Sets the window size, location, title, and background color.
-     *Adds a button to the window and registers an action listener for it.
+     * Constructs a new main_window object and initializes its properties.
+     * Sets the window size, location, title, and background color.
+     * Adds a button to the window and registers an action listener for it.
      */
+
+
     public main_window() {
 
         // Set window properties
@@ -87,30 +86,28 @@ public class main_window extends JFrame implements ActionListener {
         this.add(backgroundLabel);
 
 
-
-
-
-
         button = new JButton("Adding vehicles");
         button.setBounds(300, 600, 210, 110);
         button.addActionListener(this);
 
         panel.add(button);
 
-        //this.add(button);
 
     }
 
     /**
-     Invoked when the button is clicked.
-     Creates a new Type_Vehicle object and disposes of the current window.
+     * Invoked when the button is clicked.
+     * Creates a new Type_Vehicle object and disposes of the current window.
      */
-    public void actionPerformed(ActionEvent e){
-        Type_Vehicle vehicle=new Type_Vehicle();
+    public void actionPerformed(ActionEvent e) {
+            Type_Vehicle vehicle = new Type_Vehicle();
+
 
     }
-
-
 }
+
+
+
+
 
 

@@ -22,7 +22,7 @@ import javax.swing.JLabel;
  *The class also creates a new Agency_Frame object once a button is clicked.
  */
 
-public class Flag_selection extends JFrame implements ActionListener {
+public class Flag_selection extends JFrame implements ActionListener, Runnable {
 
     private JButton Back, israel, usa, germany, greece, italy, sumulia, pirates;
     private JTextField move;
@@ -133,6 +133,11 @@ public class Flag_selection extends JFrame implements ActionListener {
             }
         }
         Agency_Frame temp1=new Agency_Frame(Car_Agency.get_vehicle(),vehicle.get_move());
+
+    }
+
+    @Override
+    public void run() {
 
     }
 }

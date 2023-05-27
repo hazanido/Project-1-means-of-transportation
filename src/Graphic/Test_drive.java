@@ -7,13 +7,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * The Test_drive class creates a JFrame window for testing a specific vehicle's movement.
  * It allows the user to enter the distance traveled on a test drive and updates the
  * vehicle's total distance traveled accordingly.
  */
-public class Test_drive extends JFrame implements ActionListener,Runnable {
+public class Test_drive extends JFrame implements ActionListener {
     private JButton Back;
     private JTextField move;
     private Vehicle vehicle;
@@ -71,16 +72,12 @@ public class Test_drive extends JFrame implements ActionListener,Runnable {
                 this.dispose();
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Please enter a valid number");
-                return;
+
             }
 
         }
     }
 
-    public void run() {
-
-
-    }
 }
 
 
