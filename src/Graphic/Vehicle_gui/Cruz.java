@@ -39,7 +39,7 @@ public class Cruz extends JFrame implements ActionListener {
         this.setSize(300, 740);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Cruz");

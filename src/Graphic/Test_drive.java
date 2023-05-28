@@ -32,7 +32,7 @@ public class Test_drive extends JFrame implements ActionListener {
         this.setSize(200, 200);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Test_drive");

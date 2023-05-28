@@ -36,7 +36,7 @@ public class Maritime extends JFrame implements ActionListener {
         this.setSize(850, 400);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Marine transport vehicle");

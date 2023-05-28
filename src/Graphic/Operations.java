@@ -107,13 +107,15 @@ public class Operations extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Test drive")) {
+            //test_drive.setEnabled(false);
             Test_drive frame = new Test_drive(i, vehicles);
+            //SwingUtilities.invokeLater(new Test_drive(i,vehicles));
 
 
         }
         else if (e.getActionCommand().equals("Buying car")) {
-            Buying_car frame = new Buying_car(i, vehicles);
 
+                Buying_car frame = new Buying_car(i, vehicles);
 
 
         }
@@ -124,8 +126,8 @@ public class Operations extends JFrame implements ActionListener {
 
         }
         else if(e.getActionCommand().equals("<html>Current Inventory<br />Report</html>")){
-            Inventory_Report frame=new Inventory_Report();
-            this.dispose();
+                Inventory_Report frame=new Inventory_Report();
+
         }
         else if(e.getActionCommand().equals("Reset All")){
             for (int i = 0; i < Car_Agency.get_vehicle().length; i++) {

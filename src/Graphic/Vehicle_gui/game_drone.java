@@ -43,7 +43,7 @@ public class game_drone extends JFrame implements ActionListener {
         this.setSize(300, 620);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Game drone");

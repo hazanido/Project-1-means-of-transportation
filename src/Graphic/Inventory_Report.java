@@ -18,7 +18,7 @@ public class Inventory_Report extends JFrame {
         this.setVisible(true);
         this.setSize(600, 600);
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Current Inventory Report");
