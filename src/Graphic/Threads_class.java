@@ -8,18 +8,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Threads_class {
     private final Object lock = new Object();
-    private Map<VehicleType, AtomicInteger> index_Test_Map;
-    private Map<VehicleType, AtomicInteger> buy_Test_Map;
+
+    private AtomicInteger[] index_Test_Array;
+    private AtomicInteger[] buy_Test_Array;
     private List<Vehicle> vehicles;
     private List<ChangeListener> listeners;
     private static Threads_class singleInstance = null;
     private Threads_class() {
-        index_Test_Map = new HashMap<>();
-        buy_Test_Map = new HashMap<>();
+        index_Test_Array = new AtomicInteger[VehicleType.values().length];
+        buy_Test_Array = new AtomicInteger[VehicleType.values().length];
         vehicles = new ArrayList<>();
         listeners = new ArrayList<>();
 
-        init_Maps();
+        init_Arr();
     }
     public static Threads_class get_Instance() {
         if (singleInstance == null) {
@@ -27,15 +28,15 @@ public class Threads_class {
         }
         return singleInstance;
     }
-    private void init_Maps() {
-        for (VehicleType type : VehicleType.values()) {
-            index_Test_Map.put(type, new AtomicInteger(-1));
-            buy_Test_Map.put(type, new AtomicInteger(-1));
+    private void init_Arr() {
+        for (int i = 0; i < index_Test_Array.length; i++) {
+            index_Test_Array[i] = new AtomicInteger(-1);
+            buy_Test_Array[i] = new AtomicInteger(-1);
         }
     }
     public boolean InProgress() {
-        for (VehicleType vehicleType : VehicleType.values()) {
-            if ((index_Test_Map.get(vehicleType).get() != -1) || (buy_Test_Map.get(vehicleType).get() != -1)) {
+        for (int i = 0; i < VehicleType.values().length; i++) {
+            if ((index_Test_Array[i].get() != -1) || (buy_Test_Array[i].get() != -1)) {
                 return true;
             }
 
@@ -46,12 +47,12 @@ public class Threads_class {
         synchronized (lock) {
             Vehicle vehicle = vehicles.get(index);
             VehicleType type = getVehicleType(vehicle);
-            if (buy_Test_Map.get(type).get() == index) {
+            if (buy_Test_Array[type.ordinal()].get() == index) {
                 JOptionPane.showMessageDialog(null, "This vehicle is currently in buy status - please try again later");
                 return true;
             }
-            if (index_Test_Map.get(type).get() == -1) {
-                index_Test_Map.get(type).set(index);
+            if (index_Test_Array[type.ordinal()].get() == -1) {
+                index_Test_Array[type.ordinal()].set(index);
                 return false;
             } else {
                 JOptionPane.showMessageDialog(null, "This vehicle is currently being test driven - please try again later");
@@ -63,7 +64,7 @@ public class Threads_class {
         synchronized (lock) {
             Vehicle vehicle = vehicles.get(index);
             VehicleType type = getVehicleType(vehicle);
-            int currentInTest = index_Test_Map.get(type).get();
+            int currentInTest = index_Test_Array[type.ordinal()].get();
             if (currentInTest == -1) {
                 return false;
             } else {
@@ -100,7 +101,7 @@ public class Threads_class {
         new Thread(() -> {
             Vehicle vehicle = vehicles.get(index);
             VehicleType type = getVehicleType(vehicle);
-            buy_Test_Map.get(type).set(index);
+            buy_Test_Array[type.ordinal()].set(index);
             sleepDBAction(frame);
             synchronized (lock) {
                 vehicles.remove(index);
