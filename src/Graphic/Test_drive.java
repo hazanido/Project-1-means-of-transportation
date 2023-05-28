@@ -14,7 +14,7 @@ import java.util.Arrays;
  * It allows the user to enter the distance traveled on a test drive and updates the
  * vehicle's total distance traveled accordingly.
  */
-public class Test_drive extends JFrame implements ActionListener {
+public class Test_drive extends JFrame  {
     private JButton Back;
     private JTextField move;
     private Vehicle vehicle;
@@ -48,7 +48,26 @@ public class Test_drive extends JFrame implements ActionListener {
         Back = new JButton();
         Back.setBounds(20, 100, 150, 30);
         Back.setText("Back to the agency");
-        Back.addActionListener(this);
+        Back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getActionCommand().equals("Back to the agency")) {
+                    try {
+                        int distance = Integer.parseInt(move.getText());
+                        int temp = vehicle.get_move();
+                        vehicle.set_Move(temp + distance);
+                        Agency_Frame temp1 = new Agency_Frame(Car_Agency.get_vehicle(), vehicle.get_move());
+                        Threads_class.get_Instance().Update_distance(i,temp+distance,200);
+                        dispose();
+
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null, "Please enter a valid number");
+
+                    }
+
+                }
+            }
+        });
         this.add(Back);
 
         this.add(move);
@@ -62,21 +81,22 @@ public class Test_drive extends JFrame implements ActionListener {
      *
      * @param e The action event that occurred (clicking the button).
      */
-    public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("Back to the agency")) {
-            try {
-                int distance = Integer.parseInt(move.getText());
-                int temp = vehicle.get_move();
-                vehicle.set_Move(temp + distance);
-                Agency_Frame temp1 = new Agency_Frame(Car_Agency.get_vehicle(), vehicle.get_move());
-                this.dispose();
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(this, "Please enter a valid number");
-
-            }
-
-        }
-    }
+//    public void actionPerformed(ActionEvent e) {
+//        if (e.getActionCommand().equals("Back to the agency")) {
+//            try {
+//                int distance = Integer.parseInt(move.getText());
+//                int temp = vehicle.get_move();
+//                vehicle.set_Move(temp + distance);
+//                Agency_Frame temp1 = new Agency_Frame(Car_Agency.get_vehicle(), vehicle.get_move());
+//                Threads_class.get_Instance().Update_distance(,vehicle.get_distance(),200);
+//                this.dispose();
+//            } catch (NumberFormatException ex) {
+//                JOptionPane.showMessageDialog(this, "Please enter a valid number");
+//
+//            }
+//
+//        }
+//    }
 
 }
 

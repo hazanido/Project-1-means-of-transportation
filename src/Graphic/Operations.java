@@ -107,7 +107,6 @@ public class Operations extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Test drive")) {
-            //test_drive.setEnabled(false);
             Test_drive frame = new Test_drive(i, vehicles);
             //SwingUtilities.invokeLater(new Test_drive(i,vehicles));
 
