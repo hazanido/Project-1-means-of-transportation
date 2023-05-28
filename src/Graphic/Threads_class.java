@@ -35,12 +35,10 @@ public class Threads_class {
     }
     public boolean InProgress() {
         for (VehicleType vehicleType : VehicleType.values()) {
-            if (index_Test_Map.get(vehicleType).get() != -1) {
+            if ((index_Test_Map.get(vehicleType).get() != -1) || (buy_Test_Map.get(vehicleType).get() != -1)) {
                 return true;
             }
-            if (buy_Test_Map.get(vehicleType).get() != -1) {
-                return true;
-            }
+
         }
         return false;
     }

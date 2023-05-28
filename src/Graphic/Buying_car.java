@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
  * If there are no more cars in the car agency, the main window is displayed.
  * Otherwise, the agency frame is displayed with the remaining cars.
  */
-public class Buying_car extends JDialog implements Runnable {
+public class Buying_car extends JDialog {
 
 
     private Vehicle vehicle;
@@ -50,10 +50,7 @@ public class Buying_car extends JDialog implements Runnable {
         }
     }
 
-    @Override
-    public void run() {
 
-    }
 }
 
 
