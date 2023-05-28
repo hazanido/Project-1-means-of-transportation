@@ -14,6 +14,7 @@ public class Threads_class {
     private List<Vehicle> vehicles;
     private List<ChangeListener> listeners;
     private static Threads_class singleInstance = null;
+
     private Threads_class() {
         index_Test_Array = new AtomicInteger[VehicleType.values().length];
         buy_Test_Array = new AtomicInteger[VehicleType.values().length];
@@ -22,18 +23,21 @@ public class Threads_class {
 
         init_Arr();
     }
+
     public static Threads_class get_Instance() {
         if (singleInstance == null) {
             singleInstance = new Threads_class();
         }
         return singleInstance;
     }
+
     private void init_Arr() {
         for (int i = 0; i < index_Test_Array.length; i++) {
             index_Test_Array[i] = new AtomicInteger(-1);
             buy_Test_Array[i] = new AtomicInteger(-1);
         }
     }
+
     public boolean InProgress() {
         for (int i = 0; i < VehicleType.values().length; i++) {
             if ((index_Test_Array[i].get() != -1) || (buy_Test_Array[i].get() != -1)) {
@@ -43,6 +47,7 @@ public class Threads_class {
         }
         return false;
     }
+
     public boolean Inspection_by_type(int index) {
         synchronized (lock) {
             Vehicle vehicle = vehicles.get(index);
@@ -60,6 +65,7 @@ public class Threads_class {
             }
         }
     }
+
     public boolean Inspection_by_index(int index) {
         synchronized (lock) {
             Vehicle vehicle = vehicles.get(index);
@@ -72,6 +78,7 @@ public class Threads_class {
             }
         }
     }
+
     private VehicleType getVehicleType(Vehicle vehicle) {
         if (vehicle instanceof Marine_transport_vehicle) {
             return VehicleType.Marine;
@@ -81,6 +88,7 @@ public class Threads_class {
             return VehicleType.Air;
         }
     }
+
     public void addListener(ChangeListener listener) {
         listeners.add(listener);
     }
@@ -88,6 +96,7 @@ public class Threads_class {
     public void removeListener(ChangeListener listener) {
         listeners.remove(listener);
     }
+
     public void addVehicle(JFrame frame, Vehicle vehicle) {
         new Thread(() -> {
             sleepDBAction(frame);
@@ -97,6 +106,7 @@ public class Threads_class {
             Notice_of_change();
         }).start();
     }
+
     public void removeVehicle(JFrame frame, int index) {
         new Thread(() -> {
             Vehicle vehicle = vehicles.get(index);
@@ -109,11 +119,13 @@ public class Threads_class {
             Notice_of_change();
         }).start();
     }
+
     private void Notice_of_change() {
         for (ChangeListener listener : listeners) {
             listener.change_listener();
         }
     }
+
     private void sleepDBAction(JFrame frame) {
         try {
             Thread.sleep(2000);
@@ -121,5 +133,47 @@ public class Threads_class {
             e.printStackTrace();
         }
     }
+    private int getVehicleTypeIndex(VehicleType vehicleType) {
+        for (int i = 0; i < VehicleType.values().length; i++) {
+            if (VehicleType.values()[i] == vehicleType) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
+    public void Update_distance(int index, float distance, long sleep_time) {
+        synchronized (lock) {
+            System.out.println(index + ", SleepTime - " + sleep_time);
+            try {
+                Thread.sleep(sleep_time);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if (index >= 0 && index < vehicles.size()) {
+                Vehicle vehicleToUpdate = vehicles.get(index);
+                vehicleToUpdate.set_Distance(distance);
+                VehicleType vehicleType = getVehicleType(vehicleToUpdate);
+                int vehicleTypeIndex = getVehicleTypeIndex(vehicleType);
+                if (vehicleTypeIndex != -1 && vehicleTypeIndex < index_Test_Array.length) {
+                    index_Test_Array[vehicleTypeIndex ].set(-1);
+                }
+            }
+        }
+        Notice_of_change();
+    }
+
+    /**
+
+    public void Reset_distance(JFrame frame){
+        new Thread(() -> {
+            sleepDBAction(frame);
+            synchronized (lock){
+            }
+        }
+    }
+    */
 }
+
+
+
