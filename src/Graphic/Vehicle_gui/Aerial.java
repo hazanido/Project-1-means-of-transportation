@@ -30,7 +30,7 @@ public class Aerial extends JFrame implements ActionListener {
 
     public Aerial(){
         this.setVisible(true);
-        this.setSize(700, 400);
+        this.setSize(900, 580);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,7 +46,7 @@ public class Aerial extends JFrame implements ActionListener {
         this.add(panel);
 
         try {
-            b_Aerial_photo = ImageIO.read(new File("src/Graphic/pictures/TypeP.png"));
+            b_Aerial_photo = ImageIO.read(new File("src/Graphic/pictures/air.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -70,31 +70,31 @@ public class Aerial extends JFrame implements ActionListener {
         i_Hybrid_Plane=new ImageIcon(b_Hybrid_Plane);
 
         spy_plane=new JLabel(i_spy_plane);
-        spy_plane.setBounds(90,170,90,60);
+        spy_plane.setBounds(280,180,90,60);
         panel.add(spy_plane);
 
         plane_toy=new JLabel(i_plane_toy);
-        plane_toy.setBounds(290,170,90,60);
+        plane_toy.setBounds(480,180,90,60);
         panel.add(plane_toy);
 
         Hybrid_Plane_photo=new JLabel(i_Hybrid_Plane);
-        Hybrid_Plane_photo.setBounds(490,170,90,60);
+        Hybrid_Plane_photo.setBounds(390,340,90,60);
         panel.add(Hybrid_Plane_photo);
 
 
         dawn_Rigoli = new JButton("Dawn_Rigoli");
-        dawn_Rigoli.setBounds(50, 80, 180, 80);
+        dawn_Rigoli.setBounds(250, 100, 180, 80);
         dawn_Rigoli.addActionListener(this);
         panel.add(dawn_Rigoli);
 
 
         game_Drone = new JButton("Game_Drone");
-        game_Drone.setBounds(250, 80, 180, 80);
+        game_Drone.setBounds(450, 100, 180, 80);
         game_Drone.addActionListener(this);
         panel.add(game_Drone);
 
         Hybrid_Plane=new JButton("Hybrid Plane");
-        Hybrid_Plane.setBounds(450,80,180,80);
+        Hybrid_Plane.setBounds(350,260,180,80);
         Hybrid_Plane.addActionListener(this);
         panel.add(Hybrid_Plane);
 

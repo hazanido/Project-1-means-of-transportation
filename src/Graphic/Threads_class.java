@@ -169,6 +169,7 @@ public class Threads_class {
         new Thread(() -> {
             sleepDBAction(frame);
             synchronized (lock){
+
             }
         }
     }

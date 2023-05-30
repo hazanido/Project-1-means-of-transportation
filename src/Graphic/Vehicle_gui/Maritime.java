@@ -33,7 +33,7 @@ public class Maritime extends JFrame implements ActionListener {
     public Maritime(){
         // Set window properties
         this.setVisible(true);
-        this.setSize(850, 400);
+        this.setSize(850, 665);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,7 +48,7 @@ public class Maritime extends JFrame implements ActionListener {
         this.add(panel);
 
         try {
-            b_Maritime_photo =  ImageIO.read(new File("src/Graphic/pictures/TypeP.png"));
+            b_Maritime_photo =  ImageIO.read(new File("src/Graphic/pictures/sea.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -77,7 +77,7 @@ public class Maritime extends JFrame implements ActionListener {
         i_Hybrid_Plane=new ImageIcon(b_Hybrid_Plane);
 
         frigate_photo=new JLabel(i_frigate);
-        frigate_photo.setBounds(60,170,90,45);
+        frigate_photo.setBounds(270,390,90,45);
         panel.add(frigate_photo);
 
         Cruz_photo=new JLabel(i_cruise);
@@ -89,13 +89,13 @@ public class Maritime extends JFrame implements ActionListener {
         panel.add(Amphibious_photo);
 
         Hybrid_Plane_photo=new JLabel(i_Hybrid_Plane);
-        Hybrid_Plane_photo.setBounds(660,170,90,50);
+        Hybrid_Plane_photo.setBounds(470,390,90,50);
         panel.add(Hybrid_Plane_photo);
 
 
         // Add components to the window
         frigate = new JButton("Frigate");
-        frigate.setBounds(30, 80, 180, 80);
+        frigate.setBounds(230, 300, 180, 80);
         frigate.addActionListener(this);
         panel.add(frigate);
         //this.add(frigate);
@@ -110,7 +110,7 @@ public class Maritime extends JFrame implements ActionListener {
         panel.add(Amphibious);
 
         Hybrid_Plane=new JButton("Hybrid Plane");
-        Hybrid_Plane.setBounds(630,80,180,80);
+        Hybrid_Plane.setBounds(430,300,180,80);
         Hybrid_Plane.addActionListener(this);
         panel.add(Hybrid_Plane);
     }

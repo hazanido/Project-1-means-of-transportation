@@ -33,7 +33,7 @@ public class Type_Vehicle extends JFrame implements ActionListener{
     public Type_Vehicle() {
         // Set window properties
 
-        this.setSize(700, 700);
+        this.setSize(1200, 670);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,7 +50,7 @@ public class Type_Vehicle extends JFrame implements ActionListener{
         this.add(panel);
 
         try {
-            b_Type_photo = ImageIO.read(new File("src/Graphic/pictures/TypeP.png"));
+            b_Type_photo = ImageIO.read(new File("src/Graphic/pictures/Type.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -65,19 +65,19 @@ public class Type_Vehicle extends JFrame implements ActionListener{
 
         // Add components to the window
         Air = new JButton("Air transport vehicles");
-        Air.setBounds(210,120, 250, 100);
+        Air.setBounds(0,550, 400, 80);
         Air.addActionListener(this);
 
         panel.add(Air);
         //this.add(Air);
         Land = new JButton("Land transport vehicle");
-        Land.setBounds(210, 270, 250, 100);
+        Land.setBounds(400, 550, 400, 80);
         Land.addActionListener(this);
 
         panel.add(Land);
         //this.add(Land);
         Marine = new JButton("Marine transport vehicle");
-        Marine.setBounds(210, 430, 250, 100);
+        Marine.setBounds(800, 550, 400, 80);
         Marine.addActionListener(this);
 
         panel.add(Marine);

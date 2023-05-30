@@ -31,7 +31,7 @@ public class Terrestrial extends JFrame implements ActionListener {
     public Terrestrial(){
         // Set window properties
         this.setVisible(true);
-        this.setSize(1050, 400);
+        this.setSize(900, 630);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,7 +47,7 @@ public class Terrestrial extends JFrame implements ActionListener {
         this.add(panel);
 
         try {
-            b_Terrestrial_photo = ImageIO.read(new File("src/Graphic/pictures/TypeP.png"));
+            b_Terrestrial_photo = ImageIO.read(new File("src/Graphic/pictures/land.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -76,48 +76,48 @@ public class Terrestrial extends JFrame implements ActionListener {
         i_Hybrid_Plane=new ImageIcon(b_Hybrid_Plane);
 
         Jeep_photo=new JLabel(i_Jeep_photo);
-        Jeep_photo.setBounds(60,170,90,45);
+        Jeep_photo.setBounds(300,390,90,45);
         panel.add(Jeep_photo);
 
         Amphibious_photo=new JLabel(i_Amphibious_photo);
-        Amphibious_photo.setBounds(260,170,90,50);
+        Amphibious_photo.setBounds(190,170,90,50);
         panel.add(Amphibious_photo);
 
         Bicycle_photo=new JLabel(i_Bicycle_photo);
-        Bicycle_photo.setBounds(460,170,90,50);
+        Bicycle_photo.setBounds(390,170,90,50);
         panel.add(Bicycle_photo);
 
         Electric_Bicycle_photo=new JLabel(i_Electric_Bicycle);
-        Electric_Bicycle_photo.setBounds(660,170,90,50);
+        Electric_Bicycle_photo.setBounds(590,170,90,50);
         panel.add(Electric_Bicycle_photo);
 
         Hybrid_Plane_photo=new JLabel(i_Hybrid_Plane);
-        Hybrid_Plane_photo.setBounds(860,170,90,50);
+        Hybrid_Plane_photo.setBounds(510,390,90,50);
         panel.add(Hybrid_Plane_photo);
 
         // Add components to the window
         Jeep = new JButton("Jeep");
-        Jeep.setBounds(30, 80, 180, 80);
+        Jeep.setBounds(260, 300, 180, 80);
         Jeep.addActionListener(this);
         panel.add(Jeep);
 
         Amphibious = new JButton("Amphibious vehicle");
-        Amphibious.setBounds(230, 80, 180, 80);
+        Amphibious.setBounds(160, 80, 180, 80);
         Amphibious.addActionListener(this);
         panel.add(Amphibious);
 
         Bicycle = new JButton("Bicycle");
-        Bicycle.setBounds(430, 80, 180, 80);
+        Bicycle.setBounds(360, 80, 180, 80);
         Bicycle.addActionListener(this);
         panel.add(Bicycle);
 
         Electric_Bicycle= new JButton("Electric Bicycle");
-        Electric_Bicycle.setBounds(630, 80, 180, 80);
+        Electric_Bicycle.setBounds(560, 80, 180, 80);
         Electric_Bicycle.addActionListener(this);
         panel.add(Electric_Bicycle);
 
         Hybrid_Plane=new JButton("Hybrid Plane");
-        Hybrid_Plane.setBounds(830,80,180,80);
+        Hybrid_Plane.setBounds(470,300,180,80);
         Hybrid_Plane.addActionListener(this);
         panel.add(Hybrid_Plane);
 
