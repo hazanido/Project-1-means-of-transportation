@@ -18,7 +18,7 @@ import java.util.concurrent.Callable;
  * It extends the JFrame class and implements the ActionListener interface.
  * It displays the available vehicles in the car agency and allows the user to perform various operations on them.
  */
-public class Agency_Frame extends JFrame implements ActionListener {
+public class Agency_Frame extends JFrame implements ActionListener,ChangeListener {
 
     JLabel display;
     private static Dialog d;
@@ -38,8 +38,11 @@ public class Agency_Frame extends JFrame implements ActionListener {
      */
 
     public Agency_Frame(Vehicle[] vehicles, int move) {
+
         this.carAgency = carAgency;
         this.move = move;
+        Threads_class.get_Instance().addListener(this);
+
 
         // Set window properties
         this.setVisible(true);
@@ -52,9 +55,14 @@ public class Agency_Frame extends JFrame implements ActionListener {
         this.setLayout(new GridLayout());
 
         // Copy the vehicles array to the Temp_carAgency array
+        /**
         Temp_carAgency = new Vehicle[Car_Agency.get_vehicle().length];
         for (int i = 0; i < Car_Agency.get_vehicle().length; i++) {
             Temp_carAgency[i] = Car_Agency.get_vehicle()[i];
+        }*/
+        Temp_carAgency=new Vehicle[Threads_class.get_Instance().get_Vehicles().size()];
+        for (int i=0;i<Threads_class.get_Instance().get_Vehicles().size();i++){
+            Temp_carAgency[i]= Threads_class.get_Instance().get_Vehicles().get(i);
         }
         // Display the vehicles as buttons with their photos and tooltips
         for (int i = 0; i < Temp_carAgency.length; i++) {
@@ -89,6 +97,38 @@ public class Agency_Frame extends JFrame implements ActionListener {
         Vehicle[] vehicles = Car_Agency.get_vehicle();
         Operations temp = new Operations(index, vehicles);
         temp.setVisible(true);
+
+    }
+
+    public void change_listener() {
+        /**
+        test_drive.removeAll();
+        buying_car.removeAll();
+        Flag_change.removeAll();
+        Reset.removeAll();
+        Exit.removeAll();
+
+
+        test_drive.revalidate();
+        test_drive.repaint();
+
+        buying_car.revalidate();
+        buying_car.repaint();
+
+        Flag_change.revalidate();
+        Flag_change.repaint();
+
+        Reset.revalidate();
+        Reset.repaint();
+
+        Exit.revalidate();
+        Exit.repaint();
+        invalidate();
+        validate();
+        repaint();
+         */
+
+
 
 
     }

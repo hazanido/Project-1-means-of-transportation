@@ -1,5 +1,8 @@
 package Graphic.Vehicle_gui;
 
+import Graphic.Threads_class;
+import Graphic.*;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -14,17 +17,18 @@ import java.io.IOException;
  * the type of transport vehicle they want to use. The available options are:
  * air, land, and marine transport vehicles.
  */
-public class Type_Vehicle extends JFrame implements ActionListener{
+public class Type_Vehicle extends JFrame {
 
     private JButton Air;
     private JButton Land;
     private JButton Marine;
-    private Graphic.Vehicle_gui.Terrestrial Terrestrial;
-    private Graphic.Vehicle_gui.Maritime Maritime;
-    private Graphic.Vehicle_gui.Aerial Aerial;
+    private Terrestrial Terrestrial;
+    private Maritime Maritime;
+    private Aerial Aerial;
 
     private BufferedImage b_Type_photo;
     private ImageIcon i_Type_photo;
+
     /**
      * Constructs a Type_Vehicle object.
      * Sets the window properties, adds components to the window and
@@ -65,26 +69,55 @@ public class Type_Vehicle extends JFrame implements ActionListener{
 
         // Add components to the window
         Air = new JButton("Air transport vehicles");
-        Air.setBounds(0,550, 400, 80);
-        Air.addActionListener(this);
+        Air.setBounds(0, 550, 400, 80);
 
         panel.add(Air);
-        //this.add(Air);
+        Air.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (e.getActionCommand().equals("Air transport vehicles")) {
+                    Aerial = new Aerial();
+                    //Threads_class.get_Instance().InProgress();
+
+                }
+            }
+        });
+
         Land = new JButton("Land transport vehicle");
         Land.setBounds(400, 550, 400, 80);
-        Land.addActionListener(this);
 
         panel.add(Land);
-        //this.add(Land);
+        Land.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                if (e.getActionCommand().equals("Land transport vehicle")) {
+                    Terrestrial = new Terrestrial();
+                    //Threads_class.get_Instance().InProgress();
+
+                }
+            }
+        });
+
+
         Marine = new JButton("Marine transport vehicle");
         Marine.setBounds(800, 550, 400, 80);
-        Marine.addActionListener(this);
-
         panel.add(Marine);
-        //this.add(Marine);
+        Marine.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (e.getActionCommand().equals("Marine transport vehicle")) {
+                    Maritime = new Maritime();
+                    //Threads_class.get_Instance().InProgress();
+                }
+            }
 
-
+        });
     }
+}
+
+
+
+
+
+
 
     /**
      * Implements the ActionListener interface to handle button click events.
@@ -96,22 +129,21 @@ public class Type_Vehicle extends JFrame implements ActionListener{
      * the program creates a new instance of the Aerial class and disposes the
      * current window.
      * @param e the action event to be handled
-     */
+
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Marine transport vehicle")) {
             Maritime = new Maritime();
-            this.dispose();
+
         }
         else if (e.getActionCommand().equals("Land transport vehicle")) {
             Terrestrial = new Terrestrial();
-            this.dispose();
+
 
         } else if (e.getActionCommand().equals("Air transport vehicles")) {
             Aerial  = new Aerial();
-            this.dispose();
+
         }
 
     }
-
-}
+    */
 

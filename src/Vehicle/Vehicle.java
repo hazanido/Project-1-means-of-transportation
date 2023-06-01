@@ -1,7 +1,7 @@
 package Vehicle;
 
 import java.io.File;
-import java.nio.file.Path;
+import java.util.List;
 import java.util.Objects;
 public abstract class Vehicle {
     private File photo;
@@ -125,6 +125,12 @@ public abstract class Vehicle {
                 && this.Max_Passengers == other.Max_Passengers
                 && Double.compare(this.Max_Speed, other.Max_Speed) == 0;
     }
+    public static void remove_vehicle(List<Vehicle> vehicles, int index) {
+        if (index >= 0 && index < vehicles.size()) {
+            vehicles.set(index, null);
+        }
+    }
+
 
 
 

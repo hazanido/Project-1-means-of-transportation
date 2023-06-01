@@ -1,5 +1,6 @@
 package Graphic.Vehicle_gui;
 import Graphic.Agency_Frame;
+import Graphic.Threads_class;
 import Graphic.Vehicle_gui.Type_Vehicle;
 import Vehicle.Car_Agency;
 import Vehicle.Dawn_Rigoli;
@@ -243,7 +244,8 @@ public class dawn_rigoli extends JFrame implements ActionListener {
             double c = Double.parseDouble(s5);
 
             Dawn_Rigoli temp1 = new Dawn_Rigoli(f, s1, s, a, b, c, s6);
-            Car_Agency.add_Vehicle(temp1);
+            //Car_Agency.add_Vehicle(temp1);
+            Threads_class.get_Instance().addVehicle(this,temp1);
 
             Agency_Frame frame = new Agency_Frame(Car_Agency.get_vehicle(), s);
             this.dispose();

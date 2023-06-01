@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Threads_class {
+public class Threads_class extends Thread {
     private final Object lock = new Object();
 
     private AtomicInteger[] index_Test_Array;
@@ -15,18 +15,25 @@ public class Threads_class {
     private List<ChangeListener> listeners;
     private static Threads_class singleInstance = null;
 
-    private Threads_class() {
+    private Threads_class(Vehicle[] vehicle) {
         index_Test_Array = new AtomicInteger[VehicleType.values().length];
         buy_Test_Array = new AtomicInteger[VehicleType.values().length];
-        vehicles = new ArrayList<>();
+        //vehicles = new ArrayList<>(Arrays.asList(vehicle));
         listeners = new ArrayList<>();
+        vehicles = new ArrayList<>();
+
+        for (int i=0;i<vehicle.length;i++){
+            vehicles.add(vehicle[i]);
+
+        }
+
 
         init_Arr();
     }
 
     public static Threads_class get_Instance() {
         if (singleInstance == null) {
-            singleInstance = new Threads_class();
+            singleInstance = new Threads_class(Car_Agency.get_vehicle());
         }
         return singleInstance;
     }
@@ -36,6 +43,9 @@ public class Threads_class {
             index_Test_Array[i] = new AtomicInteger(-1);
             buy_Test_Array[i] = new AtomicInteger(-1);
         }
+    }
+    public List<Vehicle> get_Vehicles(){
+        return vehicles;
     }
 
     public boolean InProgress() {
@@ -56,13 +66,16 @@ public class Threads_class {
                 JOptionPane.showMessageDialog(null, "This vehicle is currently in buy status - please try again later");
                 return true;
             }
+
             if (index_Test_Array[type.ordinal()].get() == -1) {
                 index_Test_Array[type.ordinal()].set(index);
+                lock.notifyAll();
                 return false;
             } else {
                 JOptionPane.showMessageDialog(null, "This vehicle is currently being test driven - please try again later");
                 return true;
             }
+
         }
     }
 
@@ -150,7 +163,7 @@ public class Threads_class {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (index >= 0 && index < vehicles.size()) {
+            if (index >= 0 && index <= vehicles.size()) {
                 Vehicle vehicleToUpdate = vehicles.get(index);
                 vehicleToUpdate.set_Distance(distance);
                 VehicleType vehicleType = getVehicleType(vehicleToUpdate);
@@ -162,6 +175,36 @@ public class Threads_class {
         }
         Notice_of_change();
     }
+    public boolean Buy_by_type(int index) {
+        synchronized (lock) {
+            Vehicle vehicle = vehicles.get(index);
+            VehicleType type = getVehicleType(vehicle);
+            if (index_Test_Array[type.ordinal()].get() == index) {
+                JOptionPane.showMessageDialog(null, "This vehicle is currently in inspection status - please try again later");
+                return true;
+            }
+            buy_Test_Array[type.ordinal()].set(index);
+            vehicle.remove_vehicle(vehicles,index);
+            lock.notifyAll();
+            return false;
+        }
+    }
+    public void run() {
+        synchronized (lock) {
+            while (true) {
+                try {
+                    lock.wait();
+                    for (ChangeListener listener : listeners) {
+                        listener.change_listener();
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
 
     /**
 

@@ -14,10 +14,11 @@ import java.util.Arrays;
  * It allows the user to enter the distance traveled on a test drive and updates the
  * vehicle's total distance traveled accordingly.
  */
-public class Test_drive extends JFrame  {
+public class Test_drive extends JFrame {
     private JButton Back;
     private JTextField move;
     private Vehicle vehicle;
+    private int index;
 
     /**
      * Constructs a new Test_drive window for a specific vehicle.
@@ -32,6 +33,7 @@ public class Test_drive extends JFrame  {
         this.setSize(200, 200);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.index = i;
         //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
@@ -48,29 +50,69 @@ public class Test_drive extends JFrame  {
         Back = new JButton();
         Back.setBounds(20, 100, 150, 30);
         Back.setText("Back to the agency");
+        this.add(Back);
+        this.add(move);
+        Back.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (e.getActionCommand().equals("Back to the agency")) {
+                    try {
+                        //Vehicle Vehicle1 =Threads_class.get_Instance().get_Vehicles().get(i);
+                        int distance = Integer.parseInt(move.getText());
+                        int temp = vehicle.get_move();
+                        if (Threads_class.get_Instance().Inspection_by_type(i)) {
+                            throw new IllegalStateException("This vehicle is currently being test driven. Please try again later.");
+                        }
+                        vehicle.set_Move(temp + distance);
+                        Agency_Frame temp1 = new Agency_Frame(Car_Agency.get_vehicle(),vehicle.get_move());
+                        
+                        Threads_class.get_Instance().Update_distance(i, temp + distance, 200);
+                        dispose();
+
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null, "Please enter a valid number");
+
+                    } catch (IllegalStateException ex) {
+                        JOptionPane.showMessageDialog(null, ex.getMessage());
+                    }
+
+                }
+            }
+        });
+        //Threads_class.get_Instance().addListener(this);
+
+    }
+}
+
+/**
+    public void change_listener() {
         Back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (e.getActionCommand().equals("Back to the agency")) {
                     try {
                         int distance = Integer.parseInt(move.getText());
                         int temp = vehicle.get_move();
+                        if (Threads_class.get_Instance().Inspection_by_type(index)) {
+                            throw new IllegalStateException("This vehicle is currently being test driven. Please try again later.");
+
+                        }
                         vehicle.set_Move(temp + distance);
                         Agency_Frame temp1 = new Agency_Frame(Car_Agency.get_vehicle(), vehicle.get_move());
-                        Threads_class.get_Instance().Update_distance(i,temp+distance,200);
+                        Threads_class.get_Instance().Update_distance(index, temp + distance, 200);
                         dispose();
 
                     } catch (NumberFormatException ex) {
                         JOptionPane.showMessageDialog(null, "Please enter a valid number");
-
-                    }
-
+                    } catch (IllegalStateException ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
+                }
                 }
             }
         });
-        this.add(Back);
-        this.add(move);
-
     }
+}
+*/
+
+
 
     /**
      * Handles the user clicking the "Back to the agency" button. Updates the vehicle's
@@ -96,7 +138,7 @@ public class Test_drive extends JFrame  {
 //        }
 //    }
 
-}
+
 
 
 

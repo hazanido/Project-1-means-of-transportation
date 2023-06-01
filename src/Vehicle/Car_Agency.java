@@ -149,13 +149,15 @@ public int getSize(){
     }
     public static void remove_vehicle(Vehicle[] vehicles, int index) {
         Vehicle[] newVehicles = new Vehicle[vehicles.length - 1];
-        int destPos = 0;
+        int  counter = 0;
         for (int i = 0; i < vehicles.length; i++) {
             if (i != index) {
-                newVehicles[destPos++] = vehicles[i];
+                newVehicles[ counter] = vehicles[i];
+                counter++;
             }
         }
-        Car_Agency.set_vehicle(newVehicles);
+        vehicle=newVehicles;
+        //Car_Agency.set_vehicle(newVehicles);
     }
 
     public static void set_vehicle(Vehicle[] newVehicleArray) {
