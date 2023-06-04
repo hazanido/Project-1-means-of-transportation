@@ -2,8 +2,7 @@ package Graphic;
 
 import Vehicle.Car_Agency;
 import Vehicle.Vehicle;
-import Vehicle.*;
-import Vehicle.*;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -11,9 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 
 /**
  * This class represents the main frame of the Car Agency program.
@@ -22,7 +19,6 @@ import java.util.concurrent.Callable;
  */
 public class Agency_Frame extends JFrame implements ChangeListener  {
 
-    JLabel display;
     private static Dialog d;
     ImageIcon imageIcon, icon;
     private Vehicle[] Temp_carAgency;
@@ -30,10 +26,7 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
     private List<Vehicle> vehicles;
     private Threads_class threadsClass;
 
-    private Car_Agency carAgency;
-    //private JButton[] buttons;
-    private int move;
-    //private JButton test_drive, buying_car, Flag_change, Reset, Exit;
+
 
     /**
      * Constructor for the Agency_Frame class.
@@ -45,14 +38,16 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
         this.setVisible(true);
         this.setSize(1200, 1000);
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Agency");
         this.setLayout(new GridLayout());
 
 
-        threadsClass = new Threads_class();
+        threadsClass = Threads_class.get_Instance();
+
+        //threadsClass = new Threads_class();
         vehicles = threadsClass.get_Vehicles();
 
         for (int i = 0; i < Car_Agency.get_vehicle().length; i++) {
@@ -77,42 +72,27 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
                 public void actionPerformed(ActionEvent e) {
                     JButton clickedButton = (JButton) e.getSource();
                     int index = Integer.parseInt(clickedButton.getActionCommand());
-
-
-                    //Vehicle[] vehiclesArray = vehicles.toArray(new Vehicle[0]);
-
-                    //Vehicle[] vehiclesArray = new Vehicle[vehicles.size()];
-                    //vehicles.toArray(vehiclesArray);
-                    //Vehicle[] vehiclesArray = vehicles.toArray(new Vehicle[vehicles.size()]);
                     Operations temp = new Operations(index, vehicles);
                     temp.setVisible(true);
                 }
             });
         }
 
-
-
-        //this.threadsClass = Threads_class.get_Instance();
-        //this.vehicles = this.threadsClass.getVehicles();
-
-        //this.carAgency = carAgency;
-        //this.move = move;
-        //Threads_class.get_Instance().addListener(this);
-
-        //this.vehicles = new ArrayList<>();
-
-        //for (int i = 0; i < vehicles.length; i++) {
-        //this.vehicles.add(vehicles[i]);
-
-        //}
-
     }
-    public void change_listener(){
 
+
+
+    public void change_listener(){
         this.dispose();
         Agency_Frame frame=new Agency_Frame();
+        frame.setVisible(true);
+        frame.removeButtons();
 
-
+    }
+    public void removeButtons() {
+        getContentPane().removeAll(); // מוחק את כל הרכיבים מהפאנל
+        revalidate();
+        repaint();
     }
 }
 

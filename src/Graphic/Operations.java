@@ -10,6 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Random;
 
 /**
  * This class represents a GUI window for performing operations on a Vehicle object.
@@ -47,7 +48,32 @@ public class Operations extends JFrame implements ChangeListener {
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Operations");
+        categories();
 
+
+    }
+
+    private void Buy(int index) {
+        if (Threads_class.get_Instance().Inspection_by_index(index)) {
+            JOptionPane.showMessageDialog(null, "Vehicle type is current in test - please try again later");
+            return;
+        }
+        try {
+            System.out.println("Sleeping" );
+            Thread.sleep( 1000);
+        } catch (Exception ignored) {
+        }
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure?", "Confirmation", JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.YES_OPTION) {
+            Threads_class.get_Instance().removeVehicle(this,index);
+            dispose();
+            Buying_car frame=new Buying_car(index,vehicles);
+            frame.setVisible(true);
+        }
+
+    }
+    private void categories(){
+        java.util.List<Vehicle> vehicles = Threads_class.get_Instance().get_Vehicles();
         JPanel panel = new JPanel();
         panel.setLayout(null);
         panel.setBounds(0, 0, this.getWidth(), this.getHeight());
@@ -128,52 +154,29 @@ public class Operations extends JFrame implements ChangeListener {
         Exit.setBounds(260, 240, 100, 30);
         panel.add(Exit);
         Exit.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 if (Threads_class.get_Instance().InProgress()) {
                     JOptionPane.showMessageDialog(null, "Unable to log out because the program is still in progress - try again later");
-
                 }
                 for (Window window : Window.getWindows()) {
                     window.dispose();
                 }
                 System.gc();
                 System.exit(0);
-
             }
         });
 
-    }
-
-    private void Buy(int index) {
-        if (Threads_class.get_Instance().Inspection_by_index(index)) {
-            JOptionPane.showMessageDialog(null, "Vehicle type is current in test - please try again later");
-            return;
-        }
-        try {
-            Thread.sleep(1000);
-        } catch (Exception ignored) {
-
-        }
-        int result = JOptionPane.showConfirmDialog(this, "Are you sure?", "Confirmation", JOptionPane.YES_NO_OPTION);
-        if (result == JOptionPane.YES_OPTION) {
-
-            Threads_class.get_Instance().removeVehicle(this, index);
-            dispose();
-            Buying_car buyVehicleWindow = new Buying_car(index, vehicles);
-            buyVehicleWindow.setVisible(true);
-        }
 
 
     }
     public void change_listener(){
-
 
         test_drive.removeAll();
         buying_car.removeAll();
         Flag_change.removeAll();
         Reset.removeAll();
         Exit.removeAll();
+        categories();
 
 
         test_drive.revalidate();
@@ -194,7 +197,6 @@ public class Operations extends JFrame implements ChangeListener {
         validate();
         repaint();
     }
-
 }
 
 

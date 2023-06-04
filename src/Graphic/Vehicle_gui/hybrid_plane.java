@@ -1,6 +1,7 @@
 package Graphic.Vehicle_gui;
 
 import Graphic.Agency_Frame;
+import Graphic.Threads_class;
 import Vehicle.Amphibious_vehicle;
 import Vehicle.Car_Agency;
 import Vehicle.Hybrid_plane;
@@ -205,10 +206,12 @@ public class hybrid_plane extends JFrame implements ActionListener {
             if (fl = true) {
                 Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl,s8);
                 Car_Agency.add_Vehicle(temp1);
+                Threads_class.get_Instance().addVehicle(this,temp1);
             }
             else if (fl1 = true) {
                 Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl1,s8);
                 Car_Agency.add_Vehicle(temp1);
+                Threads_class.get_Instance().addVehicle(this,temp1);
             }
 
 
@@ -250,10 +253,12 @@ public class hybrid_plane extends JFrame implements ActionListener {
             if (fl = true) {
                 Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl,s8);
                 Car_Agency.add_Vehicle(temp1);
+                Threads_class.get_Instance().addVehicle(this,temp1);
             }
             else if (fl1 = true) {
                 Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl1,s8);
                 Car_Agency.add_Vehicle(temp1);
+                Threads_class.get_Instance().addVehicle(this,temp1);
             }
 
 

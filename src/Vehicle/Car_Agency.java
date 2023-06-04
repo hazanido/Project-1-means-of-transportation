@@ -143,7 +143,7 @@ public int getSize(){
         }
     }
     public static void remove_vehicle(Vehicle[] vehicles, int index) {
-        Vehicle[] newVehicles = new Vehicle[vehicles.length - 1];
+        Vehicle[] newVehicles = new Vehicle[vehicles.length-1];
         int  counter = 0;
         for (int i = 0; i < vehicles.length; i++) {
             if (i != index) {

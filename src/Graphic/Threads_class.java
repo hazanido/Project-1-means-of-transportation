@@ -6,11 +6,11 @@ import javax.swing.*;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Threads_class extends Thread {
+public class Threads_class  {
     private final Object lock = new Object();
 
     private AtomicInteger[] index_Test_Array;
-    private AtomicInteger[] buy_Test_Array;
+    private AtomicInteger[]  buy_Array;
     private static List<Vehicle> vehicles;
     private List<ChangeListener> listeners;
     private static Threads_class singleInstance = null;
@@ -18,11 +18,14 @@ public class Threads_class extends Thread {
     public Threads_class() {
 
         index_Test_Array = new AtomicInteger[VehicleType.values().length];
-        buy_Test_Array = new AtomicInteger[VehicleType.values().length];
+        buy_Array = new AtomicInteger[VehicleType.values().length];
         //vehicles = new ArrayList<>(Arrays.asList(vehicle));
         listeners = new ArrayList<>();
         vehicles = new ArrayList<>();
         init_Arr();
+        for (ChangeListener listener : listeners) {
+            listener.change_listener();
+        }
     }
 
     public static Threads_class get_Instance() {
@@ -35,7 +38,7 @@ public class Threads_class extends Thread {
     private void init_Arr() {
         for (int i = 0; i < index_Test_Array.length; i++) {
             index_Test_Array[i] = new AtomicInteger(-1);
-            buy_Test_Array[i] = new AtomicInteger(-1);
+            buy_Array[i] = new AtomicInteger(-1);
         }
     }
     public List<Vehicle> get_Vehicles(){
@@ -44,7 +47,7 @@ public class Threads_class extends Thread {
 
     public boolean InProgress() {
         for (int i = 0; i < VehicleType.values().length; i++) {
-            if ((index_Test_Array[i].get() != -1) || (buy_Test_Array[i].get() != -1)) {
+            if ((index_Test_Array[i].get() != -1) || ( buy_Array[i].get() != -1)) {
                 return true;
             }
         }
@@ -55,11 +58,10 @@ public class Threads_class extends Thread {
         synchronized (lock) {
             Vehicle vehicle = vehicles.get(index);
             VehicleType type = get_Vehicle_Type(vehicle);
-            if (buy_Test_Array[type.ordinal()].get() == index) {
+            if ( buy_Array[type.ordinal()].get() == index) {
                 JOptionPane.showMessageDialog(null, "This vehicle is currently in buy status - please try again later");
                 return true;
             }
-
             if (index_Test_Array[type.ordinal()].get() == -1) {
                 index_Test_Array[type.ordinal()].set(index);
                 lock.notifyAll();
@@ -110,7 +112,7 @@ public class Threads_class extends Thread {
                 vehicles.add(vehicle);
                 VehicleType type = get_Vehicle_Type(vehicle);
                 index_Test_Array[type.ordinal()].set(-1);
-                buy_Test_Array[type.ordinal()].set(-1);
+                buy_Array[type.ordinal()].set(-1);
                 Notice_of_change();
             }
 
@@ -119,22 +121,31 @@ public class Threads_class extends Thread {
 
     public void removeVehicle(JFrame frame, int index) {
         new Thread(() -> {
+            Vehicle vehicle = vehicles.get(index);
+            VehicleType type = get_Vehicle_Type(vehicle);
+            index_Test_Array[type.ordinal()].set(index);
             sleepDBAction(frame);
             synchronized (lock) {
-                Vehicle vehicle = vehicles.get(index);
-                VehicleType type = get_Vehicle_Type(vehicle);
-                if (index_Test_Array[type.ordinal()].get() == index) {
-                    JOptionPane.showMessageDialog(null, "This vehicle is currently being test driven - please try again later");
-                    return;
-                }
-                if (buy_Test_Array[type.ordinal()].get() == index) {
-                    JOptionPane.showMessageDialog(null, "This vehicle is currently in buy status - please try again later");
-                    return;
-                }
 
                 vehicles.remove(index);
-                Notice_of_change();
+
             }
+                /**
+                for (int i = 0; i < index_Test_Array.length; i++) {
+                    if (index_Test_Array[i].get() > index) {
+                        index_Test_Array[i].decrementAndGet();
+                    }
+                    if (buy_Array[i].get() > index) {
+                        buy_Array[i].decrementAndGet();
+                    }
+                }*/
+
+           //index_Test_Array[type.ordinal()].set(-1);
+
+                //buy_Array[type.ordinal()].set(-1);
+
+            Notice_of_change();
+
 
 
         }).start();

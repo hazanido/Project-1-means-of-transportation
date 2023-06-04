@@ -1,6 +1,7 @@
 package Graphic.Vehicle_gui;
 
 import Graphic.Agency_Frame;
+import Graphic.Threads_class;
 import Graphic.Vehicle_gui.Type_Vehicle;
 import Vehicle.Car_Agency;
 import Vehicle.Game_Drone;
@@ -201,7 +202,9 @@ public class game_drone extends JFrame implements ActionListener {
 
             Game_Drone temp = new Game_Drone(f, s1, s, a, b, c, s6);
             Car_Agency.add_Vehicle(temp);
+            Threads_class.get_Instance().addVehicle(this,temp);
             Type_Vehicle temp1 = new Type_Vehicle();
+
             this.dispose();
         } else if (e.getActionCommand().equals("add photo")) {
             Path to;
@@ -232,6 +235,7 @@ public class game_drone extends JFrame implements ActionListener {
 
             Game_Drone temp = new Game_Drone(f, s1, s, a, b, c, s6);
             Car_Agency.add_Vehicle(temp);
+            Threads_class.get_Instance().addVehicle(this,temp);
 
             Agency_Frame frame = new Agency_Frame();
 

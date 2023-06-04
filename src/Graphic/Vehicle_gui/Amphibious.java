@@ -1,6 +1,7 @@
 package Graphic.Vehicle_gui;
 
 import Graphic.Agency_Frame;
+import Graphic.Threads_class;
 import Graphic.Vehicle_gui.Type_Vehicle;
 import Vehicle.*;
 
@@ -225,10 +226,12 @@ public class Amphibious extends JFrame implements ActionListener {
             if (fl = true) {
                 Amphibious_vehicle temp1=new Amphibious_vehicle(f,s1,s,a,b,c,fl,s8);
                 Car_Agency.add_Vehicle(temp1);
+                Threads_class.get_Instance().addVehicle(this,temp1);
             }
             else if (fl1 = true) {
                 Amphibious_vehicle temp1=new Amphibious_vehicle(f,s1,s,a,b,c,fl1,s8);
                 Car_Agency.add_Vehicle(temp1);
+                Threads_class.get_Instance().addVehicle(this,temp1);
 
             }
 
@@ -273,10 +276,12 @@ public class Amphibious extends JFrame implements ActionListener {
             if (fl = true) {
                 Amphibious_vehicle temp1=new Amphibious_vehicle(f,s1,s,a,b,c,fl,s8);
                 Car_Agency.add_Vehicle(temp1);
+                Threads_class.get_Instance().addVehicle(this,temp1);
             }
             else if (fl1 = true) {
                 Amphibious_vehicle temp1=new Amphibious_vehicle(f,s1,s,a,b,c,fl1,s8);
                 Car_Agency.add_Vehicle(temp1);
+                Threads_class.get_Instance().addVehicle(this,temp1);
 
             }
 
