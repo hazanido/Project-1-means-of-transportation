@@ -20,7 +20,7 @@ import java.util.concurrent.Callable;
  * It extends the JFrame class and implements the ActionListener interface.
  * It displays the available vehicles in the car agency and allows the user to perform various operations on them.
  */
-public class Agency_Frame extends JFrame  {
+public class Agency_Frame extends JFrame implements ChangeListener  {
 
     JLabel display;
     private static Dialog d;
@@ -51,6 +51,7 @@ public class Agency_Frame extends JFrame  {
         this.setTitle("Agency");
         this.setLayout(new GridLayout());
 
+
         threadsClass = new Threads_class();
         vehicles = threadsClass.get_Vehicles();
 
@@ -68,12 +69,11 @@ public class Agency_Frame extends JFrame  {
             }
             ImageIcon icon = new ImageIcon(image);
             JButton button = new JButton(icon);
-            button.setToolTipText(vehicles.toString());
+            button.setToolTipText(vehicles.get(i).toString());
             button.setActionCommand(String.valueOf(i));
             //button.addActionListener(this);
             this.add(button);
             button.addActionListener(new ActionListener() {
-                @Override
                 public void actionPerformed(ActionEvent e) {
                     JButton clickedButton = (JButton) e.getSource();
                     int index = Integer.parseInt(clickedButton.getActionCommand());
@@ -91,6 +91,7 @@ public class Agency_Frame extends JFrame  {
         }
 
 
+
         //this.threadsClass = Threads_class.get_Instance();
         //this.vehicles = this.threadsClass.getVehicles();
 
@@ -104,6 +105,13 @@ public class Agency_Frame extends JFrame  {
         //this.vehicles.add(vehicles[i]);
 
         //}
+
+    }
+    public void change_listener(){
+
+        this.dispose();
+        Agency_Frame frame=new Agency_Frame();
+
 
     }
 }

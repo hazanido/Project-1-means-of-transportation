@@ -167,6 +167,8 @@ public class Operations extends JFrame implements ChangeListener {
 
     }
     public void change_listener(){
+
+
         test_drive.removeAll();
         buying_car.removeAll();
         Flag_change.removeAll();
