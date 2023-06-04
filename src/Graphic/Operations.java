@@ -9,8 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Random;
-import java.util.concurrent.Callable;
+import java.util.List;
 
 /**
  * This class represents a GUI window for performing operations on a Vehicle object.
@@ -24,7 +23,7 @@ public class Operations extends JFrame implements ChangeListener {
     private Vehicle vehicle;
     private int i;
     private JButton test_drive, buying_car, Flag_change, Reset, Current_Inventory_Report, Exit;
-    private Vehicle[] vehicles;
+    private List<Vehicle> vehicles;
     private BufferedImage b_Operations_photo;
     private ImageIcon i_Operations_photo;
 
@@ -35,9 +34,9 @@ public class Operations extends JFrame implements ChangeListener {
      * @param vehicles An array of Vehicle objects.
      */
 
-    public Operations(int i, Vehicle[] vehicles) {
+    public Operations(int i, List<Vehicle> vehicles) {
         this.i = i;
-        this.vehicles = vehicles;
+        this.vehicles=vehicles;
 
         // Set window properties
         this.setVisible(true);

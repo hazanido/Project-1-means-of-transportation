@@ -56,22 +56,39 @@ public class Agency_Frame extends JFrame implements ActionListener {
         vehicles = threadsClass.get_Vehicles();
 
         for (int i=0;i<Car_Agency.get_vehicle().length;i++){
-            vehicles.set(i, Car_Agency.get_vehicle()[i]);
+            vehicles.add(i, Car_Agency. get_vehicle()[i]);
         }
 
 
-        for (Vehicle vehicle : vehicles) {
+        for (int i=0;i<vehicles.size();i++) {
             BufferedImage image = null;
             try {
-                image = ImageIO.read(vehicle.get_Photo());
+                image = ImageIO.read(vehicles.get(i).get_Photo());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             ImageIcon icon = new ImageIcon(image);
             JButton button = new JButton(icon);
-            button.setToolTipText(vehicle.toString());
+            button.setToolTipText(vehicles.toString());
+            button.setActionCommand(String.valueOf(i));
             button.addActionListener(this);
             this.add(button);
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JButton clickedButton = (JButton) e.getSource();
+                    int index = Integer.parseInt(clickedButton.getActionCommand());
+
+
+                    //Vehicle[] vehiclesArray = vehicles.toArray(new Vehicle[0]);
+
+                    //Vehicle[] vehiclesArray = new Vehicle[vehicles.size()];
+                    //vehicles.toArray(vehiclesArray);
+                    //Vehicle[] vehiclesArray = vehicles.toArray(new Vehicle[vehicles.size()]);
+                    Operations temp = new Operations(index,vehicles);
+                    temp.setVisible(true);
+                }
+            });
         }
 
 
@@ -208,7 +225,7 @@ public class Agency_Frame extends JFrame implements ActionListener {
 
         JButton clickedButton = (JButton) e.getSource();
         int index = Integer.parseInt(clickedButton.getActionCommand());
-        Vehicle[] vehicles = Car_Agency.get_vehicle();
+
 
         //Vehicle[] vehiclesArray = vehicles.toArray(new Vehicle[0]);
 

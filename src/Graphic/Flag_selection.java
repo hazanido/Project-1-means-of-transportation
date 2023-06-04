@@ -13,7 +13,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 /**
  *This class represents a frame that allows the user to select a flag for marine transport vehicles.
@@ -42,10 +41,10 @@ public class Flag_selection extends JFrame implements ActionListener, Runnable {
      *@param vehicles An array of Vehicle objects representing the vehicles in the Car_Agency.
      */
 
-    public Flag_selection(int i, Vehicle[] vehicles) {
+    public Flag_selection(int i, List<Vehicle> vehicles) {
 
         // Set window properties
-        this.vehicle = vehicles[i];
+        this.vehicle = vehicles.get(i);
         this.setVisible(true);
         this.setSize(300, 300);
         this.setLocationRelativeTo(null);

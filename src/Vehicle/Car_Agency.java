@@ -28,11 +28,6 @@ public class Car_Agency {
         size=0;
     }
 
-    static public Vehicle[] get_Agency(){
-
-        return vehicle;
-    }
-
 
     /**
      *

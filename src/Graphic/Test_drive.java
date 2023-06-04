@@ -6,8 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -27,9 +25,9 @@ public class Test_drive extends JFrame {
      * @param i        The index of the vehicle in the array of vehicles.
      * @param vehicles The array of vehicles in the car agency.
      */
-    public Test_drive(int i, Vehicle[] vehicles) {
+    public Test_drive(int i, List<Vehicle> vehicles) {
         // Set window properties
-        this.vehicle = vehicles[i];
+        this.vehicle = vehicles.get(i);
         this.setVisible(true);
         this.setSize(200, 200);
         this.setLocationRelativeTo(null);

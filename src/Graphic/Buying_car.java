@@ -3,8 +3,6 @@ package Graphic;
 import Vehicle.*;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
 /**
@@ -24,8 +22,8 @@ public class Buying_car extends JDialog implements ChangeListener{
      @param i the index of the selected car in the vehicle array
      @param vehicles the array of vehicles in the car agency
      */
-    public Buying_car(int i, Vehicle[] vehicles) {
-        this.vehicle = vehicles[i];
+    public Buying_car(int i, List<Vehicle> vehicles) {
+        this.vehicle = vehicles.get(i);
         this.setTitle("Car purchase approval");
         // Display a message asking the user to confirm the car purchase
         int option = JOptionPane.showConfirmDialog(null, "Are you sure you want to buy this car?", "Car purchase approval", JOptionPane.YES_NO_OPTION);
