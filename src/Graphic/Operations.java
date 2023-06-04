@@ -77,7 +77,7 @@ public class Operations extends JFrame implements ChangeListener {
 
 
         test_drive.setBounds(30, 40, 150, 60);
-        test_drive.addActionListener((ActionListener) this);
+
         panel.add(test_drive);
         test_drive.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -89,13 +89,11 @@ public class Operations extends JFrame implements ChangeListener {
         });
 
         buying_car.setBounds(200, 40, 150, 60);
-        buying_car.addActionListener((ActionListener) this);
         panel.add(buying_car);
         buying_car.addActionListener(e -> Buy(i));
 
 
         Flag_change.setBounds(30, 120, 150, 60);
-        Flag_change.addActionListener((ActionListener) this);
         panel.add(Flag_change);
         Flag_change.addActionListener(new ActionListener() {
             @Override
@@ -106,7 +104,6 @@ public class Operations extends JFrame implements ChangeListener {
         });
 
         Current_Inventory_Report.setBounds(200, 120, 150, 60);
-        Current_Inventory_Report.addActionListener((ActionListener) this);
         panel.add(Current_Inventory_Report);
         Current_Inventory_Report.addActionListener(new ActionListener() {
             @Override
@@ -118,12 +115,10 @@ public class Operations extends JFrame implements ChangeListener {
         });
 
         Reset.setBounds(15, 240, 100, 30);
-        Reset.addActionListener((ActionListener) this);
         panel.add(Reset);
         Reset.addActionListener(e -> Threads_class.get_Instance().resetAll(this));
 
         Exit.setBounds(260, 240, 100, 30);
-        Exit.addActionListener((ActionListener) this);
         panel.add(Exit);
         Exit.addActionListener(new ActionListener() {
             @Override
