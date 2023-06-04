@@ -85,6 +85,13 @@ public class Operations extends JFrame implements ChangeListener {
                     Test_drive testDrive = new Test_drive(i, vehicles);
                     testDrive.setVisible(true);
                 }
+                else {
+                    try {
+                        throw new IllegalStateException("This vehicle is currently being test driven. Please try again later.");
+                    } catch (IllegalStateException ex) {
+                        JOptionPane.showMessageDialog(null, ex.getMessage());
+                    }
+                }
             }
         });
 
