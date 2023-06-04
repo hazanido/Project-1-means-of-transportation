@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 
 /**
@@ -25,7 +26,7 @@ import java.nio.file.Paths;
 public class jeep extends JFrame implements ActionListener {
     private JTextField model, move, distance, passengers, speed, Fuel_consumption, lifetime;
     private JButton add, add_and_closs,add_photo;
-    private JComboBox cb;
+    private JComboBox cb,cb1;
     private JCheckBox checkbox1;
     private File f;
     private BufferedImage b_Definitions_photo;
@@ -112,9 +113,9 @@ public class jeep extends JFrame implements ActionListener {
         lebal13.setBounds(70, 360, 250, 40);
         panel.add(lebal13);
         String passengers[] = {"5"};
-        cb = new JComboBox(passengers);
-        cb.setBounds(70, 390, 120, 20);
-        panel.add(cb);
+        cb1 = new JComboBox(passengers);
+        cb1.setBounds(70, 390, 120, 20);
+        panel.add(cb1);
 
 
         JLabel lebal7 = new JLabel("Select a number of wheels:");
@@ -191,7 +192,7 @@ public class jeep extends JFrame implements ActionListener {
             String s1 = model.getText();
             String s2 = move.getText();
             String s3 = distance.getText();
-            String s4 = passengers.getText();
+            String s4 = (String) cb1.getSelectedItem();
             String s5 = speed.getText();
             String s6 = checkbox1.getText();
             String s7 = (String) cb.getSelectedItem();
@@ -227,7 +228,7 @@ public class jeep extends JFrame implements ActionListener {
             String s1 = model.getText();
             String s2 = move.getText();
             String s3 = distance.getText();
-            String s4 = passengers.getText();
+            String s4 = (String) cb1.getSelectedItem();
             String s5 = speed.getText();
             String s6 = checkbox1.getText();
             String s7 = (String) cb.getSelectedItem();
@@ -242,7 +243,7 @@ public class jeep extends JFrame implements ActionListener {
             Jeep temp = new Jeep(f, s1, s, a, b, c, d, s6);
             Car_Agency.add_Vehicle(temp);
 
-            Agency_Frame frame=new Agency_Frame(Car_Agency.get_vehicle(),s);
+            Agency_Frame frame=new Agency_Frame();
 
             this.dispose();
 

@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 /**
  * This class represents a GUI window for adding a bicycle to a vehicle inventory system.
@@ -228,7 +229,7 @@ public class Non_Motorized_bicycle extends JFrame implements ActionListener {
             Car_Agency.print();
 
 
-            Agency_Frame frame=new Agency_Frame(Car_Agency.get_vehicle(),s);
+            Agency_Frame frame=new Agency_Frame();
 
             this.dispose();
 

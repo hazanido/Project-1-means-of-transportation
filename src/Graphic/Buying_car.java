@@ -5,6 +5,7 @@ import Vehicle.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 /**
  * The Buying_car class represents a dialog box for approving the purchase of a car.
@@ -43,7 +44,7 @@ public class Buying_car extends JDialog implements ChangeListener{
 
             } else {
                 // Display the agency frame with the remaining cars
-                Agency_Frame frame = new Agency_Frame(Car_Agency.get_vehicle(), vehicle.get_move());
+                Agency_Frame frame = new Agency_Frame();
                 frame.setVisible(true);
                 Threads_class.get_Instance().removeVehicle(null,i);
             }

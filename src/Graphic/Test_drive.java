@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * The Test_drive class creates a JFrame window for testing a specific vehicle's movement.
@@ -63,7 +64,7 @@ public class Test_drive extends JFrame {
                             throw new IllegalStateException("This vehicle is currently being test driven. Please try again later.");
                         }
                         vehicle.set_Move(temp + distance);
-                        Agency_Frame temp1 = new Agency_Frame(Car_Agency.get_vehicle(),vehicle.get_move());
+                        Agency_Frame temp1 = new Agency_Frame();
                         
                         Threads_class.get_Instance().Update_distance(i, temp + distance, 200);
                         dispose();

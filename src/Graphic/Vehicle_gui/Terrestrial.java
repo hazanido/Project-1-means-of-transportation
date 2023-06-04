@@ -132,25 +132,30 @@ public class Terrestrial extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Jeep")) {
             jeep frame= new jeep();
-            this.dispose();
+            frame.setVisible(true);
+
         }
         else if (e.getActionCommand().equals("Amphibious vehicle")) {
-            Graphic.Vehicle_gui.Amphibious frame = new Amphibious();
-            this.dispose();
+            Amphibious frame = new Amphibious();
+            frame.setVisible(true);
+
 
         }
         else if (e.getActionCommand().equals("Bicycle")) {
             Non_Motorized_bicycle frame = new Non_Motorized_bicycle();
-            this.dispose();
+            frame.setVisible(true);
+
 
         }
         else if(e.getActionCommand().equals("Electric Bicycle")){
             electric_bicycle frame=new electric_bicycle();
-            this.dispose();
+            frame.setVisible(true);
+
         }
         else if(e.getActionCommand().equals("Hybrid Plane")){
             hybrid_plane frame=new hybrid_plane();
-            this.dispose();
+            frame.setVisible(true);
+
         }
     }
 

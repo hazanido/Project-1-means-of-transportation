@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 /**
  * The Amphibious class represents a type of vehicle that can move both on land and in water.
@@ -279,7 +280,7 @@ public class Amphibious extends JFrame implements ActionListener {
 
             }
 
-            Agency_Frame frame=new Agency_Frame(Car_Agency.get_vehicle(),s);
+            Agency_Frame frame=new Agency_Frame();
 
             this.dispose();
         }

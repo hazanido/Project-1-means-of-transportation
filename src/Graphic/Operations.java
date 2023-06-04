@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 import java.util.concurrent.Callable;
 
 /**
@@ -18,19 +19,20 @@ import java.util.concurrent.Callable;
  */
 
 
-public class Operations extends JFrame implements ActionListener {
+public class Operations extends JFrame implements ChangeListener {
 
     private Vehicle vehicle;
     private int i;
-    private JButton test_drive, buying_car, Flag_change, Reset,Current_Inventory_Report, Exit;
+    private JButton test_drive, buying_car, Flag_change, Reset, Current_Inventory_Report, Exit;
     private Vehicle[] vehicles;
     private BufferedImage b_Operations_photo;
     private ImageIcon i_Operations_photo;
 
     /**
      * Constructor for the Operations class. Initializes instance variables and sets up the GUI window.
-     *  @param i The index of the vehicle in the array of vehicles passed to the constructor.
-     *  @param vehicles An array of Vehicle objects.
+     *
+     * @param i        The index of the vehicle in the array of vehicles passed to the constructor.
+     * @param vehicles An array of Vehicle objects.
      */
 
     public Operations(int i, Vehicle[] vehicles) {
@@ -70,40 +72,133 @@ public class Operations extends JFrame implements ActionListener {
         test_drive = new JButton("Test drive");
         buying_car = new JButton("Buying car");
         Flag_change = new JButton("Flag change");
-        Current_Inventory_Report =new JButton("<html>Current Inventory<br />Report</html>");
+        Current_Inventory_Report = new JButton("<html>Current Inventory<br />Report</html>");
         Reset = new JButton("Reset All");
         Exit = new JButton("Exit");
 
 
         test_drive.setBounds(30, 40, 150, 60);
-        test_drive.addActionListener(this);
+        test_drive.addActionListener((ActionListener) this);
         panel.add(test_drive);
+        test_drive.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!Threads_class.get_Instance().Inspection_by_type(i)) {
+                    Test_drive testDrive = new Test_drive(i, vehicles);
+                    testDrive.setVisible(true);
+                }
+            }
+        });
 
         buying_car.setBounds(200, 40, 150, 60);
-        buying_car.addActionListener(this);
+        buying_car.addActionListener((ActionListener) this);
         panel.add(buying_car);
+        buying_car.addActionListener(e -> Buy(i));
+
 
         Flag_change.setBounds(30, 120, 150, 60);
-        Flag_change.addActionListener(this);
+        Flag_change.addActionListener((ActionListener) this);
         panel.add(Flag_change);
+        Flag_change.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Flag_selection flag = new Flag_selection(i, vehicles);
+                flag.setVisible(true);
+            }
+        });
 
         Current_Inventory_Report.setBounds(200, 120, 150, 60);
-        Current_Inventory_Report.addActionListener(this);
+        Current_Inventory_Report.addActionListener((ActionListener) this);
         panel.add(Current_Inventory_Report);
+        Current_Inventory_Report.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Inventory_Report frame = new Inventory_Report();
+                frame.setVisible(true);
+
+            }
+        });
 
         Reset.setBounds(15, 240, 100, 30);
-        Reset.addActionListener(this);
+        Reset.addActionListener((ActionListener) this);
         panel.add(Reset);
+        Reset.addActionListener(e -> Threads_class.get_Instance().resetAll(this));
 
         Exit.setBounds(260, 240, 100, 30);
-        Exit.addActionListener(this);
+        Exit.addActionListener((ActionListener) this);
         panel.add(Exit);
+        Exit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (Threads_class.get_Instance().InProgress()) {
+                    JOptionPane.showMessageDialog(null, "Unable to log out because the program is still in progress - try again later");
+
+                }
+                for (Window window : Window.getWindows()) {
+                    window.dispose();
+                }
+                System.gc();
+                System.exit(0);
+
+            }
+        });
 
     }
+
+    private void Buy(int index) {
+        if (Threads_class.get_Instance().Inspection_by_index(index)) {
+            JOptionPane.showMessageDialog(null, "Vehicle type is current in test - please try again later");
+            return;
+        }
+        try {
+            Thread.sleep(1000);
+        } catch (Exception ignored) {
+
+        }
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure?", "Confirmation", JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.YES_OPTION) {
+
+            Threads_class.get_Instance().removeVehicle(this, index);
+            dispose();
+            Buying_car buyVehicleWindow = new Buying_car(index, vehicles);
+            buyVehicleWindow.setVisible(true);
+        }
+
+
+    }
+    public void change_listener(){
+        test_drive.removeAll();
+        buying_car.removeAll();
+        Flag_change.removeAll();
+        Reset.removeAll();
+        Exit.removeAll();
+
+
+        test_drive.revalidate();
+        test_drive.repaint();
+
+        buying_car.revalidate();
+        buying_car.repaint();
+
+        Flag_change.revalidate();
+        Flag_change.repaint();
+
+        Reset.revalidate();
+        Reset.repaint();
+
+        Exit.revalidate();
+        Exit.repaint();
+        invalidate();
+        validate();
+        repaint();
+    }
+
+}
+
+
     /**
      * Action listener method for the buttons in the GUI window.
      * @param e An ActionEvent object.
-     */
+
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Test drive")) {
@@ -120,12 +215,14 @@ public class Operations extends JFrame implements ActionListener {
         }
         else if(e.getActionCommand().equals("Flag change")){
             Flag_selection frame=new Flag_selection(i,vehicles);
+            frame.setVisible(true);
 
 
 
         }
         else if(e.getActionCommand().equals("<html>Current Inventory<br />Report</html>")){
-                Inventory_Report frame=new Inventory_Report();
+            Inventory_Report frame=new Inventory_Report();
+            frame.setVisible(true);
 
         }
         else if(e.getActionCommand().equals("Reset All")){
@@ -205,9 +302,23 @@ public class Operations extends JFrame implements ActionListener {
 
         }
         else if(e.getActionCommand().equals("Exit")){
-            System.exit(0);
+            Exit.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    if (Threads_class.get_Instance().InProgress()){
+                        JOptionPane.showMessageDialog(null,"Operation failed, program in progress, try again later");
+
+                    }
+                    for(Window frame:Window.getWindows()){
+                        frame.dispose();
+                    }
+                    System.gc();
+                    System.exit(0);
+                }
+            });
+
         }
     }
-}
+    */
+
 
 

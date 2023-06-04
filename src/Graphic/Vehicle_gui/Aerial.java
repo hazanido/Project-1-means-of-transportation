@@ -110,15 +110,17 @@ public class Aerial extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Dawn_Rigoli")) {
             dawn_rigoli frame= new dawn_rigoli();
-            this.dispose();
+            frame.setVisible(true);
         }
         else if (e.getActionCommand().equals("Game_Drone")) {
             game_drone frame = new game_drone();
-            this.dispose();
+            frame.setVisible(true);
+
         }
         else if(e.getActionCommand().equals("Hybrid Plane")){
             hybrid_plane frame=new hybrid_plane();
-            this.dispose();
+            frame.setVisible(true);
+
         }
 
 

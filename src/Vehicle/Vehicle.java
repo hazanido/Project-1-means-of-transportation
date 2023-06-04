@@ -130,17 +130,4 @@ public abstract class Vehicle {
             vehicles.set(index, null);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 /**
  * The `frigate` class represents a GUI for adding new vehicle objects to an array.
@@ -254,7 +255,7 @@ public class frigate extends JFrame implements ActionListener {
                 Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl1, s8);
                 Car_Agency.add_Vehicle(temp1);
             }
-            Agency_Frame frame=new Agency_Frame(Car_Agency.get_vehicle(),s);
+            Agency_Frame frame=new Agency_Frame();
 
             this.dispose();
 

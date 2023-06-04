@@ -75,7 +75,8 @@ public class Type_Vehicle extends JFrame {
         Air.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (e.getActionCommand().equals("Air transport vehicles")) {
-                    Aerial = new Aerial();
+                    Aerial temp= new Aerial();
+                    temp.setVisible(true);
                     //Threads_class.get_Instance().InProgress();
 
                 }
@@ -90,7 +91,8 @@ public class Type_Vehicle extends JFrame {
 
             public void actionPerformed(ActionEvent e) {
                 if (e.getActionCommand().equals("Land transport vehicle")) {
-                    Terrestrial = new Terrestrial();
+                    Terrestrial temp = new Terrestrial();
+                    temp.setVisible(true);
                     //Threads_class.get_Instance().InProgress();
 
                 }
@@ -104,7 +106,8 @@ public class Type_Vehicle extends JFrame {
         Marine.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (e.getActionCommand().equals("Marine transport vehicle")) {
-                    Maritime = new Maritime();
+                    Maritime temp= new Maritime();
+                    temp.setVisible(true);
                     //Threads_class.get_Instance().InProgress();
                 }
             }

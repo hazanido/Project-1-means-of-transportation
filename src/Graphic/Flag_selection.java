@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -132,7 +133,7 @@ public class Flag_selection extends JFrame implements ActionListener, Runnable {
                 ((Marine_transport_vehicle) Car_Agency.get_vehicle()[i]).set_target(flagFilename);
             }
         }
-        Agency_Frame temp1=new Agency_Frame(Car_Agency.get_vehicle(),vehicle.get_move());
+        Agency_Frame temp1=new Agency_Frame();
 
     }
 

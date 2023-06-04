@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 
 /**
@@ -232,7 +233,7 @@ public class game_drone extends JFrame implements ActionListener {
             Game_Drone temp = new Game_Drone(f, s1, s, a, b, c, s6);
             Car_Agency.add_Vehicle(temp);
 
-            Agency_Frame frame = new Agency_Frame(Car_Agency.get_vehicle(), s);
+            Agency_Frame frame = new Agency_Frame();
 
             this.dispose();
 

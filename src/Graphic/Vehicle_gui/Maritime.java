@@ -122,22 +122,22 @@ public class Maritime extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Frigate")) {
-            Graphic.Vehicle_gui.frigate frame= new frigate();
-            this.dispose();
+            frigate frame= new frigate();
+            frame.setVisible(true);
         }
         else if (e.getActionCommand().equals("Cruise ship")) {
-            Graphic.Vehicle_gui.Cruz frame = new Cruz();
-            this.dispose();
+            Cruz frame = new Cruz();
+            frame.setVisible(true);
 
         }
         else if (e.getActionCommand().equals("Amphibious vehicle")) {
-            Graphic.Vehicle_gui.Amphibious frame = new Amphibious();
-            this.dispose();
+            Amphibious frame = new Amphibious();
+            frame.setVisible(true);
 
         }
         else if(e.getActionCommand().equals("Hybrid Plane")){
             hybrid_plane frame=new hybrid_plane();
-            this.dispose();
+            frame.setVisible(true);
         }
     }
 }
