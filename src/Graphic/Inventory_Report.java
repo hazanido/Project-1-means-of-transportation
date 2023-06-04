@@ -10,10 +10,11 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class Inventory_Report extends JFrame {
+public class Inventory_Report extends JFrame  implements ChangeListener{
     private Vehicle[] Temp_carAgency;
 
     public Inventory_Report() {
+        Threads_class.get_Instance().addListener(this);
         // Set window properties
         this.setVisible(true);
         this.setSize(600, 600);
@@ -45,25 +46,20 @@ public class Inventory_Report extends JFrame {
 
             this.add(imageLabel);
 
-
-            Thread updateThread = new Thread(new Runnable() {
-                public void run() {
-                    while (true) {
-                        //updateInventoryReport();
-
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-
-            });
-            updateThread.start();
         }
     }
+    public void change_listener(){
+        this.dispose();
+        Inventory_Report frame=new Inventory_Report();
+
+
+
+    }
 }
+
+
+
+
 
 
 

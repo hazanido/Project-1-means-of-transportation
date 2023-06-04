@@ -20,7 +20,7 @@ import java.util.concurrent.Callable;
  * It extends the JFrame class and implements the ActionListener interface.
  * It displays the available vehicles in the car agency and allows the user to perform various operations on them.
  */
-public class Agency_Frame extends JFrame implements ActionListener {
+public class Agency_Frame extends JFrame  {
 
     JLabel display;
     private static Dialog d;
@@ -39,7 +39,6 @@ public class Agency_Frame extends JFrame implements ActionListener {
      * Constructor for the Agency_Frame class.
      * It takes an array of vehicles and a move as parameters.
      * It sets the window properties and displays the available vehicles as buttons with their photos and tooltips.
-
      */
 
     public Agency_Frame() {
@@ -55,12 +54,12 @@ public class Agency_Frame extends JFrame implements ActionListener {
         threadsClass = new Threads_class();
         vehicles = threadsClass.get_Vehicles();
 
-        for (int i=0;i<Car_Agency.get_vehicle().length;i++){
-            vehicles.add(i, Car_Agency. get_vehicle()[i]);
+        for (int i = 0; i < Car_Agency.get_vehicle().length; i++) {
+            vehicles.add(i, Car_Agency.get_vehicle()[i]);
         }
 
 
-        for (int i=0;i<vehicles.size();i++) {
+        for (int i = 0; i < vehicles.size(); i++) {
             BufferedImage image = null;
             try {
                 image = ImageIO.read(vehicles.get(i).get_Photo());
@@ -71,7 +70,7 @@ public class Agency_Frame extends JFrame implements ActionListener {
             JButton button = new JButton(icon);
             button.setToolTipText(vehicles.toString());
             button.setActionCommand(String.valueOf(i));
-            button.addActionListener(this);
+            //button.addActionListener(this);
             this.add(button);
             button.addActionListener(new ActionListener() {
                 @Override
@@ -85,12 +84,11 @@ public class Agency_Frame extends JFrame implements ActionListener {
                     //Vehicle[] vehiclesArray = new Vehicle[vehicles.size()];
                     //vehicles.toArray(vehiclesArray);
                     //Vehicle[] vehiclesArray = vehicles.toArray(new Vehicle[vehicles.size()]);
-                    Operations temp = new Operations(index,vehicles);
+                    Operations temp = new Operations(index, vehicles);
                     temp.setVisible(true);
                 }
             });
         }
-
 
 
         //this.threadsClass = Threads_class.get_Instance();
@@ -103,11 +101,12 @@ public class Agency_Frame extends JFrame implements ActionListener {
         //this.vehicles = new ArrayList<>();
 
         //for (int i = 0; i < vehicles.length; i++) {
-            //this.vehicles.add(vehicles[i]);
+        //this.vehicles.add(vehicles[i]);
 
         //}
 
     }
+}
 
 
          /**
@@ -220,6 +219,7 @@ public class Agency_Frame extends JFrame implements ActionListener {
      * It gets the index of the clicked button, retrieves the corresponding vehicle and displays the operations frame.
      * @param e The ActionEvent object representing the button click event.
      */
+    /**
 
     public void actionPerformed(ActionEvent e) {
 
@@ -237,7 +237,8 @@ public class Agency_Frame extends JFrame implements ActionListener {
 
 
     }
-}
+     */
+
 
 
 
