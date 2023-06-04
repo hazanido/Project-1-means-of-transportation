@@ -22,7 +22,7 @@ import javax.swing.ImageIcon;
  *The class also creates a new Agency_Frame object once a button is clicked.
  */
 
-public class Flag_selection extends JFrame implements ActionListener, Runnable {
+public class Flag_selection extends JFrame implements ActionListener {
 
     private JButton Back, israel, usa, germany, greece, italy, sumulia, pirates;
     private JTextField move;
@@ -136,8 +136,4 @@ public class Flag_selection extends JFrame implements ActionListener, Runnable {
 
     }
 
-    @Override
-    public void run() {
-
-    }
 }

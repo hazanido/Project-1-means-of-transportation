@@ -2,6 +2,7 @@ package Graphic;
 
 import Vehicle.*;
 
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  * Otherwise, the agency frame is displayed with the remaining cars.
  */
 public class Buying_car extends JDialog implements ChangeListener{
+
 
 
     private Vehicle vehicle;
@@ -36,18 +38,19 @@ public class Buying_car extends JDialog implements ChangeListener{
 
             Car_Agency.remove_vehicle(Car_Agency.get_vehicle(), i);
             JOptionPane.showMessageDialog(null, "Car has been removed successfully");
+            change_listener();
 
 
         }
     }
     public void change_listener(){
+        Agency_Frame.removeAllButtons();
         removeAll();
         revalidate();
         repaint();
-        if((Threads_class.get_Instance().get_Vehicles().size())==0){
+        if(Threads_class.get_Instance().get_Vehicles().size() == 0){
             JOptionPane.showMessageDialog(null, "There are no vehicles at the agency. Insert new vehicles");
             main_window frame=new main_window();
-
         }
         else{
             Agency_Frame frame=new Agency_Frame();

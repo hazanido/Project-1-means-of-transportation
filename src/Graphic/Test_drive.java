@@ -26,7 +26,7 @@ public class Test_drive extends JFrame implements ActionListener{
      * @param vehicles The array of vehicles in the car agency.
      */
     public Test_drive(int i, List<Vehicle> vehicles) {
-        index=i;
+        index = i;
         // Set window properties
         this.vehicle = vehicles.get(i);
         this.setVisible(true);
@@ -53,92 +53,7 @@ public class Test_drive extends JFrame implements ActionListener{
         this.add(Back);
         this.add(move);
         Back.addActionListener(this);
-        /**
-        Back.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (e.getActionCommand().equals("Back to the agency")) {
-                    try {
-                        //Vehicle Vehicle1 =Threads_class.get_Instance().get_Vehicles().get(i);
-                        int distance = Integer.parseInt(move.getText());
-                        int temp = vehicle.get_move();
-                        if (Threads_class.get_Instance().InProgress()) {
-                            throw new IllegalStateException("This vehicle is currently being test driven. Please try again later.");
-                        }
-                        vehicle.set_Move(temp + distance);
-                        Agency_Frame temp1 = new Agency_Frame();
-                        
-                        Threads_class.get_Instance().Update_distance(i, temp + distance, 200);
-                        dispose();
-
-                    } catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(null, "Please enter a valid number");
-
-                    } catch (IllegalStateException ex) {
-                        JOptionPane.showMessageDialog(null, ex.getMessage());
-                    }
-
-                }
-            }
-        });*/
-        //Threads_class.get_Instance().addListener(this);
-
     }
-
-
-/**
-    public void change_listener() {
-        Back.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (e.getActionCommand().equals("Back to the agency")) {
-                    try {
-                        int distance = Integer.parseInt(move.getText());
-                        int temp = vehicle.get_move();
-                        if (Threads_class.get_Instance().Inspection_by_type(index)) {
-                            throw new IllegalStateException("This vehicle is currently being test driven. Please try again later.");
-
-                        }
-                        vehicle.set_Move(temp + distance);
-                        Agency_Frame temp1 = new Agency_Frame(Car_Agency.get_vehicle(), vehicle.get_move());
-                        Threads_class.get_Instance().Update_distance(index, temp + distance, 200);
-                        dispose();
-
-                    } catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(null, "Please enter a valid number");
-                    } catch (IllegalStateException ex) {
-                    JOptionPane.showMessageDialog(null, ex.getMessage());
-                }
-                }
-            }
-        });
-    }
-}
-*/
-
-
-
-    /**
-     * Handles the user clicking the "Back to the agency" button. Updates the vehicle's
-     * total distance traveled with the distance entered by the user and returns to the
-     * agency window.
-     *
-     * @param e The action event that occurred (clicking the button).
-     */
-//    public void actionPerformed(ActionEvent e) {
-//        if (e.getActionCommand().equals("Back to the agency")) {
-//            try {
-//                int distance = Integer.parseInt(move.getText());
-//                int temp = vehicle.get_move();
-//                vehicle.set_Move(temp + distance);
-//                Agency_Frame temp1 = new Agency_Frame(Car_Agency.get_vehicle(), vehicle.get_move());
-//                Threads_class.get_Instance().Update_distance(,vehicle.get_distance(),200);
-//                this.dispose();
-//            } catch (NumberFormatException ex) {
-//                JOptionPane.showMessageDialog(this, "Please enter a valid number");
-//
-//            }
-//
-//        }
-//    }
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Back to the agency")) {

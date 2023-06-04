@@ -128,24 +128,8 @@ public class Threads_class  {
             synchronized (lock) {
 
                 vehicles.remove(index);
-
+                Notice_of_change();
             }
-                /**
-                for (int i = 0; i < index_Test_Array.length; i++) {
-                    if (index_Test_Array[i].get() > index) {
-                        index_Test_Array[i].decrementAndGet();
-                    }
-                    if (buy_Array[i].get() > index) {
-                        buy_Array[i].decrementAndGet();
-                    }
-                }*/
-
-           //index_Test_Array[type.ordinal()].set(-1);
-
-                //buy_Array[type.ordinal()].set(-1);
-
-            Notice_of_change();
-
 
 
         }).start();
@@ -198,43 +182,6 @@ public class Threads_class  {
         }
         Notice_of_change();
     }
-    /**
-    public void buy_vehicle(JFrame frame, int index) {
-        synchronized (lock) {
-            Vehicle vehicle = vehicles.get(index);
-            VehicleType type = get_Vehicle_Type(vehicle);
-            if (index_Test_Array[type.ordinal()].get() == index) {
-                JOptionPane.showMessageDialog(null, "This vehicle is currently being test driven - please try again later");
-            } else if (buy_Test_Array[type.ordinal()].get() == -1) {
-                buy_Test_Array[type.ordinal()].set(index);
-                lock.notifyAll();
-            } else {
-                JOptionPane.showMessageDialog(null, "Another vehicle is currently in buy status - please try again later");
-            }
-        }*/
-        /**
-        new Thread(() -> {
-            sleepDBAction(frame);
-            synchronized (lock) {
-                Vehicle vehicle = vehicles.get(index);
-                VehicleType type = get_Vehicle_Type(vehicle);
-                if (index_Test_Array[type.ordinal()].get() == index) {
-                    JOptionPane.showMessageDialog(null, "This vehicle is currently being test driven - please try again later");
-                    return;
-                }
-
-                if (buy_Test_Array[type.ordinal()].get() == -1) {
-                    buy_Test_Array[type.ordinal()].set(index);
-                    vehicles.remove(index);
-                    index_Test_Array[type.ordinal()].set(-1);
-                    Notice_of_change();
-                    JOptionPane.showMessageDialog(null, "Vehicle purchased successfully!");
-                } else {
-                    JOptionPane.showMessageDialog(null, "This vehicle is already in buy status - please try again later");
-                }
-            }
-        }).start();
-         */
 
     public void resetAll(JFrame frame){
         new Thread(()->{
@@ -345,20 +292,6 @@ public class Threads_class  {
 
 }
 
-
-
-
-    /**
-
-    public void Reset_distance(JFrame frame){
-        new Thread(() -> {
-            sleepDBAction(frame);
-            synchronized (lock){
-
-            }
-        }
-    }
-    */
 
 
 
