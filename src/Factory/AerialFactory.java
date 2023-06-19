@@ -17,17 +17,16 @@ public class AerialFactory implements VehicleFactory{
 
     public Vehicle produceVehicle(){
         String chosenAerial = aerial.getSelectedAerial();
+        if (chosenAerial != null) {
+            if (chosenAerial.equals("dawn_rigoli")) {
+                vehicle = new Dawn_Rigoli();
+            } else if (chosenAerial.equals("game_drone")) {
+                vehicle = new Game_Drone();
+            } else if (chosenAerial.equals("hybrid_plane")) {
+                vehicle = new Hybrid_plane();
+            }
+        }
 
-        if (chosenAerial.equals("dawn_rigoli")) {
-            vehicle = new Dawn_Rigoli();
-        }
-        else if (chosenAerial.equals("game_drone")) {
-            vehicle = new Game_Drone();
-
-        }
-        else if (chosenAerial.equals("hybrid_plane")) {
-            vehicle = new Hybrid_plane();
-        }
         return vehicle;
 
     }

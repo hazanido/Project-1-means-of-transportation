@@ -27,6 +27,7 @@ public class Aerial extends JFrame implements ActionListener {
     private boolean isGameDroneSelected;
     private boolean isHybridPlaneSelected;
     private AerialFactory factory;
+    String chosenAerial;
 
 
     /**
@@ -122,22 +123,21 @@ public class Aerial extends JFrame implements ActionListener {
             dawn_rigoli frame= new dawn_rigoli();;
             frame.setVisible(true);
             isDawnRigoliSelected = true;
-            factory.produceVehicle();
+
         }
         else if (e.getActionCommand().equals("Game_Drone")) {
             game_drone frame = new game_drone();
             frame.setVisible(true);
             isGameDroneSelected = true;
-            factory.produceVehicle();
+
 
         }
         else if(e.getActionCommand().equals("Hybrid Plane")){
             hybrid_plane frame=new hybrid_plane();
             frame.setVisible(true);
             isHybridPlaneSelected = true;
-            factory.produceVehicle();
-
         }
+        factory.produceVehicle();
 
 
     }

@@ -13,18 +13,21 @@ public class MaritimeFactory implements VehicleFactory {
     }
     public Vehicle produceVehicle(){
         String chosenMaritime=maritime.getSelectedMaritime();
-        if(chosenMaritime.equals("Frigate")){
-            vehicle=new Frigate();
+        if (chosenMaritime != null) {
+            if(chosenMaritime.equals("Frigate")){
+                vehicle=new Frigate();
+            }
+            else if(chosenMaritime.equals("Cruz")){
+                vehicle=new Cruise_ship();
+            }
+            else if(chosenMaritime.equals("Amphibious")){
+                vehicle=new Amphibious_vehicle();
+            }
+            else if (chosenMaritime.equals("hybrid_plane")) {
+                vehicle = new Hybrid_plane();
+            }
         }
-        else if(chosenMaritime.equals("Cruz")){
-            vehicle=new Cruise_ship();
-        }
-        else if(chosenMaritime.equals("Amphibious")){
-            vehicle=new Amphibious_vehicle();
-        }
-        else if (chosenMaritime.equals("hybrid_plane")) {
-            vehicle = new Hybrid_plane();
-        }
+
         return vehicle;
 
 

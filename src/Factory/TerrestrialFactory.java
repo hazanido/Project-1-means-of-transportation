@@ -12,21 +12,24 @@ public class TerrestrialFactory implements VehicleFactory{
     }
     public Vehicle produceVehicle(){
         String chosenTerrestrial=terrestrial.getSelectedTerrestrial();
-        if(chosenTerrestrial.equals("Jeep")){
-            vehicle=new Jeep();
+        if (chosenTerrestrial !=null){
+            if(chosenTerrestrial.equals("Jeep")){
+                vehicle=new Jeep();
+            }
+            else if(chosenTerrestrial.equals("Amphibious")){
+                vehicle=new Amphibious_vehicle();
+            }
+            else if(chosenTerrestrial.equals("Bicycle")){
+                vehicle=new NonMotorizedBicycle();
+            }
+            else if(chosenTerrestrial.equals("Electric_Bicycle")){
+                vehicle=new ElectricBicycle();
+            }
+            else if (chosenTerrestrial.equals("hybrid_plane")) {
+                vehicle = new Hybrid_plane();
+            }
         }
-        else if(chosenTerrestrial.equals("Amphibious")){
-            vehicle=new Amphibious_vehicle();
-        }
-        else if(chosenTerrestrial.equals("Bicycle")){
-            vehicle=new NonMotorizedBicycle();
-        }
-        else if(chosenTerrestrial.equals("Electric_Bicycle")){
-            vehicle=new ElectricBicycle();
-        }
-        else if (chosenTerrestrial.equals("hybrid_plane")) {
-            vehicle = new Hybrid_plane();
-        }
+
         return vehicle;
 
     }
