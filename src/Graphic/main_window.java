@@ -36,12 +36,11 @@ public class main_window extends JFrame implements ActionListener {
     private Type_Vehicle vehicle;
     private BufferedImage b_Agency_photo;
     private ImageIcon i_Agency_photo;
-
+    public static main_window instance = null;
 
     public static void main(String[] args) {
         //new main_window();
-        SwingUtilities.invokeLater(main_window::new);
-    }
+        main_window window = main_window.getInstance();    }
     private JButton button;
 
     /**
@@ -94,7 +93,11 @@ public class main_window extends JFrame implements ActionListener {
 
 
     }
-
+    public static main_window getInstance() {
+        if (instance == null)
+            instance = new main_window();
+        return instance;
+    }
     /**
      * Invoked when the button is clicked.
      * Creates a new Type_Vehicle object and disposes of the current window.
