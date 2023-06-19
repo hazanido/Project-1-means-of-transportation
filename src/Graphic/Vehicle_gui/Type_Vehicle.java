@@ -1,7 +1,8 @@
 package Graphic.Vehicle_gui;
 
-import Graphic.Threads_class;
-import Graphic.*;
+import Factory.AerialFactory;
+import Factory.MaritimeFactory;
+import Factory.TerrestrialFactory;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -22,10 +23,6 @@ public class Type_Vehicle extends JFrame {
     private JButton Air;
     private JButton Land;
     private JButton Marine;
-    private Terrestrial Terrestrial;
-    private Maritime Maritime;
-    private Aerial Aerial;
-
     private BufferedImage b_Type_photo;
     private ImageIcon i_Type_photo;
 
@@ -75,7 +72,8 @@ public class Type_Vehicle extends JFrame {
         Air.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (e.getActionCommand().equals("Air transport vehicles")) {
-                    Aerial temp= new Aerial();
+                    AerialFactory factory = new AerialFactory();
+                    Aerial temp= new Aerial(factory);
                     temp.setVisible(true);
                     //Threads_class.get_Instance().InProgress();
 
@@ -91,7 +89,8 @@ public class Type_Vehicle extends JFrame {
 
             public void actionPerformed(ActionEvent e) {
                 if (e.getActionCommand().equals("Land transport vehicle")) {
-                    Terrestrial temp = new Terrestrial();
+                    TerrestrialFactory factory=new TerrestrialFactory();
+                    Terrestrial temp = new Terrestrial(factory);
                     temp.setVisible(true);
                     //Threads_class.get_Instance().InProgress();
 
@@ -106,7 +105,8 @@ public class Type_Vehicle extends JFrame {
         Marine.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (e.getActionCommand().equals("Marine transport vehicle")) {
-                    Maritime temp= new Maritime();
+                    MaritimeFactory factory=new MaritimeFactory();
+                    Maritime temp= new Maritime(factory);
                     temp.setVisible(true);
                     //Threads_class.get_Instance().InProgress();
                 }
@@ -114,39 +114,8 @@ public class Type_Vehicle extends JFrame {
 
         });
     }
+
 }
 
 
-
-
-
-
-
-    /**
-     * Implements the ActionListener interface to handle button click events.
-     * If the user clicks on the Marine transport vehicle button, the program
-     * creates a new instance of the Maritime class and disposes the current
-     * window. If the user clicks on the Land transport vehicle button, the
-     * program creates a new instance of the Terrestrial class and disposes the
-     * current window. If the user clicks on the Air transport vehicles button,
-     * the program creates a new instance of the Aerial class and disposes the
-     * current window.
-     * @param e the action event to be handled
-
-    public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("Marine transport vehicle")) {
-            Maritime = new Maritime();
-
-        }
-        else if (e.getActionCommand().equals("Land transport vehicle")) {
-            Terrestrial = new Terrestrial();
-
-
-        } else if (e.getActionCommand().equals("Air transport vehicles")) {
-            Aerial  = new Aerial();
-
-        }
-
-    }
-    */
 

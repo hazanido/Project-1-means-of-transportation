@@ -1,5 +1,6 @@
 package Graphic.Vehicle_gui;
 
+import Factory.MaritimeFactory;
 import Graphic.Vehicle_gui.Amphibious;
 import Graphic.Vehicle_gui.Cruz;
 import Graphic.Vehicle_gui.frigate;
@@ -25,12 +26,19 @@ public class Maritime extends JFrame implements ActionListener {
     private BufferedImage b_Maritime_photo,b_frigate,b_cruise,b_amphibious,b_Hybrid_Plane;
     private ImageIcon i_Maritime_photo,i_frigate,i_cruise,i_amphibious,i_Hybrid_Plane;
     private JLabel frigate_photo,Cruz_photo,Amphibious_photo,Hybrid_Plane_photo;
+    private boolean isfrigateSelected;
+    private boolean isCruzSelected;
+    private boolean isAmphibiousSelected;
+    private boolean isHybridPlaneSelected;
+    private MaritimeFactory factory;
+
     /**
      * Constructs a new Maritime object.
      * The constructor initializes the window and adds the buttons to it.
      */
 
-    public Maritime(){
+    public Maritime(MaritimeFactory factory){
+        this.factory = factory;
         // Set window properties
         this.setVisible(true);
         this.setSize(850, 665);
@@ -40,6 +48,10 @@ public class Maritime extends JFrame implements ActionListener {
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Marine transport vehicle");
+        isfrigateSelected=false;
+        isCruzSelected=false;
+        isAmphibiousSelected=false;
+        isHybridPlaneSelected=false;
 
         JPanel panel = new JPanel();
         panel.setLayout(null);
@@ -124,20 +136,47 @@ public class Maritime extends JFrame implements ActionListener {
         if (e.getActionCommand().equals("Frigate")) {
             frigate frame= new frigate();
             frame.setVisible(true);
+            isfrigateSelected=true;
+            factory.produceVehicle();
+
+
         }
         else if (e.getActionCommand().equals("Cruise ship")) {
             Cruz frame = new Cruz();
             frame.setVisible(true);
+            isCruzSelected=true;
+            factory.produceVehicle();
 
         }
         else if (e.getActionCommand().equals("Amphibious vehicle")) {
             Amphibious frame = new Amphibious();
             frame.setVisible(true);
+            isAmphibiousSelected=true;
+            factory.produceVehicle();
+
 
         }
         else if(e.getActionCommand().equals("Hybrid Plane")){
             hybrid_plane frame=new hybrid_plane();
             frame.setVisible(true);
+            isHybridPlaneSelected=true;
+            factory.produceVehicle();
         }
+    }
+    public String getSelectedMaritime(){
+        if(isfrigateSelected){
+            return "Frigate";
+        }
+        else if (isCruzSelected){
+            return "Cruz";
+        }
+        else if(isAmphibiousSelected){
+            return "Amphibious";
+        }
+        else if(isHybridPlaneSelected){
+            return "Hybrid_Plane";
+        }
+        return null;
+
     }
 }

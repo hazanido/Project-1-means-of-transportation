@@ -1,5 +1,7 @@
 package Graphic.Vehicle_gui;
 
+import Factory.AerialFactory;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -21,6 +23,11 @@ public class Aerial extends JFrame implements ActionListener {
     private BufferedImage b_Aerial_photo,b_plane_toy,b_spy_plane,b_Hybrid_Plane;
     private ImageIcon i_Aerial_photo,i_plane_toy,i_spy_plane,i_Hybrid_Plane;
     private  JLabel spy_plane,plane_toy,Hybrid_Plane_photo;
+    private boolean isDawnRigoliSelected;
+    private boolean isGameDroneSelected;
+    private boolean isHybridPlaneSelected;
+    private AerialFactory factory;
+
 
     /**
      * Constructs a new Aerial object.
@@ -28,7 +35,8 @@ public class Aerial extends JFrame implements ActionListener {
      * Initializes the window's properties and creates the two vehicle selection buttons.
      */
 
-    public Aerial(){
+    public Aerial(AerialFactory factory){
+        this.factory = factory;
         this.setVisible(true);
         this.setSize(900, 580);
         this.setLocationRelativeTo(null);
@@ -37,7 +45,9 @@ public class Aerial extends JFrame implements ActionListener {
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Air transport vehicles");
-
+        isDawnRigoliSelected = false;
+        isGameDroneSelected = false;
+        isHybridPlaneSelected = false;
 
         JPanel panel = new JPanel();
         panel.setLayout(null);
@@ -109,20 +119,36 @@ public class Aerial extends JFrame implements ActionListener {
      */
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Dawn_Rigoli")) {
-            dawn_rigoli frame= new dawn_rigoli();
+            dawn_rigoli frame= new dawn_rigoli();;
             frame.setVisible(true);
+            isDawnRigoliSelected = true;
+            factory.produceVehicle();
         }
         else if (e.getActionCommand().equals("Game_Drone")) {
             game_drone frame = new game_drone();
             frame.setVisible(true);
+            isGameDroneSelected = true;
+            factory.produceVehicle();
 
         }
         else if(e.getActionCommand().equals("Hybrid Plane")){
             hybrid_plane frame=new hybrid_plane();
             frame.setVisible(true);
+            isHybridPlaneSelected = true;
+            factory.produceVehicle();
 
         }
 
 
+    }
+    public String getSelectedAerial() {
+        if (isDawnRigoliSelected) {
+            return "Dawn_Rigoli";
+        } else if (isGameDroneSelected) {
+            return "Game_Drone";
+        } else if (isHybridPlaneSelected) {
+            return "Hybrid_Plane";
+        }
+        return null;
     }
 }

@@ -1,5 +1,7 @@
 package Graphic.Vehicle_gui;
 
+import Factory.AerialFactory;
+import Factory.TerrestrialFactory;
 import Vehicle.ElectricBicycle;
 import Vehicle.NonMotorizedBicycle;
 
@@ -24,11 +26,18 @@ public class Terrestrial extends JFrame implements ActionListener {
     private BufferedImage b_Terrestrial_photo,b_Jeep_photo,b_Amphibious_photo,b_Bicycle_photo,b_Electric_Bicycle,b_Hybrid_Plane;
     private ImageIcon i_Terrestrial_photo,i_Jeep_photo,i_Amphibious_photo,i_Bicycle_photo,i_Electric_Bicycle,i_Hybrid_Plane;
     private JLabel Jeep_photo,Amphibious_photo,Bicycle_photo,Electric_Bicycle_photo,Hybrid_Plane_photo;
+    private boolean isJeepSelected;
+    private boolean isAmphibiousSelected;
+    private boolean isBicycleSelected;
+    private boolean isElectricBicycleSelected;
+    private boolean isHybridPlaneSelected;
+    private TerrestrialFactory factory;
     /**
      * Constructs a new Terrestrial object.
      * The constructor initializes the window and adds the buttons to it.
      */
-    public Terrestrial(){
+    public Terrestrial(TerrestrialFactory factory){
+        this.factory = factory;
         // Set window properties
         this.setVisible(true);
         this.setSize(900, 630);
@@ -38,7 +47,11 @@ public class Terrestrial extends JFrame implements ActionListener {
         this.setLayout(null);
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Land transport vehicle");
-
+        isJeepSelected=false;
+        isAmphibiousSelected=false;
+        isBicycleSelected=false;
+        isElectricBicycleSelected=false;
+        isHybridPlaneSelected=false;
 
         JPanel panel = new JPanel();
         panel.setLayout(null);
@@ -133,30 +146,52 @@ public class Terrestrial extends JFrame implements ActionListener {
         if (e.getActionCommand().equals("Jeep")) {
             jeep frame= new jeep();
             frame.setVisible(true);
-
+            isJeepSelected=true;
+            factory.produceVehicle();
         }
         else if (e.getActionCommand().equals("Amphibious vehicle")) {
             Amphibious frame = new Amphibious();
             frame.setVisible(true);
-
-
+            isAmphibiousSelected=true;
+            factory.produceVehicle();
         }
         else if (e.getActionCommand().equals("Bicycle")) {
             Non_Motorized_bicycle frame = new Non_Motorized_bicycle();
             frame.setVisible(true);
-
-
+            isBicycleSelected=true;
+            factory.produceVehicle();
         }
         else if(e.getActionCommand().equals("Electric Bicycle")){
             electric_bicycle frame=new electric_bicycle();
             frame.setVisible(true);
-
+            isElectricBicycleSelected=true;
+            factory.produceVehicle();
         }
         else if(e.getActionCommand().equals("Hybrid Plane")){
             hybrid_plane frame=new hybrid_plane();
             frame.setVisible(true);
-
+            isHybridPlaneSelected=true;
+            factory.produceVehicle();
         }
     }
+    public String getSelectedTerrestrial() {
+        if(isJeepSelected){
+            return "Jeep";
+        }
+        else if(isAmphibiousSelected){
+            return "Amphibious";
+        }
+        else if(isBicycleSelected){
+            return "Bicycle";
+        }
+        else if(isElectricBicycleSelected){
+            return "Electric_Bicycle";
+        }
+        else if(isHybridPlaneSelected){
+            return "Hybrid_Plane";
+        }
+        return null;
+    }
+
 
 }
