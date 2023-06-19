@@ -244,6 +244,7 @@ public class dawn_rigoli extends JFrame implements ActionListener {
             Threads_class.get_Instance().addVehicle(this,temp1);
             Agency_Frame frame = new Agency_Frame();
             frame.setVisible(true);
+            this.dispose();
         }
 
     }
