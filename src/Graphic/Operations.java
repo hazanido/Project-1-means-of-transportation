@@ -2,7 +2,10 @@ package Graphic;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicArrowButton;
 import java.awt.*;
+
+import Memento.memento;
 import Vehicle.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,7 +26,7 @@ public class Operations extends JFrame implements ChangeListener {
 
     private Vehicle vehicle;
     private int i;
-    private JButton test_drive, buying_car, Flag_change, Reset, Current_Inventory_Report, Exit;
+    private JButton test_drive, buying_car, Flag_change, Reset, Current_Inventory_Report, Exit,save,charging;
     private List<Vehicle> vehicles;
     private BufferedImage b_Operations_photo;
     private ImageIcon i_Operations_photo;
@@ -41,7 +44,7 @@ public class Operations extends JFrame implements ChangeListener {
 
         // Set window properties
         this.setVisible(true);
-        this.setSize(400, 320);
+        this.setSize(415, 320);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -98,11 +101,13 @@ public class Operations extends JFrame implements ChangeListener {
         buying_car = new JButton("Buying car");
         Flag_change = new JButton("Flag change");
         Current_Inventory_Report = new JButton("<html>Current Inventory<br />Report</html>");
+        save = new JButton("Save");
+        charging = new JButton("Charging");
         Reset = new JButton("Reset All");
         Exit = new JButton("Exit");
 
 
-        test_drive.setBounds(30, 40, 150, 60);
+        test_drive.setBounds(40, 40, 150, 60);
 
         panel.add(test_drive);
         test_drive.addActionListener(new ActionListener() {
@@ -121,12 +126,12 @@ public class Operations extends JFrame implements ChangeListener {
             }
         });
 
-        buying_car.setBounds(200, 40, 150, 60);
+        buying_car.setBounds(210, 40, 150, 60);
         panel.add(buying_car);
         buying_car.addActionListener(e -> Buy(i));
 
 
-        Flag_change.setBounds(30, 120, 150, 60);
+        Flag_change.setBounds(40, 120, 150, 60);
         panel.add(Flag_change);
         Flag_change.addActionListener(new ActionListener() {
             @Override
@@ -136,7 +141,7 @@ public class Operations extends JFrame implements ChangeListener {
             }
         });
 
-        Current_Inventory_Report.setBounds(200, 120, 150, 60);
+        Current_Inventory_Report.setBounds(210, 120, 150, 60);
         panel.add(Current_Inventory_Report);
         Current_Inventory_Report.addActionListener(new ActionListener() {
             @Override
@@ -146,12 +151,22 @@ public class Operations extends JFrame implements ChangeListener {
 
             }
         });
-
-        Reset.setBounds(15, 240, 100, 30);
+        Reset.setBounds(5, 240, 90, 30);
         panel.add(Reset);
+
         Reset.addActionListener(e -> Threads_class.get_Instance().resetAll(this));
 
-        Exit.setBounds(260, 240, 100, 30);
+        charging.setBounds(105,240,90,30);
+        panel.add(charging);
+
+        save.setBounds(205,240,90,30);
+        panel.add(save);
+        save.addActionListener(e-> {
+            memento.getInstance().save(vehicles);
+            //System.out.println(memento.getInstance().getClass().toString());
+        });
+
+        Exit.setBounds(305, 240, 90, 30);
         panel.add(Exit);
         Exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
