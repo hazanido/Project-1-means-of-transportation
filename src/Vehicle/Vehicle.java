@@ -11,6 +11,7 @@ public abstract class Vehicle {
     private int Max_Passengers;
     private double Max_Speed;
 
+
     /**
      * Default constructor
      */

@@ -29,7 +29,6 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
     private List<Vehicle> vehicles;
     private Threads_class threadsClass;
     private static JButton[] buttons;
-    private static boolean[] isTestDriveButtonAdded;
 
 
 
@@ -53,6 +52,7 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
 
         vehicles = new ArrayList<>();
         threadsClass = Threads_class.get_Instance();
+
         //threadsClass = new Threads_class();
         //vehicles = threadsClass.get_Vehicles();
         vehicles.addAll(vehicle);
@@ -79,11 +79,10 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
                 public void actionPerformed(ActionEvent e) {
                     JButton clickedButton = (JButton) e.getSource();
                     int index = Integer.parseInt(clickedButton.getActionCommand());
-                    if (!isTestDriveButtonAdded[index]) {
-                        Operations temp = new Operations(index, vehicles);
-                        temp.setVisible(true);
-                        isTestDriveButtonAdded[index] = true;
-                    }
+                    Operations temp = new Operations(index, vehicles);
+                    temp.setVisible(true);
+
+
                 }
             });
 
@@ -94,14 +93,6 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
 
         public void removeAllButtons() {
             if (buttons != null) {
-                isTestDriveButtonAdded = new boolean[vehicles.size()];
-                for (int i = 0; i < vehicles.size(); i++) {
-                    if (isTestDriveButtonAdded[i]) {
-                        this.remove(buttons[i]);
-                        isTestDriveButtonAdded[i] = false;
-                    }
-                }
-                buttons = null;
             }
         }
 

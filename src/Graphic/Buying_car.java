@@ -44,7 +44,7 @@ public class Buying_car extends JDialog implements ChangeListener{
         }
     }
     public void change_listener(){
-        Agency_Frame agencyFrame = new Agency_Frame();
+        Agency_Frame agencyFrame = new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
         agencyFrame.removeAllButtons();
         agencyFrame.removeAll();
         agencyFrame.revalidate();
