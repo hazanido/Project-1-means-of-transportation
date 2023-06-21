@@ -35,8 +35,8 @@ public class Marine_transport_vehicle extends Vehicle {
      */
 
 
-    public Marine_transport_vehicle(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, boolean Because, String target) {
-        super(photo,Model_Name, move, distance, Max_Passengers, Max_Speed);
+    public Marine_transport_vehicle(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, boolean Because, String target,String col) {
+        super(photo,Model_Name, move, distance, Max_Passengers, Max_Speed,col);
         this.Because = Because;
         this.target = target;
     }

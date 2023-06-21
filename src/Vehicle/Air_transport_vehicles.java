@@ -30,9 +30,9 @@ public class Air_transport_vehicles extends Vehicle {
      *@param Max_Speed-Describes the maximum speed of the vehicle
      *@param Type-Describes the type of air transport vehicle, whether it is military or civilian
      */
-    public Air_transport_vehicles(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, String Type)
+    public Air_transport_vehicles(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, String Type,String col)
     {
-        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed);
+        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,col);
         this.Type=Type;
     }
 

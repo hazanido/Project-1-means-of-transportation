@@ -24,7 +24,7 @@ public class hybrid_plane extends JFrame implements ActionListener {
     private JButton add,add_and_closs,add_photo;
     private JRadioButton against, with,military;
 
-    private JComboBox cb;
+    private JComboBox cb,cb3;
     private JCheckBox checkbox1;
     private File f;
     private BufferedImage b_Definitions_photo;
@@ -144,6 +144,15 @@ public class hybrid_plane extends JFrame implements ActionListener {
         against.setBounds(30, 680, 120, 20);
         with.setBounds(160, 680, 110, 20);
 
+        JLabel lebal18 = new JLabel("Select a color of car:");
+        lebal18.setBounds(70, 690, 250, 40);
+        panel.add(lebal18);
+
+        String wheels1[] = {"Natural","Blue","Red"};
+        cb3 = new JComboBox(wheels1);
+        cb3.setBounds(70, 700, 120, 20);
+        panel.add(cb3);
+
         JLabel lebal10 = new JLabel("Please add photo:");
         lebal10.setBounds(70, 710, 250, 40);
         panel.add(lebal10);
@@ -192,6 +201,7 @@ public class hybrid_plane extends JFrame implements ActionListener {
             String s6 = with.getText();
             String s7 = against.getText();
             String s8 = flag.getText();
+            String s9 = (String) cb3.getSelectedItem();
 
 
 
@@ -204,12 +214,12 @@ public class hybrid_plane extends JFrame implements ActionListener {
             boolean fl1 = Boolean.parseBoolean(s7);
 
             if (fl = true) {
-                Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl,s8);
+                Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl,s8,s9);
                 Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
             }
             else if (fl1 = true) {
-                Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl1,s8);
+                Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl1,s8,s9);
                 Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
             }
@@ -240,6 +250,7 @@ public class hybrid_plane extends JFrame implements ActionListener {
             String s6 = with.getText();
             String s7 = against.getText();
             String s8 = flag.getText();
+            String s9 = (String) cb3.getSelectedItem();
 
 
 
@@ -251,12 +262,12 @@ public class hybrid_plane extends JFrame implements ActionListener {
             boolean fl1 = Boolean.parseBoolean(s7);
 
             if (fl = true) {
-                Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl,s8);
+                Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl,s8,s9);
                 //Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
             }
             else if (fl1 = true) {
-                Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl1,s8);
+                Hybrid_plane temp1 = new Hybrid_plane(f, s1, s, a, b, c,fl1,s8,s9);
                 //Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
             }

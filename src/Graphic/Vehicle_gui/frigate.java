@@ -26,7 +26,7 @@ import java.util.List;
 public class frigate extends JFrame implements ActionListener {
     private JTextField model, move, distance, passengers, speed, flag;
     private JButton add, add_and_closs, add_photo;
-    private JComboBox cb1, cb3, cb;
+    private JComboBox cb1, cb3, cb,cb4;
     private JRadioButton against, with;
     private File f;
     private BufferedImage b_Definitions_photo;
@@ -140,6 +140,15 @@ public class frigate extends JFrame implements ActionListener {
         against.setBounds(30, 600, 120, 20);
         with.setBounds(160, 600, 110, 20);
 
+        JLabel lebal14 = new JLabel("Select a color of car:");
+        lebal14.setBounds(70, 410, 250, 40);
+        panel.add(lebal14);
+
+        String wheels1[] = {"Natural","Blue","Red"};
+        cb4 = new JComboBox(wheels1);
+        cb4.setBounds(70, 420, 120, 20);
+        panel.add(cb4);
+
         JLabel lebal10 = new JLabel("Please add photo:");
         lebal10.setBounds(70, 630, 250, 40);
         panel.add(lebal10);
@@ -197,6 +206,7 @@ public class frigate extends JFrame implements ActionListener {
             String s6 = with.getText();
             String s7 = against.getText();
             String s8 = flag.getText();
+            String s9 = (String) cb4.getSelectedItem();
 
 
             int s = Integer.parseInt(s2);
@@ -207,11 +217,11 @@ public class frigate extends JFrame implements ActionListener {
             boolean fl1 = Boolean.parseBoolean(s7);
 
             if (fl = true) {
-                Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl, s8);
+                Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl, s8,s9);
                 //Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
             } else if (fl1 = true) {
-                Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl1, s8);
+                Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl1, s8,s9);
                 //Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
             }
@@ -242,6 +252,7 @@ public class frigate extends JFrame implements ActionListener {
             String s6 = with.getText();
             String s7 = against.getText();
             String s8 = flag.getText();
+            String s9 = (String) cb4.getSelectedItem();
 
 
             int s = Integer.parseInt(s2);
@@ -252,11 +263,11 @@ public class frigate extends JFrame implements ActionListener {
             boolean fl1 = Boolean.parseBoolean(s7);
 
             if (fl = true) {
-                Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl, s8);
+                Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl, s8,s9);
                 //Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
             } else if (fl1 = true) {
-                Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl1, s8);
+                Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl1, s8,s9);
                 //Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
             }

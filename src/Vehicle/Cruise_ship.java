@@ -26,8 +26,8 @@ public class Cruise_ship extends Marine_transport_vehicle implements Motorized_e
      * @param Because-Describes whether the transport vessel is sailing in the direction of the wind
      * @param target-Describes which country the transport vessel is sailing to
      */
-    public Cruise_ship(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, boolean Because, String target){
-        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,Because,target);
+    public Cruise_ship(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, boolean Because, String target,String col){
+        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,Because,target,col);
         set_Because(true);
     }
 

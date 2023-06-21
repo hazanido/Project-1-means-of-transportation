@@ -32,8 +32,8 @@ public class Game_Drone extends Air_transport_vehicles implements Not_motorized_
      * @param Max_Speed-Describes the maximum speed of the vehicle
      * @param Type-Describes the type of air transport vehicle, whether it is military or civilian
      */
-    public Game_Drone(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, String Type) {
-        super(photo, Model_Name, move, distance, Max_Passengers, Max_Speed, Type);
+    public Game_Drone(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, String Type,String col) {
+        super(photo, Model_Name, move, distance, Max_Passengers, Max_Speed, Type,col);
         power_source("manual");
         Energy_score();
 

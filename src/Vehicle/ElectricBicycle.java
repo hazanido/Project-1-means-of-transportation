@@ -14,8 +14,8 @@ public class ElectricBicycle extends Bicycle implements Motorized_engine {
         super();
 
     }
-    public ElectricBicycle(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, int Number_Wheels, String Kind_Way){
-        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,Number_Wheels,Kind_Way);
+    public ElectricBicycle(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, int Number_Wheels, String Kind_Way,String col){
+        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,Number_Wheels,Kind_Way,col);
 
     }
     public String toString(){

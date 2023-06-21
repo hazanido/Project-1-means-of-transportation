@@ -27,6 +27,7 @@ public class Cruz extends JFrame implements ActionListener {
     private JButton add,add_and_closs,add_photo;
     private JRadioButton with;
     private File fp;
+    private JComboBox cb3;
     private BufferedImage b_Definitions_photo;
     private ImageIcon i_Definitions_photo;
 
@@ -132,6 +133,14 @@ public class Cruz extends JFrame implements ActionListener {
         cb1.setBounds(75,510,120,20);
         panel.add(cb1);
 
+        JLabel lebal14 = new JLabel("Select a color of car:");
+        lebal14.setBounds(70, 520, 250, 40);
+        panel.add(lebal14);
+
+        String wheels1[] = {"Natural","Blue","Red"};
+        cb3 = new JComboBox(wheels1);
+        cb3.setBounds(70, 530, 120, 20);
+        panel.add(cb3);
 
         JLabel lebal10 = new JLabel("Please add photo:");
         lebal10.setBounds(70, 540, 250, 40);
@@ -187,6 +196,7 @@ public class Cruz extends JFrame implements ActionListener {
             String s5=speed.getText();
             String s6=with.getText();
             String s8=flag.getText();
+            String s9 = (String) cb3.getSelectedItem();
 
             int s=Integer.parseInt(s2);
             double a=Double.parseDouble(s3);
@@ -195,7 +205,7 @@ public class Cruz extends JFrame implements ActionListener {
             boolean f=Boolean.parseBoolean(s6);
 
 
-            Cruise_ship temp=new Cruise_ship(fp,s1,s,a,b,c,f,s8);
+            Cruise_ship temp=new Cruise_ship(fp,s1,s,a,b,c,f,s8,s9);
             //Car_Agency.add_Vehicle(temp);
             Threads_class.get_Instance().addVehicle(this,temp);
             Type_Vehicle temp1=new Type_Vehicle();
@@ -226,6 +236,7 @@ public class Cruz extends JFrame implements ActionListener {
             String s5=speed.getText();
             String s6=with.getText();
             String s8=flag.getText();
+            String s9 = (String) cb3.getSelectedItem();
 
             int s=Integer.parseInt(s2);
             double a=Double.parseDouble(s3);
@@ -234,7 +245,7 @@ public class Cruz extends JFrame implements ActionListener {
             boolean f=Boolean.parseBoolean(s6);
 
 
-            Cruise_ship temp=new Cruise_ship(fp,s1,s,a,b,c,f,s8);
+            Cruise_ship temp=new Cruise_ship(fp,s1,s,a,b,c,f,s8,s9);
             //Car_Agency.add_Vehicle(temp);
             Threads_class.get_Instance().addVehicle(this,temp);
 

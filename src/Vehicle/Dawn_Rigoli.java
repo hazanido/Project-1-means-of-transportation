@@ -52,8 +52,8 @@ public class Dawn_Rigoli extends Air_transport_vehicles implements Not_motorized
      *@param Max_Speed-Describes the maximum speed of the vehicle
      *@param Type-Describes the type of air transport vehicle, whether it is military or civilian
      */
-    public Dawn_Rigoli(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, String Type) {
-        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,Type);
+    public Dawn_Rigoli(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, String Type,String col) {
+        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,Type,col);
         set_Type(Type) ;
         set_Max_Passengers(1);
         set_Model_Name(Model_Name);

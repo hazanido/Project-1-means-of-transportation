@@ -15,8 +15,8 @@ public class Hybrid_plane extends Amphibious_vehicle implements Air_interface{
 
     }
 
-    public Hybrid_plane(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, boolean Because, String target){
-        super(photo, Model_Name, move, distance, Max_Passengers, Max_Speed, Because, target);
+    public Hybrid_plane(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, boolean Because, String target,String col){
+        super(photo, Model_Name, move, distance, Max_Passengers, Max_Speed, Because, target,col);
         air=new Air_transport_vehicles();
         air.set_Type("military");
 
