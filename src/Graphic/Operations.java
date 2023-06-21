@@ -30,6 +30,7 @@ public class Operations extends JFrame implements ChangeListener {
     private List<Vehicle> vehicles;
     private BufferedImage b_Operations_photo;
     private ImageIcon i_Operations_photo;
+    private float generalDistance = 0;
 
     /**
      * Constructor for the Operations class. Initializes instance variables and sets up the GUI window.
@@ -69,7 +70,8 @@ public class Operations extends JFrame implements ChangeListener {
         int result = JOptionPane.showConfirmDialog(this, "Are you sure?", "Confirmation", JOptionPane.YES_NO_OPTION);
         if (result == JOptionPane.YES_OPTION) {
             Threads_class.get_Instance().removeVehicle(this,index);
-            dispose();
+            float totalDistance = Threads_class.get_Instance().get_Total_Distance();
+            main_window.updateTotalDistance(totalDistance);
             Buying_car frame=new Buying_car(index,vehicles);
             frame.setVisible(true);
         }

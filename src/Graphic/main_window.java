@@ -37,6 +37,8 @@ public class main_window extends JFrame implements ActionListener {
     private BufferedImage b_Agency_photo;
     private ImageIcon i_Agency_photo;
     public static main_window instance = null;
+    private static JTextField totalDistanceField;
+    public static double totalDistance = 0;
 
     public static void main(String[] args) {
         //new main_window();
@@ -90,6 +92,12 @@ public class main_window extends JFrame implements ActionListener {
         button.addActionListener(this);
 
         panel.add(button);
+        totalDistanceField = new JTextField();
+        totalDistanceField.setBounds(330, 550, 150, 30);
+        totalDistanceField.setEditable(false);
+        totalDistanceField.setText("Total Distance: " + totalDistance);
+        panel.add(totalDistanceField);
+
 
 
     }
@@ -105,6 +113,11 @@ public class main_window extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
             Type_Vehicle vehicle = new Type_Vehicle();
 
+
+    }
+    public static void updateTotalDistance(float distance) {
+        totalDistance += distance;
+        totalDistanceField.setText("Total Distance: " + totalDistance);
 
     }
 }

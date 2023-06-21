@@ -13,11 +13,12 @@ import java.util.List;
  * It allows the user to enter the distance traveled on a test drive and updates the
  * vehicle's total distance traveled accordingly.
  */
-public class Test_drive extends JFrame implements ActionListener{
+public class Test_drive extends JFrame implements ActionListener,Runnable{
     private JButton Back;
     private JTextField move;
     private Vehicle vehicle;
     private int index;
+    private float generalDistance=0;
 
     /**
      * Constructs a new Test_drive window for a specific vehicle.
@@ -55,6 +56,8 @@ public class Test_drive extends JFrame implements ActionListener{
         Back.addActionListener(this);
     }
 
+
+
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Back to the agency")) {
             try {
@@ -62,6 +65,9 @@ public class Test_drive extends JFrame implements ActionListener{
                 int distance = Integer.parseInt(move.getText());
                 int temp = vehicle.get_move();
                 vehicle.set_Move(temp + distance);
+                generalDistance += distance;
+                main_window.updateTotalDistance(generalDistance);
+
                 Agency_Frame temp1 = new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
 
                 Threads_class.get_Instance().Update_distance(index, temp + distance, 200);
@@ -74,6 +80,7 @@ public class Test_drive extends JFrame implements ActionListener{
             }
         }
     }
+    public void run() {}
 }
 
 

@@ -34,6 +34,7 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
 
 
 
+
     /**
      * Constructor for the Agency_Frame class.
      * It takes an array of vehicles and a move as parameters.
@@ -91,18 +92,21 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
     }
 
 
-        public void removeAllButtons() {
-            if (buttons != null) {
-            }
+    public void removeAllButtons() {
+        if(buttons != null) {
         }
+    }
 
-        public void change_listener() {
-            this.dispose();
-            Agency_Frame frame = new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
-            frame.setVisible(true);
-            frame.removeAllButtons();
+    public void change_listener() {
+        this.dispose();
+        Agency_Frame frame = new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
+        frame.setVisible(true);
+        frame.removeAllButtons();
 
-        }
+    }
+
+
+
 
 }
 

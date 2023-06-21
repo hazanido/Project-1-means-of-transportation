@@ -16,6 +16,7 @@ import java.util.List;
 import Graphic.Agency_Frame;
 import Graphic.Threads_class;
 import Graphic.Vehicle_gui.Type_Vehicle;
+import Graphic.main_window;
 import Vehicle.*;
 
 /**
@@ -202,6 +203,7 @@ public class Cruz extends JFrame implements ActionListener {
 
 
 
+
         }
         else if(e.getActionCommand().equals("add photo")){
             Path to;
@@ -237,6 +239,7 @@ public class Cruz extends JFrame implements ActionListener {
             Cruise_ship temp=new Cruise_ship(fp,s1,s,a,b,c,f,s8);
             //Car_Agency.add_Vehicle(temp);
             Threads_class.get_Instance().addVehicle(this,temp);
+
 
             Agency_Frame frame=new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
 

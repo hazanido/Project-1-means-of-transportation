@@ -14,6 +14,8 @@ public class Threads_class  {
     private static List<Vehicle> vehicles;
     private List<ChangeListener> listeners;
     private static Threads_class singleInstance = null;
+    private float totalDistance = 0;
+    private float Total_Distance;
 
     public Threads_class() {
 
@@ -175,6 +177,7 @@ public class Threads_class  {
             if (index >= 0 && index <= vehicles.size()) {
                 Vehicle vehicleToUpdate = vehicles.get(index);
                 vehicleToUpdate.set_Distance(distance);
+                totalDistance += distance;
                 VehicleType vehicleType = get_Vehicle_Type(vehicleToUpdate);
                 int vehicleTypeIndex = getVehicleTypeIndex(vehicleType);
                 if (vehicleTypeIndex != -1 && vehicleTypeIndex < index_Test_Array.length) {
@@ -292,6 +295,13 @@ public class Threads_class  {
         }
     }
 
+    public float get_Total_Distance() {
+        return Total_Distance;
+    }
+
+    public void set_Total_Distance(float totalDistance) {
+        this.Total_Distance = totalDistance;
+    }
 }
 
 

@@ -2,6 +2,7 @@ package Graphic.Vehicle_gui;
 
 import Graphic.Agency_Frame;
 import Graphic.Threads_class;
+import Graphic.main_window;
 import Vehicle.*;
 import Vehicle.Car_Agency;
 
@@ -191,6 +192,7 @@ public class Non_Motorized_bicycle extends JFrame implements ActionListener {
             Car_Agency.print();
             Threads_class.get_Instance().addVehicle(this,temp1);
 
+
             Type_Vehicle temp = new Type_Vehicle();
             this.dispose();
 
@@ -230,6 +232,7 @@ public class Non_Motorized_bicycle extends JFrame implements ActionListener {
             System.out.println(temp1.toString());
             Car_Agency.print();
             Threads_class.get_Instance().addVehicle(this,temp1);
+
 
 
             Agency_Frame frame=new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
