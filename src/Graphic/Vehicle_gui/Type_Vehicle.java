@@ -1,8 +1,6 @@
 package Graphic.Vehicle_gui;
 
-import Factory.AerialFactory;
-import Factory.MaritimeFactory;
-import Factory.TerrestrialFactory;
+import Factory.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -12,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import Vehicle.*;
 
 /**
  * The Type_Vehicle class is a GUI application that allows users to select
@@ -25,6 +24,7 @@ public class Type_Vehicle extends JFrame {
     private JButton Marine;
     private BufferedImage b_Type_photo;
     private ImageIcon i_Type_photo;
+    private VehicleFactory factory;
 
     /**
      * Constructs a Type_Vehicle object.
@@ -70,16 +70,22 @@ public class Type_Vehicle extends JFrame {
 
         panel.add(Air);
         Air.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (e.getActionCommand().equals("Air transport vehicles")) {
-                    AerialFactory factory = new AerialFactory();
-                    Aerial temp= new Aerial(factory);
-                    temp.setVisible(true);
-                    //Threads_class.get_Instance().InProgress();
+                                  public void actionPerformed(ActionEvent e) {
+                                      if (e.getActionCommand().equals("Air transport vehicles")) {
+                                          factory = new AerialFactory();
+                                          FactoryProducer.getInstance().setFactory(factory);
+                                          Vehicle vehicle = factory.produceVehicle();
+                                          if (vehicle != null) {
+                                              AerialFactory factory1 = new AerialFactory();
+                                              Aerial temp = new Aerial(factory1);
+                                              temp.setVisible(true);
 
-                }
-            }
-        });
+                                          }
+                                      }
+
+                                  }
+                              });
+
 
         Land = new JButton("Land transport vehicle");
         Land.setBounds(400, 550, 400, 80);
@@ -89,11 +95,14 @@ public class Type_Vehicle extends JFrame {
 
             public void actionPerformed(ActionEvent e) {
                 if (e.getActionCommand().equals("Land transport vehicle")) {
-                    TerrestrialFactory factory=new TerrestrialFactory();
-                    Terrestrial temp = new Terrestrial(factory);
-                    temp.setVisible(true);
-                    //Threads_class.get_Instance().InProgress();
-
+                    factory = new TerrestrialFactory();
+                    FactoryProducer.getInstance().setFactory(factory);
+                    Vehicle vehicle = factory.produceVehicle();
+                    if (vehicle != null) {
+                        TerrestrialFactory factory1 = new TerrestrialFactory();
+                        Terrestrial temp = new Terrestrial(factory1);
+                        temp.setVisible(true);
+                    }
                 }
             }
         });
@@ -105,14 +114,22 @@ public class Type_Vehicle extends JFrame {
         Marine.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (e.getActionCommand().equals("Marine transport vehicle")) {
-                    MaritimeFactory factory=new MaritimeFactory();
-                    Maritime temp= new Maritime(factory);
-                    temp.setVisible(true);
-                    //Threads_class.get_Instance().InProgress();
+                    factory = new MaritimeFactory();
+                    FactoryProducer.getInstance().setFactory(factory);
+                    Vehicle vehicle = factory.produceVehicle();
+                    if (vehicle != null) {
+                        MaritimeFactory factory1 = new MaritimeFactory();
+                        Maritime temp = new Maritime(factory1);
+                        temp.setVisible(true);
+                        //Threads_class.get_Instance().InProgress();
+                    }
                 }
             }
 
         });
+    }
+    public VehicleFactory getFactory() {
+        return factory;
     }
 
 }

@@ -12,6 +12,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
+
 
 /**
  * This class represents the main frame of the Car Agency program.
@@ -27,6 +29,8 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
     private List<Vehicle> vehicles;
     private Threads_class threadsClass;
     private static JButton[] buttons;
+    private static boolean[] isTestDriveButtonAdded;
+
 
 
 
@@ -75,27 +79,31 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
                 public void actionPerformed(ActionEvent e) {
                     JButton clickedButton = (JButton) e.getSource();
                     int index = Integer.parseInt(clickedButton.getActionCommand());
-                    Operations temp = new Operations(index, vehicles);
-                    temp.setVisible(true);
+                    if (!isTestDriveButtonAdded[index]) {
+                        Operations temp = new Operations(index, vehicles);
+                        temp.setVisible(true);
+                        isTestDriveButtonAdded[index] = true;
+                    }
                 }
             });
+
 
         }
     }
 
 
-        public static void removeAllButtons(){
+        public void removeAllButtons() {
             if (buttons != null) {
-
-                for (JButton button : buttons) {
-                    //this.remove(button);
+                isTestDriveButtonAdded = new boolean[vehicles.size()];
+                for (int i = 0; i < vehicles.size(); i++) {
+                    if (isTestDriveButtonAdded[i]) {
+                        this.remove(buttons[i]);
+                        isTestDriveButtonAdded[i] = false;
+                    }
                 }
+                buttons = null;
             }
-            buttons = null;
-
         }
-
-
 
         public void change_listener() {
             this.dispose();
@@ -104,7 +112,6 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
             frame.removeAllButtons();
 
         }
-
 
 }
 

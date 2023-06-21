@@ -44,10 +44,11 @@ public class Buying_car extends JDialog implements ChangeListener{
         }
     }
     public void change_listener(){
-        Agency_Frame.removeAllButtons();
-        removeAll();
-        revalidate();
-        repaint();
+        Agency_Frame agencyFrame = new Agency_Frame();
+        agencyFrame.removeAllButtons();
+        agencyFrame.removeAll();
+        agencyFrame.revalidate();
+        agencyFrame.repaint();
         if(Threads_class.get_Instance().get_Vehicles().size() == 0){
             JOptionPane.showMessageDialog(null, "There are no vehicles at the agency. Insert new vehicles");
             main_window frame=new main_window();
