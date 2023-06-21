@@ -29,7 +29,7 @@ import java.util.List;
 public class Non_Motorized_bicycle extends JFrame implements ActionListener {
     private JTextField model,move,distance,passengers,speed;
     private JRadioButton manual;
-    private JComboBox cb,cb1;
+    private JComboBox cb,cb1,cb3;
     private JButton add,add_and_closs,add_photo;
     private File f;
     private BufferedImage b_Definitions_photo;
@@ -125,7 +125,14 @@ public class Non_Motorized_bicycle extends JFrame implements ActionListener {
         manual = new JRadioButton("manual");
         manual.setBounds(100,430,90,20);
 
+        JLabel lebal20 = new JLabel("Select a color of car:");
+        lebal20.setBounds(70, 440, 250, 40);
+        panel.add(lebal20);
 
+        String wheels1[] = {"Natural","Blue","Red"};
+        cb3 = new JComboBox(wheels1);
+        cb3.setBounds(70, 450, 120, 20);
+        panel.add(cb3);
 
         JLabel lebal9 = new JLabel("Please add photo:");
         lebal9.setBounds(70, 460, 250, 40);
@@ -179,6 +186,7 @@ public class Non_Motorized_bicycle extends JFrame implements ActionListener {
             String s3=distance.getText();
             String s4=passengers.getText();
             String s5=speed.getText();
+            String s9 = (String) cb3.getSelectedItem();
 
 
             int s=Integer.parseInt(s2);
@@ -186,7 +194,7 @@ public class Non_Motorized_bicycle extends JFrame implements ActionListener {
             int b=Integer.parseInt(s4);
             double c=Double.parseDouble(s5);
 
-            NonMotorizedBicycle temp1=new NonMotorizedBicycle(f,s1,s,a,b,c,2,null);
+            NonMotorizedBicycle temp1=new NonMotorizedBicycle(f,s1,s,a,b,c,2,null,s9);
             //Car_Agency.add_Vehicle(temp1);
             System.out.println(temp1.toString());
             Car_Agency.print();
@@ -220,6 +228,7 @@ public class Non_Motorized_bicycle extends JFrame implements ActionListener {
             String s3=distance.getText();
             String s4=passengers.getText();
             String s5=speed.getText();
+            String s9 = (String) cb3.getSelectedItem();
 
 
             int s=Integer.parseInt(s2);
@@ -227,7 +236,7 @@ public class Non_Motorized_bicycle extends JFrame implements ActionListener {
             int b=Integer.parseInt(s4);
             double c=Double.parseDouble(s5);
 
-            NonMotorizedBicycle temp1=new NonMotorizedBicycle(f,s1,s,a,b,c,2,null);
+            NonMotorizedBicycle temp1=new NonMotorizedBicycle(f,s1,s,a,b,c,2,null,s9);
             //Car_Agency.add_Vehicle(temp1);
             System.out.println(temp1.toString());
             Car_Agency.print();

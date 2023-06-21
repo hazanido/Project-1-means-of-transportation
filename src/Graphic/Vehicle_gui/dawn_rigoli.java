@@ -33,7 +33,7 @@ public class dawn_rigoli extends JFrame implements ActionListener {
     private String speed[] = {"50"};
     private String Score[] = {"C"};
     private JRadioButton military;
-    private JComboBox cb5, cb6, cb4, cb1;
+    private JComboBox cb5, cb6, cb4, cb1,cb3;
     private File f;
     private BufferedImage b_Definitions_photo;
     private ImageIcon i_Definitions_photo;
@@ -143,6 +143,15 @@ public class dawn_rigoli extends JFrame implements ActionListener {
         manual.setBounds(30, 370, 90, 20);
         electric.setBounds(160, 370, 90, 20);
 
+        JLabel lebal14 = new JLabel("Select a color of car:");
+        lebal14.setBounds(70, 380, 250, 40);
+        panel.add(lebal14);
+
+        String wheels1[] = {"green","blue","red"};
+        cb3 = new JComboBox(wheels1);
+        cb3.setBounds(70, 390, 120, 20);
+        panel.add(cb3);
+
         panel.add(move);
         panel.add(distance);
         panel.add(military);
@@ -151,7 +160,7 @@ public class dawn_rigoli extends JFrame implements ActionListener {
 
         //add photo
         JLabel lebal9 = new JLabel("Please add photo:");
-        lebal9.setBounds(70, 390, 250, 40);
+        lebal9.setBounds(70, 400, 250, 40);
         panel.add(lebal9);
         //this.add(lebal9);
         add_photo = new JButton();
@@ -197,18 +206,18 @@ public class dawn_rigoli extends JFrame implements ActionListener {
             String s5 = (String) cb4.getSelectedItem();
             String s6 = military.getText();
             String s8 = (String) cb1.getSelectedItem();
+            String s9 = (String) cb3.getSelectedItem();
 
             int s = Integer.parseInt(s2);
             double a = Double.parseDouble(s3);
             int b = Integer.parseInt(s4);
             double c = Double.parseDouble(s5);
 
-            Dawn_Rigoli temp1 = new Dawn_Rigoli(f, s1, s, a, b, c, s6);
+            Dawn_Rigoli temp1 = new Dawn_Rigoli(f, s1, s, a, b, c, s6,s9);
             //Car_Agency.add_Vehicle(temp1);
             System.out.println(temp1.toString());
             Car_Agency.print();
             Threads_class.get_Instance().addVehicle(this,temp1);
-
 
             Type_Vehicle temp = new Type_Vehicle();
             temp.setVisible(true);
@@ -234,6 +243,7 @@ public class dawn_rigoli extends JFrame implements ActionListener {
             String s4 = (String) cb6.getSelectedItem();
             String s5 = (String) cb4.getSelectedItem();
             String s6 = military.getText();
+            String s9 = (String) cb3.getSelectedItem();
 
             int s = Integer.parseInt(s2);
             double a = Double.parseDouble(s3);
@@ -241,12 +251,10 @@ public class dawn_rigoli extends JFrame implements ActionListener {
             double c = Double.parseDouble(s5);
 
 
-            Dawn_Rigoli temp1 = new Dawn_Rigoli(f, s1, s, a, b, c, s6);
-
+            Dawn_Rigoli temp1 = new Dawn_Rigoli(f, s1, s, a, b, c, s6,s9);
             //Car_Agency.add_Vehicle(temp1);
             Threads_class.get_Instance().addVehicle(this,temp1);
             Agency_Frame frame = new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
-
             frame.setVisible(true);
             this.dispose();
         }

@@ -27,8 +27,8 @@ public abstract class Bicycle extends Land_transport_vehicle {
      * @param Number_Wheels-The number of wheels the car has
      * @param Kind_Way-Describes the type of road the vehicle can travel on
      */
-    public Bicycle(File photo,String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, int Number_Wheels, String Kind_Way){
-        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,Number_Wheels,Kind_Way);
+    public Bicycle(File photo,String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, int Number_Wheels, String Kind_Way,String col){
+        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,Number_Wheels,Kind_Way,col);
         this.set_Number_Wheels(2);
 
     }

@@ -28,7 +28,7 @@ import java.util.List;
 public class game_drone extends JFrame implements ActionListener {
     private JTextField move, distance;
     private JButton add, add_and_closs, add_photo;
-    private JComboBox cb5, cb6, cb4, cb1;
+    private JComboBox cb5, cb6, cb4, cb1,cb3;
     private JRadioButton manual, civilian;
     private File f;
     private BufferedImage b_Definitions_photo;
@@ -132,6 +132,15 @@ public class game_drone extends JFrame implements ActionListener {
         cb1 = new JComboBox(Score);
         cb1.setBounds(90, 380, 120, 20);
 
+        JLabel lebal18 = new JLabel("Select a color of car:");
+        lebal18.setBounds(70, 400, 250, 40);
+        panel.add(lebal18);
+
+        String wheels1[] = {"Natural","Blue","Red"};
+        cb3 = new JComboBox(wheels1);
+        cb3.setBounds(70, 410, 120, 20);
+        panel.add(cb3);
+
         JLabel lebal10 = new JLabel("Please add photo:");
         lebal10.setBounds(70, 420, 250, 40);
         panel.add(lebal10);
@@ -195,13 +204,14 @@ public class game_drone extends JFrame implements ActionListener {
             String s4 = (String) cb6.getSelectedItem();
             String s5 = (String) cb4.getSelectedItem();
             String s6 = civilian.getText();
+            String s9 = (String) cb3.getSelectedItem();
 
             int s = Integer.parseInt(s2);
             double a = Double.parseDouble(s3);
             int b = Integer.parseInt(s4);
             double c = Double.parseDouble(s5);
 
-            Game_Drone temp = new Game_Drone(f, s1, s, a, b, c, s6);
+            Game_Drone temp = new Game_Drone(f, s1, s, a, b, c, s6,s9);
             //Car_Agency.add_Vehicle(temp);
             Threads_class.get_Instance().addVehicle(this,temp);
 
@@ -230,13 +240,14 @@ public class game_drone extends JFrame implements ActionListener {
             String s4 = (String) cb6.getSelectedItem();
             String s5 = (String) cb4.getSelectedItem();
             String s6 = civilian.getText();
+            String s9 = (String) cb3.getSelectedItem();
 
             int s = Integer.parseInt(s2);
             double a = Double.parseDouble(s3);
             int b = Integer.parseInt(s4);
             double c = Double.parseDouble(s5);
 
-            Game_Drone temp = new Game_Drone(f, s1, s, a, b, c, s6);
+            Game_Drone temp = new Game_Drone(f, s1, s, a, b, c, s6,s9);
             //Car_Agency.add_Vehicle(temp);
             Threads_class.get_Instance().addVehicle(this,temp);
 

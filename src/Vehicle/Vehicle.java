@@ -1,5 +1,6 @@
 package Vehicle;
 
+import java.awt.*;
 import java.io.File;
 import java.util.List;
 import java.util.Objects;
@@ -10,6 +11,7 @@ public abstract class Vehicle {
     private double distance;
     private int Max_Passengers;
     private double Max_Speed;
+    private String col;
 
 
     /**
@@ -35,13 +37,14 @@ public abstract class Vehicle {
      * @param Max_Speed-Describes the maximum speed of the vehicle
      */
 
-    public Vehicle(File photo,String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed) {
+    public Vehicle(File photo,String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed,String col) {
         this.photo=photo;
         this.Model_Name = Model_Name;
         this.move = move;
         this.distance = distance;
         this.Max_Passengers = Max_Passengers;
         this.Max_Speed = Max_Speed;
+        this.col=col;
     }
 
     /**
@@ -131,5 +134,12 @@ public abstract class Vehicle {
             vehicles.set(index, null);
         }
     }
+    public void setColor(String col) {
+        this.col = col;
+    }
 
+    public String get_col() {
+        return this.col;
+
+    }
 }

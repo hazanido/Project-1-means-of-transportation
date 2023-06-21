@@ -25,8 +25,8 @@ public class NonMotorizedBicycle extends Bicycle implements Not_motorized_engine
      * @param Number_Wheels-The number of wheels the car has
      * @param Kind_Way-Describes the type of road the vehicle can travel on
      */
-    public NonMotorizedBicycle(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, int Number_Wheels, String Kind_Way){
-        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,Number_Wheels,Kind_Way);
+    public NonMotorizedBicycle(File photo, String Model_Name, int move, double distance, int Max_Passengers, double Max_Speed, int Number_Wheels, String Kind_Way,String col){
+        super(photo,Model_Name,move,distance,Max_Passengers,Max_Speed,Number_Wheels,Kind_Way,col);
         this.set_Number_Wheels(2);
 
     }

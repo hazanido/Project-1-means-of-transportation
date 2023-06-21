@@ -28,7 +28,7 @@ import java.util.List;
 public class jeep extends JFrame implements ActionListener {
     private JTextField model, move, distance, passengers, speed, Fuel_consumption, lifetime;
     private JButton add, add_and_closs,add_photo;
-    private JComboBox cb,cb1;
+    private JComboBox cb,cb1,cb3;
     private JCheckBox checkbox1;
     private File f;
     private BufferedImage b_Definitions_photo;
@@ -142,6 +142,14 @@ public class jeep extends JFrame implements ActionListener {
         checkbox1 = new JCheckBox("dirt");
         checkbox1.setBounds(110, 570, 60, 30);
 
+        JLabel lebal20 = new JLabel("Select a color of car:");
+        lebal20.setBounds(70, 590, 250, 40);
+        panel.add(lebal20);
+
+        String wheels1[] = {"Natural","Blue","Red"};
+        cb3 = new JComboBox(wheels1);
+        cb3.setBounds(70, 600, 120, 20);
+        panel.add(cb3);
 
         JLabel lebal10 = new JLabel("Please add photo:");
         lebal10.setBounds(70, 610, 250, 40);
@@ -198,6 +206,7 @@ public class jeep extends JFrame implements ActionListener {
             String s5 = speed.getText();
             String s6 = checkbox1.getText();
             String s7 = (String) cb.getSelectedItem();
+            String s9 = (String) cb3.getSelectedItem();
 
 
             int s = Integer.parseInt(s2);
@@ -206,7 +215,7 @@ public class jeep extends JFrame implements ActionListener {
             double c = Double.parseDouble(s5);
             int d = Integer.parseInt(s7);
 
-            Jeep temp = new Jeep(f, s1, s, a, b, c, d, s6);
+            Jeep temp = new Jeep(f, s1, s, a, b, c, d, s6,s9);
             //Car_Agency.add_Vehicle(temp);
             Threads_class.get_Instance().addVehicle(this,temp);
 
@@ -236,6 +245,7 @@ public class jeep extends JFrame implements ActionListener {
             String s5 = speed.getText();
             String s6 = checkbox1.getText();
             String s7 = (String) cb.getSelectedItem();
+            String s9 = (String) cb3.getSelectedItem();
 
 
             int s = Integer.parseInt(s2);
@@ -244,7 +254,7 @@ public class jeep extends JFrame implements ActionListener {
             double c = Double.parseDouble(s5);
             int d = Integer.parseInt(s7);
 
-            Jeep temp = new Jeep(f, s1, s, a, b, c, d, s6);
+            Jeep temp = new Jeep(f, s1, s, a, b, c, d, s6,s9);
             //Car_Agency.add_Vehicle(temp);
             Threads_class.get_Instance().addVehicle(this,temp);
 

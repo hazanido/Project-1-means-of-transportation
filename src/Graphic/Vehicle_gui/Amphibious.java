@@ -33,7 +33,7 @@ public class Amphibious extends JFrame implements ActionListener {
     private JButton add,add_and_closs,add_photo;
     private JRadioButton against, with;
 
-    private JComboBox cb;
+    private JComboBox cb,cb3;
 
     private File f;
     private BufferedImage b_Definitions_photo;
@@ -151,6 +151,15 @@ public class Amphibious extends JFrame implements ActionListener {
         cb.setBounds(70, 620, 120, 20);
         panel.add(cb);
 
+        JLabel lebal14 = new JLabel("Select a color of car:");
+        lebal14.setBounds(70, 530, 250, 40);
+        panel.add(lebal14);
+
+        String wheels1[] = {"Natural","Blue","Red"};
+        cb3 = new JComboBox(wheels1);
+        cb3.setBounds(70, 638, 120, 20);
+        panel.add(cb3);
+
         JLabel lebal10 = new JLabel("Please add photo:");
         lebal10.setBounds(70, 640, 250, 40);
         panel.add(lebal10);
@@ -213,7 +222,7 @@ public class Amphibious extends JFrame implements ActionListener {
             String s6 = with.getText();
             String s7 = against.getText();
             String s8 = flag.getText();
-            String s9 = (String) cb.getSelectedItem();
+            String s9 = (String) cb3.getSelectedItem();
 
 
 
@@ -224,14 +233,15 @@ public class Amphibious extends JFrame implements ActionListener {
             boolean fl = Boolean.parseBoolean(s6);
             boolean fl1 = Boolean.parseBoolean(s7);
 
+
             if (fl = true) {
-                Amphibious_vehicle temp1=new Amphibious_vehicle(f,s1,s,a,b,c,fl,s8);
+                Amphibious_vehicle temp1=new Amphibious_vehicle(f,s1,s,a,b,c,fl,s8,s9);
                 //Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
 
             }
             else if (fl1 = true) {
-                Amphibious_vehicle temp1=new Amphibious_vehicle(f,s1,s,a,b,c,fl1,s8);
+                Amphibious_vehicle temp1=new Amphibious_vehicle(f,s1,s,a,b,c,fl1,s8,s9);
                 //Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
 
@@ -265,7 +275,7 @@ public class Amphibious extends JFrame implements ActionListener {
             String s6 = with.getText();
             String s7 = against.getText();
             String s8 = flag.getText();
-
+            String s9 = (String) cb3.getSelectedItem();
 
 
             int s = Integer.parseInt(s2);
@@ -276,13 +286,13 @@ public class Amphibious extends JFrame implements ActionListener {
             boolean fl1 = Boolean.parseBoolean(s7);
 
             if (fl = true) {
-                Amphibious_vehicle temp1=new Amphibious_vehicle(f,s1,s,a,b,c,fl,s8);
+                Amphibious_vehicle temp1=new Amphibious_vehicle(f,s1,s,a,b,c,fl,s8,s9);
                 //Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
 
             }
             else if (fl1 = true) {
-                Amphibious_vehicle temp1=new Amphibious_vehicle(f,s1,s,a,b,c,fl1,s8);
+                Amphibious_vehicle temp1=new Amphibious_vehicle(f,s1,s,a,b,c,fl1,s8,s9);
                 //Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
 

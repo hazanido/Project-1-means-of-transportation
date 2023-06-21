@@ -5,6 +5,7 @@ import Vehicle.Vehicle;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -71,6 +72,14 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
             }
             ImageIcon icon = new ImageIcon(image);
             JButton button = new JButton(icon);
+
+            int borderWidth = 5;
+            Color col = Color.getColor(vehicle.get(i).get_col());
+            Border border = BorderFactory.createLineBorder(col, borderWidth);
+
+
+            button.setBorder(border);
+
             button.setToolTipText(vehicles.get(i).toString());
             button.setActionCommand(String.valueOf(i));
             //button.addActionListener(this);
