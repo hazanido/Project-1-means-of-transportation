@@ -66,6 +66,7 @@ public class Test_drive extends JFrame implements ActionListener,Runnable{
                 int temp = vehicle.get_move();
                 vehicle.set_Move(temp + distance);
                 generalDistance += distance;
+
                 main_window.updateTotalDistance(generalDistance);
 
                 Agency_Frame temp1 = new Agency_Frame(Threads_class.get_Instance().get_Vehicles());

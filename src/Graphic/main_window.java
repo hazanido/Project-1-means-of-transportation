@@ -23,6 +23,7 @@ import javax.swing.JLabel;
 
 
 import Graphic.Vehicle_gui.Type_Vehicle;
+import Graphic.observer.Controller;
 
 
 /**
@@ -39,6 +40,7 @@ public class main_window extends JFrame implements ActionListener {
     public static main_window instance = null;
     private static JTextField totalDistanceField;
     public static double totalDistance = 0;
+    private Controller controller;
 
     public static void main(String[] args) {
         //new main_window();
@@ -64,6 +66,7 @@ public class main_window extends JFrame implements ActionListener {
         this.getContentPane().setBackground(Color.gray);
         this.setTitle("Car Agency");
         this.setVisible(true);
+        controller = new Controller();
 
 
         JPanel panel = new JPanel();
@@ -112,8 +115,6 @@ public class main_window extends JFrame implements ActionListener {
      */
     public void actionPerformed(ActionEvent e) {
             Type_Vehicle vehicle = new Type_Vehicle();
-
-
     }
     public static void updateTotalDistance(float distance) {
         totalDistance += distance;

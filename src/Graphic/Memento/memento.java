@@ -1,4 +1,4 @@
-package Memento;
+package Graphic.Memento;
 
 import Vehicle.Vehicle;
 
