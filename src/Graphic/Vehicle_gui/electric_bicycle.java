@@ -178,7 +178,7 @@ public class electric_bicycle extends JFrame implements ActionListener {
             double c=Double.parseDouble(s5);
 
             ElectricBicycle temp1=new ElectricBicycle(f,s1,s,a,b,c,2,null);
-            Car_Agency.add_Vehicle(temp1);
+            //Car_Agency.add_Vehicle(temp1);
             System.out.println(temp1.toString());
             Car_Agency.print();
             Threads_class.get_Instance().addVehicle(this,temp1);
@@ -218,13 +218,13 @@ public class electric_bicycle extends JFrame implements ActionListener {
             double c=Double.parseDouble(s5);
 
             ElectricBicycle temp1=new ElectricBicycle(f,s1,s,a,b,c,2,null);
-            Car_Agency.add_Vehicle(temp1);
+            //Car_Agency.add_Vehicle(temp1);
             System.out.println(temp1.toString());
             Car_Agency.print();
             Threads_class.get_Instance().addVehicle(this,temp1);
 
 
-            Agency_Frame frame=new Agency_Frame();
+            Agency_Frame frame=new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
 
             this.dispose();
 

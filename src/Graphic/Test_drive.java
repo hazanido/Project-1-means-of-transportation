@@ -62,7 +62,7 @@ public class Test_drive extends JFrame implements ActionListener{
                 int distance = Integer.parseInt(move.getText());
                 int temp = vehicle.get_move();
                 vehicle.set_Move(temp + distance);
-                Agency_Frame temp1 = new Agency_Frame();
+                Agency_Frame temp1 = new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
 
                 Threads_class.get_Instance().Update_distance(index, temp + distance, 200);
                 dispose();

@@ -53,7 +53,7 @@ public class Buying_car extends JDialog implements ChangeListener{
             main_window frame=new main_window();
         }
         else{
-            Agency_Frame frame=new Agency_Frame();
+            Agency_Frame frame=new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
             frame.setVisible(true);
         }
     }

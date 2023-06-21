@@ -132,7 +132,7 @@ public class Flag_selection extends JFrame implements ActionListener {
                 ((Marine_transport_vehicle) Car_Agency.get_vehicle()[i]).set_target(flagFilename);
             }
         }
-        Agency_Frame temp1=new Agency_Frame();
+        Agency_Frame temp1=new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
 
     }
 

@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,7 +37,7 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
      * It sets the window properties and displays the available vehicles as buttons with their photos and tooltips.
      */
 
-    public Agency_Frame() {
+    public Agency_Frame(List<Vehicle> vehicle) {
         this.setVisible(true);
         this.setSize(1200, 1000);
         this.setResizable(false);
@@ -46,15 +47,14 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
         this.setTitle("Agency");
         this.setLayout(new GridLayout());
 
-
+        vehicles = new ArrayList<>();
         threadsClass = Threads_class.get_Instance();
-
         //threadsClass = new Threads_class();
-        vehicles = threadsClass.get_Vehicles();
-
-        for (int i = 0; i < Car_Agency.get_vehicle().length; i++) {
-            vehicles.add(i, Car_Agency.get_vehicle()[i]);
-        }
+        //vehicles = threadsClass.get_Vehicles();
+        vehicles.addAll(vehicle);
+        //or (int i = 0; i < vehicle.size(); i++) {
+        //   vehicles.add(vehicle.get(i));
+        //
         buttons = new JButton[vehicles.size()];
 
         for (int i = 0; i < vehicles.size(); i++) {
@@ -99,7 +99,7 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
 
         public void change_listener() {
             this.dispose();
-            Agency_Frame frame = new Agency_Frame();
+            Agency_Frame frame = new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
             frame.setVisible(true);
             frame.removeAllButtons();
 

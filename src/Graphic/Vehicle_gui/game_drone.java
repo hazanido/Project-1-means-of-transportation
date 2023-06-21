@@ -201,7 +201,7 @@ public class game_drone extends JFrame implements ActionListener {
             double c = Double.parseDouble(s5);
 
             Game_Drone temp = new Game_Drone(f, s1, s, a, b, c, s6);
-            Car_Agency.add_Vehicle(temp);
+            //Car_Agency.add_Vehicle(temp);
             Threads_class.get_Instance().addVehicle(this,temp);
             Type_Vehicle temp1 = new Type_Vehicle();
 
@@ -234,10 +234,10 @@ public class game_drone extends JFrame implements ActionListener {
             double c = Double.parseDouble(s5);
 
             Game_Drone temp = new Game_Drone(f, s1, s, a, b, c, s6);
-            Car_Agency.add_Vehicle(temp);
+            //Car_Agency.add_Vehicle(temp);
             Threads_class.get_Instance().addVehicle(this,temp);
 
-            Agency_Frame frame = new Agency_Frame();
+            Agency_Frame frame = new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
 
             this.dispose();
 

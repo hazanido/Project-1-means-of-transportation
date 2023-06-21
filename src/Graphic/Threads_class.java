@@ -107,7 +107,7 @@ public class Threads_class  {
 
     public void addVehicle(JFrame frame, Vehicle vehicle) {
         new Thread(() -> {
-            sleepDBAction(frame);
+            //sleepDBAction(frame);
             synchronized (lock) {
                 vehicles.add(vehicle);
                 VehicleType type = get_Vehicle_Type(vehicle);

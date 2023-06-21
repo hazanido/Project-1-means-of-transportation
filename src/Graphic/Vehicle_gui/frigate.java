@@ -208,11 +208,11 @@ public class frigate extends JFrame implements ActionListener {
 
             if (fl = true) {
                 Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl, s8);
-                Car_Agency.add_Vehicle(temp1);
+                //Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
             } else if (fl1 = true) {
                 Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl1, s8);
-                Car_Agency.add_Vehicle(temp1);
+                //Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
             }
 
@@ -253,15 +253,15 @@ public class frigate extends JFrame implements ActionListener {
 
             if (fl = true) {
                 Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl, s8);
-                Car_Agency.add_Vehicle(temp1);
+                //Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
             } else if (fl1 = true) {
                 Frigate temp1 = new Frigate(f, s1, s, a, b, c, fl1, s8);
-                Car_Agency.add_Vehicle(temp1);
+                //Car_Agency.add_Vehicle(temp1);
                 Threads_class.get_Instance().addVehicle(this,temp1);
             }
 
-            Agency_Frame frame=new Agency_Frame();
+            Agency_Frame frame=new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
 
             this.dispose();
 
