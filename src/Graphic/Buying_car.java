@@ -35,8 +35,6 @@ public class Buying_car extends JDialog implements ChangeListener{
             // Remove the car from the car agency and display a message
             Threads_class.get_Instance().removeVehicle(null,i);
 
-
-            Car_Agency.remove_vehicle(Car_Agency.get_vehicle(), i);
             JOptionPane.showMessageDialog(null, "Car has been removed successfully");
             change_listener();
 

@@ -120,20 +120,22 @@ public class Threads_class  {
     }
 
     public void removeVehicle(JFrame frame, int index) {
-        new Thread(() -> {
-            Vehicle vehicle = vehicles.get(index);
-            VehicleType type = get_Vehicle_Type(vehicle);
-            index_Test_Array[type.ordinal()].set(index);
-            sleepDBAction(frame);
-            synchronized (lock) {
-
-                vehicles.remove(index);
-                Notice_of_change();
-            }
-
-
-        }).start();
+        if (index >= 0 && index < vehicles.size()) {
+            new Thread(() -> {
+                Vehicle vehicle = vehicles.get(index);
+                VehicleType type = get_Vehicle_Type(vehicle);
+                index_Test_Array[type.ordinal()].set(index);
+                sleepDBAction(frame);
+                synchronized (lock) {
+                    vehicles.remove(index);
+                    Notice_of_change();
+                }
+            }).start();
+        } else {
+            System.out.println("Invalid index");
+        }
     }
+
 
     private void Notice_of_change() {
         for (ChangeListener listener : listeners) {
