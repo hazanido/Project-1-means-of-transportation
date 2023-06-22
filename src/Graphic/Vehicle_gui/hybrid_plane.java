@@ -149,7 +149,7 @@ public class hybrid_plane extends JFrame implements ActionListener {
         lebal18.setBounds(70, 690, 250, 40);
         panel.add(lebal18);
 
-        String wheels1[] = {"Natural","Blue","Red"};
+        String wheels1[] = {"green","blue","red"};
         cb3 = new JComboBox(wheels1);
         cb3.setBounds(70, 700, 120, 20);
         panel.add(cb3);

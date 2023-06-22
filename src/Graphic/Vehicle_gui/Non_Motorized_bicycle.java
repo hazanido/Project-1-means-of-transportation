@@ -129,7 +129,7 @@ public class Non_Motorized_bicycle extends JFrame implements ActionListener {
         lebal20.setBounds(70, 440, 250, 40);
         panel.add(lebal20);
 
-        String wheels1[] = {"Natural","Blue","Red"};
+        String wheels1[] = {"green","blue","red"};
         cb3 = new JComboBox(wheels1);
         cb3.setBounds(70, 450, 120, 20);
         panel.add(cb3);

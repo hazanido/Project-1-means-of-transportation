@@ -145,7 +145,7 @@ public class frigate extends JFrame implements ActionListener {
         lebal14.setBounds(70, 410, 250, 40);
         panel.add(lebal14);
 
-        String wheels1[] = {"Natural","Blue","Red"};
+        String wheels1[] = {"green","blue","red"};
         cb4 = new JComboBox(wheels1);
         cb4.setBounds(70, 420, 120, 20);
         panel.add(cb4);

@@ -146,7 +146,7 @@ public class jeep extends JFrame implements ActionListener {
         lebal20.setBounds(70, 590, 250, 40);
         panel.add(lebal20);
 
-        String wheels1[] = {"Natural","Blue","Red"};
+        String wheels1[] = {"green","blue","red"};
         cb3 = new JComboBox(wheels1);
         cb3.setBounds(70, 600, 120, 20);
         panel.add(cb3);
