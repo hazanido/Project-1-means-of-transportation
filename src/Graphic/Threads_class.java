@@ -306,7 +306,9 @@ public class Threads_class  {
                 }
             }
 
+
         }
+
     }
 
     public float get_Total_Distance() {
@@ -319,6 +321,7 @@ public class Threads_class  {
     public int getTestDrivenCount(VehicleType type) {
         return index_Test_Array[type.ordinal()].get();
     }
+
 
 }
 
