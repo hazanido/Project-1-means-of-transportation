@@ -121,7 +121,7 @@ public class Operations extends JFrame implements ChangeListener {
                     count_test++;
 
                     if(count_test<=TEST_DRIVE_COUNT){
-                        pool.execute((Runnable) new Test_drive(i,vehicles));
+                        pool.execute(new Test_drive(i,vehicles));
                         //Test_drive testDrive = new Test_drive(i, vehicles);
                         //testDrive.setVisible(true);
 
