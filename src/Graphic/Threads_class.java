@@ -16,6 +16,7 @@ public class Threads_class  {
     private static Threads_class singleInstance = null;
     private float totalDistance = 0;
     private float Total_Distance;
+    private int count_test=0;
 
     public Threads_class() {
 
@@ -60,6 +61,7 @@ public class Threads_class  {
         synchronized (lock) {
             Vehicle vehicle = vehicles.get(index);
             VehicleType type = get_Vehicle_Type(vehicle);
+            count_test++;
             if ( buy_Array[type.ordinal()].get() == index) {
                 JOptionPane.showMessageDialog(null, "This vehicle is currently in buy status - please try again later");
                 return true;
@@ -69,24 +71,34 @@ public class Threads_class  {
                 lock.notifyAll();
                 return false;
             } else {
-                JOptionPane.showMessageDialog(null, "This vehicle is currently being test driven - please try again later");
-                return true;
+                if(count_test>Operations.TEST_DRIVE_COUNT){
+
+                    JOptionPane.showMessageDialog(null, "You have reached the maximum number of test drives-please try again later");
+                    return true;
+
+                }
+
             }
 
         }
+        return false;
     }
 
     public boolean Inspection_by_index(int index) {
         synchronized (lock) {
-            Vehicle vehicle = vehicles.get(index);
-            VehicleType type = get_Vehicle_Type(vehicle);
-            int currentInTest = index_Test_Array[type.ordinal()].get();
-            if (currentInTest == -1) {
-                return false;
-            } else {
-                return index == currentInTest;
+            if (count_test <= Operations.TEST_DRIVE_COUNT) {
+                Vehicle vehicle = vehicles.get(index);
+                VehicleType type = get_Vehicle_Type(vehicle);
+                int currentInTest = index_Test_Array[type.ordinal()].get();
+                if (currentInTest == -1) {
+                    return false;
+                } else {
+                    return index == currentInTest;
+                }
             }
+
         }
+        return false;
     }
 
     private VehicleType get_Vehicle_Type(Vehicle vehicle) {
@@ -302,6 +314,10 @@ public class Threads_class  {
     public void set_Total_Distance(float totalDistance) {
         this.Total_Distance = totalDistance;
     }
+    public int getTestDrivenCount(VehicleType type) {
+        return index_Test_Array[type.ordinal()].get();
+    }
+
 }
 
 

@@ -29,6 +29,8 @@ public class Operations extends JFrame implements ChangeListener {
     private BufferedImage b_Operations_photo;
     private ImageIcon i_Operations_photo;
     private float generalDistance = 0;
+    public final static int TEST_DRIVE_COUNT=7;
+    private int count_test=0;
 
     /**
      * Constructor for the Operations class. Initializes instance variables and sets up the GUI window.
@@ -113,8 +115,12 @@ public class Operations extends JFrame implements ChangeListener {
         test_drive.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!Threads_class.get_Instance().Inspection_by_type(i)) {
-                    Test_drive testDrive = new Test_drive(i, vehicles);
-                    testDrive.setVisible(true);
+
+                    if(count_test<=TEST_DRIVE_COUNT){
+                        Test_drive testDrive = new Test_drive(i, vehicles);
+                        testDrive.setVisible(true);
+                        count_test++;
+                    }
                 }
                 else {
                     try {
