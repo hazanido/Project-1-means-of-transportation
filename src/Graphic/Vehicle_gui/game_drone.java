@@ -136,7 +136,7 @@ public class game_drone extends JFrame implements ActionListener {
         lebal18.setBounds(70, 400, 250, 40);
         panel.add(lebal18);
 
-        String wheels1[] = {"Natural","Blue","Red"};
+        String wheels1[] = {"green","blue","red"};
         cb3 = new JComboBox(wheels1);
         cb3.setBounds(70, 410, 120, 20);
         panel.add(cb3);
