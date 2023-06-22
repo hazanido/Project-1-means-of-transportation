@@ -41,7 +41,7 @@ public class Cruz extends JFrame implements ActionListener {
     public Cruz(){
         // Set window properties
         this.setVisible(true);
-        this.setSize(300, 740);
+        this.setSize(300, 770);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -136,31 +136,31 @@ public class Cruz extends JFrame implements ActionListener {
         panel.add(cb1);
 
         JLabel lebal14 = new JLabel("Select a color of car:");
-        lebal14.setBounds(70, 520, 250, 40);
+        lebal14.setBounds(70, 540, 250, 40);
         panel.add(lebal14);
 
         String wheels1[] = {"green","blue","red"};
         cb3 = new JComboBox(wheels1);
-        cb3.setBounds(70, 530, 120, 20);
+        cb3.setBounds(70, 560, 120, 20);
         panel.add(cb3);
 
         JLabel lebal10 = new JLabel("Please add photo:");
-        lebal10.setBounds(70, 540, 250, 40);
+        lebal10.setBounds(70, 580, 250, 40);
         panel.add(lebal10);
         add_photo = new JButton();
-        add_photo.setBounds(100, 570, 90, 50);
+        add_photo.setBounds(100, 600, 90, 50);
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
         panel.add(add_photo);
 
         add=new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15,630,120,50);
+        add.setBounds(15,640,120,50);
         add.addActionListener(this);
 
 
         add_and_closs=new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(155,630,120,50);
+        add_and_closs.setBounds(155,640,120,50);
         add_and_closs.addActionListener(this);
 
         panel.add(model);
