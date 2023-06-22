@@ -98,6 +98,12 @@ public class Marine_transport_vehicle extends Vehicle {
     }
 
 
+    @Override
+    public String statusCar() {
+        return null;
+    }
 
+    public static void changeStatus(String ms) {
 
+    }
 }

@@ -91,5 +91,12 @@ public class Land_transport_vehicle extends Vehicle implements Terrestrial_inter
     }
 
 
+    @Override
+    public String statusCar() {
+        return null;
+    }
 
+    public static void changeStatus(String ms) {
+
+    }
 }

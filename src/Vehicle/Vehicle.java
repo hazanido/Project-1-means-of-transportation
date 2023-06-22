@@ -1,10 +1,13 @@
 package Vehicle;
 
+import Decorator.Status_car;
+import Decorator.carStatus;
+
 import java.awt.*;
 import java.io.File;
 import java.util.List;
 import java.util.Objects;
-public abstract class Vehicle {
+public abstract class Vehicle implements Status_car {
     private File photo;
     private String Model_Name;
     private int move;
@@ -13,6 +16,7 @@ public abstract class Vehicle {
     private double Max_Speed;
     private String col;
     private boolean testDriveAllowed;
+    private carStatus status;
 
 
     /**
@@ -46,6 +50,7 @@ public abstract class Vehicle {
         this.Max_Passengers = Max_Passengers;
         this.Max_Speed = Max_Speed;
         this.col=col;
+        this.status=new carStatus();
     }
 
     /**
@@ -105,7 +110,8 @@ public abstract class Vehicle {
      */
 
     public String toString() {
-        return "Model: " + Model_Name + ", " + "move: " + move + "\n " + " traveled: " + distance + " Km" + ",  " + "Maximum Passengers: " + Max_Passengers + ", " + "Max speed: " + Max_Speed +"km, ";
+
+        return "Model: " + Model_Name + ", " + "move: " + move + "\n " + " traveled: " + distance + " Km" + ",  " + "Maximum Passengers: " + Max_Passengers + ", " + "Max speed: " + Max_Speed +"km, "+ status.statusCar() +" ";
     }
 
     /**

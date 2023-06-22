@@ -84,5 +84,14 @@ public class Air_transport_vehicles extends Vehicle {
     }
 
 
+    @Override
+    public String statusCar() {
+        return null;
+    }
+
+
+    public static void changeStatus(String ms) {
+
+    }
 }
 

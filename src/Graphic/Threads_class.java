@@ -5,6 +5,7 @@ import Vehicle.*;
 import javax.swing.*;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import Decorator.*;
 
 public class Threads_class  {
     private final Object lock = new Object();
@@ -136,6 +137,7 @@ public class Threads_class  {
     public void removeVehicle(JFrame frame, int index) {
         if (index >= 0 && index < vehicles.size()) {
             new Thread(() -> {
+                carStatus.changeStatus("buying process");
                 Vehicle vehicle = vehicles.get(index);
                 VehicleType type = get_Vehicle_Type(vehicle);
                 index_Test_Array[type.ordinal()].set(index);

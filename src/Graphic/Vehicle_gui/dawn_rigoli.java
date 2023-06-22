@@ -1,4 +1,5 @@
 package Graphic.Vehicle_gui;
+import Decorator.carStatus;
 import Graphic.Agency_Frame;
 import Graphic.Threads_class;
 import Graphic.Vehicle_gui.Type_Vehicle;
