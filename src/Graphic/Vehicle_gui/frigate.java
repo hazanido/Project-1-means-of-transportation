@@ -42,7 +42,7 @@ public class frigate extends JFrame implements ActionListener {
     public frigate() {
         // Set window properties
         this.setVisible(true);
-        this.setSize(300, 820);
+        this.setSize(300, 850);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -142,19 +142,19 @@ public class frigate extends JFrame implements ActionListener {
         with.setBounds(160, 600, 110, 20);
 
         JLabel lebal14 = new JLabel("Select a color of car:");
-        lebal14.setBounds(70, 410, 250, 40);
+        lebal14.setBounds(70, 630, 250, 40);
         panel.add(lebal14);
 
         String wheels1[] = {"green","blue","red"};
         cb4 = new JComboBox(wheels1);
-        cb4.setBounds(70, 420, 120, 20);
+        cb4.setBounds(70, 660, 120, 20);
         panel.add(cb4);
 
         JLabel lebal10 = new JLabel("Please add photo:");
-        lebal10.setBounds(70, 630, 250, 40);
+        lebal10.setBounds(70, 690, 250, 40);
         panel.add(lebal10);
         add_photo = new JButton();
-        add_photo.setBounds(100, 660, 90, 50);
+        add_photo.setBounds(100, 720, 90, 50);
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
         panel.add(add_photo);
@@ -162,12 +162,12 @@ public class frigate extends JFrame implements ActionListener {
 
         add = new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15, 720, 120, 50);
+        add.setBounds(15, 740, 120, 50);
         add.addActionListener(this);
 
 
         add_and_closs = new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(155, 720, 120, 50);
+        add_and_closs.setBounds(155, 740, 120, 50);
         add_and_closs.addActionListener(this);
 
 

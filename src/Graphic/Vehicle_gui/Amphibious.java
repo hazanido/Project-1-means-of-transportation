@@ -47,7 +47,7 @@ public class Amphibious extends JFrame implements ActionListener {
     public Amphibious(){
         // Set window properties
         this.setVisible(true);
-        this.setSize(300, 840);
+        this.setSize(300, 870);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -152,20 +152,20 @@ public class Amphibious extends JFrame implements ActionListener {
         panel.add(cb);
 
         JLabel lebal14 = new JLabel("Select a color of car:");
-        lebal14.setBounds(70, 530, 250, 40);
+        lebal14.setBounds(70, 640, 250, 40);
         panel.add(lebal14);
 
         String wheels1[] = {"green","blue","red"};
         cb3 = new JComboBox(wheels1);
-        cb3.setBounds(70, 638, 120, 20);
+        cb3.setBounds(70, 660, 120, 20);
         panel.add(cb3);
 
         JLabel lebal10 = new JLabel("Please add photo:");
-        lebal10.setBounds(70, 640, 250, 40);
+        lebal10.setBounds(70, 680, 250, 40);
         panel.add(lebal10);
 
         add_photo = new JButton();
-        add_photo.setBounds(100, 670, 90, 50);
+        add_photo.setBounds(100, 690, 90, 50);
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
         panel.add(add_photo);

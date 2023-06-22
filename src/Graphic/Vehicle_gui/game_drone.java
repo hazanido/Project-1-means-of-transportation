@@ -43,7 +43,7 @@ public class game_drone extends JFrame implements ActionListener {
     public game_drone() {
         // Set window properties
         this.setVisible(true);
-        this.setSize(300, 620);
+        this.setSize(300, 650);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -138,15 +138,15 @@ public class game_drone extends JFrame implements ActionListener {
 
         String wheels1[] = {"green","blue","red"};
         cb3 = new JComboBox(wheels1);
-        cb3.setBounds(70, 410, 120, 20);
+        cb3.setBounds(70, 430, 120, 20);
         panel.add(cb3);
 
         JLabel lebal10 = new JLabel("Please add photo:");
-        lebal10.setBounds(70, 420, 250, 40);
+        lebal10.setBounds(70, 450, 250, 40);
         panel.add(lebal10);
         //this.add(lebal10);
         add_photo = new JButton();
-        add_photo.setBounds(100, 450, 90, 50);
+        add_photo.setBounds(100, 480, 90, 50);
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
         panel.add(add_photo);
@@ -155,13 +155,13 @@ public class game_drone extends JFrame implements ActionListener {
 
         add = new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15, 520, 120, 50);
+        add.setBounds(15, 540, 120, 50);
         add.addActionListener(this);
         panel.add(add);
 
 
         add_and_closs = new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(155, 520, 120, 50);
+        add_and_closs.setBounds(155, 540, 120, 50);
         add_and_closs.addActionListener(this);
         panel.add(add_and_closs);
 
