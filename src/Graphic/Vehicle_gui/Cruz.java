@@ -13,6 +13,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import Decorator.ColoredCarDec;
 import Graphic.Agency_Frame;
 import Graphic.Threads_class;
 import Graphic.Vehicle_gui.Type_Vehicle;
@@ -138,7 +139,7 @@ public class Cruz extends JFrame implements ActionListener {
         lebal14.setBounds(70, 520, 250, 40);
         panel.add(lebal14);
 
-        String wheels1[] = {"Natural","Blue","Red"};
+        String wheels1[] = {"Green","Blue","Red"};
         cb3 = new JComboBox(wheels1);
         cb3.setBounds(70, 530, 120, 20);
         panel.add(cb3);
@@ -207,6 +208,7 @@ public class Cruz extends JFrame implements ActionListener {
 
 
             Cruise_ship temp=new Cruise_ship(fp,s1,s,a,b,c,f,s8,s9);
+            ColoredCarDec temp2= new ColoredCarDec(temp,s9);
             //Car_Agency.add_Vehicle(temp);
             Threads_class.get_Instance().addVehicle(this,temp);
             Type_Vehicle temp1=new Type_Vehicle();

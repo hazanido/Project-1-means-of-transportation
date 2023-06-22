@@ -72,14 +72,23 @@ public class Agency_Frame extends JFrame implements ChangeListener  {
             }
             ImageIcon icon = new ImageIcon(image);
             JButton button = new JButton(icon);
-
-            int borderWidth = 5;
-            Color col = Color.getColor(vehicle.get(i).get_col());
-            Border border = BorderFactory.createLineBorder(col, borderWidth);
-
-
-            button.setBorder(border);
-
+            if("red"==vehicles.get(i).get_col()) {
+                int borderWidth = 5;
+                Color col = Color.red;
+                Border border = BorderFactory.createLineBorder(col, borderWidth);
+                button.setBorder(border);
+            } else if ("blue"==vehicles.get(i).get_col()) {
+                int borderWidth = 5;
+                Color col = Color.blue;
+                Border border = BorderFactory.createLineBorder(col, borderWidth);
+                button.setBorder(border);
+            }
+            else if ("green"==vehicles.get(i).get_col()) {
+                int borderWidth = 5;
+                Color col = Color.green;
+                Border border = BorderFactory.createLineBorder(col, borderWidth);
+                button.setBorder(border);
+            }
             button.setToolTipText(vehicles.get(i).toString());
             button.setActionCommand(String.valueOf(i));
             //button.addActionListener(this);

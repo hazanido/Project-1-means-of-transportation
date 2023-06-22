@@ -6,43 +6,25 @@ public class ColoredCarDec implements decorator_Car{
 
 private Vehicle vehicle;
 private String color;
-
+public ColoredCarDec(Vehicle vehicle,String col){
+    this.vehicle=vehicle;
+    this.color=col;
+}
     @Override
     public void changeCarColor() {
         String nm = null;
         vehicle.setColor(color);
         String c = color;
         switch(c) {
-            case "Natural":
-                color = "n_";
+            case "green":
+                color = "green";
                 break;
-            case "Blue":
-                color = "b_";
+            case "blue":
+                color = "blue";
                 break;
-            case "Red":
-                color = "r_";
-                break;
-        }
-        switch(vehicle.getClass().getSimpleName())
-        {
-            case "Bear":
-                nm = "bea_" + color;
-                break;
-            case "Elephant":
-                nm="elf_" + color;
-                break;
-            case "Giraffe":
-                nm = "grf_" + color;
-                break;
-            case "Lion":
-                nm = "lio_" + color;
-                break;
-            case "Turtle":
-                nm = "trt_" + color;
+            case "red":
+                color = "red";
                 break;
         }
-
     }
-
-
 }

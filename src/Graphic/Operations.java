@@ -160,7 +160,11 @@ public class Operations extends JFrame implements ChangeListener {
 
         charging.setBounds(105,240,90,30);
         panel.add(charging);
-
+        charging.addActionListener(e-> {
+            if(memento.getInstance().restore()) {
+                repaint();
+            }
+        });
         save.setBounds(205,240,90,30);
         panel.add(save);
         save.addActionListener(e-> {

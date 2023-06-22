@@ -5,6 +5,7 @@ import Vehicle.Vehicle;
 import java.util.ArrayList;
 import java.util.Stack;
 import java.util.List;
+import Graphic.main_window;
 
 public class memento {
 
@@ -14,8 +15,8 @@ public class memento {
 
     private class stack_memento{
         private List<Vehicle> vehiclesList;
-        private int totalDistance;
-        public stack_memento(List<Vehicle> vehiclesList,int totalDistance){
+        private double totalDistance;
+        public stack_memento(List<Vehicle> vehiclesList,double totalDistance){
             if (stack.size() < save) {
                 this.totalDistance = totalDistance;
                 this.vehiclesList = new ArrayList<>();
@@ -36,7 +37,7 @@ public class memento {
     }
     public boolean save(List<Vehicle> vehiclesList){
         if(stack.size() < save) {
-            stack_memento ms = new stack_memento(vehiclesList,5);//todo fix
+            stack_memento ms = new stack_memento(vehiclesList,main_window.totalDistance);
             stack.push(ms);
             return true;
         }
