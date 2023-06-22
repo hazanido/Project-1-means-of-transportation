@@ -144,7 +144,7 @@ public class dawn_rigoli extends JFrame implements ActionListener {
         electric.setBounds(160, 370, 90, 20);
 
         JLabel lebal14 = new JLabel("Select a color of car:");
-        lebal14.setBounds(70, 400, 250, 40);
+        lebal14.setBounds(70, 390, 250, 40);
         panel.add(lebal14);
 
         String wheels1[] = {"green","blue","red"};
@@ -164,7 +164,7 @@ public class dawn_rigoli extends JFrame implements ActionListener {
         panel.add(lebal9);
         //this.add(lebal9);
         add_photo = new JButton();
-        add_photo.setBounds(100, 460, 90, 50);
+        add_photo.setBounds(100, 470, 90, 50);
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
         panel.add(add_photo);
@@ -173,11 +173,11 @@ public class dawn_rigoli extends JFrame implements ActionListener {
         //add button
         add = new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15, 500, 110, 50);
+        add.setBounds(15, 530, 110, 50);
         add.addActionListener(this);
         panel.add(add);
         add_and_closs = new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(155, 500, 120, 50);
+        add_and_closs.setBounds(155, 530, 120, 50);
         add_and_closs.addActionListener(this);
         panel.add(add_and_closs);
 
