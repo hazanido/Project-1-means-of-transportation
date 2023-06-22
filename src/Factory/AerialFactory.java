@@ -6,7 +6,7 @@ import Graphic.Vehicle_gui.Type_Vehicle;
 import Vehicle.*;
 
 public class AerialFactory implements VehicleFactory{
-    //private final String[] aerial={"dawn_rigoli","game_drone","hybrid_plane"};
+
     private Aerial aerial;
     private Vehicle vehicle;
 
@@ -25,7 +25,7 @@ public class AerialFactory implements VehicleFactory{
             } else if (chosenAerial.equals("hybrid_plane")) {
                 vehicle = new Hybrid_plane();
             }
-        }
+    }
 
         return vehicle;
 
