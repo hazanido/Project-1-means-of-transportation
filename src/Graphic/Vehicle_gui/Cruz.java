@@ -125,7 +125,7 @@ public class Cruz extends JFrame implements ActionListener {
         lebal7.setBounds(70, 420, 250, 40);
         panel.add(lebal7);
         with = new JRadioButton("with the wind");
-        with.setBounds(75,450,110,20);
+        with.setBounds(75,460,110,20);
 
         JLabel lebal8 = new JLabel("Select the license type:");
         lebal8.setBounds(70, 480, 250, 40);
@@ -136,7 +136,7 @@ public class Cruz extends JFrame implements ActionListener {
         panel.add(cb1);
 
         JLabel lebal14 = new JLabel("Select a color of car:");
-        lebal14.setBounds(70, 540, 250, 40);
+        lebal14.setBounds(70, 530, 250, 40);
         panel.add(lebal14);
 
         String wheels1[] = {"green","blue","red"};
@@ -148,19 +148,19 @@ public class Cruz extends JFrame implements ActionListener {
         lebal10.setBounds(70, 580, 250, 40);
         panel.add(lebal10);
         add_photo = new JButton();
-        add_photo.setBounds(100, 600, 90, 50);
+        add_photo.setBounds(100, 610, 90, 50);
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
         panel.add(add_photo);
 
         add=new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15,640,120,50);
+        add.setBounds(15,670,120,50);
         add.addActionListener(this);
 
 
         add_and_closs=new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(155,640,120,50);
+        add_and_closs.setBounds(155,670,120,50);
         add_and_closs.addActionListener(this);
 
         panel.add(model);

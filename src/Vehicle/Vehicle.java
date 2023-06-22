@@ -12,6 +12,7 @@ public abstract class Vehicle {
     private int Max_Passengers;
     private double Max_Speed;
     private String col;
+    private boolean testDriveAllowed;
 
 
     /**
@@ -142,4 +143,5 @@ public abstract class Vehicle {
         return this.col;
 
     }
+
 }
