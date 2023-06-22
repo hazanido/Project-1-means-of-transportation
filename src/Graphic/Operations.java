@@ -12,6 +12,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * This class represents a GUI window for performing operations on a Vehicle object.
@@ -29,7 +31,7 @@ public class Operations extends JFrame implements ChangeListener {
     private BufferedImage b_Operations_photo;
     private ImageIcon i_Operations_photo;
     private float generalDistance = 0;
-    public final static int TEST_DRIVE_COUNT=7;
+    public final static int TEST_DRIVE_COUNT=3;
     private int count_test=0;
 
     /**
@@ -114,12 +116,15 @@ public class Operations extends JFrame implements ChangeListener {
         panel.add(test_drive);
         test_drive.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                ExecutorService pool= Executors.newFixedThreadPool(TEST_DRIVE_COUNT);
                 if (!Threads_class.get_Instance().Inspection_by_type(i)) {
+                    count_test++;
 
                     if(count_test<=TEST_DRIVE_COUNT){
-                        Test_drive testDrive = new Test_drive(i, vehicles);
-                        testDrive.setVisible(true);
-                        count_test++;
+                        pool.execute((Runnable) new Test_drive(i,vehicles));
+                        //Test_drive testDrive = new Test_drive(i, vehicles);
+                        //testDrive.setVisible(true);
+
                     }
                 }
                 else {
@@ -129,6 +134,7 @@ public class Operations extends JFrame implements ChangeListener {
                         JOptionPane.showMessageDialog(null, ex.getMessage());
                     }
                 }
+                pool.shutdown();
             }
         });
 
