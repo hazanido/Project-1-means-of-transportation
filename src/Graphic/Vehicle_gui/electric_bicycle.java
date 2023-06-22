@@ -125,7 +125,7 @@ public class electric_bicycle extends JFrame implements ActionListener {
 
         String wheels1[] = {"green","blue","red"};
         cb3 = new JComboBox(wheels1);
-        cb3.setBounds(70, 470, 120, 20);
+        cb3.setBounds(70, 480, 120, 20);
         panel.add(cb3);
 
 
@@ -140,12 +140,12 @@ public class electric_bicycle extends JFrame implements ActionListener {
 
         add=new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15,580,120,50);
+        add.setBounds(15,590,120,50);
         add.addActionListener(this);
 
 
         add_and_closs=new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(155,580,120,50);
+        add_and_closs.setBounds(155,590,120,50);
         add_and_closs.addActionListener(this);
 
 

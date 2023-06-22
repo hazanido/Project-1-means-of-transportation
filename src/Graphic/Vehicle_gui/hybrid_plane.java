@@ -146,7 +146,7 @@ public class hybrid_plane extends JFrame implements ActionListener {
         with.setBounds(160, 680, 110, 20);
 
         JLabel lebal18 = new JLabel("Select a color of car:");
-        lebal18.setBounds(70, 710, 250, 40);
+        lebal18.setBounds(70, 700, 250, 40);
         panel.add(lebal18);
 
         String wheels1[] = {"green","blue","red"};
@@ -155,7 +155,7 @@ public class hybrid_plane extends JFrame implements ActionListener {
         panel.add(cb3);
 
         JLabel lebal10 = new JLabel("Please add photo:");
-        lebal10.setBounds(70, 750, 250, 40);
+        lebal10.setBounds(70, 740, 250, 40);
         panel.add(lebal10);
 
         add_photo = new JButton();
@@ -166,12 +166,12 @@ public class hybrid_plane extends JFrame implements ActionListener {
 
         add=new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15,810,120,50);
+        add.setBounds(15,830,120,50);
         add.addActionListener(this);
 
 
         add_and_closs=new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(145,810,130,50);
+        add_and_closs.setBounds(145,830,130,50);
         add_and_closs.addActionListener(this);
 
         panel.add(model);
