@@ -27,9 +27,9 @@ public class Inventory_Report extends JFrame  implements ChangeListener{
 
 
         // Copy the vehicles array to the Temp_carAgency array
-        Temp_carAgency = new Vehicle[Car_Agency.get_vehicle().length];
-        for (int i = 0; i < Car_Agency.get_vehicle().length; i++) {
-            Temp_carAgency[i] = Car_Agency.get_vehicle()[i];
+        Temp_carAgency = new Vehicle[Threads_class.get_Instance().get_Vehicles().size()];
+        for (int i = 0; i < Threads_class.get_Instance().get_Vehicles().size(); i++) {
+            Temp_carAgency[i] = Threads_class.get_Instance().get_Vehicles().get(i);
         }
 
         for (int i = 0; i < Temp_carAgency.length; i++) {
@@ -42,7 +42,7 @@ public class Inventory_Report extends JFrame  implements ChangeListener{
             }
             ImageIcon icon = new ImageIcon(image);
             JLabel imageLabel = new JLabel(icon);
-            imageLabel.setToolTipText(Car_Agency.get_vehicle()[i].toString());
+            imageLabel.setToolTipText(Threads_class.get_Instance().get_Vehicles().get(i).toString());
 
             this.add(imageLabel);
 
