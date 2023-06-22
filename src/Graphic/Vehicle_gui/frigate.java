@@ -42,7 +42,7 @@ public class frigate extends JFrame implements ActionListener {
     public frigate() {
         // Set window properties
         this.setVisible(true);
-        this.setSize(300, 850);
+        this.setSize(300, 880);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -151,10 +151,10 @@ public class frigate extends JFrame implements ActionListener {
         panel.add(cb4);
 
         JLabel lebal10 = new JLabel("Please add photo:");
-        lebal10.setBounds(70, 690, 250, 40);
+        lebal10.setBounds(70, 680, 250, 40);
         panel.add(lebal10);
         add_photo = new JButton();
-        add_photo.setBounds(100, 720, 90, 50);
+        add_photo.setBounds(100, 710, 90, 50);
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
         panel.add(add_photo);
@@ -162,12 +162,12 @@ public class frigate extends JFrame implements ActionListener {
 
         add = new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15, 740, 120, 50);
+        add.setBounds(15, 770, 120, 50);
         add.addActionListener(this);
 
 
         add_and_closs = new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(155, 740, 120, 50);
+        add_and_closs.setBounds(155, 770, 120, 50);
         add_and_closs.addActionListener(this);
 
 

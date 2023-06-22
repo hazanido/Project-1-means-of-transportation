@@ -143,31 +143,31 @@ public class jeep extends JFrame implements ActionListener {
         checkbox1.setBounds(110, 570, 60, 30);
 
         JLabel lebal20 = new JLabel("Select a color of car:");
-        lebal20.setBounds(70, 610, 250, 40);
+        lebal20.setBounds(70, 590, 250, 40);
         panel.add(lebal20);
 
         String wheels1[] = {"green","blue","red"};
         cb3 = new JComboBox(wheels1);
-        cb3.setBounds(70, 625, 120, 20);
+        cb3.setBounds(70, 620, 120, 20);
         panel.add(cb3);
 
         JLabel lebal10 = new JLabel("Please add photo:");
-        lebal10.setBounds(70, 650, 250, 40);
+        lebal10.setBounds(70, 640, 250, 40);
         panel.add(lebal10);
         add_photo = new JButton();
-        add_photo.setBounds(100, 680, 90, 50);
+        add_photo.setBounds(100, 670, 90, 50);
         add_photo.setText("add photo");
         add_photo.addActionListener(this);
         panel.add(add_photo);
 
         add = new JButton();
         add.setText("<html>Adding a<br />new vehicle</html>");
-        add.setBounds(15, 740, 120, 50);
+        add.setBounds(15, 730, 120, 50);
         add.addActionListener(this);
 
 
         add_and_closs = new JButton("<html>Adding and entering<br />a car dealership</html>");
-        add_and_closs.setBounds(155, 740, 120, 50);
+        add_and_closs.setBounds(155, 730, 120, 50);
         add_and_closs.addActionListener(this);
 
 
