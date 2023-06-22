@@ -14,7 +14,7 @@ import java.util.List;
  * It allows the user to enter the distance traveled on a test drive and updates the
  * vehicle's total distance traveled accordingly.
  */
-public class Test_drive extends JFrame implements ActionListener{
+public class Test_drive extends JFrame implements ActionListener,Runnable{
     private JButton Back;
     private JTextField move;
     private Vehicle vehicle;
@@ -86,6 +86,11 @@ public class Test_drive extends JFrame implements ActionListener{
         }
     }
 
+
+
+    public void run() {
+
+    }
 }
 
 

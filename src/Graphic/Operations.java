@@ -72,7 +72,6 @@ public class Operations extends JFrame implements ChangeListener {
         }
         int result = JOptionPane.showConfirmDialog(this, "Are you sure?", "Confirmation", JOptionPane.YES_NO_OPTION);
         if (result == JOptionPane.YES_OPTION) {
-            carStatus.changeStatus("buying process");
             Threads_class.get_Instance().removeVehicle(this,index);
             float totalDistance = Threads_class.get_Instance().get_Total_Distance();
             main_window.updateTotalDistance(totalDistance);
@@ -125,10 +124,9 @@ public class Operations extends JFrame implements ChangeListener {
                     count_test++;
 
                     if(count_test<=TEST_DRIVE_COUNT){
-                        //pool.execute((Runnable) new Test_drive(i,vehicles));
-
-                        Test_drive testDrive = new Test_drive(i, vehicles);
-                        testDrive.setVisible(true);
+                        pool.execute(new Test_drive(i,vehicles));
+                        //Test_drive testDrive = new Test_drive(i, vehicles);
+                        //testDrive.setVisible(true);
 
                     }
                 }
