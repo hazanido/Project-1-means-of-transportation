@@ -1,5 +1,6 @@
 package Graphic;
 
+import Decorator.carStatus;
 import Vehicle.*;
 
 
@@ -40,6 +41,9 @@ public class Buying_car extends JDialog implements ChangeListener{
 
 
         }
+        else {
+            carStatus.changeStatus("buying process");
+        }
     }
     public void change_listener(){
         Agency_Frame agencyFrame = new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
@@ -52,6 +56,7 @@ public class Buying_car extends JDialog implements ChangeListener{
             main_window frame=new main_window();
         }
         else{
+
             Agency_Frame frame=new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
             frame.setVisible(true);
         }

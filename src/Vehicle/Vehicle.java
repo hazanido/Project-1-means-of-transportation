@@ -111,7 +111,7 @@ public abstract class Vehicle implements Status_car {
 
     public String toString() {
 
-        return "Model: " + Model_Name + ", " + "move: " + move + "\n " + " traveled: " + distance + " Km" + ",  " + "Maximum Passengers: " + Max_Passengers + ", " + "Max speed: " + Max_Speed +"km, "+ status.statusCar() +" ";
+        return "Model: " + Model_Name + ", " + "move: " + move + "\n " + " traveled: " + distance + " Km" + ",  " + "Maximum Passengers: " + Max_Passengers + ", " + "Max speed: " + Max_Speed +"km, "+ "Status: "+status.statusCar() +" ";
     }
 
     /**

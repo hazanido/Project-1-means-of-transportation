@@ -1,5 +1,6 @@
 package Graphic;
 
+import Decorator.carStatus;
 import Vehicle.*;
 
 import javax.swing.*;
@@ -73,6 +74,8 @@ public class Test_drive extends JFrame implements ActionListener{
                 Agency_Frame temp1 = new Agency_Frame(Threads_class.get_Instance().get_Vehicles());
 
                 Threads_class.get_Instance().Update_distance(index, temp + distance, 200);
+                carStatus.changeStatus("In stock");
+
                 dispose();
 
             } catch (NumberFormatException ex) {

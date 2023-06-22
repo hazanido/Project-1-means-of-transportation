@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 
+import Decorator.carStatus;
 import Graphic.Memento.memento;
 import Vehicle.*;
 import java.awt.event.ActionEvent;
@@ -71,6 +72,7 @@ public class Operations extends JFrame implements ChangeListener {
         }
         int result = JOptionPane.showConfirmDialog(this, "Are you sure?", "Confirmation", JOptionPane.YES_NO_OPTION);
         if (result == JOptionPane.YES_OPTION) {
+            carStatus.changeStatus("buying process");
             Threads_class.get_Instance().removeVehicle(this,index);
             float totalDistance = Threads_class.get_Instance().get_Total_Distance();
             main_window.updateTotalDistance(totalDistance);
@@ -116,14 +118,17 @@ public class Operations extends JFrame implements ChangeListener {
         panel.add(test_drive);
         test_drive.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                carStatus.changeStatus("test drive");
+                System.out.println(vehicles.toString());
                 ExecutorService pool= Executors.newFixedThreadPool(TEST_DRIVE_COUNT);
                 if (!Threads_class.get_Instance().Inspection_by_type(i)) {
                     count_test++;
 
                     if(count_test<=TEST_DRIVE_COUNT){
-                        pool.execute((Runnable) new Test_drive(i,vehicles));
-                        //Test_drive testDrive = new Test_drive(i, vehicles);
-                        //testDrive.setVisible(true);
+                        //pool.execute((Runnable) new Test_drive(i,vehicles));
+
+                        Test_drive testDrive = new Test_drive(i, vehicles);
+                        testDrive.setVisible(true);
 
                     }
                 }

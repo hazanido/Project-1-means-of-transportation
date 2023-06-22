@@ -88,6 +88,7 @@ public class Threads_class  {
     public boolean Inspection_by_index(int index) {
         synchronized (lock) {
             if (count_test <= Operations.TEST_DRIVE_COUNT) {
+
                 Vehicle vehicle = vehicles.get(index);
                 VehicleType type = get_Vehicle_Type(vehicle);
                 int currentInTest = index_Test_Array[type.ordinal()].get();
@@ -137,7 +138,7 @@ public class Threads_class  {
     public void removeVehicle(JFrame frame, int index) {
         if (index >= 0 && index < vehicles.size()) {
             new Thread(() -> {
-                carStatus.changeStatus("buying process");
+
                 Vehicle vehicle = vehicles.get(index);
                 VehicleType type = get_Vehicle_Type(vehicle);
                 index_Test_Array[type.ordinal()].set(index);

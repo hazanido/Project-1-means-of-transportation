@@ -17,6 +17,9 @@ public class carStatus implements Status_car{
             status="test drive";
         } else if (ms=="buying process") {
             status="buying process";
+        } else if (ms=="In stock") {
+            status="In stock";
+
         }
 
 
