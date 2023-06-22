@@ -32,7 +32,7 @@ public class Operations extends JFrame implements ChangeListener {
     private BufferedImage b_Operations_photo;
     private ImageIcon i_Operations_photo;
     private float generalDistance = 0;
-    public final static int TEST_DRIVE_COUNT=3;
+    public final static int TEST_DRIVE_COUNT=7;
     private int count_test=0;
 
     /**
